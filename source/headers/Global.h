@@ -13,19 +13,19 @@ namespace gc{
     }
 
     namespace GRID{
-        constexpr int ROWS = 60; 
-        constexpr int COLUMNS = 120; 
+        constexpr int ROWS = 55; 
+        constexpr int COLUMNS = 100; 
     }
 
     namespace TILE{
-        constexpr float WIDTH = 10.0f; 
-        constexpr float HEIGHT = 10.0f; 
+        constexpr float WIDTH = 12.0f; 
+        constexpr float HEIGHT = 12.0f; 
 
         constexpr float ORIGIN_X = WIDTH / 2;
         constexpr float ORIGIN_Y = HEIGHT / 2;
 
-        constexpr float START_POSITION_X = 45.0f; 
-        constexpr float START_POSITION_Y = 100.0f; 
+        constexpr float START_POSITION_X = 40.0f; 
+        constexpr float START_POSITION_Y = 40.0f; 
 
         constexpr float OUTLINE_THICKNESS = 0.5f; 
 
