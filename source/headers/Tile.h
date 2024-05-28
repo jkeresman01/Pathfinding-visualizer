@@ -15,7 +15,7 @@ class Tile{
         Tile(sf::RenderWindow* window);
         gc::TILE::TYPE getType();
         void draw();
-        void setType(gc::TILE::TYPE);
+        void setType(gc::TILE::TYPE type);
         void move(float position_x, float position_y);
         bool isVisited();
 };
