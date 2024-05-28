@@ -1,5 +1,6 @@
 #include "headers/Tile.h"
 #include "headers/Global.h"
+
 #include <SFML/System/Vector2.hpp>
 
 Tile::Tile(sf::RenderWindow* window){
