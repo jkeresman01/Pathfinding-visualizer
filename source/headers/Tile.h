@@ -6,7 +6,7 @@
 
 class Tile{
     private:
-        sf::RenderWindow* m_Winodw;;
+        sf::RenderWindow* m_Window;;
         sf::RectangleShape m_Tile;
         gc::TILE::TYPE m_Type;
         bool m_isVisted; 
@@ -16,6 +16,7 @@ class Tile{
         gc::TILE::TYPE getType();
         void draw();
         void setType(gc::TILE::TYPE type);
-        void move(float position_x, float position_y);
+        void setPosition(float position_x, float position_y);
+        void setWindow(sf::RenderWindow* window);
         bool isVisited();
 };
