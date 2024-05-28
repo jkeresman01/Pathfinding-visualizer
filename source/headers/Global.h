@@ -32,8 +32,8 @@ namespace gc{
         enum TYPE{
             EMPTY = 0,
             WALL = 1,
-            START = 0,
-            TARGET = 0,
+            START = 2,
+            TARGET = 3,
         };
     }
 }
