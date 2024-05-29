@@ -4,7 +4,7 @@ namespace gc{
 
     constexpr int FRAMES_PER_SECOND = 60;
 
-    namespace SCREEN{
+    namespace screen{
         constexpr int WIDTH = 1280; 
         constexpr int HEIGHT = 720; 
 
@@ -12,12 +12,12 @@ namespace gc{
         constexpr int POSITION_Y  = 200; 
     }
 
-    namespace GRID{
+    namespace grid{
         constexpr int ROWS = 55; 
         constexpr int COLUMNS = 100; 
     }
 
-    namespace TILE{
+    namespace tile{
         constexpr float WIDTH = 12.0f; 
         constexpr float HEIGHT = 12.0f; 
 
@@ -29,7 +29,7 @@ namespace gc{
 
         constexpr float OUTLINE_THICKNESS = 0.5f; 
 
-        enum TYPE{
+        enum Type{
             EMPTY = 0,
             WALL = 1,
             START = 2,

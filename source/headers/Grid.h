@@ -6,7 +6,7 @@
 class Grid{
     private:
         sf::RenderWindow* m_Window;
-        Tile* m_Grid[gc::GRID::ROWS][gc::GRID::COLUMNS];
+        Tile* m_Grid[gc::grid::ROWS][gc::grid::COLUMNS];
 
     private:
         void initilaze_tiles();

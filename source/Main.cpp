@@ -4,8 +4,8 @@
 #include <SFML/Graphics.hpp>
 
 int main(){
-    sf::RenderWindow window(sf::VideoMode(gc::SCREEN::WIDTH, gc::SCREEN::HEIGHT), "", sf::Style::Default);
-    window.setPosition(sf::Vector2i(gc::SCREEN::POSITION_X, gc::SCREEN::POSITION_Y));
+    sf::RenderWindow window(sf::VideoMode(gc::screen::WIDTH, gc::screen::HEIGHT), "", sf::Style::Default);
+    window.setPosition(sf::Vector2i(gc::screen::POSITION_X, gc::screen::POSITION_Y));
     window.setFramerateLimit(gc::FRAMES_PER_SECOND);
 
     Grid grid(&window);
