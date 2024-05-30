@@ -6,7 +6,7 @@
 Node::Node(){
     this->m_Node.setSize(sf::Vector2f(gc::node::HEIGHT, gc::node::WIDTH));
     this->m_Node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
-    setGridIndex(gc::node::START_INDEX_X, gc::node::START_POSITION_Y);
+    setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
     setState(gc::node::State::NOT_VISITED);
 }
