@@ -1,6 +1,7 @@
 #include "headers/Global.h"
 #include "headers/Grid.h"
 #include "headers/RecursiveBacktracking.h"
+#include "headers/Wall.h"
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Sleep.hpp>
@@ -24,7 +25,7 @@ int main(){
     Grid grid(&window);
 
     std::stack<Node*> visited_nodes;
-    Node* current_node = grid.getNode(2, 2);
+    Node* current_node = grid.getNode(10, 12);
     current_node->setState(gc::node::State::VISITED);
     visited_nodes.push(current_node);
     int visited_count = 1;

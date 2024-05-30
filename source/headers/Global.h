@@ -11,19 +11,19 @@ namespace gc{
     }
 
     namespace grid{
-        constexpr int ROWS = 4; 
-        constexpr int COLUMNS = 4; 
+        constexpr int ROWS = 30; 
+        constexpr int COLUMNS = 40; 
     }
 
     namespace node{
-        constexpr float WIDTH = 100.0f; 
-        constexpr float HEIGHT = 100.0f; 
+        constexpr float WIDTH = 20.0f; 
+        constexpr float HEIGHT = 20.0f; 
 
         constexpr float ORIGIN_X = WIDTH / 2;
         constexpr float ORIGIN_Y = HEIGHT / 2;
 
-        constexpr float START_POSITION_X = 40.0f; 
-        constexpr float START_POSITION_Y = 40.0f; 
+        constexpr float START_POSITION_X = 100.0f; 
+        constexpr float START_POSITION_Y = 100.0f; 
 
         constexpr int START_INDEX_X = 0;
         constexpr int START_INDEX_Y = 0;
@@ -40,16 +40,23 @@ namespace gc{
     }
 
     namespace wall{
-        constexpr float HEIGHT = 10.0f;
+        constexpr float HEIGHT = 2.0f;
         constexpr float WIDTH = node::WIDTH;
 
-        constexpr float ORIGIN_X = WIDTH / 2;
-        constexpr float ORIGIN_Y = HEIGHT / 2;
+        constexpr float ORIGIN_X = node::WIDTH / 2;
+        constexpr float ORIGIN_Y = node::HEIGHT / 2;
 
         constexpr float START_POSITION_X = node::START_POSITION_X;
         constexpr float START_POSITION_Y = node::START_POSITION_Y;  
 
         constexpr int WALL_COUNT = 4;
+
+        enum Position{
+            LEFT = 0,
+            RIGHT = 1,
+            TOP = 2,
+            BOTTOM = 3,
+        };
     }
 
     namespace tool{

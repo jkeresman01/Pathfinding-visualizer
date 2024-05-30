@@ -7,6 +7,7 @@ Wall::Wall(){
     this->m_Wall.setOrigin(gc::wall::ORIGIN_X, gc::wall::ORIGIN_Y);
     this->m_Wall.setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
     this->m_Wall.setFillColor(sf::Color::Red);
+    setVisibility(true);
 }
 
 bool Wall::isVisible(){
@@ -15,6 +16,14 @@ bool Wall::isVisible(){
 
 void Wall::setWindow(sf::RenderWindow* window){
     this->m_Window = window;
+}
+
+void Wall::setPosition(float postion_x, float position_y){
+    this->m_Wall.setPosition(postion_x, position_y);
+}
+
+void Wall::setVisibility(bool is_visible){
+    this->m_IsVisible = is_visible;
 }
 
 void Wall::draw(){
@@ -29,3 +38,6 @@ void Wall::rotate(float angle){
     this->m_Wall.rotate(angle);
 }
 
+void Wall::setOrigin(float origin_x, float origin_y){
+    this->m_Wall.setOrigin(origin_x, origin_y);
+}
