@@ -11,8 +11,8 @@ namespace gc{
     }
 
     namespace grid{
-        constexpr int ROWS = 18; 
-        constexpr int COLUMNS = 30; 
+        constexpr int ROWS = 22; 
+        constexpr int COLUMNS = 34; 
     }
 
     namespace node{
