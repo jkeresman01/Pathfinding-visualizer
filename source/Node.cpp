@@ -16,7 +16,8 @@ Node::Node(){
 
 void Node::draw(){
     this->m_Window->draw(m_Node);
-    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [](Wall &w){ if(w.isVisible()){ w.draw();}});
+    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, 
+            [](Wall &w){ if(w.isVisible()){ w.draw();}});
 }
 
 bool Node::isVisited(){
@@ -37,7 +38,7 @@ std::pair<int, int> Node::getGridIndex(){
 
 void Node::setWindow(sf::RenderWindow* window){
     this->m_Window = window;
-    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [&window](Wall &w){ w.setWindow(window); ;});
+    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [&window](Wall &w){ w.setWindow(window);});
 }
 
 void Node::setGridIndex(float position_x, float position_y){
@@ -46,25 +47,22 @@ void Node::setGridIndex(float position_x, float position_y){
 
 void Node::setPosition(float position_x, float position_y){
     this->m_Node.setPosition(position_x, position_y);
-    this->m_Walls[gc::wall::Position::LEFT].setPosition(position_x, position_y);
-    this->m_Walls[gc::wall::Position::LEFT].rotate(-45);
+    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,
+            [&position_x, &position_y](Wall &wall){ wall.setPosition(position_x, position_y);});
 
-    this->m_Walls[gc::wall::RIGHT].setPosition(position_x, position_y);
-    this->m_Walls[gc::wall::RIGHT].rotate(45);
-
-    this->m_Walls[gc::wall::TOP].setPosition(position_x, position_y);
-
-    this->m_Walls[gc::wall::BOTTOM].setPosition(position_x, position_y);
-    this->m_Walls[gc::wall::BOTTOM].rotate(-90);
+    this->m_Walls[gc::wall::LEFT].rotate(gc::wall::LEFT_ROTATION);
+    this->m_Walls[gc::wall::RIGHT].rotate(gc::wall::RIGHT_ROTATION);
+    this->m_Walls[gc::wall::TOP].rotate(gc::wall::TOP_ROTATION);
+    this->m_Walls[gc::wall::BOTTOM].rotate(gc::wall::BOTTOM_ROTATION);
 }
 
 void Node::setState(gc::node::State type){
     this->m_State = type;
-    this->m_Node.setFillColor(sf::Color::Black);
+    this->m_Node.setFillColor(sf::Color::White);
 
     if(m_State == gc::node::State::VISITED){
         this->m_IsVisited = true;
-        this->m_Node.setFillColor(sf::Color::Green);
+        this->m_Node.setFillColor(sf::Color::Yellow);
     }
 }
 
