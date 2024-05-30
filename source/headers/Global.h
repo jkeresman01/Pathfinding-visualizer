@@ -11,8 +11,8 @@ namespace gc{
     }
 
     namespace grid{
-        constexpr int ROWS = 10; 
-        constexpr int COLUMNS = 20; 
+        constexpr int ROWS = 15; 
+        constexpr int COLUMNS = 30; 
     }
 
     namespace node{
@@ -25,7 +25,7 @@ namespace gc{
         constexpr float START_POSITION_X = 40.0f; 
         constexpr float START_POSITION_Y = 40.0f; 
 
-        constexpr float OUTLINE_THICKNESS = 0.5f; 
+        constexpr float OUTLINE_THICKNESS = 4.5f; 
 
         enum State{
             NOT_VISITED = 0,

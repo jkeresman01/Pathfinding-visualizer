@@ -15,5 +15,5 @@ class Grid{
         Grid(sf::RenderWindow* window);
         ~Grid();
         void draw();
-        Node getNode(int position_x, int position_y);
+        Node* getNode(int position_x, int position_y);
 };
