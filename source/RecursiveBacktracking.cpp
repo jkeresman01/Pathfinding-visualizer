@@ -1,5 +1,8 @@
 #include "headers/RecursiveBacktracking.h"
 #include <stack>
+#include <thread>
+
+using namespace std::chrono_literals;
 
 void drawMaze(Grid &grid, std::stack<Node*>& visited_nodes, int &visited_count){
     Node* current_node = visited_nodes.top();
@@ -25,7 +28,6 @@ void drawMaze(Grid &grid, std::stack<Node*>& visited_nodes, int &visited_count){
         neighbours.push_back(neighbour(-1, 0));
     }
 
-
     if(neighbours.empty()){
         visited_nodes.pop();
     }else {
@@ -34,5 +36,5 @@ void drawMaze(Grid &grid, std::stack<Node*>& visited_nodes, int &visited_count){
         visited_nodes.push(next_node);
         visited_count++;
     }
-
+    std::this_thread::sleep_for(500ms);
 }

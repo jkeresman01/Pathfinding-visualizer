@@ -5,8 +5,6 @@
 
 Node::Node(){
     this->m_Node.setSize(sf::Vector2f(gc::node::HEIGHT, gc::node::WIDTH));
-    this->m_Node.setOutlineColor(sf::Color::Black);
-    this->m_Node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
     this->m_Node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_POSITION_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
@@ -18,7 +16,7 @@ void Node::draw(){
 }
 
 bool Node::isVisited(){
-    return this->m_State == gc::node::State::VISITED;
+    return this->m_IsVisited;
 }
 
 gc::node::State Node::getState(){
@@ -43,19 +41,12 @@ void Node::setPosition(float position_x, float position_y){
 
 void Node::setState(gc::node::State type){
     this->m_State = type;
-
-    if(m_State == gc::node::State::CURRENT){
-        this->m_Node.setFillColor(sf::Color::Yellow);
-    }
-
-    if(m_State == gc::node::State::NOT_VISITED){
-        this->m_Node.setFillColor(sf::Color::White);
-    }
+    this->m_Node.setFillColor(sf::Color::White);
 
     if(m_State == gc::node::State::VISITED){
+        this->m_IsVisited = true;
         this->m_Node.setFillColor(sf::Color::Green);
     }
-
 }
 
 

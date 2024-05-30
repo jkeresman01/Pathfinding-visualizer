@@ -11,13 +11,13 @@ namespace gc{
     }
 
     namespace grid{
-        constexpr int ROWS = 15; 
-        constexpr int COLUMNS = 30; 
+        constexpr int ROWS = 4; 
+        constexpr int COLUMNS = 4; 
     }
 
     namespace node{
-        constexpr float WIDTH = 40.0f; 
-        constexpr float HEIGHT = 40.0f; 
+        constexpr float WIDTH = 100.0f; 
+        constexpr float HEIGHT = 100.0f; 
 
         constexpr float ORIGIN_X = WIDTH / 2;
         constexpr float ORIGIN_Y = HEIGHT / 2;
@@ -28,7 +28,7 @@ namespace gc{
         constexpr int START_INDEX_X = 0;
         constexpr int START_INDEX_Y = 0;
 
-        constexpr float OUTLINE_THICKNESS = 4.5f; 
+        constexpr float OUTLINE_THICKNESS = 12.5f; 
 
         enum State{
             NOT_VISITED = 0,
@@ -37,6 +37,17 @@ namespace gc{
             START = 3,
             TARGET = 4,
         };
+    }
+
+    namespace wall{
+        constexpr float HEIGHT = 10.0f;
+        constexpr float WIDTH = node::WIDTH;
+
+        constexpr float ORIGIN_X = WIDTH / 2;
+        constexpr float ORIGIN_Y = HEIGHT / 2;
+
+        constexpr float START_POSITION_X = node::START_POSITION_X;
+        constexpr float START_POSITION_Y = node::START_POSITION_Y;  
     }
 
     namespace tool{
