@@ -11,8 +11,8 @@ class Node{
         sf::RenderWindow* m_Window;;
         sf::RectangleShape m_Node;
         gc::node::State m_State;
-        bool m_IsVisited;
         std::pair<int, int> m_GridIndex;
+        bool m_IsVisited;
         Wall walls[4];
 
     public:

@@ -6,9 +6,11 @@ Wall::Wall(){
     this->m_Wall.setSize(sf::Vector2f(gc::wall::WIDTH, gc::wall::HEIGHT));
     this->m_Wall.setOrigin(gc::wall::ORIGIN_X, gc::wall::ORIGIN_Y);
     this->m_Wall.setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
-    this->m_Wall.move(gc::node::WIDTH / 2 - gc::wall::HEIGHT / 2, 0);
     this->m_Wall.setFillColor(sf::Color::Red);
-    this->m_Wall.setRotation(90);
+}
+
+bool Wall::isVisible(){
+    return this->m_IsVisible;
 }
 
 void Wall::setWindow(sf::RenderWindow* window){

@@ -12,7 +12,7 @@ class Wall{
     public:
         Wall();
         void setWindow(sf::RenderWindow* window);
-        void isVisible();
+        bool isVisible();
         void rotate(float angle);
         void move(float position_x, float position_y);
         void draw();

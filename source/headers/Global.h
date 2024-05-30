@@ -48,6 +48,8 @@ namespace gc{
 
         constexpr float START_POSITION_X = node::START_POSITION_X;
         constexpr float START_POSITION_Y = node::START_POSITION_Y;  
+
+        constexpr int WALL_COUNT = 4;
     }
 
     namespace tool{
