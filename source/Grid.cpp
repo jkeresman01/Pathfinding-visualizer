@@ -9,14 +9,6 @@ Grid::Grid(sf::RenderWindow* window){
     initilaze_nodes();
 }
 
-Grid::~Grid(){
-    delete[] m_Grid;
-}
-
-void Grid::draw(){
-    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.draw();});
-}
-
 void Grid::initilaze_nodes(){
     for(int i = 0; i < gc::grid::ROWS; ++i){
         for(int j = 0; j < gc::grid::COLUMNS; ++j){
@@ -27,6 +19,14 @@ void Grid::initilaze_nodes(){
                     gc::node::START_POSITION_Y + (i * gc::node::HEIGHT));
         }
     } 
+}
+
+Grid::~Grid(){
+    delete[] m_Grid;
+}
+
+void Grid::draw(){
+    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.draw();});
 }
 
 Node* Grid::getNode(int position_x, int position_y){

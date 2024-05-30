@@ -1,5 +1,6 @@
 #include "headers/Global.h"
 #include "headers/Grid.h"
+
 #include <chrono>
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Sleep.hpp>

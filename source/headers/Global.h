@@ -25,6 +25,9 @@ namespace gc{
         constexpr float START_POSITION_X = 40.0f; 
         constexpr float START_POSITION_Y = 40.0f; 
 
+        constexpr int START_INDEX_X = 0;
+        constexpr int START_INDEX_Y = 0;
+
         constexpr float OUTLINE_THICKNESS = 4.5f; 
 
         enum State{

@@ -1,15 +1,14 @@
 #include "headers/Node.h"
 #include "headers/Global.h"
-#include <utility>
-#include <iostream>
 
+#include <utility>
 
 Node::Node(){
     this->m_Node.setSize(sf::Vector2f(gc::node::HEIGHT, gc::node::WIDTH));
     this->m_Node.setOutlineColor(sf::Color::Black);
     this->m_Node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
     this->m_Node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
-    setGridIndex(0, 0);
+    setGridIndex(gc::node::START_INDEX_X, gc::node::START_POSITION_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
     setState(gc::node::State::NOT_VISITED);
 }
@@ -54,7 +53,6 @@ void Node::setState(gc::node::State type){
     }
 
     if(m_State == gc::node::State::VISITED){
-        std::cout << "Stavaljam green" << std::endl;
         this->m_Node.setFillColor(sf::Color::Green);
     }
 
