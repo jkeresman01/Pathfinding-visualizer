@@ -2,8 +2,6 @@
 
 namespace gc{
 
-    constexpr int FRAMES_PER_SECOND = 60;
-
     namespace screen{
         constexpr int WIDTH = 1280; 
         constexpr int HEIGHT = 720; 
@@ -13,13 +11,13 @@ namespace gc{
     }
 
     namespace grid{
-        constexpr int ROWS = 55; 
-        constexpr int COLUMNS = 100; 
+        constexpr int ROWS = 10; 
+        constexpr int COLUMNS = 20; 
     }
 
-    namespace tile{
-        constexpr float WIDTH = 12.0f; 
-        constexpr float HEIGHT = 12.0f; 
+    namespace node{
+        constexpr float WIDTH = 40.0f; 
+        constexpr float HEIGHT = 40.0f; 
 
         constexpr float ORIGIN_X = WIDTH / 2;
         constexpr float ORIGIN_Y = HEIGHT / 2;
@@ -29,11 +27,17 @@ namespace gc{
 
         constexpr float OUTLINE_THICKNESS = 0.5f; 
 
-        enum Type{
-            EMPTY = 0,
-            WALL = 1,
-            START = 2,
-            TARGET = 3,
+        enum State{
+            NOT_VISITED = 0,
+            VISITED = 1,
+            CURRENT = 2,
+            START = 3,
+            TARGET = 4,
         };
+    }
+
+    namespace tool{
+        constexpr int FRAMES_PER_SECOND = 60;
+        constexpr float REFRESH_TIME_SECONDS = 0.5f; 
     }
 }
