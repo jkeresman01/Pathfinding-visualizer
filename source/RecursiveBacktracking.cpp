@@ -57,7 +57,7 @@ void drawMaze(Grid &grid, std::stack<Node*>& visited_nodes, int &visited_count){
         next_node->destroyWall(gc::wall::TOP);
     }
 
-    next_node->setState(gc::node::State::VISITED);
+    next_node->setVisited(true);
     visited_nodes.push(next_node);
     visited_count++;
 

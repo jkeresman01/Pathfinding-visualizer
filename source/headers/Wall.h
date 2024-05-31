@@ -2,11 +2,14 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
 class Wall{
     private:
         sf::RenderWindow* m_Window;
         sf::RectangleShape m_Wall;
+        sf::Texture m_Texture;
         bool m_IsVisible;
     
     public:

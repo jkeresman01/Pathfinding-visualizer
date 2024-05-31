@@ -14,6 +14,7 @@ class Grid{
     public:
         Grid(sf::RenderWindow* window);
         ~Grid();
+        void restoreVisitedNodes();
         void draw();
         Node* getNode(int position_x, int position_y);
 };

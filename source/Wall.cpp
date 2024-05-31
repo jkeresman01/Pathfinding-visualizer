@@ -1,12 +1,11 @@
 #include "headers/Wall.h"
 #include "headers/Global.h"
-#include <SFML/System/Vector2.hpp>
     
 Wall::Wall(){
     this->m_Wall.setSize(sf::Vector2f(gc::wall::WIDTH, gc::wall::HEIGHT));
     this->m_Wall.setOrigin(gc::wall::ORIGIN_X, gc::wall::ORIGIN_Y);
     this->m_Wall.setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
-    this->m_Wall.setFillColor(sf::Color::Red);
+    this->m_Wall.setFillColor(sf::Color::Black);
     setVisibility(true);
 }
 

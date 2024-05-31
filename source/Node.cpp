@@ -8,10 +8,14 @@
 Node::Node(){
     this->m_Node.setSize(sf::Vector2f(gc::node::HEIGHT, gc::node::WIDTH));
     this->m_Node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
+    this->m_Node.setFillColor(sf::Color::Transparent);
     this->m_Walls = new Wall[gc::wall::WALL_COUNT];
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
-    setState(gc::node::State::NOT_VISITED);
+}
+
+Node::~Node(){
+    delete []m_Walls;
 }
 
 void Node::draw(){
@@ -22,6 +26,10 @@ void Node::draw(){
 
 bool Node::isVisited(){
     return this->m_IsVisited;
+}
+
+bool Node::isWallVisible(gc::wall::Position wall_position){
+    return this->m_Walls[wall_position].isVisible();
 }
 
 void Node::destroyWall(gc::wall::Position wall_position){
@@ -45,6 +53,12 @@ void Node::setGridIndex(float position_x, float position_y){
     this->m_GridIndex = std::make_pair(position_x, position_y);
 }
 
+void Node::setVisited(bool is_visited){
+    this->m_IsVisited = is_visited;
+    m_IsVisited ? this->m_Node.setFillColor(sf::Color(204, 229, 255))
+                : this->m_Node.setFillColor(sf::Color::Transparent);
+}
+
 void Node::setPosition(float position_x, float position_y){
     this->m_Node.setPosition(position_x, position_y);
     std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,
@@ -58,11 +72,13 @@ void Node::setPosition(float position_x, float position_y){
 
 void Node::setState(gc::node::State type){
     this->m_State = type;
-    this->m_Node.setFillColor(sf::Color::White);
 
-    if(m_State == gc::node::State::VISITED){
-        this->m_IsVisited = true;
-        this->m_Node.setFillColor(sf::Color::Yellow);
+    if(m_State == gc::node::State::START){
+       this->m_Node.setFillColor(sf::Color::Green);
+    }
+
+    if(m_State == gc::node::State::TARGET){
+       this->m_Node.setFillColor(sf::Color::Red);
     }
 }
 

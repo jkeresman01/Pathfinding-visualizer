@@ -20,10 +20,13 @@ class Node{
 
     public:
         Node();
+        ~Node();
         void draw();
         bool isVisited();
+        bool isWallVisible(gc::wall::Position wall_position);
         gc::node::State getState();
         std::pair<int, int> getGridIndex();
+        void setVisited(bool is_visited);
         void destroyWall(gc::wall::Position wall_position);
         void setColor(sf::Color color);
         void setState(gc::node::State type);

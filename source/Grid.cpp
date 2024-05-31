@@ -21,6 +21,10 @@ void Grid::initilaze_nodes(){
     } 
 }
 
+void Grid::restoreVisitedNodes(){
+    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.setVisited(false);});
+}
+
 Grid::~Grid(){
     delete[] m_Grid;
 }

@@ -3,7 +3,7 @@
 namespace gc{
 
     namespace screen{
-        constexpr int WIDTH = 1280; 
+        constexpr int WIDTH = 1200; 
         constexpr int HEIGHT = 720; 
 
         constexpr int POSITION_X  = 300; 
@@ -11,13 +11,13 @@ namespace gc{
     }
 
     namespace grid{
-        constexpr int ROWS = 22; 
-        constexpr int COLUMNS = 34; 
+        constexpr int ROWS = 15; 
+        constexpr int COLUMNS = 15; 
     }
 
     namespace node{
-        constexpr float WIDTH = 30.0f; 
-        constexpr float HEIGHT = 30.0f; 
+        constexpr float WIDTH = 40.0f; 
+        constexpr float HEIGHT = 40.0f; 
 
         constexpr float ORIGIN_X = WIDTH / 2;
         constexpr float ORIGIN_Y = HEIGHT / 2;
@@ -27,15 +27,12 @@ namespace gc{
 
         constexpr int START_INDEX_X = 0;
         constexpr int START_INDEX_Y = 0;
-
         constexpr float OUTLINE_THICKNESS = 12.5f; 
 
         enum State{
-            NOT_VISITED = 0,
-            VISITED = 1,
-            CURRENT = 2,
-            START = 3,
-            TARGET = 4,
+            CURRENT = 1,
+            START = 2,
+            TARGET = 3,
         };
     }
 
