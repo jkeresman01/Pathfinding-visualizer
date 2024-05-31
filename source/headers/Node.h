@@ -28,6 +28,8 @@ class Node{
         std::pair<int, int> getGridIndex();
         void setVisited(bool is_visited);
         void destroyWall(gc::wall::Position wall_position);
+        void destroyAllWalls();
+        void setOutline();
         void setColor(sf::Color color);
         void setState(gc::node::State type);
         void setGridIndex(float position_x, float position_y);

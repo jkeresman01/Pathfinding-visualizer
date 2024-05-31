@@ -33,6 +33,11 @@ void Grid::draw(){
     std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.draw();});
 }
 
+void Grid::setWalls(bool aaaaa){
+    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.destroyAllWalls();});
+    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.setOutline();});
+}
+
 Node* Grid::getNode(int position_x, int position_y){
     return &m_Grid[gc::grid::COLUMNS * position_x + position_y];
 }

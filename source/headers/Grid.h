@@ -16,5 +16,6 @@ class Grid{
         ~Grid();
         void restoreVisitedNodes();
         void draw();
+        void setWalls(bool aaaa);
         Node* getNode(int position_x, int position_y);
 };

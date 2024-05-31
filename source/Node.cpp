@@ -36,6 +36,10 @@ void Node::destroyWall(gc::wall::Position wall_position){
     this->m_Walls[wall_position].setVisibility(false);
 }
 
+void Node::destroyAllWalls(){
+    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,[](Wall &wall){ wall.setVisibility(false);});
+}
+
 gc::node::State Node::getState(){
     return this->m_State;
 }
@@ -49,13 +53,18 @@ void Node::setWindow(sf::RenderWindow* window){
     std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [&window](Wall &w){ w.setWindow(window);});
 }
 
+void Node::setOutline(){
+    this->m_Node.setOutlineColor(sf::Color::Red);
+    this->m_Node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
+}
+
 void Node::setGridIndex(float position_x, float position_y){
     this->m_GridIndex = std::make_pair(position_x, position_y);
 }
 
 void Node::setVisited(bool is_visited){
     this->m_IsVisited = is_visited;
-    m_IsVisited ? this->m_Node.setFillColor(sf::Color(204, 229, 255))
+    m_IsVisited ? this->m_Node.setFillColor(sf::Color::Yellow)
                 : this->m_Node.setFillColor(sf::Color::Transparent);
 }
 
@@ -78,7 +87,7 @@ void Node::setState(gc::node::State type){
     }
 
     if(m_State == gc::node::State::TARGET){
-       this->m_Node.setFillColor(sf::Color::Red);
+       this->m_Node.setFillColor(sf::Color::Cyan);
     }
 }
 

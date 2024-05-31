@@ -12,7 +12,7 @@ namespace gc{
 
     namespace grid{
         constexpr int ROWS = 15; 
-        constexpr int COLUMNS = 15; 
+        constexpr int COLUMNS = 28; 
     }
 
     namespace node{
