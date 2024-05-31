@@ -10,12 +10,13 @@ Node::Node(){
     this->m_Node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
     this->m_Node.setFillColor(sf::Color::Transparent);
     this->m_Walls = new Wall[gc::wall::WALL_COUNT];
+    this->m_Parent = nullptr;
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
 }
 
 Node::~Node(){
-    delete []m_Walls;
+    delete[] m_Walls;
 }
 
 void Node::draw(){
@@ -66,6 +67,10 @@ void Node::setVisited(bool is_visited){
     this->m_IsVisited = is_visited;
     m_IsVisited ? this->m_Node.setFillColor(sf::Color::Yellow)
                 : this->m_Node.setFillColor(sf::Color::Transparent);
+}
+
+void Node::setParent(Node* parent){
+    this->m_Parent = parent;
 }
 
 void Node::setPosition(float position_x, float position_y){

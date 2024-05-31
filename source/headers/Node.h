@@ -14,6 +14,7 @@ class Node{
         std::pair<int, int> m_GridIndex;
         bool m_IsVisited;
         Wall* m_Walls;
+        Node* m_Parent;
 
     private:
         void createWalls();
@@ -22,6 +23,7 @@ class Node{
         Node();
         ~Node();
         void draw();
+        void setParent(Node* parent);
         bool isVisited();
         bool isWallVisible(gc::wall::Position wall_position);
         gc::node::State getState();
