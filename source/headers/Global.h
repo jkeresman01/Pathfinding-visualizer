@@ -34,6 +34,7 @@ namespace gc{
             START = 2,
             TARGET = 3,
             PATH = 4,
+            EMPTY = 5
         };
     }
 
@@ -61,6 +62,15 @@ namespace gc{
             RIGHT_ROTATION_ANGLE = 45,
             TOP_ROTATION_ANGLE = 0,
             BOTTOM_ROTATION_ANGLE = -90,
+        };
+    }
+
+    namespace maze{
+        enum Direction{
+            LEFT = 0,
+            RIGHT = 1,
+            TOP = 2,
+            BOTTOM = 3,
         };
     }
 

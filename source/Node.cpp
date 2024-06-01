@@ -7,11 +7,11 @@
 #include <utility>
 
 Node::Node(){
-    this->m_Node.setSize(sf::Vector2f(gc::node::HEIGHT, gc::node::WIDTH));
+    this->m_Node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
     this->m_Node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
-    this->m_Node.setFillColor(sf::Color::Transparent);
     this->m_Walls = new Wall[gc::wall::WALL_COUNT];
     this->m_Parent = nullptr;
+    setState(gc::node::State::EMPTY);
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
 }
@@ -91,6 +91,10 @@ void Node::setPosition(float position_x, float position_y){
 
 void Node::setState(gc::node::State type){
     this->m_State = type;
+
+    if(m_State == gc::node::State::EMPTY){
+        this->m_Node.setFillColor(sf::Color::Transparent);
+    }
 
     if(m_State == gc::node::State::START){
        this->m_Node.setFillColor(sf::Color::Green);
