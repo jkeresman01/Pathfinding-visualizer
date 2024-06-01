@@ -17,4 +17,7 @@ Algorithm:
     * Choose one of the unvisited neighbours
     * Destroy the wall between the current cell and the chosen cell
     * Mark the chosen cell as visited and push it to the stack
-   
+
+
+Example:
+![](https://github.com/jkeresman01/Pathfinding-visualizer/blob/main/source/resources/gifs/MazeGenerationExample.gif)
