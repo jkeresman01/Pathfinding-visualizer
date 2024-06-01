@@ -33,6 +33,7 @@ namespace gc{
             CURRENT = 1,
             START = 2,
             TARGET = 3,
+            PATH = 4,
         };
     }
 

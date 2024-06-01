@@ -4,4 +4,5 @@
 #include "Node.h"
 #include <queue>
 
-void bfs( Grid &grid, std::queue<Node*>& visited_nodes, bool is_target_reached);
+void bfs(Grid &grid, std::queue<Node*>& visited_nodes, bool &is_target_reached);
+void recreatePath(Node* &current_node);

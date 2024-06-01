@@ -2,6 +2,7 @@
 #include "headers/Global.h"
 #include "headers/Wall.h"
 
+#include <SFML/Graphics/Color.hpp>
 #include <algorithm>
 #include <utility>
 
@@ -49,6 +50,10 @@ std::pair<int, int> Node::getGridIndex(){
     return this->m_GridIndex;
 }
 
+Node* Node::getParent(){
+    return this->m_Parent;
+}
+
 void Node::setWindow(sf::RenderWindow* window){
     this->m_Window = window;
     std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [&window](Wall &w){ w.setWindow(window);});
@@ -65,7 +70,7 @@ void Node::setGridIndex(float position_x, float position_y){
 
 void Node::setVisited(bool is_visited){
     this->m_IsVisited = is_visited;
-    m_IsVisited ? this->m_Node.setFillColor(sf::Color::Yellow)
+    m_IsVisited ? this->m_Node.setFillColor(sf::Color(204, 255, 229))
                 : this->m_Node.setFillColor(sf::Color::Transparent);
 }
 
@@ -94,6 +99,11 @@ void Node::setState(gc::node::State type){
     if(m_State == gc::node::State::TARGET){
        this->m_Node.setFillColor(sf::Color::Cyan);
     }
+
+    if(m_State == gc::node::State::PATH){
+       this->m_Node.setFillColor(sf::Color::Red);
+    }
+
 }
 
 

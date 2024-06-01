@@ -28,6 +28,7 @@ class Node{
         bool isWallVisible(gc::wall::Position wall_position);
         gc::node::State getState();
         std::pair<int, int> getGridIndex();
+        Node* getParent();
         void setVisited(bool is_visited);
         void destroyWall(gc::wall::Position wall_position);
         void destroyAllWalls();
