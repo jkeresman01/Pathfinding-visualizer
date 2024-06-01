@@ -20,4 +20,5 @@ Algorithm:
 
 
 Example:
+
 ![](https://github.com/jkeresman01/Pathfinding-visualizer/blob/main/source/resources/gifs/MazeGenerationExample.gif)
