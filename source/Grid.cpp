@@ -6,10 +6,10 @@
 Grid::Grid(sf::RenderWindow* window){
     this->m_Window = window;
     this->m_Grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
-    initilaze_nodes();
+    initilazeNodes();
 }
 
-void Grid::initilaze_nodes(){
+void Grid::initilazeNodes(){
     for(int i = 0; i < gc::grid::ROWS; ++i){
         for(int j = 0; j < gc::grid::COLUMNS; ++j){
             m_Grid[gc::grid::COLUMNS * i + j].setWindow(m_Window);
@@ -33,9 +33,8 @@ void Grid::draw(){
     std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.draw();});
 }
 
-void Grid::setWalls(bool aaaaa){
+void Grid::removeWalls(){
     std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.destroyAllWalls();});
-    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.setOutline();});
 }
 
 Node* Grid::getNode(int position_x, int position_y){

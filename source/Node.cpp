@@ -83,10 +83,10 @@ void Node::setPosition(float position_x, float position_y){
     std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,
             [&position_x, &position_y](Wall &wall){ wall.setPosition(position_x, position_y);});
 
-    this->m_Walls[gc::wall::LEFT].rotate(gc::wall::LEFT_ROTATION);
-    this->m_Walls[gc::wall::RIGHT].rotate(gc::wall::RIGHT_ROTATION);
-    this->m_Walls[gc::wall::TOP].rotate(gc::wall::TOP_ROTATION);
-    this->m_Walls[gc::wall::BOTTOM].rotate(gc::wall::BOTTOM_ROTATION);
+    this->m_Walls[gc::wall::LEFT].rotate(gc::wall::LEFT_ROTATION_ANGLE);
+    this->m_Walls[gc::wall::RIGHT].rotate(gc::wall::RIGHT_ROTATION_ANGLE);
+    this->m_Walls[gc::wall::TOP].rotate(gc::wall::TOP_ROTATION_ANGLE);
+    this->m_Walls[gc::wall::BOTTOM].rotate(gc::wall::BOTTOM_ROTATION_ANGLE);
 }
 
 void Node::setState(gc::node::State type){

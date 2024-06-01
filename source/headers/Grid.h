@@ -9,13 +9,13 @@ class Grid{
         Node* m_Grid;
 
     private:
-        void initilaze_nodes();
+        void initilazeNodes();
 
     public:
         Grid(sf::RenderWindow* window);
         ~Grid();
         void restoreVisitedNodes();
         void draw();
-        void setWalls(bool aaaa);
+        void removeWalls();
         Node* getNode(int position_x, int position_y);
 };

@@ -57,10 +57,10 @@ namespace gc{
         };
 
         enum Rotation{
-            LEFT_ROTATION = -45,
-            RIGHT_ROTATION = 45,
-            TOP_ROTATION = 0,
-            BOTTOM_ROTATION = -90,
+            LEFT_ROTATION_ANGLE = -45,
+            RIGHT_ROTATION_ANGLE = 45,
+            TOP_ROTATION_ANGLE = 0,
+            BOTTOM_ROTATION_ANGLE = -90,
         };
     }
 
