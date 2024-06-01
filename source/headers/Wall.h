@@ -14,12 +14,12 @@ class Wall{
     
     public:
         Wall();
-        void setWindow(sf::RenderWindow* window);
-        void setPosition(float position_x, float position_y);
-        void setOrigin(float origin_x, float origin_y);
-        void setVisibility(bool is_visible);
+        void draw();
         bool isVisible();
         void rotate(float angle);
         void move(float position_x, float position_y);
-        void draw();
+        void setWindow(sf::RenderWindow* window);
+        void setPosition(float position_x, float position_y);
+        void setOrigin(float origin_x, float origin_y);
+        void setVisible(bool is_visible);
 };

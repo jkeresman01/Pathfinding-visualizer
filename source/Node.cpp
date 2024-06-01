@@ -35,11 +35,11 @@ bool Node::isWallVisible(gc::wall::Position wall_position){
 }
 
 void Node::destroyWall(gc::wall::Position wall_position){
-    this->m_Walls[wall_position].setVisibility(false);
+    this->m_Walls[wall_position].setVisible(false);
 }
 
 void Node::destroyAllWalls(){
-    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,[](Wall &wall){ wall.setVisibility(false);});
+    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,[](Wall &wall){ wall.setVisible(false);});
 }
 
 gc::node::State Node::getState(){

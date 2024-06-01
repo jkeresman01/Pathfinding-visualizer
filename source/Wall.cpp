@@ -6,7 +6,7 @@ Wall::Wall(){
     this->m_Wall.setOrigin(gc::wall::ORIGIN_X, gc::wall::ORIGIN_Y);
     this->m_Wall.setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
     this->m_Wall.setFillColor(sf::Color::Black);
-    setVisibility(true);
+    setVisible(true);
 }
 
 bool Wall::isVisible(){
@@ -21,7 +21,7 @@ void Wall::setPosition(float postion_x, float position_y){
     this->m_Wall.setPosition(postion_x, position_y);
 }
 
-void Wall::setVisibility(bool is_visible){
+void Wall::setVisible(bool is_visible){
     this->m_IsVisible = is_visible;
 }
 
