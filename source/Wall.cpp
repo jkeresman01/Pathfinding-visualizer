@@ -12,6 +12,11 @@ Wall::Wall(){
 void Wall::draw(){
     this->m_Window->draw(m_Wall);
 }
+
+void Wall::rotate(float angle){
+    this->m_Wall.rotate(angle);
+}
+
 bool Wall::isVisible(){
     return this->m_IsVisible;
 }
