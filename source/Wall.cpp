@@ -21,14 +21,14 @@ bool Wall::isVisible(){
     return this->m_IsVisible;
 }
 
-void Wall::setWindow(sf::RenderWindow* window){
-    this->m_Window = window;
+void Wall::setWindow(sf::RenderWindow* t_window){
+    this->m_Window = t_window;
 }
 
-void Wall::setPosition(float postion_x, float position_y){
-    this->m_Wall.setPosition(postion_x, position_y);
+void Wall::setPosition(float t_postion_x, float t_position_y){
+    this->m_Wall.setPosition(t_postion_x, t_position_y);
 }
 
-void Wall::setVisible(bool is_visible){
-    this->m_IsVisible = is_visible;
+void Wall::setVisible(bool t_is_visible){
+    this->m_IsVisible = t_is_visible;
 }

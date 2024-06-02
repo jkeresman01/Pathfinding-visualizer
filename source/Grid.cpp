@@ -5,8 +5,8 @@
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
 
-Grid::Grid(sf::RenderWindow* window){
-    this->m_Window = window;
+Grid::Grid(sf::RenderWindow* t_window){
+    this->m_Window = t_window;
     this->m_Grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
     initilazeNodes();
 }
@@ -42,7 +42,7 @@ void Grid::removeWalls(){
     });
 }
 
-Node* Grid::getNode(int position_x, int position_y){
-    return &m_Grid[gc::grid::COLUMNS * position_x + position_y];
+Node* Grid::getNodeAtPosition(int t_position_x, int t_position_y){
+    return &m_Grid[gc::grid::COLUMNS * t_position_x + t_position_y];
 }
 

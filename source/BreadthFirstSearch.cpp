@@ -1,11 +1,6 @@
 #include "headers/BreadthFirstSearch.h"
 #include "headers/Global.h"
 
-#include <thread>
-#include <chrono>
-
-using namespace std::chrono_literals;
-
 void bfs(Grid &grid, std::queue<Node*>& visited_nodes, bool &is_target_reached){
 
     Node* current_node = visited_nodes.front();
@@ -17,7 +12,7 @@ void bfs(Grid &grid, std::queue<Node*>& visited_nodes, bool &is_target_reached){
     }
 
     auto neighbour = [&current_node, &grid](int x, int y){
-        return grid.getNode(current_node->getGridIndex().first + x, current_node->getGridIndex().second + y);
+        return grid.getNodeAtPosition(current_node->getGridIndex().first + x, current_node->getGridIndex().second + y);
     };
 
     if (current_node->getGridIndex().second > 0 and !neighbour(0, -1)->isVisited() and !current_node->isWallVisible(gc::wall::LEFT) and neighbour(0, -1)->getState() != gc::node::State::WALL){
@@ -44,10 +39,4 @@ void bfs(Grid &grid, std::queue<Node*>& visited_nodes, bool &is_target_reached){
         visited_nodes.push(neighbour(-1, 0));
     }
 
-}
-
-void recreatePath(Node* &current_node){
-    current_node->setState(gc::node::PATH);
-    current_node = current_node->getPredecessor();
-    std::this_thread::sleep_for(100ms);
 }

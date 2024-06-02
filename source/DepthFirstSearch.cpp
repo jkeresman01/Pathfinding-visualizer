@@ -12,7 +12,7 @@ void dfs(Grid &grid, Node* root, sf::RenderWindow* window, bool &is_target_reach
     window->display();
 
     auto neighbour = [&root, &grid](int x, int y){
-        return grid.getNode(root->getGridIndex().first + x, root->getGridIndex().second + y);
+        return grid.getNodeAtPosition(root->getGridIndex().first + x, root->getGridIndex().second + y);
     };
 
     if (root->getGridIndex().second > 0 and !neighbour(0, -1)->isVisited() and !root->isWallVisible(gc::wall::LEFT) and neighbour(0, -1)->getState() != gc::node::State::WALL){

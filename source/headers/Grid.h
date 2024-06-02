@@ -6,18 +6,19 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 class Grid{
-    private:
-        sf::RenderWindow* m_Window;
-        Node* m_Grid;
+    public:
+        Grid(sf::RenderWindow* t_window);
+        ~Grid();
+        void draw();
+        void removeWalls();
+        void restoreVisitedNodes();
+        Node* getNodeAtPosition(int t_position_x, int t_position_y);
 
     private:
         void initilazeNodes();
 
-    public:
-        Grid(sf::RenderWindow* window);
-        ~Grid();
-        void restoreVisitedNodes();
-        void draw();
-        void removeWalls();
-        Node* getNode(int position_x, int position_y);
+    private:
+        sf::RenderWindow* m_Window;
+        Node* m_Grid;
+
 };

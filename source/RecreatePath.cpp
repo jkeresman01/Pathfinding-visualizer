@@ -16,6 +16,7 @@ void recreatePath(Node* node, Grid &grid, sf::RenderWindow* window){
     node->setState(gc::node::PATH);
 
     std::this_thread::sleep_for(120ms);
+
     window->clear(sf::Color(3, 11, 28));
     grid.draw();
     window->display();

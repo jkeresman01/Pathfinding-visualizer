@@ -35,12 +35,12 @@ bool Node::isVisible(){
     return this->m_IsVisible;
 }
 
-bool Node::isWallVisible(gc::wall::Position wall_position){
-    return this->m_Walls[wall_position].isVisible();
+bool Node::isWallVisible(gc::wall::Position t_wall_position){
+    return this->m_Walls[t_wall_position].isVisible();
 }
 
-void Node::destroyWall(gc::wall::Position wall_position){
-    this->m_Walls[wall_position].setVisible(false);
+void Node::destroyWall(gc::wall::Position t_wall_position){
+    this->m_Walls[t_wall_position].setVisible(false);
 }
 
 void Node::destroyAllWalls(){
@@ -63,13 +63,13 @@ Node* Node::getPredecessor(){
     return this->m_Predecessor;
 }
 
-void Node::setWindow(sf::RenderWindow* window){
-    this->m_Window = window;
-    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [&window](Wall &w){ w.setWindow(window);});
+void Node::setWindow(sf::RenderWindow* t_window){
+    this->m_Window = t_window;
+    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [&t_window](Wall &w){ w.setWindow(t_window);});
 }
 
-void Node::setVisible(bool is_visible){
-    this->m_IsVisible = is_visible;
+void Node::setVisible(bool t_is_visible){
+    this->m_IsVisible = t_is_visible;
     if(!m_IsVisible){
         this->m_Node.setFillColor(sf::Color::Transparent);
         destroyAllWalls();
@@ -83,24 +83,24 @@ void Node::setOutline(){
     this->m_Node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
 }
 
-void Node::setGridIndex(float position_x, float position_y){
-    this->m_GridIndex = std::make_pair(position_x, position_y);
+void Node::setGridIndex(float t_position_x, float t_position_y){
+    this->m_GridIndex = std::make_pair(t_position_x, t_position_y);
 }
 
-void Node::setVisited(bool is_visited){
-    this->m_IsVisited = is_visited;
+void Node::setVisited(bool t_is_visited){
+    this->m_IsVisited = t_is_visited;
     m_IsVisited ? this->m_Node.setFillColor(sf::Color(204, 255, 229))
                 : this->m_Node.setFillColor(sf::Color::Transparent);
 }
 
-void Node::setPredecessor(Node* parent){
-    this->m_Predecessor = parent;
+void Node::setPredecessor(Node* t_predecessor){
+    this->m_Predecessor = t_predecessor;
 }
 
-void Node::setPosition(float position_x, float position_y){
-    this->m_Node.setPosition(position_x, position_y);
+void Node::setPosition(float t_position_x, float t_position_y){
+    this->m_Node.setPosition(t_position_x, t_position_y);
     std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,
-            [&position_x, &position_y](Wall &wall){ wall.setPosition(position_x, position_y);});
+            [&t_position_x, &t_position_y](Wall &wall){ wall.setPosition(t_position_x, t_position_y);});
 
     this->m_Walls[gc::wall::LEFT].rotate(gc::wall::LEFT_ROTATION_ANGLE);
     this->m_Walls[gc::wall::RIGHT].rotate(gc::wall::RIGHT_ROTATION_ANGLE);
@@ -108,8 +108,8 @@ void Node::setPosition(float position_x, float position_y){
     this->m_Walls[gc::wall::BOTTOM].rotate(gc::wall::BOTTOM_ROTATION_ANGLE);
 }
 
-void Node::setState(gc::node::State type){
-    this->m_State = type;
+void Node::setState(gc::node::State t_type){
+    this->m_State = t_type;
 
     if(m_State == gc::node::State::EMPTY){
         this->m_Node.setFillColor(sf::Color::Transparent);
@@ -129,7 +129,6 @@ void Node::setState(gc::node::State type){
     if(m_State == gc::node::State::WALL){
         this->m_Node.setFillColor(sf::Color(255, 153, 51));
     }
-
 }
 
 

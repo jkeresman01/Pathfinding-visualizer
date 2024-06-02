@@ -6,7 +6,7 @@ void drawMaze(Grid &grid, std::stack<Node*>& visited_nodes, int &visited_count){
     Node* current_node = visited_nodes.top();
 
     auto neighbour = [&current_node, &grid](int x, int y){
-        return grid.getNode(current_node->getGridIndex().first + x, current_node->getGridIndex().second + y);
+        return grid.getNodeAtPosition(current_node->getGridIndex().first + x, current_node->getGridIndex().second + y);
     };
 
     std::vector<gc::maze::Direction> posible_directions;
