@@ -9,9 +9,9 @@ void Background::setWindow(sf::RenderWindow* window){
     this->m_Window = window;
 }
 
-void Background::setImage(std::string path){
-    this->m_Path = path;
-    this->m_Texture.loadFromFile(path);
+void Background::setImage(std::string t_path){
+    this->m_Path = t_path;
+    this->m_Texture.loadFromFile(t_path);
     this->m_Background.setTexture(m_Texture);
 }
 

@@ -9,6 +9,28 @@
 #include <SFML/Graphics/Texture.hpp>
 
 class Node{
+    public:
+        Node();
+        ~Node();
+        void draw();
+        bool isVisited();
+        bool isVisible();
+        bool isWallVisible(gc::wall::Position t_wall_position);
+        Node* getPredecessor();
+        gc::node::State getState();
+        std::pair<int, int> getGridIndex();
+        void setVisited(bool t_is_visited);
+        void destroyWall(gc::wall::Position t_wall_position);
+        void recreateAllWalls();
+        void destroyAllWalls();
+        void setPredecessor(Node* t_predecessor);
+        void setOutline();
+        void setVisible(bool t_is_visible);
+        void setState(gc::node::State type);
+        void setGridIndex(float t_position_x, float t_position_y);
+        void setPosition(float t_position_x, float t_position_y);
+        void setWindow(sf::RenderWindow* t_window);
+
     private:
         sf::RenderWindow* m_Window;;
         sf::RectangleShape m_Node;
@@ -20,25 +42,4 @@ class Node{
         bool m_IsVisited;
         bool m_IsVisible;
 
-    public:
-        Node();
-        ~Node();
-        void draw();
-        bool isVisited();
-        bool isVisible();
-        bool isWallVisible(gc::wall::Position wall_position);
-        Node* getPredecessor();
-        gc::node::State getState();
-        std::pair<int, int> getGridIndex();
-        void setVisited(bool is_visited);
-        void destroyWall(gc::wall::Position wall_position);
-        void recreateAllWalls();
-        void destroyAllWalls();
-        void setPredecessor(Node* parent);
-        void setOutline();
-        void setVisible(bool is_visible);
-        void setState(gc::node::State type);
-        void setGridIndex(float position_x, float position_y);
-        void setPosition(float position_x, float position_y);
-        void setWindow(sf::RenderWindow* window);
 };
