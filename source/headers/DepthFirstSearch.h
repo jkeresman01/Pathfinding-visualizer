@@ -8,4 +8,3 @@ void dfs(Grid &grid,
          sf::RenderWindow* window,
          bool &is_target_reached);
 
-void recreatePath(Node* &current_node);
