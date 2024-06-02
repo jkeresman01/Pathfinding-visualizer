@@ -36,11 +36,6 @@ bool Node::isVisible(){
     return this->m_IsVisible;
 }
 
-void Node::setCoin(){
-    this->m_Texture.loadFromFile("./resources/images/super_maio_coin.png");
-    this->m_Node.setTexture(&m_Texture);
-}
-
 bool Node::isWallVisible(gc::wall::Position wall_position){
     return this->m_Walls[wall_position].isVisible();
 }
@@ -51,6 +46,10 @@ void Node::destroyWall(gc::wall::Position wall_position){
 
 void Node::destroyAllWalls(){
     std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,[](Wall &wall){ wall.setVisible(false);});
+}
+
+void Node::recreateAllWalls(){
+    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,[](Wall &wall){ wall.setVisible(true);});
 }
 
 gc::node::State Node::getState(){
@@ -65,21 +64,9 @@ Node* Node::getParent(){
     return this->m_Parent;
 }
 
-Node* Node::getChild(){
-    return this->m_Child;
-}
-
-void Node::setChild(Node* child){
-    this->m_Child = child;
-}
-
 void Node::setWindow(sf::RenderWindow* window){
     this->m_Window = window;
     std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [&window](Wall &w){ w.setWindow(window);});
-}
-
-void Node::recreateAllWalls(){
-    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,[](Wall &wall){ wall.setVisible(true);});
 }
 
 void Node::setVisible(bool is_visible){
