@@ -11,8 +11,7 @@ Node::Node(){
     this->m_Node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
     this->m_Node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
     this->m_Walls = new Wall[gc::wall::WALL_COUNT];
-    this->m_Parent = nullptr;
-    this->m_Child = nullptr;
+    this->m_Predecessor = nullptr;
     setState(gc::node::State::EMPTY);
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
@@ -25,8 +24,7 @@ Node::~Node(){
 
 void Node::draw(){
     this->m_Window->draw(m_Node);
-    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, 
-            [](Wall &w){ if(w.isVisible()){ w.draw();}});
+    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [](Wall &w){ if(w.isVisible()){ w.draw(); }});
 }
 
 bool Node::isVisited(){
@@ -61,8 +59,8 @@ std::pair<int, int> Node::getGridIndex(){
     return this->m_GridIndex;
 }
 
-Node* Node::getParent(){
-    return this->m_Parent;
+Node* Node::getPredecessor(){
+    return this->m_Predecessor;
 }
 
 void Node::setWindow(sf::RenderWindow* window){
@@ -95,8 +93,8 @@ void Node::setVisited(bool is_visited){
                 : this->m_Node.setFillColor(sf::Color::Transparent);
 }
 
-void Node::setParent(Node* parent){
-    this->m_Parent = parent;
+void Node::setPredecessor(Node* parent){
+    this->m_Predecessor = parent;
 }
 
 void Node::setPosition(float position_x, float position_y){
@@ -123,10 +121,6 @@ void Node::setState(gc::node::State type){
 
     if(m_State == gc::node::State::TARGET){
        this->m_Node.setFillColor(sf::Color::Cyan);
-    }
-
-    if(m_State == gc::node::State::RECREATED_PATH){
-       this->m_Node.setFillColor(sf::Color::Red);
     }
 
     if(m_State == gc::node::State::PATH){

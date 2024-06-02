@@ -16,13 +16,9 @@ class Node{
         gc::node::State m_State;
         std::pair<int, int> m_GridIndex;
         Wall* m_Walls;
-        Node* m_Parent;
-        Node* m_Child;
+        Node* m_Predecessor;
         bool m_IsVisited;
         bool m_IsVisible;
-
-    private:
-        void setCoin();
 
     public:
         Node();
@@ -31,19 +27,16 @@ class Node{
         bool isVisited();
         bool isVisible();
         bool isWallVisible(gc::wall::Position wall_position);
+        Node* getPredecessor();
         gc::node::State getState();
         std::pair<int, int> getGridIndex();
-        Node* getParent();
-        Node* getChild();
         void setVisited(bool is_visited);
         void destroyWall(gc::wall::Position wall_position);
         void recreateAllWalls();
         void destroyAllWalls();
-        void setParent(Node* parent);
-        void setChild(Node* child);
+        void setPredecessor(Node* parent);
         void setOutline();
         void setVisible(bool is_visible);
-        void setColor(sf::Color color);
         void setState(gc::node::State type);
         void setGridIndex(float position_x, float position_y);
         void setPosition(float position_x, float position_y);
