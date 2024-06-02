@@ -11,9 +11,11 @@ Node::Node(){
     this->m_Node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
     this->m_Walls = new Wall[gc::wall::WALL_COUNT];
     this->m_Parent = nullptr;
+    this->m_Child = nullptr;
     setState(gc::node::State::EMPTY);
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
+    setVisible(true);
 }
 
 Node::~Node(){
@@ -28,6 +30,15 @@ void Node::draw(){
 
 bool Node::isVisited(){
     return this->m_IsVisited;
+}
+
+bool Node::isVisible(){
+    return this->m_IsVisible;
+}
+
+void Node::setCoin(){
+    this->m_Texture.loadFromFile("./resources/images/super_maio_coin.png");
+    this->m_Node.setTexture(&m_Texture);
 }
 
 bool Node::isWallVisible(gc::wall::Position wall_position){
@@ -54,9 +65,31 @@ Node* Node::getParent(){
     return this->m_Parent;
 }
 
+Node* Node::getChild(){
+    return this->m_Child;
+}
+
+void Node::setChild(Node* child){
+    this->m_Child = child;
+}
+
 void Node::setWindow(sf::RenderWindow* window){
     this->m_Window = window;
     std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [&window](Wall &w){ w.setWindow(window);});
+}
+
+void Node::recreateAllWalls(){
+    std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT,[](Wall &wall){ wall.setVisible(true);});
+}
+
+void Node::setVisible(bool is_visible){
+    this->m_IsVisible = is_visible;
+    if(!m_IsVisible){
+        this->m_Node.setFillColor(sf::Color::Transparent);
+        destroyAllWalls();
+    }else {
+        recreateAllWalls();
+    }
 }
 
 void Node::setOutline(){
@@ -104,8 +137,15 @@ void Node::setState(gc::node::State type){
        this->m_Node.setFillColor(sf::Color::Cyan);
     }
 
-    if(m_State == gc::node::State::PATH){
+    if(m_State == gc::node::State::RECREATED_PATH){
        this->m_Node.setFillColor(sf::Color::Red);
+    }
+
+    if(m_State == gc::node::State::PATH){
+        this->m_Node.setFillColor(sf::Color::Green);
+    }
+    if(m_State == gc::node::State::WALL){
+        this->m_Node.setFillColor(sf::Color(255, 153, 51));
     }
 
 }

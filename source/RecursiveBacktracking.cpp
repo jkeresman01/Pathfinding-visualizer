@@ -36,24 +36,28 @@ void drawMaze(Grid &grid, std::stack<Node*>& visited_nodes, int &visited_count){
     if(next_direction == gc::maze::Direction::LEFT){
         current_node->destroyWall(gc::wall::LEFT);
         next_node = neighbour(0, -1);
+        next_node->setVisible(true);
         next_node->destroyWall(gc::wall::RIGHT);
     }
 
     if(next_direction == gc::maze::Direction::RIGHT){
         current_node->destroyWall(gc::wall::RIGHT);
         next_node = neighbour(0, 1);
+        next_node->setVisible(true);
         next_node->destroyWall(gc::wall::LEFT);
     }
 
     if(next_direction == gc::maze::Direction::TOP){
         current_node->destroyWall(gc::wall::TOP);
         next_node = neighbour(-1, 0);
+        next_node->setVisible(true);
         next_node->destroyWall(gc::wall::BOTTOM);
     }
 
     if(next_direction == gc::maze::Direction::BOTTOM){
         current_node->destroyWall(gc::wall::BOTTOM);
         next_node = neighbour(1, 0);
+        next_node->setVisible(true);
         next_node->destroyWall(gc::wall::TOP);
     }
 

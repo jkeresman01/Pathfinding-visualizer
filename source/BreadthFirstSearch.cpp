@@ -1,6 +1,5 @@
 #include "headers/BreadthFirstSearch.h"
 #include "headers/Global.h"
-#include <iostream>
 #include <thread>
 #include <chrono>
 
@@ -8,7 +7,6 @@ using namespace std::chrono_literals;
 
 void bfs(Grid &grid, std::queue<Node*>& visited_nodes, bool &is_target_reached){
 
-    std::cout << "Tu sam!" << std::endl;
     Node* current_node = visited_nodes.front();
     visited_nodes.pop();
 

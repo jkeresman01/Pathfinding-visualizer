@@ -3,43 +3,45 @@
 namespace gc{
 
     namespace screen{
-        constexpr int WIDTH = 1200; 
-        constexpr int HEIGHT = 720; 
+        constexpr int WIDTH = 840; 
+        constexpr int HEIGHT = 900; 
 
         constexpr int POSITION_X  = 300; 
         constexpr int POSITION_Y  = 200; 
     }
 
     namespace grid{
-        constexpr int ROWS = 15; 
-        constexpr int COLUMNS = 28; 
+        constexpr int ROWS = 20; 
+        constexpr int COLUMNS = 15; 
     }
 
     namespace node{
-        constexpr float WIDTH = 40.0f; 
+        constexpr float WIDTH = 40.0f;
         constexpr float HEIGHT = 40.0f; 
 
         constexpr float ORIGIN_X = WIDTH / 2;
         constexpr float ORIGIN_Y = HEIGHT / 2;
 
         constexpr float START_POSITION_X = 40.0f; 
-        constexpr float START_POSITION_Y = 40.0f; 
+        constexpr float START_POSITION_Y = 90.0f; 
 
         constexpr int START_INDEX_X = 0;
         constexpr int START_INDEX_Y = 0;
-        constexpr float OUTLINE_THICKNESS = 12.5f; 
+        constexpr float OUTLINE_THICKNESS = 1.0f; 
 
         enum State{
             CURRENT = 1,
             START = 2,
             TARGET = 3,
-            PATH = 4,
-            EMPTY = 5
+            RECREATED_PATH = 4,
+            PATH = 5,
+            EMPTY = 6,
+            WALL = 7,
         };
     }
 
     namespace wall{
-        constexpr float HEIGHT = 1.0f;
+        constexpr float HEIGHT = 2.0f;
         constexpr float WIDTH = node::WIDTH;
 
         constexpr float ORIGIN_X = node::WIDTH / 2;
