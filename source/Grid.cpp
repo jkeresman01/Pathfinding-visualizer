@@ -1,7 +1,9 @@
 #include "headers/Grid.h"
+
+#include <algorithm>
+
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
-#include <algorithm>
 
 Grid::Grid(sf::RenderWindow* window){
     this->m_Window = window;
@@ -34,8 +36,10 @@ void Grid::draw(){
 }
 
 void Grid::removeWalls(){
-    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.destroyAllWalls();});
-    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.setOutline();});
+    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) {
+            n.destroyAllWalls();
+            n.setOutline();
+    });
 }
 
 Node* Grid::getNode(int position_x, int position_y){

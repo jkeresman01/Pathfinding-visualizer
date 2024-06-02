@@ -1,5 +1,7 @@
 #include "Grid.h"
+
 #include <SFML/Graphics/RenderWindow.hpp>
+
 #include <stack>
 
 void drawMaze(Grid &grid,

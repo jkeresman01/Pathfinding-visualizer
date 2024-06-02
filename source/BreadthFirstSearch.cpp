@@ -1,5 +1,6 @@
 #include "headers/BreadthFirstSearch.h"
 #include "headers/Global.h"
+
 #include <thread>
 #include <chrono>
 

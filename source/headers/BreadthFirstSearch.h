@@ -2,6 +2,7 @@
 
 #include "Grid.h"
 #include "Node.h"
+
 #include <queue>
 
 void bfs(Grid &grid,

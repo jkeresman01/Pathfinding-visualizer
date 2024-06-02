@@ -1,6 +1,8 @@
 #pragma once
+
 #include "Global.h"
 #include "Node.h"
+
 #include <SFML/Graphics/RenderWindow.hpp>
 
 class Grid{

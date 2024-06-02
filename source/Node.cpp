@@ -2,9 +2,10 @@
 #include "headers/Global.h"
 #include "headers/Wall.h"
 
-#include <SFML/Graphics/Color.hpp>
 #include <algorithm>
 #include <utility>
+
+#include <SFML/Graphics/Color.hpp>
 
 Node::Node(){
     this->m_Node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
