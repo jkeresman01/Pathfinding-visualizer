@@ -23,8 +23,3 @@ Algorithm explanation:
     * Mark the chosen cell as visited and push it to the stack
 
 ***
-
-Visulaized example:
-***
-
-![](https://github.com/jkeresman01/Pathfinding-visualizer/blob/main/source/resources/gifs/MazeGenerationExample.gif)
