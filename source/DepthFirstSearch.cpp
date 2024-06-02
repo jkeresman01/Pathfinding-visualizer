@@ -15,28 +15,28 @@ void dfs(Grid &grid, Node* root, sf::RenderWindow* window, bool &is_target_reach
         return grid.getNode(root->getGridIndex().first + x, root->getGridIndex().second + y);
     };
 
-    if (root->getGridIndex().second > 0 && !neighbour(0, -1)->isVisited() and neighbour(0, -1)->getState() != gc::node::State::WALL){
+    if (root->getGridIndex().second > 0 and !neighbour(0, -1)->isVisited() and !root->isWallVisible(gc::wall::LEFT) and neighbour(0, -1)->getState() != gc::node::State::WALL){
         neighbour(0, -1)->setParent(root);
         neighbour(0, -1)->setVisited(true);
         dfs(grid, neighbour(0, -1), window, is_target_reached);
         if(is_target_reached) return;
     }
 
-    if (root->getGridIndex().first < gc::grid::ROWS - 1 && !neighbour(1, 0)->isVisited() and neighbour(1, 0)->getState() != gc::node::State::WALL){
+    if (root->getGridIndex().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited() and !root->isWallVisible(gc::wall::BOTTOM) and neighbour(1, 0)->getState() != gc::node::State::WALL){ 
         neighbour(1, 0)->setParent(root);
         neighbour(1, 0)->setVisited(true);
         dfs(grid, neighbour(1, 0), window, is_target_reached);
         if(is_target_reached) return;
     }
 
-    if (root->getGridIndex().second < gc::grid::COLUMNS - 1 && !neighbour(0, 1)->isVisited() and neighbour(0, 1)->getState() != gc::node::State::WALL){
+    if (root->getGridIndex().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited() and !root->isWallVisible(gc::wall::RIGHT) and neighbour(0, 1)->getState() != gc::node::State::WALL){
         neighbour(0, 1)->setParent(root);
         neighbour(0, 1)->setVisited(true);
         dfs(grid, neighbour(0, 1), window, is_target_reached);
         if(is_target_reached) return;
     }
 
-    if (root->getGridIndex().first > 0 && !neighbour(-1, 0)->isVisited() and neighbour(-1, 0)->getState() != gc::node::State::WALL){
+    if (root->getGridIndex().first > 0 and !neighbour(-1, 0)->isVisited() and !root->isWallVisible(gc::wall::TOP) and neighbour(-1, 0)->getState() != gc::node::State::WALL){
         neighbour(-1, 0)->setParent(root);
         neighbour(-1, 0)->setVisited(true);
         dfs(grid, neighbour(-1, 0), window, is_target_reached);

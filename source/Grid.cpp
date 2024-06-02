@@ -30,11 +30,12 @@ Grid::~Grid(){
 }
 
 void Grid::draw(){
-    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.draw();});
+    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){if(n.isVisible()) n.draw();});
 }
 
 void Grid::removeWalls(){
     std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.destroyAllWalls();});
+    std::for_each(m_Grid, m_Grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.setOutline();});
 }
 
 Node* Grid::getNode(int position_x, int position_y){
