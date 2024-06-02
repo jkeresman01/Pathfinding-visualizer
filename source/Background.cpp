@@ -5,7 +5,7 @@ Background::Background(){
     this->m_Background.setScale(0.23, 0.23);
 }
 
-void Background::setWindow(sf::RenderWindow* window){
+void Background::setWindow(sf::RenderWindow *window){
     this->m_Window = window;
 }
 

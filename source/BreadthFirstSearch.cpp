@@ -1,9 +1,9 @@
 #include "headers/BreadthFirstSearch.h"
 #include "headers/Global.h"
 
-void bfs(Grid &grid, std::queue<Node*>& visited_nodes, bool &is_target_reached){
+void bfs(Grid &grid, std::queue<Node*> &visited_nodes, bool &is_target_reached){
 
-    Node* current_node = visited_nodes.front();
+    Node *current_node = visited_nodes.front();
     visited_nodes.pop();
 
     if(current_node->getState() == gc::node::State::TARGET){

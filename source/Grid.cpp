@@ -5,7 +5,7 @@
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
 
-Grid::Grid(sf::RenderWindow* t_window){
+Grid::Grid(sf::RenderWindow *t_window){
     this->m_Window = t_window;
     this->m_Grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
     initilazeNodes();

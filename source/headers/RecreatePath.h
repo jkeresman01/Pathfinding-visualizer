@@ -5,6 +5,6 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-void recreatePath(Node* node, 
+void recreatePath(Node *node, 
                   Grid &grid,
-                  sf::RenderWindow* window);
+                  sf::RenderWindow *window);

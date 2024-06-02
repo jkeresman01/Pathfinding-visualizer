@@ -2,8 +2,8 @@
 
 #include <stack>
 
-void drawMaze(Grid &grid, std::stack<Node*>& visited_nodes, int &visited_count){
-    Node* current_node = visited_nodes.top();
+void drawMaze(Grid &grid, std::stack<Node*> &visited_nodes, int &visited_count){
+    Node *current_node = visited_nodes.top();
 
     auto neighbour = [&current_node, &grid](int x, int y){
         return grid.getNodeAtPosition(current_node->getGridIndex().first + x, current_node->getGridIndex().second + y);
@@ -32,7 +32,8 @@ void drawMaze(Grid &grid, std::stack<Node*>& visited_nodes, int &visited_count){
     }
 
     int next_direction = posible_directions[rand() % posible_directions.size()];
-    Node* next_node;
+    
+    Node *next_node = nullptr;
 
     if(next_direction == gc::maze::Direction::LEFT){
         current_node->destroyWall(gc::wall::LEFT);

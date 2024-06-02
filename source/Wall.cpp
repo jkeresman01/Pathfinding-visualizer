@@ -21,7 +21,7 @@ bool Wall::isVisible(){
     return this->m_IsVisible;
 }
 
-void Wall::setWindow(sf::RenderWindow* t_window){
+void Wall::setWindow(sf::RenderWindow *t_window){
     this->m_Window = t_window;
 }
 

@@ -6,5 +6,5 @@
 #include <queue>
 
 void bfs(Grid &grid,
-         std::queue<Node*>& visited_nodes,
+         std::queue<Node*> &visited_nodes,
          bool &is_target_reached);

@@ -4,7 +4,7 @@
 #include <stack>
 
 void dfs(Grid &grid,
-         Node* root,
-         sf::RenderWindow* window,
+         Node *root,
+         sf::RenderWindow *window,
          bool &is_target_reached);
 

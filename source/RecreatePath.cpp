@@ -6,7 +6,7 @@
 
 using namespace std::chrono_literals;
 
-void recreatePath(Node* node, Grid &grid, sf::RenderWindow* window){
+void recreatePath(Node *node, Grid &grid, sf::RenderWindow *window){
 
     if(node->getState() == gc::node::State::START){
         return;

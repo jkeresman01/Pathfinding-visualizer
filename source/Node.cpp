@@ -63,7 +63,7 @@ Node* Node::getPredecessor(){
     return this->m_Predecessor;
 }
 
-void Node::setWindow(sf::RenderWindow* t_window){
+void Node::setWindow(sf::RenderWindow *t_window){
     this->m_Window = t_window;
     std::for_each(m_Walls, m_Walls + gc::wall::WALL_COUNT, [&t_window](Wall &w){ w.setWindow(t_window);});
 }
