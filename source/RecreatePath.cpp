@@ -12,7 +12,7 @@ void recreatePath(Node *node, Grid &grid, sf::RenderWindow *window){
         return;
     }
 
-    recreatePath(node->getPredecessor(),grid, window);
+    recreatePath(node->getPredecessor(), grid, window);
     node->setState(gc::node::PATH);
 
     std::this_thread::sleep_for(120ms);
