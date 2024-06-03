@@ -13,8 +13,8 @@ void Wall::draw(){
     this->m_Window->draw(m_Wall);
 }
 
-void Wall::rotate(float angle){
-    this->m_Wall.rotate(angle);
+void Wall::rotate(float t_rotation_angle){
+    this->m_Wall.rotate(t_rotation_angle);
 }
 
 bool Wall::isVisible(){

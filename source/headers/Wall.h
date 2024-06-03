@@ -10,7 +10,7 @@ class Wall{
         Wall();
         void draw();
         bool isVisible();
-        void rotate(float t_angle);
+        void rotate(float t_rotation_angle);
         void move(float t_position_x, float t_position_y);
         void setWindow(sf::RenderWindow *t_window);
         void setPosition(float t_position_x, float t_position_y);

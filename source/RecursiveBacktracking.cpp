@@ -10,19 +10,19 @@ void drawMaze(Grid &grid, std::stack<Node*> &visited_nodes, int &visited_count){
     };
 
     std::vector<gc::maze::Direction> posible_directions;
-    if (current_node->getGridIndex().second > 0 && !neighbour(0, -1)->isVisited()){
+    if (current_node->getGridIndex().second > 0 and !neighbour(0, -1)->isVisited()){
         posible_directions.push_back(gc::maze::Direction::LEFT);
     }
 
-    if (current_node->getGridIndex().first < gc::grid::ROWS - 1 && !neighbour(1, 0)->isVisited()){
+    if (current_node->getGridIndex().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited()){
         posible_directions.push_back(gc::maze::Direction::BOTTOM);
     }
 
-    if (current_node->getGridIndex().second < gc::grid::COLUMNS - 1 && !neighbour(0, 1)->isVisited()){
+    if (current_node->getGridIndex().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited()){
         posible_directions.push_back(gc::maze::Direction::RIGHT);
     }
 
-    if (current_node->getGridIndex().first > 0 && !neighbour(-1, 0)->isVisited()){
+    if (current_node->getGridIndex().first > 0 and !neighbour(-1, 0)->isVisited()){
         posible_directions.push_back(gc::maze::Direction::TOP);
     }
 
@@ -32,8 +32,7 @@ void drawMaze(Grid &grid, std::stack<Node*> &visited_nodes, int &visited_count){
     }
 
     int next_direction = posible_directions[rand() % posible_directions.size()];
-    
-    Node *next_node = nullptr;
+    Node *next_node;
 
     if(next_direction == gc::maze::Direction::LEFT){
         current_node->destroyWall(gc::wall::LEFT);

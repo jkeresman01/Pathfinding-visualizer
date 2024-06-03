@@ -15,25 +15,29 @@ void bfs(Grid &grid, std::queue<Node*> &visited_nodes, bool &is_target_reached){
         return grid.getNodeAtPosition(current_node->getGridIndex().first + x, current_node->getGridIndex().second + y);
     };
 
-    if (current_node->getGridIndex().second > 0 and !neighbour(0, -1)->isVisited() and !current_node->isWallVisible(gc::wall::LEFT) and neighbour(0, -1)->getState() != gc::node::State::WALL){
+    if (current_node->getGridIndex().second > 0 and !neighbour(0, -1)->isVisited() 
+        and !current_node->isWallVisible(gc::wall::LEFT) and neighbour(0, -1)->getState() != gc::node::State::WALL){
         neighbour(0, -1)->setVisited(true);
         neighbour(0, -1)->setPredecessor(current_node);
         visited_nodes.push(neighbour(0, -1));
     }
 
-    if (current_node->getGridIndex().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited() and !current_node->isWallVisible(gc::wall::BOTTOM) and neighbour(1, 0)->getState() != gc::node::State::WALL){ 
+    if (current_node->getGridIndex().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited() 
+        and !current_node->isWallVisible(gc::wall::BOTTOM) and neighbour(1, 0)->getState() != gc::node::State::WALL){ 
         neighbour(1, 0)->setVisited(true);
         neighbour(1, 0)->setPredecessor(current_node);
         visited_nodes.push(neighbour(1, 0));
     }
 
-    if (current_node->getGridIndex().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited() and !current_node->isWallVisible(gc::wall::RIGHT) and neighbour(0, 1)->getState() != gc::node::State::WALL){
+    if (current_node->getGridIndex().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited() 
+        and !current_node->isWallVisible(gc::wall::RIGHT) and neighbour(0, 1)->getState() != gc::node::State::WALL){
         neighbour(0, 1)->setVisited(true);
         neighbour(0, 1)->setPredecessor(current_node);
         visited_nodes.push(neighbour(0, 1));
     }
 
-    if (current_node->getGridIndex().first > 0 and !neighbour(-1, 0)->isVisited() and !current_node->isWallVisible(gc::wall::TOP) and neighbour(-1, 0)->getState() != gc::node::State::WALL){
+    if (current_node->getGridIndex().first > 0 and !neighbour(-1, 0)->isVisited() 
+        and !current_node->isWallVisible(gc::wall::TOP) and neighbour(-1, 0)->getState() != gc::node::State::WALL){
         neighbour(-1, 0)->setVisited(true);
         neighbour(-1, 0)->setPredecessor(current_node);
         visited_nodes.push(neighbour(-1, 0));
