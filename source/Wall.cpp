@@ -20,7 +20,7 @@ void Wall::rotate(float t_rotationAngle)
     m_wall.rotate(t_rotationAngle);
 }
 
-bool Wall::isVisible()
+bool Wall::isVisible() const
 {
     return m_isVisible;
 }
@@ -30,12 +30,12 @@ void Wall::setWindow(sf::RenderWindow *t_window)
     m_window = t_window;
 }
 
-void Wall::setPosition(float t_positionX, float t_positionY)
+void Wall::setPosition(const float t_positionX, const float t_positionY)
 {
     m_wall.setPosition(t_positionX, t_positionY);
 }
 
-void Wall::setVisible(bool t_isVisible)
+void Wall::setVisible(const bool t_isVisible)
 {
     m_isVisible = t_isVisible;
 }

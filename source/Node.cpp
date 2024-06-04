@@ -30,17 +30,17 @@ void Node::draw()
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &w){ if(w.isVisible()){ w.draw(); }});
 }
 
-bool Node::isVisited()
+bool Node::isVisited() const
 {
     return m_isVisited;
 }
 
-bool Node::isVisible()
+bool Node::isVisible() const
 {
     return m_isVisible;
 }
 
-bool Node::isWallVisible(gc::wall::Position t_wallPosition)
+bool Node::isWallVisible(const gc::wall::Position t_wallPosition) const
 {
     return m_walls[t_wallPosition].isVisible();
 }
@@ -55,19 +55,22 @@ void Node::destroyAllWalls()
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(false);});
 }
 
-void Node::recreateAllWalls(){
+void Node::recreateAllWalls()
+{
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(true);});
 }
 
-gc::node::State Node::getState(){
+gc::node::State Node::getState() const
+{
     return m_state;
 }
 
-std::pair<int, int> Node::getGridPosition(){
+std::pair<int, int> Node::getGridPosition() const
+{
     return m_gridPosition;
 }
 
-Node* Node::getPredecessor()
+Node* Node::getPredecessor() const
 {
     return m_predecessor;
 }
@@ -75,7 +78,7 @@ Node* Node::getPredecessor()
 void Node::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [&t_window](Wall &w){ w.setWindow(t_window);});
+    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [&t_window](Wall &w){ w.setWindow(t_window); });
 }
 
 void Node::setVisible(bool t_isVisible)
@@ -116,7 +119,7 @@ void Node::setPredecessor(Node* t_predecessor)
     m_predecessor = t_predecessor;
 }
 
-void Node::setPosition(float t_positionX, float t_positionY)
+void Node::setPosition(const float t_positionX, const float t_positionY)
 {
     m_node.setPosition(t_positionX, t_positionY);
 
@@ -129,7 +132,7 @@ void Node::setPosition(float t_positionX, float t_positionY)
     m_walls[gc::wall::BOTTOM].rotate(gc::wall::BOTTOM_ROTATION_ANGLE);
 }
 
-void Node::setState(gc::node::State t_type)
+void Node::setState(const gc::node::State t_type)
 {
     m_state = t_type;
 

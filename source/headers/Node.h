@@ -14,23 +14,23 @@ class Node
         Node();
         ~Node();
         void draw();
-        bool isVisited();
-        bool isVisible();
-        bool isWallVisible(gc::wall::Position t_wallPosition);
-        void destroyWall(gc::wall::Position t_wallPosition);
+        bool isVisited() const;
+        bool isVisible() const;
+        bool isWallVisible(const gc::wall::Position t_wallPosition) const;
+        void destroyWall(const gc::wall::Position t_wallPosition);
         void destroyAllWalls();
         void recreateAllWalls();
         void setOutline();
-        void setVisible(bool t_isVisible);
-        void setVisited(bool t_isVisited);
-        void setState(gc::node::State t_type);
-        void setGridIndex(float t_positionX, float t_positionY);
-        void setPosition(float t_positionX, float t_positionY);
+        void setVisible(const bool t_isVisible);
+        void setVisited(const bool t_isVisited);
+        void setState(const gc::node::State t_type);
+        void setGridIndex(const float t_positionX, const float t_positionY);
+        void setPosition(const float t_positionX, const float t_positionY);
         void setWindow(sf::RenderWindow *t_window);
         void setPredecessor(Node *t_predecessor);
-        Node* getPredecessor();
-        gc::node::State getState();
-        std::pair<int, int> getGridPosition();
+        Node* getPredecessor() const;
+        gc::node::State getState() const;
+        std::pair<int, int> getGridPosition() const;
 
     private:
         sf::RenderWindow *m_window;;

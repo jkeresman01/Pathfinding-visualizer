@@ -13,7 +13,7 @@ class Grid
         void draw();
         void removeWalls();
         void restoreVisitedNodes();
-        Node *getNodeAtPosition(int t_positionX, int t_positionY);
+        Node* getNodeAtPosition(const int t_positionX, const int t_positionY);
 
     private:
         void initilazeNodes();

@@ -51,7 +51,7 @@ void Grid::removeWalls()
     });
 }
 
-Node* Grid::getNodeAtPosition(int t_positionX, int t_positionY)
+Node* Grid::getNodeAtPosition(const int t_positionX, const int t_positionY)
 {
     return &m_grid[gc::grid::COLUMNS * t_positionX + t_positionY];
 }
