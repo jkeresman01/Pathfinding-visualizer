@@ -52,11 +52,11 @@ void Node::destroyWall(gc::wall::Position t_wallPosition)
 
 void Node::destroyAllWalls()
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,[](Wall &wall){ wall.setVisible(false);});
+    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(false);});
 }
 
 void Node::recreateAllWalls(){
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,[](Wall &wall){ wall.setVisible(true);});
+    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(true);});
 }
 
 gc::node::State Node::getState(){
@@ -133,27 +133,27 @@ void Node::setState(gc::node::State t_type)
 {
     this->m_state = t_type;
 
-    if(m_state == gc::node::State::EMPTY)
+    if(m_state == gc::node::EMPTY)
     {
         this->m_node.setFillColor(sf::Color::Transparent);
     }
 
-    if(m_state == gc::node::State::START)
+    if(m_state == gc::node::START)
     {
        this->m_node.setFillColor(sf::Color::Green);
     }
 
-    if(m_state == gc::node::State::TARGET)
+    if(m_state == gc::node::TARGET)
     {
        this->m_node.setFillColor(sf::Color::Cyan);
     }
 
-    if(m_state == gc::node::State::PATH)
+    if(m_state == gc::node::PATH)
     {
         this->m_node.setFillColor(sf::Color::Green);
     }
 
-    if(m_state == gc::node::State::WALL)
+    if(m_state == gc::node::WALL)
     {
         this->m_node.setFillColor(sf::Color(255, 153, 51));
     }
