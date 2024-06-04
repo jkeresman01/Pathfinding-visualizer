@@ -14,8 +14,10 @@ Grid::Grid(sf::RenderWindow *t_window)
 
 void Grid::initilazeNodes()
 {
-    for(int i = 0; i < gc::grid::ROWS; ++i){
-        for(int j = 0; j < gc::grid::COLUMNS; ++j){
+    for(int i = 0; i < gc::grid::ROWS; ++i)
+    {
+        for(int j = 0; j < gc::grid::COLUMNS; ++j)
+        {
             m_grid[gc::grid::COLUMNS * i + j].setWindow(m_window);
             m_grid[gc::grid::COLUMNS * i + j].setGridIndex(i, j);
             m_grid[gc::grid::COLUMNS * i + j].setPosition(
@@ -27,7 +29,7 @@ void Grid::initilazeNodes()
 
 void Grid::restoreVisitedNodes()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.setVisited(false);});
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.setVisited(false); });
 }
 
 Grid::~Grid()
@@ -37,14 +39,15 @@ Grid::~Grid()
 
 void Grid::draw()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){if(n.isVisible()) n.draw();});
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ if(n.isVisible()) {n.draw();} });
 }
 
 void Grid::removeWalls()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) {
-            n.destroyAllWalls();
-            n.setOutline();
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) 
+    {
+        n.destroyAllWalls();
+        n.setOutline();
     });
 }
 

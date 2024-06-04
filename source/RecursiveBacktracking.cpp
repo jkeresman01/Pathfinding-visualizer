@@ -2,9 +2,9 @@
 
 #include <stack>
 
-void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodess, int &t_numberOfVisitedNodes)
+void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodes, int &t_numberOfVisitedNodes)
 {
-    Node *current_node = t_visitedNodess.top();
+    Node *current_node = t_visitedNodes.top();
 
     auto neighbour = [&current_node, &t_grid](int x, int y)
     {
@@ -34,7 +34,7 @@ void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodess, int &t_numberOfV
 
     if (posible_directions.empty())
     {
-        t_visitedNodess.pop();
+        t_visitedNodes.pop();
         return;
     }
 
@@ -74,7 +74,7 @@ void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodess, int &t_numberOfV
     }
 
     next_node->setVisited(true);
-    t_visitedNodess.push(next_node);
+    t_visitedNodes.push(next_node);
     t_numberOfVisitedNodes++;
 
 }
