@@ -7,8 +7,8 @@
 
 Grid::Grid(sf::RenderWindow *t_window)
 {
-    this->m_window = t_window;
-    this->m_grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
+    m_window = t_window;
+    m_grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
     initilazeNodes();
 }
 
