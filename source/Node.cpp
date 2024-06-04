@@ -81,7 +81,7 @@ void Node::setWindow(sf::RenderWindow *t_window)
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [&t_window](Wall &w){ w.setWindow(t_window); });
 }
 
-void Node::setVisible(bool t_isVisible)
+void Node::setVisible(const bool t_isVisible)
 {
     m_isVisible = t_isVisible;
 
@@ -102,12 +102,12 @@ void Node::setOutline()
     m_node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
 }
 
-void Node::setGridIndex(float t_positionX, float t_positionY)
+void Node::setGridIndex(const float t_positionX, const float t_positionY)
 {
     m_gridPosition = std::make_pair(t_positionX, t_positionY);
 }
 
-void Node::setVisited(bool t_isVisited)
+void Node::setVisited(const bool t_isVisited)
 {
     m_isVisited = t_isVisited;
     m_isVisited ? m_node.setFillColor(sf::Color(204, 255, 229))
