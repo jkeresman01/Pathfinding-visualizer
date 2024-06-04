@@ -4,57 +4,57 @@
 void bfs(Grid &t_grid, std::queue<Node*> &t_visitedNodes, bool &t_isTargetReached)
 {
 
-    Node *current_node = t_visitedNodes.front();
+    Node *currentNode = t_visitedNodes.front();
     t_visitedNodes.pop();
 
-    if(current_node->getState() == gc::node::TARGET)
+    if(currentNode->getState() == gc::node::TARGET)
     {
         t_isTargetReached = true;
         return;
     }
 
-    auto neighbour = [&current_node, &t_grid](int x, int y)
+    auto neighbour = [&currentNode, &t_grid](int x, int y)
     {
-        return t_grid.getNodeAtPosition(current_node->getGridPosition().first + x, current_node->getGridPosition().second + y);
+        return t_grid.getNodeAtPosition(currentNode->getGridPosition().first + x, currentNode->getGridPosition().second + y);
     };
 
-    if (current_node->getGridPosition().second > 0 
+    if (currentNode->getGridPosition().second > 0 
         and !neighbour(0, -1)->isVisited() 
-        and !current_node->isWallVisible(gc::wall::LEFT) 
+        and !currentNode->isWallVisible(gc::wall::LEFT) 
         and neighbour(0, -1)->getState() != gc::node::WALL)
     {
         neighbour(0, -1)->setVisited(true);
-        neighbour(0, -1)->setPredecessor(current_node);
+        neighbour(0, -1)->setPredecessor(currentNode);
         t_visitedNodes.push(neighbour(0, -1));
     }
 
-    if (current_node->getGridPosition().first < gc::grid::ROWS - 1
+    if (currentNode->getGridPosition().first < gc::grid::ROWS - 1
         and !neighbour(1, 0)->isVisited() 
-        and !current_node->isWallVisible(gc::wall::BOTTOM) 
+        and !currentNode->isWallVisible(gc::wall::BOTTOM) 
         and neighbour(1, 0)->getState() != gc::node::WALL)
     { 
         neighbour(1, 0)->setVisited(true);
-        neighbour(1, 0)->setPredecessor(current_node);
+        neighbour(1, 0)->setPredecessor(currentNode);
         t_visitedNodes.push(neighbour(1, 0));
     }
 
-    if (current_node->getGridPosition().second < gc::grid::COLUMNS - 1
+    if (currentNode->getGridPosition().second < gc::grid::COLUMNS - 1
         and !neighbour(0, 1)->isVisited() 
-        and !current_node->isWallVisible(gc::wall::RIGHT) 
+        and !currentNode->isWallVisible(gc::wall::RIGHT) 
         and neighbour(0, 1)->getState() != gc::node::WALL)
     {
         neighbour(0, 1)->setVisited(true);
-        neighbour(0, 1)->setPredecessor(current_node);
+        neighbour(0, 1)->setPredecessor(currentNode);
         t_visitedNodes.push(neighbour(0, 1));
     }
 
-    if (current_node->getGridPosition().first > 0 
+    if (currentNode->getGridPosition().first > 0 
         and !neighbour(-1, 0)->isVisited() 
-        and !current_node->isWallVisible(gc::wall::TOP) 
+        and !currentNode->isWallVisible(gc::wall::TOP) 
         and neighbour(-1, 0)->getState() != gc::node::WALL)
     {
         neighbour(-1, 0)->setVisited(true);
-        neighbour(-1, 0)->setPredecessor(current_node);
+        neighbour(-1, 0)->setPredecessor(currentNode);
         t_visitedNodes.push(neighbour(-1, 0));
     }
 

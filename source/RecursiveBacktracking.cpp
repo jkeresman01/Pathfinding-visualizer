@@ -4,30 +4,30 @@
 
 void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodes, int &t_numberOfVisitedNodes)
 {
-    Node *current_node = t_visitedNodes.top();
+    Node *currentNode = t_visitedNodes.top();
 
-    auto neighbour = [&current_node, &t_grid](int x, int y)
+    auto neighbour = [&currentNode, &t_grid](int x, int y)
     {
-        return t_grid.getNodeAtPosition(current_node->getGridPosition().first + x, current_node->getGridPosition().second + y);
+        return t_grid.getNodeAtPosition(currentNode->getGridPosition().first + x, currentNode->getGridPosition().second + y);
     };
 
     std::vector<gc::maze::Direction> posible_directions;
-    if (current_node->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited())
+    if (currentNode->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited())
     {
         posible_directions.push_back(gc::maze::Direction::LEFT);
     }
 
-    if (current_node->getGridPosition().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited())
+    if (currentNode->getGridPosition().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited())
     {
         posible_directions.push_back(gc::maze::Direction::BOTTOM);
     }
 
-    if (current_node->getGridPosition().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited())
+    if (currentNode->getGridPosition().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited())
     {
         posible_directions.push_back(gc::maze::Direction::RIGHT);
     }
 
-    if (current_node->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited())
+    if (currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited())
     {
         posible_directions.push_back(gc::maze::Direction::TOP);
     }
@@ -38,43 +38,43 @@ void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodes, int &t_numberOfVi
         return;
     }
 
-    int next_direction = posible_directions[rand() % posible_directions.size()];
-    Node *next_node;
+    int nextDirection = posible_directions[rand() % posible_directions.size()];
+    Node *nextNode;
 
-    if(next_direction == gc::maze::Direction::LEFT)
+    if(nextDirection == gc::maze::Direction::LEFT)
     {
-        current_node->destroyWall(gc::wall::LEFT);
-        next_node = neighbour(0, -1);
-        next_node->setVisible(true);
-        next_node->destroyWall(gc::wall::RIGHT);
+        currentNode->destroyWall(gc::wall::LEFT);
+        nextNode = neighbour(0, -1);
+        nextNode->setVisible(true);
+        nextNode->destroyWall(gc::wall::RIGHT);
     }
 
-    if(next_direction == gc::maze::Direction::RIGHT)
+    if(nextDirection == gc::maze::Direction::RIGHT)
     {
-        current_node->destroyWall(gc::wall::RIGHT);
-        next_node = neighbour(0, 1);
-        next_node->setVisible(true);
-        next_node->destroyWall(gc::wall::LEFT);
+        currentNode->destroyWall(gc::wall::RIGHT);
+        nextNode = neighbour(0, 1);
+        nextNode->setVisible(true);
+        nextNode->destroyWall(gc::wall::LEFT);
     }
 
-    if(next_direction == gc::maze::Direction::TOP)
+    if(nextDirection == gc::maze::Direction::TOP)
     {
-        current_node->destroyWall(gc::wall::TOP);
-        next_node = neighbour(-1, 0);
-        next_node->setVisible(true);
-        next_node->destroyWall(gc::wall::BOTTOM);
+        currentNode->destroyWall(gc::wall::TOP);
+        nextNode = neighbour(-1, 0);
+        nextNode->setVisible(true);
+        nextNode->destroyWall(gc::wall::BOTTOM);
     }
 
-    if(next_direction == gc::maze::Direction::BOTTOM)
+    if(nextDirection == gc::maze::Direction::BOTTOM)
     {
-        current_node->destroyWall(gc::wall::BOTTOM);
-        next_node = neighbour(1, 0);
-        next_node->setVisible(true);
-        next_node->destroyWall(gc::wall::TOP);
+        currentNode->destroyWall(gc::wall::BOTTOM);
+        nextNode = neighbour(1, 0);
+        nextNode->setVisible(true);
+        nextNode->destroyWall(gc::wall::TOP);
     }
 
-    next_node->setVisited(true);
-    t_visitedNodes.push(next_node);
+    nextNode->setVisited(true);
+    t_visitedNodes.push(nextNode);
     t_numberOfVisitedNodes++;
 
 }
