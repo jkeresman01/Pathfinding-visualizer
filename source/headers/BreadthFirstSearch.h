@@ -5,6 +5,6 @@
 
 #include <queue>
 
-void bfs(Grid &grid,
-         std::queue<Node*> &visited_nodes,
-         bool &is_target_reached);
+void bfs(Grid &t_grid,
+         std::queue<Node*> &t_visited_nodes,
+         bool &t_isTargetReached);

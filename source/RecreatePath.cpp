@@ -6,19 +6,21 @@
 
 using namespace std::chrono_literals;
 
-void recreatePath(Node *node, Grid &grid, sf::RenderWindow *window){
+void recreatePath(Node *t_currentNode, Grid &t_grid, sf::RenderWindow *t_window)
+{
 
-    if(node->getState() == gc::node::State::START){
+    if(t_currentNode->getState() == gc::node::START)
+    {
         return;
     }
 
-    recreatePath(node->getPredecessor(), grid, window);
-    node->setState(gc::node::PATH);
+    recreatePath(t_currentNode->getPredecessor(), t_grid, t_window);
+    t_currentNode->setState(gc::node::PATH);
 
     std::this_thread::sleep_for(120ms);
 
-    window->clear(sf::Color(3, 11, 28));
-    grid.draw();
-    window->display();
+    t_window->clear(sf::Color(3, 11, 28));
+    t_grid.draw();
+    t_window->display();
 }
 

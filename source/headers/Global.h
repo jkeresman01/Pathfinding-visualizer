@@ -1,8 +1,10 @@
 #pragma once
 
-namespace gc{
+namespace gc
+{
 
-    namespace screen{
+    namespace screen
+    {
         constexpr int WIDTH = 840; 
         constexpr int HEIGHT = 900; 
 
@@ -10,12 +12,14 @@ namespace gc{
         constexpr int POSITION_Y  = 200; 
     }
 
-    namespace grid{
+    namespace grid
+    {
         constexpr int ROWS = 20; 
         constexpr int COLUMNS = 15; 
     }
 
-    namespace node{
+    namespace node
+    {
         constexpr float WIDTH = 40.0f;
         constexpr float HEIGHT = 40.0f; 
 
@@ -29,7 +33,8 @@ namespace gc{
         constexpr int START_INDEX_Y = 0;
         constexpr float OUTLINE_THICKNESS = 1.0f; 
 
-        enum State{
+        enum State
+        {
             CURRENT = 1,
             START = 2,
             TARGET = 3,
@@ -40,7 +45,8 @@ namespace gc{
         };
     }
 
-    namespace wall{
+    namespace wall
+    {
         constexpr float HEIGHT = 2.0f;
         constexpr float WIDTH = node::WIDTH;
 
@@ -52,14 +58,16 @@ namespace gc{
 
         constexpr int WALL_COUNT = 4;
 
-        enum Position{
-            LEFT = 0,
+        enum Position
+        {
+            LEFT =  0,
             RIGHT = 1,
             TOP = 2,
             BOTTOM = 3,
         };
 
-        enum Rotation{
+        enum Rotation
+        {
             LEFT_ROTATION_ANGLE = -45,
             RIGHT_ROTATION_ANGLE = 45,
             TOP_ROTATION_ANGLE = 0,
@@ -67,8 +75,10 @@ namespace gc{
         };
     }
 
-    namespace maze{
-        enum Direction{
+    namespace maze
+    {
+        enum Direction
+        {
             LEFT = 0,
             RIGHT = 1,
             TOP = 2,
@@ -76,7 +86,8 @@ namespace gc{
         };
     }
 
-    namespace tool{
+    namespace tool
+    {
         constexpr int FRAMES_PER_SECOND = 60;
         constexpr float REFRESH_TIME_SECONDS = 0.5f; 
     }

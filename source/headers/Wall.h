@@ -5,21 +5,21 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
-class Wall{
+class Wall
+{
     public:
         Wall();
         void draw();
+        void rotate(float t_rotationAngle);
+        void move(float t_positionX, float t_positionY);
         bool isVisible();
-        void rotate(float t_rotation_angle);
-        void move(float t_position_x, float t_position_y);
         void setWindow(sf::RenderWindow *t_window);
-        void setPosition(float t_position_x, float t_position_y);
-        void setOrigin(float t_origin_x, float t_origin_y);
-        void setVisible(bool t_is_visible);
+        void setPosition(float t_positionX, float t_positionY);
+        void setVisible(bool t_isVisible);
 
     private:
-        sf::RenderWindow *m_Window;
-        sf::RectangleShape m_Wall;
-        sf::Texture m_Texture;
-        bool m_IsVisible;
+        sf::RenderWindow *m_window;
+        sf::RectangleShape m_wall;
+        sf::Texture m_texture;
+        bool m_isVisible;
 };

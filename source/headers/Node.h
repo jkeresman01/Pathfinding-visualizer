@@ -8,38 +8,39 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
-class Node{
+class Node
+{
     public:
         Node();
         ~Node();
         void draw();
         bool isVisited();
         bool isVisible();
-        bool isWallVisible(gc::wall::Position t_wall_position);
-        Node *getPredecessor();
-        gc::node::State getState();
-        std::pair<int, int> getGridIndex();
-        void setVisited(bool t_is_visited);
-        void destroyWall(gc::wall::Position t_wall_position);
-        void recreateAllWalls();
+        bool isWallVisible(gc::wall::Position t_wallPosition);
+        void destroyWall(gc::wall::Position t_wallPosition);
         void destroyAllWalls();
-        void setPredecessor(Node *t_predecessor);
+        void recreateAllWalls();
         void setOutline();
-        void setVisible(bool t_is_visible);
-        void setState(gc::node::State type);
-        void setGridIndex(float t_position_x, float t_position_y);
-        void setPosition(float t_position_x, float t_position_y);
+        void setVisible(bool t_isVisible);
+        void setVisited(bool t_isVisited);
+        void setState(gc::node::State t_type);
+        void setGridIndex(float t_positionX, float t_positionY);
+        void setPosition(float t_positionX, float t_positionY);
         void setWindow(sf::RenderWindow *t_window);
+        void setPredecessor(Node *t_predecessor);
+        Node* getPredecessor();
+        gc::node::State getState();
+        std::pair<int, int> getGridPosition();
 
     private:
-        sf::RenderWindow *m_Window;;
-        sf::RectangleShape m_Node;
-        sf::Texture m_Texture;
-        gc::node::State m_State;
-        std::pair<int, int> m_GridIndex;
-        Wall *m_Walls;
-        Node *m_Predecessor;
-        bool m_IsVisited;
-        bool m_IsVisible;
+        sf::RenderWindow *m_window;;
+        sf::RectangleShape m_node;
+        sf::Texture m_texture;
+        gc::node::State m_state;
+        std::pair<int, int> m_gridPosition;
+        Wall *m_walls;
+        Node *m_predecessor;
+        bool m_isVisited;
+        bool m_isVisible;
 
 };

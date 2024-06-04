@@ -1,10 +1,10 @@
 #include "Grid.h"
 
-#include <SFML/Graphics/RenderWindow.hpp>
-
 #include <stack>
 
-void drawMaze(Grid &grid,
-              std::stack<Node*> &visited_nodes,
-              int &visited_count);
+#include <SFML/Graphics/RenderWindow.hpp>
+
+void drawMaze(Grid &t_grid,
+              std::stack<Node*> &t_visitedNodes,
+              int &t_numberOfVisitedNodes);
     
