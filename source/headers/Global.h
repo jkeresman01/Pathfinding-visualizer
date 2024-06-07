@@ -33,7 +33,7 @@ namespace gc
         constexpr int START_INDEX_Y = 0;
         constexpr float OUTLINE_THICKNESS = 1.0f; 
 
-        enum State
+        enum Type
         {
             CURRENT = 1,
             START = 2,

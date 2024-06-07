@@ -9,13 +9,13 @@ using namespace std::chrono_literals;
 void recreatePath(Node *t_currentNode, Grid &t_grid, sf::RenderWindow *t_window)
 {
 
-    if(t_currentNode->getState() == gc::node::START)
+    if(t_currentNode->getType() == gc::node::START)
     {
         return;
     }
 
     recreatePath(t_currentNode->getPredecessor(), t_grid, t_window);
-    t_currentNode->setState(gc::node::PATH);
+    t_currentNode->setType(gc::node::PATH);
 
     std::this_thread::sleep_for(120ms);
 

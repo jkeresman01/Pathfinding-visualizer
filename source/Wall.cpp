@@ -15,7 +15,7 @@ void Wall::draw()
     m_window->draw(m_wall);
 }
 
-void Wall::rotate(float t_rotationAngle)
+void Wall::rotate(const float t_rotationAngle)
 {
     m_wall.rotate(t_rotationAngle);
 }

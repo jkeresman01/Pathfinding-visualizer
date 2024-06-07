@@ -13,7 +13,7 @@ Node::Node()
     m_node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
     m_walls = new Wall[gc::wall::WALL_COUNT];
     m_predecessor = nullptr;
-    setType(gc::node::State::EMPTY);
+    setType(gc::node::Type::EMPTY);
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
     setVisible(false);
@@ -60,7 +60,7 @@ void Node::recreateAllWalls()
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(true);});
 }
 
-gc::node::State Node::getType() const
+gc::node::Type Node::getType() const
 {
     return m_type;
 }
@@ -132,7 +132,7 @@ void Node::setPosition(const float t_positionX, const float t_positionY)
     m_walls[gc::wall::BOTTOM].rotate(gc::wall::BOTTOM_ROTATION_ANGLE);
 }
 
-void Node::setType(const gc::node::State t_type)
+void Node::setType(const gc::node::Type t_type)
 {
     m_type = t_type;
 

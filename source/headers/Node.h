@@ -23,20 +23,20 @@ class Node
         void setOutline();
         void setVisible(const bool t_isVisible);
         void setVisited(const bool t_isVisited);
-        void setState(const gc::node::State t_type);
+        void setType(const gc::node::Type t_type);
         void setGridIndex(const float t_positionX, const float t_positionY);
         void setPosition(const float t_positionX, const float t_positionY);
         void setWindow(sf::RenderWindow *t_window);
         void setPredecessor(Node *t_predecessor);
         Node* getPredecessor() const;
-        gc::node::State getState() const;
+        gc::node::Type getType() const;
         std::pair<int, int> getGridPosition() const;
 
     private:
         sf::RenderWindow *m_window;;
         sf::RectangleShape m_node;
         sf::Texture m_texture;
-        gc::node::State m_state;
+        gc::node::Type m_type;
         std::pair<int, int> m_gridPosition;
         Wall *m_walls;
         Node *m_predecessor;
