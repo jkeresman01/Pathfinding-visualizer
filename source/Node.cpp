@@ -13,7 +13,7 @@ Node::Node()
     m_node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
     m_walls = new Wall[gc::wall::WALL_COUNT];
     m_predecessor = nullptr;
-    setState(gc::node::State::EMPTY);
+    setType(gc::node::State::EMPTY);
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
     setVisible(false);
@@ -60,9 +60,9 @@ void Node::recreateAllWalls()
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(true);});
 }
 
-gc::node::State Node::getState() const
+gc::node::State Node::getType() const
 {
-    return m_state;
+    return m_type;
 }
 
 std::pair<int, int> Node::getGridPosition() const
@@ -132,31 +132,31 @@ void Node::setPosition(const float t_positionX, const float t_positionY)
     m_walls[gc::wall::BOTTOM].rotate(gc::wall::BOTTOM_ROTATION_ANGLE);
 }
 
-void Node::setState(const gc::node::State t_type)
+void Node::setType(const gc::node::State t_type)
 {
-    m_state = t_type;
+    m_type = t_type;
 
-    if(m_state == gc::node::EMPTY)
+    if(m_type == gc::node::EMPTY)
     {
         m_node.setFillColor(sf::Color::Transparent);
     }
 
-    if(m_state == gc::node::START)
+    if(m_type == gc::node::START)
     {
        m_node.setFillColor(sf::Color::Green);
     }
 
-    if(m_state == gc::node::TARGET)
+    if(m_type == gc::node::TARGET)
     {
        m_node.setFillColor(sf::Color::Cyan);
     }
 
-    if(m_state == gc::node::PATH)
+    if(m_type == gc::node::PATH)
     {
         m_node.setFillColor(sf::Color::Green);
     }
 
-    if(m_state == gc::node::WALL)
+    if(m_type == gc::node::WALL)
     {
         m_node.setFillColor(sf::Color(255, 153, 51));
     }
