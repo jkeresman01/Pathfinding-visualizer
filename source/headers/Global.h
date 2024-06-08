@@ -14,14 +14,14 @@ namespace gc
 
     namespace grid
     {
-        constexpr int ROWS = 20; 
-        constexpr int COLUMNS = 15; 
+        constexpr int ROWS = 40; 
+        constexpr int COLUMNS = 30; 
     }
 
     namespace node
     {
-        constexpr float WIDTH = 40.0f;
-        constexpr float HEIGHT = 40.0f; 
+        constexpr float WIDTH = 20.0f;
+        constexpr float HEIGHT = 20.0f; 
 
         constexpr float ORIGIN_X = WIDTH / 2;
         constexpr float ORIGIN_Y = HEIGHT / 2;
