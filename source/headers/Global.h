@@ -27,7 +27,7 @@ namespace gc
         constexpr float ORIGIN_Y = HEIGHT / 2;
 
         constexpr float START_POSITION_X = 40.0f; 
-        constexpr float START_POSITION_Y = 90.0f; 
+        constexpr float START_POSITION_Y = 55.0f; 
 
         constexpr int START_INDEX_X = 0;
         constexpr int START_INDEX_Y = 0;
