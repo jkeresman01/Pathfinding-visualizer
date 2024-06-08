@@ -91,4 +91,13 @@ namespace gc
         constexpr int FRAMES_PER_SECOND = 60;
         constexpr float REFRESH_TIME_SECONDS = 0.5f; 
     }
+
+    namespace button
+    {
+        constexpr int POSITION_X = screen::WIDTH - 20;
+        constexpr int POSITION_Y = 40;
+
+        constexpr float SCALE = 1.2f;
+    }
+
 }

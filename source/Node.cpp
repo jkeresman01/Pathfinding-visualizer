@@ -13,6 +13,7 @@ Node::Node()
     m_node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
     m_walls = new Wall[gc::wall::WALL_COUNT];
     m_predecessor = nullptr;
+    setWindow(nullptr);
     setType(gc::node::Type::EMPTY);
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
@@ -98,7 +99,7 @@ void Node::setVisible(const bool t_isVisible)
 
 void Node::setOutline()
 {
-    m_node.setOutlineColor(sf::Color::Red);
+    m_node.setOutlineColor(sf::Color(sf::Color(204, 255, 229)));
     m_node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
 }
 
@@ -110,7 +111,7 @@ void Node::setGridIndex(const float t_positionX, const float t_positionY)
 void Node::setVisited(const bool t_isVisited)
 {
     m_isVisited = t_isVisited;
-    m_isVisited ? m_node.setFillColor(sf::Color(204, 255, 229))
+    m_isVisited ? m_node.setFillColor(sf::Color(51, 51, 255))
                 : m_node.setFillColor(sf::Color::Transparent);
 }
 
@@ -158,7 +159,7 @@ void Node::setType(const gc::node::Type t_type)
 
     if(m_type == gc::node::WALL)
     {
-        m_node.setFillColor(sf::Color(255, 153, 51));
+        m_node.setFillColor(sf::Color(204, 255, 229));
     }
 }
 

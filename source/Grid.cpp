@@ -39,7 +39,7 @@ Grid::~Grid()
 
 void Grid::draw()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ if(n.isVisible()) {n.draw();} });
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){n.draw();});
 }
 
 void Grid::removeWalls()
