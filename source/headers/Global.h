@@ -5,7 +5,7 @@ namespace gc
 
     namespace screen
     {
-        constexpr int WIDTH = 840; 
+        constexpr int WIDTH = 1200; 
         constexpr int HEIGHT = 900; 
 
         constexpr int POSITION_X  = 300; 
@@ -15,7 +15,7 @@ namespace gc
     namespace grid
     {
         constexpr int ROWS = 40; 
-        constexpr int COLUMNS = 30; 
+        constexpr int COLUMNS = 40; 
     }
 
     namespace node
@@ -27,7 +27,7 @@ namespace gc
         constexpr float ORIGIN_Y = HEIGHT / 2;
 
         constexpr float START_POSITION_X = 40.0f; 
-        constexpr float START_POSITION_Y = 55.0f; 
+        constexpr float START_POSITION_Y = 90.0f; 
 
         constexpr int START_INDEX_X = 0;
         constexpr int START_INDEX_Y = 0;
@@ -98,6 +98,20 @@ namespace gc
         constexpr int POSITION_Y = 40;
 
         constexpr float SCALE = 1.2f;
+    }
+
+    namespace menu
+    {
+        constexpr int NUMBER_OF_OPTIONS = 3;
+
+        constexpr int SPACING_BETWEEN_ITEMS = 100;
+
+        enum Mode
+        {
+            MAZE_SOLVING = 0,
+            WALL_BUILDING = 1,
+            EXIT = 2
+        };
     }
 
 }

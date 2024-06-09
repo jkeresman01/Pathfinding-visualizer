@@ -6,7 +6,7 @@ Wall::Wall()
     m_wall.setSize(sf::Vector2f(gc::wall::WIDTH, gc::wall::HEIGHT));
     m_wall.setOrigin(gc::wall::ORIGIN_X, gc::wall::ORIGIN_Y);
     m_wall.setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
-    m_wall.setFillColor(sf::Color(51, 51, 255));
+    m_wall.setFillColor(sf::Color(204, 255, 229));
     setWindow(nullptr);
     setVisible(true);
 }

@@ -11,6 +11,7 @@ Button::Button(const std::string t_path)
     m_button.setTexture(m_texture);
     m_button.setOrigin(m_button.getGlobalBounds().width / 2, m_button.getGlobalBounds().height / 2);
     m_button.setPosition(gc::button::POSITION_X, gc::button::POSITION_Y);
+    m_button.setColor(sf::Color(204, 255, 229));
     setWindow(nullptr);
     setScale(gc::button::SCALE);
 }

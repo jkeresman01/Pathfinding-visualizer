@@ -1,0 +1,61 @@
+#include "headers/Global.h"
+#include "headers/Menu.h"
+#include "headers/MenuItem.h"
+
+#include <algorithm>
+
+#include <SFML/Window/Event.hpp>
+
+Menu::Menu()
+{
+    initilazeMenuItems();
+    setWindow(nullptr);
+}
+
+void Menu::initilazeMenuItems()
+{
+    m_menuItems = new MenuItem[gc::menu::NUMBER_OF_OPTIONS];
+
+    m_menuItems[gc::menu::MAZE_SOLVING].setText("Maze solving!");
+    m_menuItems[gc::menu::MAZE_SOLVING].move(0, -gc::menu::SPACING_BETWEEN_ITEMS);
+    m_menuItems[gc::menu::MAZE_SOLVING].setSelected(true);
+    m_currentSelectedOption = gc::menu::MAZE_SOLVING;
+
+    m_menuItems[gc::menu::WALL_BUILDING].setText("Wall building!");
+
+    m_menuItems[gc::menu::EXIT].setText("Exit!");
+    m_menuItems[gc::menu::EXIT].move(0, gc::menu::SPACING_BETWEEN_ITEMS);
+}
+
+Menu::~Menu()
+{
+    delete[] m_menuItems;
+}
+
+void Menu::update(sf::Event *t_event)
+{
+    if(t_event->type == sf::Event::KeyReleased and t_event->key.code == sf::Keyboard::Up and m_currentSelectedOption > 0)
+    {
+        m_menuItems[m_currentSelectedOption].setSelected(false);
+        m_menuItems[--m_currentSelectedOption].setSelected(true);
+    }
+
+    if(t_event->type == sf::Event::KeyReleased and t_event->key.code == sf::Keyboard::Down and m_currentSelectedOption < gc::menu::NUMBER_OF_OPTIONS - 1)
+    {
+        m_menuItems[m_currentSelectedOption].setSelected(false);
+        m_menuItems[++m_currentSelectedOption].setSelected(true);
+    }
+}
+
+void Menu::draw()
+{
+    m_window->clear(sf::Color(3, 11, 28));
+    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [](MenuItem &mi){mi.draw();});
+    m_window->display();
+}
+
+void Menu::setWindow(sf::RenderWindow *t_window)
+{
+    m_window = t_window;
+    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [&t_window](MenuItem &mi){mi.setWindow(t_window);});
+}
