@@ -29,7 +29,6 @@ void Menu::initilazeMenuItems()
 
     m_menuItems[gc::menu::EXIT].setText("Exit!");
     m_menuItems[gc::menu::EXIT].move(0, gc::menu::SPACING_BETWEEN_ITEMS);
-
 }
 
 Menu::~Menu()
@@ -39,7 +38,6 @@ Menu::~Menu()
 
 void Menu::draw()
 {
-
     m_window->clear(sf::Color(3, 11, 28));
     m_backgorund.draw();
     std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [](MenuItem &mi){mi.draw();});
