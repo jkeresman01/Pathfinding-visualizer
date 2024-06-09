@@ -9,7 +9,9 @@
 
 Menu::Menu()
 {
-    m_backgorund.setScale(0.4, 0.4);
+    m_soundBuffer.loadFromFile("./resources/images/maze_draw3.wav");
+    m_sound.setBuffer(m_soundBuffer);
+    m_backgorund.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
     initilazeMenuItems();
     setWindow(nullptr);
 }
@@ -48,6 +50,7 @@ void Menu::moveUp()
 {
     if(m_currentSelectedOption > 0)
     {
+        m_sound.play();
         m_menuItems[m_currentSelectedOption].setSelected(false);
         m_menuItems[--m_currentSelectedOption].setSelected(true);
     }
@@ -57,6 +60,7 @@ void Menu::moveDown()
 {
     if(m_currentSelectedOption < gc::menu::NUMBER_OF_OPTIONS - 1)
     {
+        m_sound.play();
         m_menuItems[m_currentSelectedOption].setSelected(false);
         m_menuItems[++m_currentSelectedOption].setSelected(true);
     }

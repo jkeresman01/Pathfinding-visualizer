@@ -103,8 +103,10 @@ namespace gc
     namespace menu
     {
         constexpr int NUMBER_OF_OPTIONS = 3;
-
         constexpr int SPACING_BETWEEN_ITEMS = 100;
+
+        constexpr float BACKGROND_SCALE_X = 0.4f;
+        constexpr float BACKGROND_SCALE_Y = 0.4f;
 
         enum Mode
         {
