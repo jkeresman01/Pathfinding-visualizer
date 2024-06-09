@@ -7,7 +7,7 @@ MenuItem::MenuItem()
 {
     m_font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf");
     m_menuItem.setFont(m_font);
-    m_menuItem.setCharacterSize(40);
+    m_menuItem.setCharacterSize(30);
     m_menuItem.setPosition(gc::screen::WIDTH / 2.0f, gc::screen::HEIGHT / 2.0f);
     setWindow(nullptr);
 }

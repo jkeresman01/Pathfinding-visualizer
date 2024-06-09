@@ -5,9 +5,11 @@
 #include <algorithm>
 
 #include <SFML/Window/Event.hpp>
+#include <SFML/Audio.hpp>
 
 Menu::Menu()
 {
+    m_backgorund.setScale(0.4, 0.4);
     initilazeMenuItems();
     setWindow(nullptr);
 }
@@ -25,6 +27,7 @@ void Menu::initilazeMenuItems()
 
     m_menuItems[gc::menu::EXIT].setText("Exit!");
     m_menuItems[gc::menu::EXIT].move(0, gc::menu::SPACING_BETWEEN_ITEMS);
+
 }
 
 Menu::~Menu()
@@ -34,7 +37,9 @@ Menu::~Menu()
 
 void Menu::draw()
 {
+
     m_window->clear(sf::Color(3, 11, 28));
+    m_backgorund.draw();
     std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [](MenuItem &mi){mi.draw();});
     m_window->display();
 }
@@ -65,5 +70,6 @@ int Menu::getSelectedItem() const
 void Menu::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
+    m_backgorund.setWindow(t_window);
     std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [&t_window](MenuItem &mi){mi.setWindow(t_window);});
 }

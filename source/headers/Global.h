@@ -6,7 +6,7 @@ namespace gc
     namespace screen
     {
         constexpr int WIDTH = 1200; 
-        constexpr int HEIGHT = 900; 
+        constexpr int HEIGHT = 780; 
 
         constexpr int POSITION_X  = 300; 
         constexpr int POSITION_Y  = 200; 
@@ -14,20 +14,20 @@ namespace gc
 
     namespace grid
     {
-        constexpr int ROWS = 40; 
-        constexpr int COLUMNS = 40; 
+        constexpr int ROWS = 24; 
+        constexpr int COLUMNS = 32; 
     }
 
     namespace node
     {
-        constexpr float WIDTH = 20.0f;
-        constexpr float HEIGHT = 20.0f; 
+        constexpr float WIDTH = 30.0f;
+        constexpr float HEIGHT = 30.0f; 
 
         constexpr float ORIGIN_X = WIDTH / 2;
         constexpr float ORIGIN_Y = HEIGHT / 2;
 
         constexpr float START_POSITION_X = 40.0f; 
-        constexpr float START_POSITION_Y = 90.0f; 
+        constexpr float START_POSITION_Y = 40.0f; 
 
         constexpr int START_INDEX_X = 0;
         constexpr int START_INDEX_Y = 0;

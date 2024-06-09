@@ -2,23 +2,27 @@
 
 Background::Background()
 {
-    setImage("./resources/images/background_01.jpg");
-    this->m_background.setScale(0.23, 0.23);
-}
-
-void Background::setWindow(sf::RenderWindow *t_window)
-{
-    this->m_window = t_window;
-}
-
-void Background::setImage(std::string t_path)
-{
-    this->m_path = t_path;
-    this->m_texture.loadFromFile(t_path);
-    this->m_background.setTexture(m_texture);
+    setImage("./resources/images/backgorund_09.jpg");
 }
 
 void Background::draw()
 {
-    this->m_window->draw(m_background);
+    m_window->draw(m_background);
+}
+
+void Background::setScale(const float t_scaleX, const float t_scaleY)
+{
+    m_background.setScale(t_scaleX, t_scaleY);
+}
+
+void Background::setWindow(sf::RenderWindow *t_window)
+{
+    m_window = t_window;
+}
+
+void Background::setImage(std::string t_path)
+{
+    m_path = t_path;
+    m_texture.loadFromFile(t_path);
+    m_background.setTexture(m_texture);
 }

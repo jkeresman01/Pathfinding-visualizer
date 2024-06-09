@@ -2,6 +2,7 @@
 
 #include "Global.h"
 #include "MenuItem.h"
+#include "Backgorund.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
@@ -23,5 +24,6 @@ class Menu
     private:
         sf::RenderWindow *m_window;
         MenuItem *m_menuItems;
+        Background m_backgorund;
         int m_currentSelectedOption;
 };
