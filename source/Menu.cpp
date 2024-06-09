@@ -32,26 +32,34 @@ Menu::~Menu()
     delete[] m_menuItems;
 }
 
-void Menu::update(sf::Event *t_event)
+void Menu::draw()
 {
-    if(t_event->type == sf::Event::KeyReleased and t_event->key.code == sf::Keyboard::Up and m_currentSelectedOption > 0)
+    m_window->clear(sf::Color(3, 11, 28));
+    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [](MenuItem &mi){mi.draw();});
+    m_window->display();
+}
+
+void Menu::moveUp()
+{
+    if(m_currentSelectedOption > 0)
     {
         m_menuItems[m_currentSelectedOption].setSelected(false);
         m_menuItems[--m_currentSelectedOption].setSelected(true);
     }
+}
 
-    if(t_event->type == sf::Event::KeyReleased and t_event->key.code == sf::Keyboard::Down and m_currentSelectedOption < gc::menu::NUMBER_OF_OPTIONS - 1)
+void Menu::moveDown()
+{
+    if(m_currentSelectedOption < gc::menu::NUMBER_OF_OPTIONS - 1)
     {
         m_menuItems[m_currentSelectedOption].setSelected(false);
         m_menuItems[++m_currentSelectedOption].setSelected(true);
     }
 }
 
-void Menu::draw()
+int Menu::getSelectedItem() const
 {
-    m_window->clear(sf::Color(3, 11, 28));
-    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [](MenuItem &mi){mi.draw();});
-    m_window->display();
+    return m_currentSelectedOption;
 }
 
 void Menu::setWindow(sf::RenderWindow *t_window)

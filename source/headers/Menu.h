@@ -1,9 +1,10 @@
 #pragma once
 
+#include "Global.h"
+#include "MenuItem.h"
+
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Window/Event.hpp>
-
-#include "MenuItem.h"
 
 class Menu
 {
@@ -11,8 +12,10 @@ class Menu
         Menu();
         ~Menu();
         void draw();
-        void update(sf::Event *t_event);
+        void moveUp();
+        void moveDown();
         void setWindow(sf::RenderWindow *t_window);
+        int getSelectedItem() const;
 
     private:
         void initilazeMenuItems();
