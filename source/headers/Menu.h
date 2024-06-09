@@ -2,7 +2,7 @@
 
 #include "Global.h"
 #include "MenuItem.h"
-#include "Backgorund.h"
+#include "Background.h"
 
 #include <SFML/Audio/Sound.hpp>
 #include <SFML/Audio/SoundBuffer.hpp>
@@ -27,7 +27,7 @@ class Menu
         sf::RenderWindow *m_window;
         sf::SoundBuffer m_soundBuffer;
         sf::Sound m_sound;
+        Background m_background;
         MenuItem *m_menuItems;
-        Background m_backgorund;
         int m_currentSelectedOption;
 };

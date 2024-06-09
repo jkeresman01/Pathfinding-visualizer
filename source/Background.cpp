@@ -1,4 +1,4 @@
-#include "headers/Backgorund.h"
+#include "headers/Background.h"
 
 Background::Background()
 {

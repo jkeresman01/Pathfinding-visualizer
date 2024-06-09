@@ -11,7 +11,7 @@ Menu::Menu()
 {
     m_soundBuffer.loadFromFile("./resources/images/maze_draw3.wav");
     m_sound.setBuffer(m_soundBuffer);
-    m_backgorund.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
+    m_background.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
     initilazeMenuItems();
     setWindow(nullptr);
 }
@@ -39,7 +39,7 @@ Menu::~Menu()
 void Menu::draw()
 {
     m_window->clear(sf::Color(3, 11, 28));
-    m_backgorund.draw();
+    m_background.draw();
     std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [](MenuItem &mi){mi.draw();});
     m_window->display();
 }
@@ -72,6 +72,6 @@ int Menu::getSelectedItem() const
 void Menu::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
-    m_backgorund.setWindow(t_window);
+    m_background.setWindow(t_window);
     std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [&t_window](MenuItem &mi){mi.setWindow(t_window);});
 }
