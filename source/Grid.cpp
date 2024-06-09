@@ -44,11 +44,7 @@ void Grid::draw()
 
 void Grid::removeWalls()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) 
-    {
-        n.destroyAllWalls();
-        n.setOutline();
-    });
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setVisible(true);});
 }
 
 Node* Grid::getNodeAtPosition(const int t_positionX, const int t_positionY)

@@ -47,7 +47,7 @@ namespace gc
 
     namespace wall
     {
-        constexpr float HEIGHT = 2.0f;
+        constexpr float HEIGHT = 1.0f;
         constexpr float WIDTH = node::WIDTH;
 
         constexpr float ORIGIN_X = node::WIDTH / 2;
