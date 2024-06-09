@@ -1,7 +1,7 @@
 #include "headers/Button.h"
 #include "headers/Global.h"
-#include <SFML/Graphics/RenderWindow.hpp>
 
+#include <SFML/Graphics/RenderWindow.hpp>
 
 Button::Button(const std::string t_path)
 {

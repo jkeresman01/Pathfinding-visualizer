@@ -2,7 +2,6 @@
 
 namespace gc
 {
-
     namespace screen
     {
         constexpr int WIDTH = 1200; 

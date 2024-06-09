@@ -4,7 +4,6 @@
 #include<thread>
 #include<chrono>
 
-
 using namespace std::chrono_literals;
 
 void recreatePath(Node *t_currentNode, Grid &t_grid, sf::RenderWindow *t_window, sf::Sound &sound)
