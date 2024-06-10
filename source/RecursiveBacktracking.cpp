@@ -14,34 +14,34 @@ void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodes, int &t_numberOfVi
         return t_grid.getNodeAtPosition(currentNode->getGridPosition().first + x, currentNode->getGridPosition().second + y);
     };
 
-    std::vector<gc::maze::Direction> posible_directions;
+    std::vector<gc::maze::Direction> possibleDirections;
     if (currentNode->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited())
     {
-        posible_directions.push_back(gc::maze::Direction::LEFT);
+        possibleDirections.push_back(gc::maze::Direction::LEFT);
     }
 
     if (currentNode->getGridPosition().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited())
     {
-        posible_directions.push_back(gc::maze::Direction::BOTTOM);
+        possibleDirections.push_back(gc::maze::Direction::BOTTOM);
     }
 
     if (currentNode->getGridPosition().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited())
     {
-        posible_directions.push_back(gc::maze::Direction::RIGHT);
+        possibleDirections.push_back(gc::maze::Direction::RIGHT);
     }
 
     if (currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited())
     {
-        posible_directions.push_back(gc::maze::Direction::TOP);
+        possibleDirections.push_back(gc::maze::Direction::TOP);
     }
 
-    if (posible_directions.empty())
+    if (possibleDirections.empty())
     {
         t_visitedNodes.pop();
         return;
     }
 
-    int nextDirection = posible_directions[rand() % posible_directions.size()];
+    int nextDirection = possibleDirections[rand() % possibleDirections.size()];
     Node *nextNode;
 
     if(nextDirection == gc::maze::Direction::LEFT)
