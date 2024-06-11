@@ -19,6 +19,7 @@ Legend::Legend()
 
 void Legend::initilazeLegendItems()
 {
+    m_items[gc::legend::ESC].setString("ESC - Menu");
     m_items[gc::legend::RESET].setString("R - Reset");
     m_items[gc::legend::DFS].setString("D - DFS");
     m_items[gc::legend::BFS].setString("B - BFS");

@@ -119,7 +119,7 @@ namespace gc
 
     namespace legend
     {
-        constexpr int NUMBER_OF_ITEMS = 4;
+        constexpr int NUMBER_OF_ITEMS = 5;
 
         constexpr float POSITION_X = screen::WIDTH - 200.0f;
         constexpr float POSITION_Y = 25;
@@ -133,7 +133,8 @@ namespace gc
             RESET = 0,
             DFS = 1,
             BFS = 2,
-            DIJKSTRA = 3
+            DIJKSTRA = 3,
+            ESC = 4,
         };
     }
 
