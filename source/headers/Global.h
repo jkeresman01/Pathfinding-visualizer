@@ -107,6 +107,8 @@ namespace gc
         constexpr float BACKGROND_SCALE_X = 0.4f;
         constexpr float BACKGROND_SCALE_Y = 0.4f;
 
+        constexpr float FONT_SIZE = 30.0f;
+
         enum Mode
         {
             MAZE_SOLVING = 0,
@@ -118,6 +120,9 @@ namespace gc
     namespace legend
     {
         constexpr int NUMBER_OF_ITEMS = 4;
+
+        constexpr float POSITION_X = screen::WIDTH / 2.0f - 20;
+        constexpr float POSITION_Y = 20;
 
         enum Option
         {

@@ -3,13 +3,18 @@
 #include "headers/MenuItem.h"
 
 #include <algorithm>
+#include <iostream>
 
 #include <SFML/Window/Event.hpp>
 #include <SFML/Audio.hpp>
 
 Menu::Menu()
 {
-    m_soundBuffer.loadFromFile("./resources/images/maze_draw3.wav");
+    if(! m_soundBuffer.loadFromFile("./resources/images/maze_draw3.wav"))
+    {
+        std::cerr << "Sound effect can't be loaded from ./resources/images/maze_draw3.wav" << "\n";
+    }
+
     m_sound.setBuffer(m_soundBuffer);
     m_background.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
     initilazeMenuItems();

@@ -1,13 +1,19 @@
 #include "headers/MenuItem.h"                           
 #include "headers/Global.h"                           
 
+#include <iostream>
+
 #include <SFML/Graphics/Color.hpp>
 
 MenuItem::MenuItem()
 {
-    m_font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf");
+    if(!m_font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf"))
+    {
+        std::cerr << "Font can't be loaded from ./resources/fonts/Emulogic-zrEw.ttf" << "\n";
+    }
+
     m_menuItem.setFont(m_font);
-    m_menuItem.setCharacterSize(30);
+    m_menuItem.setCharacterSize(gc::menu::FONT_SIZE);
     m_menuItem.setPosition(gc::screen::WIDTH / 2.0f, gc::screen::HEIGHT / 2.0f);
     setWindow(nullptr);
 }
