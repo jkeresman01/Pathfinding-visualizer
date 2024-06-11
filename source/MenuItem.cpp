@@ -9,7 +9,7 @@ MenuItem::MenuItem()
 {
     if(!m_font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf"))
     {
-        std::cerr << "Font can't be loaded from ./resources/fonts/Emulogic-zrEw.ttf" << "\n";
+        std::cerr << "ERROR: Font can't be loaded from ./resources/fonts/Emulogic-zrEw.ttf" << "\n";
     }
 
     m_menuItem.setFont(m_font);

@@ -10,9 +10,9 @@
 
 Menu::Menu()
 {
-    if(! m_soundBuffer.loadFromFile("./resources/images/maze_draw3.wav"))
+    if(!m_soundBuffer.loadFromFile("./resources/images/maze_draw3.wav"))
     {
-        std::cerr << "Sound effect can't be loaded from ./resources/images/maze_draw3.wav" << "\n";
+        std::cerr << "ERROR: Sound effect can't be loaded from ./resources/images/maze_draw3.wav" << "\n";
     }
 
     m_sound.setBuffer(m_soundBuffer);
