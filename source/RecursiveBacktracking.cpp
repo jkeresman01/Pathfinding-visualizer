@@ -41,7 +41,7 @@ void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodes, int &t_numberOfVi
         return;
     }
 
-    int nextDirection = possibleDirections[rand() % possibleDirections.size()];
+    gc::maze::Direction nextDirection = possibleDirections[rand() % possibleDirections.size()];
     Node *nextNode;
 
     if(nextDirection == gc::maze::Direction::LEFT)
