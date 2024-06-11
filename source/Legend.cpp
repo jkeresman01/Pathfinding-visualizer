@@ -25,7 +25,7 @@ void Legend::initilazeLegendItems()
     m_items[gc::legend::BFS].setString("B - BFS");
     m_items[gc::legend::DIJKSTRA].setString("J - Dijsktra");
 
-    for(int i = 0; i < gc::legend::NUMBER_OF_ITEMS; ++i)
+    for(size_t i = 0; i < gc::legend::NUMBER_OF_ITEMS; ++i)
     {
         m_items[i].setFont(m_font);
         m_items[i].setCharacterSize(gc::legend::FONT_SIZE);

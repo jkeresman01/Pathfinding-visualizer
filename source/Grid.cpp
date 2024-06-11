@@ -14,9 +14,9 @@ Grid::Grid(sf::RenderWindow *t_window)
 
 void Grid::initilazeNodes()
 {
-    for(int i = 0; i < gc::grid::ROWS; ++i)
+    for(size_t i = 0; i < gc::grid::ROWS; ++i)
     {
-        for(int j = 0; j < gc::grid::COLUMNS; ++j)
+        for(size_t j = 0; j < gc::grid::COLUMNS; ++j)
         {
             m_grid[gc::grid::COLUMNS * i + j].setWindow(m_window);
             m_grid[gc::grid::COLUMNS * i + j].setGridIndex(i, j);
