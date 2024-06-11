@@ -48,10 +48,7 @@ void bfs(Grid &t_grid, std::queue<Node*> &t_visitedNodes, bool &t_isTargetReache
         t_visitedNodes.push(neighbour(0, 1));
     }
 
-    if (currentNode->getGridPosition().first > 0 
-            and !neighbour(-1, 0)->isVisited() 
-            and !currentNode->isWallVisible(gc::wall::TOP) 
-            and neighbour(-1, 0)->getType() != gc::node::WALL)
+    if (currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited() and !currentNode->isWallVisible(gc::wall::TOP) and neighbour(-1, 0)->getType() != gc::node::WALL)
     {
         neighbour(-1, 0)->setVisited(true);
         neighbour(-1, 0)->setPredecessor(currentNode);
