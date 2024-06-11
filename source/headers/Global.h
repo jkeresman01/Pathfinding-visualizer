@@ -121,8 +121,12 @@ namespace gc
     {
         constexpr int NUMBER_OF_ITEMS = 4;
 
-        constexpr float POSITION_X = screen::WIDTH / 2.0f - 20;
-        constexpr float POSITION_Y = 20;
+        constexpr float POSITION_X = screen::WIDTH - 200.0f;
+        constexpr float POSITION_Y = 25;
+
+        constexpr float FONT_SIZE = 15.0f;
+
+        constexpr int ITEM_SPACING = 40;
 
         enum Option
         {

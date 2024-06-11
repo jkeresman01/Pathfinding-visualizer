@@ -27,10 +27,10 @@ void Legend::initilazeLegendItems()
     for(int i = 0; i < gc::legend::NUMBER_OF_ITEMS; ++i)
     {
         m_items[i].setFont(m_font);
-        m_items[i].setCharacterSize(20);
-        m_items[i].setFillColor(sf::Color(51, 51, 255));
+        m_items[i].setCharacterSize(gc::legend::FONT_SIZE);
+        m_items[i].setFillColor(sf::Color(204, 255, 229));
         m_items[i].setPosition(gc::legend::POSITION_X, gc::legend::POSITION_Y);
-        m_items[i].move(0, i * 40);
+        m_items[i].move(0, i * gc::legend::ITEM_SPACING);
     }
 }
 
