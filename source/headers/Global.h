@@ -115,4 +115,17 @@ namespace gc
         };
     }
 
+    namespace legend
+    {
+        constexpr int NUMBER_OF_ITEMS = 4;
+
+        enum Option
+        {
+            RESET = 0,
+            DFS = 1,
+            BFS = 2,
+            DIJKSTRA = 3
+        };
+    }
+
 }
