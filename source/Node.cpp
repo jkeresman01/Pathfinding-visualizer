@@ -84,14 +84,14 @@ void Node::setVisible(const bool t_isVisible)
 {
     m_isVisible = t_isVisible;
 
-    if(!m_isVisible)
+    if(m_isVisible)
     {
-        m_node.setFillColor(sf::Color::Transparent);
-        destroyAllWalls();
+        recreateAllWalls();
     }
     else 
     {
-        recreateAllWalls();
+        m_node.setFillColor(sf::Color::Transparent);
+        destroyAllWalls();
     }
 }
 
