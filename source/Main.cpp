@@ -23,17 +23,29 @@
 #include <stack>
 #include <thread>
 
-    /*
-    sf::Font font;
-    font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf");
-    sf::Text tada;
-    tada.setString("Pac seacrch");
-    tada.setFont(font);
-    tada.setCharacterSize(40);
-    tada.setFillColor(sf::Color());
-    tada.setPosition(10, 10);
-    tada.setFillColor(sf::Color(51, 51, 255));
-    */
+
+/*
+ *
+ * NOT BAKED YET!!!!!!!!!!!!!!!
+ * NOT BAKED YET!!!!!!!!!!!!!!!
+ * NOT BAKED YET!!!!!!!!!!!!!!!
+ * NOT BAKED YET!!!!!!!!!!!!!!!
+ * NOT BAKED YET!!!!!!!!!!!!!!!
+ * NOT BAKED YET!!!!!!!!!!!!!!!
+ *
+ */
+
+/*
+   sf::Font font;
+   font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf");
+   sf::Text tada;
+   tada.setString("Pac seacrch");
+   tada.setFont(font);
+   tada.setCharacterSize(40);
+   tada.setFillColor(sf::Color());
+   tada.setPosition(10, 10);
+   tada.setFillColor(sf::Color(51, 51, 255));
+   */
 
 /*
    std::stack<Node*> dfs_visited_nodes;
@@ -88,29 +100,9 @@ int main(){
     int visited_count = 1;
 
 
-    /*
-    //Random wall
-    grid.getNodeAtPosition(10, 8)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(10, 9)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(10, 10)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(10, 11)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(10, 12)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(10, 13)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(10, 14)->setType(gc::node::WALL);
-
-
-    //Random wall
-    grid.getNodeAtPosition(0, 11)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(1, 11)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(2, 11)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(3, 11)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(4, 11)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(5, 11)->setType(gc::node::WALL);
-    grid.getNodeAtPosition(6, 11)->setType(gc::node::WALL);
-
-    */
 
     // start and end search nodes
+
     Node* start = grid.getNodeAtPosition(gc::grid::ROWS / 2 + 1, gc::grid::COLUMNS / 2 + 1);
     start->setType(gc::node::Type::START);
 
@@ -227,6 +219,10 @@ int main(){
 
                         if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::D){
                             dfs(grid, start, &window, is_target_reached);
+                            if(is_target_reached)
+                            {
+                                recreatePath(start, grid, &window, sound);
+                            }
                         }
 
                         if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::B){
@@ -239,6 +235,26 @@ int main(){
 
                 if(current_scene == 1){
                     grid.restoreVisitedNodes();
+                    //Random wall
+                    grid.getNodeAtPosition(10, 8)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(10, 9)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(10, 10)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(10, 11)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(10, 12)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(10, 13)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(10, 14)->setType(gc::node::WALL);
+
+
+                    //Random wall
+                    grid.getNodeAtPosition(0, 11)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(1, 11)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(2, 11)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(3, 11)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(4, 11)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(5, 11)->setType(gc::node::WALL);
+                    grid.getNodeAtPosition(6, 11)->setType(gc::node::WALL);
+
+
                     if(!is_target_reached and !q_nodes.empty()){
                         bfs(grid, q_nodes, is_target_reached);
                     }
