@@ -1,14 +1,12 @@
 #include "headers/Wall.h"
 #include "headers/Global.h"
     
-Wall::Wall()
+Wall::Wall() : m_window(nullptr), m_isVisible(true)
 {
     m_wall.setSize(sf::Vector2f(gc::wall::WIDTH, gc::wall::HEIGHT));
     m_wall.setOrigin(gc::wall::ORIGIN_X, gc::wall::ORIGIN_Y);
     m_wall.setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
     m_wall.setFillColor(sf::Color(204, 255, 229));
-    setWindow(nullptr);
-    setVisible(true);
 }
 
 void Wall::draw()

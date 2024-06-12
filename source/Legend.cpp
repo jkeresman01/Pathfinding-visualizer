@@ -1,20 +1,18 @@
 #include "headers/Legend.h"
 #include "headers/Global.h"
+#include "headers/Logger.h"
 
 #include <algorithm>
-#include <iostream>
 
 #include <SFML/Graphics/Text.hpp>
 
-Legend::Legend()
+Legend::Legend() : m_window(nullptr)
 {
     if(!m_font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf"))
     {
-        std::cerr << "ERROR: Font can't be loaded from ./resources/fonts/Emulogic-zrEw.ttf" << "\n";
+        LOG_ERROR("Font can't be loaded from ./resources/fonts/Emulogic-zrEw.ttf");
     }
-
     initilazeLegendItems();
-    setWindow(nullptr);
 }
 
 void Legend::initilazeLegendItems()

@@ -1,6 +1,5 @@
 #include "headers/Background.h"
-
-#include <iostream>
+#include "headers/Logger.h"
 
 Background::Background()
 {
@@ -26,7 +25,7 @@ void Background::setImage(const std::string &t_path)
 {
     if(!m_texture.loadFromFile(t_path))
     {
-        std::cerr << "ERROR: Image can't be loaded from ./resources/images/backgorund_09.jpg" << t_path << "\n";
+        LOG_ERROR("Texture can't be loaded from ./resources/images/backgorund_09.jpg");
     }
 
     m_background.setTexture(m_texture);

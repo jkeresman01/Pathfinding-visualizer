@@ -1,24 +1,23 @@
 #include "headers/Global.h"
 #include "headers/Menu.h"
 #include "headers/MenuItem.h"
+#include "headers/Logger.h"
 
 #include <algorithm>
-#include <iostream>
 
 #include <SFML/Window/Event.hpp>
 #include <SFML/Audio.hpp>
 
-Menu::Menu()
+Menu::Menu() : m_window(nullptr)
 {
     if(!m_soundBuffer.loadFromFile("./resources/images/maze_draw3.wav"))
     {
-        std::cerr << "ERROR: Sound effect can't be loaded from ./resources/images/maze_draw3.wav" << "\n";
+        LOG_ERROR("Sound effect can't be loaded from ./resources/images/maze_draw3.wav!");
     }
 
     m_sound.setBuffer(m_soundBuffer);
     m_background.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
     initilazeMenuItems();
-    setWindow(nullptr);
 }
 
 void Menu::initilazeMenuItems()
