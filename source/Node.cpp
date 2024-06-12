@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics/Color.hpp>
 
-Node::Node() : m_window(nullptr), m_predecessor(nullptr)
+Node::Node() : m_window(nullptr), m_predecessor(nullptr), m_type(gc::node::EMPTY)
 {
     m_node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
     m_node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);

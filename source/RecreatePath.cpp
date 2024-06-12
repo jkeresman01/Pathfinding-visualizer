@@ -15,6 +15,7 @@ void recreatePath(Node *t_currentNode, Grid &t_grid, sf::RenderWindow *t_window,
     }
 
     recreatePath(t_currentNode->getPredecessor(), t_grid, t_window, sound);
+
     t_currentNode->setType(gc::node::PATH);
 
     std::this_thread::sleep_for(0.7s);
