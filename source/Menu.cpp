@@ -12,7 +12,7 @@ Menu::Menu() : m_window(nullptr)
 {
     if(!m_soundBuffer.loadFromFile("./resources/images/maze_draw3.wav"))
     {
-        LOG_ERROR("Sound effect can't be loaded from ./resources/images/maze_draw3.wav!");
+        LOG_ERROR("Failed to load Sound effect from ./resources/images/maze_draw3.wav!");
     }
 
     m_soundEffect.setBuffer(m_soundBuffer);

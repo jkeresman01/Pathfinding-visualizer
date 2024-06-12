@@ -8,7 +8,7 @@ MenuItem::MenuItem() : m_window(nullptr)
 {
     if(!m_font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf"))
     {
-        LOG_ERROR("Font can't be loaded from ./resources/fonts/Emulogic-zrEw.ttf!");
+        LOG_ERROR("Failed to load font from ./resources/fonts/Emulogic-zrEw.ttf!");
     }
 
     m_menuItem.setFont(m_font);
