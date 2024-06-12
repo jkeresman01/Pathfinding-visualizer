@@ -1,10 +1,8 @@
 #include "headers/Wall.h"
 #include "headers/Global.h"
-#include "headers/Logger.h"
     
 Wall::Wall() : m_window(nullptr), m_isVisible(true)
 {
-    LOG_INFO("Tada test");
     m_wall.setSize(sf::Vector2f(gc::wall::WIDTH, gc::wall::HEIGHT));
     m_wall.setOrigin(gc::wall::ORIGIN_X, gc::wall::ORIGIN_Y);
     m_wall.setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
