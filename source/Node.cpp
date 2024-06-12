@@ -12,7 +12,6 @@ Node::Node() : m_window(nullptr), m_predecessor(nullptr), m_type(gc::node::EMPTY
     m_node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
     m_node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
     m_walls = new Wall[gc::wall::WALL_COUNT];
-    setType(gc::node::Type::EMPTY);
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
     setVisible(true);
