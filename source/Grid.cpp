@@ -5,11 +5,15 @@
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
 
-Grid::Grid(sf::RenderWindow *t_window)
+Grid::Grid(sf::RenderWindow *t_window) : m_window(t_window)
 {
-    m_window = t_window;
     m_grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
     initilazeNodes();
+}
+
+Grid::~Grid()
+{
+    delete[] m_grid;
 }
 
 void Grid::initilazeNodes()
@@ -30,11 +34,6 @@ void Grid::initilazeNodes()
 void Grid::restoreVisitedNodes()
 {
     std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.setVisited(false); });
-}
-
-Grid::~Grid()
-{
-    delete[] m_grid;
 }
 
 void Grid::draw()
