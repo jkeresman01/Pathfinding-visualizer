@@ -25,7 +25,7 @@ void Background::setImage(const std::string &t_path)
 {
     if(!m_texture.loadFromFile(t_path))
     {
-        LOG_ERROR("Texture can't be loaded from ./resources/images/backgorund_09.jpg");
+        LOG_ERROR("Texture can't be loaded from " << t_path << "!");
     }
 
     m_background.setTexture(m_texture);
