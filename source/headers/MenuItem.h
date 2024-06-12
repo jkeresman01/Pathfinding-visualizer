@@ -13,7 +13,7 @@ class MenuItem
         bool isSelected() const;
         void setWindow(sf::RenderWindow *t_window);
         void setSelected(const bool t_isSelected);
-        void setText(const std::string t_text);
+        void setText(const std::string &t_text);
     
     private:
         sf::RenderWindow *m_window;

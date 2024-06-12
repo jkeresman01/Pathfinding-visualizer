@@ -26,7 +26,7 @@ class Menu
     private:
         sf::RenderWindow *m_window;
         sf::SoundBuffer m_soundBuffer;
-        sf::Sound m_sound;
+        sf::Sound m_soundEffect;
         Background m_background;
         MenuItem *m_menuItems;
         int m_currentSelectedOption;

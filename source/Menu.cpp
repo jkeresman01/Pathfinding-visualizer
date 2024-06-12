@@ -15,7 +15,7 @@ Menu::Menu() : m_window(nullptr)
         LOG_ERROR("Sound effect can't be loaded from ./resources/images/maze_draw3.wav!");
     }
 
-    m_sound.setBuffer(m_soundBuffer);
+    m_soundEffect.setBuffer(m_soundBuffer);
     m_background.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
     initilazeMenuItems();
 }
@@ -52,7 +52,7 @@ void Menu::moveUp()
 {
     if(m_currentSelectedOption > 0)
     {
-        m_sound.play();
+        m_soundEffect.play();
         m_menuItems[m_currentSelectedOption].setSelected(false);
         m_menuItems[--m_currentSelectedOption].setSelected(true);
     }
@@ -62,7 +62,7 @@ void Menu::moveDown()
 {
     if(m_currentSelectedOption < gc::menu::NUMBER_OF_OPTIONS - 1)
     {
-        m_sound.play();
+        m_soundEffect.play();
         m_menuItems[m_currentSelectedOption].setSelected(false);
         m_menuItems[++m_currentSelectedOption].setSelected(true);
     }
