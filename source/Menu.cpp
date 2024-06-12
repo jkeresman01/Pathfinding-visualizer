@@ -20,6 +20,11 @@ Menu::Menu() : m_window(nullptr)
     initilazeMenuItems();
 }
 
+Menu::~Menu()
+{
+    delete[] m_menuItems;
+}
+
 void Menu::initilazeMenuItems()
 {
     m_menuItems = new MenuItem[gc::menu::NUMBER_OF_OPTIONS];
@@ -33,11 +38,6 @@ void Menu::initilazeMenuItems()
 
     m_menuItems[gc::menu::EXIT].setText("Exit!");
     m_menuItems[gc::menu::EXIT].move(0, gc::menu::SPACING_BETWEEN_ITEMS);
-}
-
-Menu::~Menu()
-{
-    delete[] m_menuItems;
 }
 
 void Menu::draw()
