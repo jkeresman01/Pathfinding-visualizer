@@ -2,9 +2,6 @@
 
 #include <stack>
 
-#include <SFML/Audio.hpp>
-#include <SFML/Audio/Sound.hpp>
-
 void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodes, uint32_t &t_numberOfVisitedNodes)
 {
     Node *currentNode = t_visitedNodes.top();
