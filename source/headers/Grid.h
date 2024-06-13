@@ -12,6 +12,7 @@ class Grid
         ~Grid();
         void draw();
         void removeWalls();
+        void createWalls();
         void restoreVisitedNodes();
         void setWindow(sf::RenderWindow *t_window);
         Node* getNodeAtPosition(const int t_positionX, const int t_positionY);

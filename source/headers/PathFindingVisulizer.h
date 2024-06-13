@@ -7,6 +7,7 @@
 #include "Menu.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <stack>
 
 class PathFindingVisulizer
 {
@@ -22,4 +23,7 @@ class PathFindingVisulizer
         Legend m_legend;
         Node *m_start;
         Node *m_end;;
+        std::stack<Node*> m_mazeVisitedNodes;
+        uint32_t m_numberOfVisitedNodes;
+        uint32_t m_isTargetReached;
 };

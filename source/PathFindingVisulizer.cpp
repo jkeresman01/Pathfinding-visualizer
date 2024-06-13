@@ -1,12 +1,13 @@
-#include "headers/PathFindingVisulizer.h"
 #include "headers/Global.h"
+#include "headers/PathFindingVisulizer.h"
+#include "headers/RecursiveBacktracking.h"
 
 #include <ctime>
-#include <thread>
 
 PathFindingVisulizer::PathFindingVisulizer() 
     : m_window(sf::VideoMode(gc::screen::WIDTH, gc::screen::HEIGHT), ""),
-    m_start(nullptr), m_end(nullptr), m_currentScene(gc::tool::MENU)
+    m_start(nullptr), m_end(nullptr), m_currentScene(gc::tool::MENU),
+    m_isTargetReached(false), m_numberOfVisitedNodes(0)
 {
     m_window.setPosition(sf::Vector2i(gc::screen::POSITION_X, gc::screen::POSITION_Y));
     m_window.setFramerateLimit(gc::tool::FRAMES_PER_SECOND);
@@ -35,7 +36,6 @@ void PathFindingVisulizer::run()
                 m_currentScene = gc::tool::Scene::MENU;
             }
 
-
             //------------------------      MENU LOGIC    ------------------------------------//
 
             if(m_currentScene == gc::tool::Scene::MENU)
@@ -50,61 +50,133 @@ void PathFindingVisulizer::run()
 
                 if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::Return)
                 {
-                    switch (m_menu.getSelectedItem()) 
-                    { 
-                        case gc::menu::MAZE_SOLVING:
-                            m_currentScene = gc::tool::Scene::MAZE_SOLVING;
-                            std::thread mazeDrawinf(drawMaze, );
-                            break;
-
-                        case gc::menu::WALL_BUILDING:
-                            m_currentScene = gc::tool::Scene::WALL_BUILDING;
-                            m_grid.restoreVisitedNodes();
-                            m_grid.removeWalls();
-                            break;
-
-                        case gc::menu::EXIT:
-                            m_window.close();
-                            break;
-                    }
-                }
-
-
-            //------------------------      LOGICAL LOGIC    ------------------------------------//
-                if(m_currentScene == gc::tool::Scene::MAZE_SOLVING || m_currentScene == gc::tool::Scene::WALL_BUILDING)
-                {
-                    if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::R){
-                        m_grid.removeWalls();
+                    if(m_menu.getSelectedItem() == gc::menu::MAZE_SOLVING)
+                    {
+                        m_currentScene = gc::tool::Scene::MAZE_SOLVING;
                         m_grid.restoreVisitedNodes();
+                        m_grid.createWalls();
+                        m_mazeVisitedNodes.push(m_grid.getNodeAtPosition(0, 0));
+                        m_numberOfVisitedNodes = 1;
                     }
 
+                    if(event.type == sf::Event::KeyReleased and m_menu.getSelectedItem() == gc::menu::WALL_BUILDING)
+                    {
+                        m_currentScene = gc::tool::Scene::WALL_BUILDING;
+                        m_grid.restoreVisitedNodes();
+                        m_grid.removeWalls();
+                    }
+
+                    if(event.type == sf::Event::KeyReleased and m_menu.getSelectedItem() == gc::menu::EXIT)
+                    {
+                        m_window.close();
+                    }
                 }
-
-
-            //------------------------      DRAW STUFF    ------------------------------------//
-
-                m_window.clear();
-
-                if(m_currentScene == gc::tool::MENU)
-                {
-                    m_menu.draw();
-                }
-
-                if(m_currentScene == gc::tool::MAZE_SOLVING)
-                {
-                    m_grid.draw();
-                    m_legend.draw();
-                }
-
-                if(m_currentScene == gc::tool::WALL_BUILDING)
-                {
-                    m_grid.draw();
-                    m_legend.draw();
-                }
-
-                m_window.display();
             }
 
         }
+
+
+        //------------------------      LOGICAL LOGIC    ------------------------------------//
+
+
+        //------------------------      DRAW STUFF    ------------------------------------//
+
+        m_window.clear(sf::Color(3, 11, 28));
+
+        if(m_currentScene == gc::tool::MENU)
+        {
+            m_menu.draw();
+        }
+
+        if(m_currentScene == gc::tool::MAZE_SOLVING)
+        {
+            if(m_numberOfVisitedNodes <= gc::grid::ROWS * gc::grid::COLUMNS)
+            {
+                drawMaze(m_grid, m_mazeVisitedNodes, m_numberOfVisitedNodes);
+            }
+            else 
+            {
+                m_grid.restoreVisitedNodes();
+            }
+
+            m_grid.draw();
+            m_legend.draw();
+        }
+
+        if(m_currentScene == gc::tool::WALL_BUILDING)
+        {
+            m_grid.draw();
+            m_legend.draw();
+        }
+
+        m_window.display();
+
     }
 }
+
+
+
+/*
+   if(current_scene == 1){
+   grid.restoreVisitedNodes();
+//Random wall
+grid.getNodeAtPosition(10, 8)->setType(gc::node::WALL);
+grid.getNodeAtPosition(10, 9)->setType(gc::node::WALL);
+grid.getNodeAtPosition(10, 10)->setType(gc::node::WALL);
+grid.getNodeAtPosition(10, 11)->setType(gc::node::WALL);
+grid.getNodeAtPosition(10, 12)->setType(gc::node::WALL);
+grid.getNodeAtPosition(10, 13)->setType(gc::node::WALL);
+grid.getNodeAtPosition(10, 14)->setType(gc::node::WALL);
+
+
+//Random wall
+grid.getNodeAtPosition(0, 11)->setType(gc::node::WALL);
+grid.getNodeAtPosition(1, 11)->setType(gc::node::WALL);
+grid.getNodeAtPosition(2, 11)->setType(gc::node::WALL);
+grid.getNodeAtPosition(3, 11)->setType(gc::node::WALL);
+grid.getNodeAtPosition(4, 11)->setType(gc::node::WALL);
+grid.getNodeAtPosition(5, 11)->setType(gc::node::WALL);
+grid.getNodeAtPosition(6, 11)->setType(gc::node::WALL);
+
+
+if(!is_target_reached and !q_nodes.empty()){
+bfs(grid, q_nodes, is_target_reached);
+}
+
+if(is_target_reached and end != nullptr){
+recreatePath(end, grid, &window, sound);
+}
+}
+
+}
+
+}
+
+*/
+
+/*
+// Maze generation stuff
+
+std::stack<Node*> maze_visited_nodes;;
+Node* grid_start_draw_node = grid.getNodeAtPosition(0, 0);
+maze_visited_nodes.push(grid_start_draw_node );
+int visited_count = 1;
+
+
+
+// start and end search nodes
+
+Node* start = grid.getNodeAtPosition(gc::grid::ROWS / 2 + 1, gc::grid::COLUMNS / 2 + 1);
+start->setType(gc::node::Type::START);
+
+Node* end = grid.getNodeAtPosition(gc::grid::ROWS - 1, gc::grid::COLUMNS - 1);
+end->setType(gc::node::Type::TARGET);
+
+bool is_target_reached = false;
+
+//BFS queuve
+std::queue<Node*> q_nodes;
+q_nodes.push(start);
+
+*/
+
