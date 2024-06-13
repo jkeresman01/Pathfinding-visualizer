@@ -36,7 +36,7 @@ void Legend::initilazeLegendItems()
 
 void Legend::draw()
 {
-    std::for_each(m_items, m_items + gc::legend::NUMBER_OF_ITEMS, [this](auto &i){ m_window->draw(i); });
+    std::for_each(m_items, m_items + gc::legend::NUMBER_OF_ITEMS, [this](sf::Text &item){ m_window->draw(item); });
 }
 
 void Legend::setWindow(sf::RenderWindow *t_window){

@@ -8,5 +8,4 @@
 
 void recreatePath(Node *t_node, 
                   Grid &t_grid,
-                  sf::RenderWindow *t_window,
-                  sf::Sound &sound);
+                  sf::RenderWindow *t_window);

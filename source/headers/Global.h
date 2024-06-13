@@ -88,13 +88,20 @@ namespace gc
     namespace tool
     {
         constexpr int FRAMES_PER_SECOND = 60;
-        constexpr float REFRESH_TIME_SECONDS = 0.5f; 
 
         enum Scene
         {
             MENU = 0,
             MAZE_SOLVING = 1,
             WALL_BUILDING = 2,
+        };
+
+        enum Algorithm
+        {
+            NOT_SELECTED = 0,
+            DFS = 1,
+            BFS = 2,
+            DIJKSTRA = 3,
         };
     }
 

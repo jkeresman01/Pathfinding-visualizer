@@ -1,6 +1,6 @@
 #include "headers/DepthFirstSearch.h"
 
-void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow *t_window, bool &t_isTargetReached){
+void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window, bool &t_isTargetReached){
 
     if(t_currentNode->getType() == gc::node::Type::TARGET)
     {
@@ -8,9 +8,9 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow *t_window, bool &t_
         return;
     }
 
-    t_window->clear(sf::Color(3, 11, 28));
+    t_window.clear(sf::Color(3, 11, 28));
     t_grid.draw();
-    t_window->display();
+    t_window.display();
 
     auto neighbour = [&t_currentNode, &t_grid](int x, int y)
     {

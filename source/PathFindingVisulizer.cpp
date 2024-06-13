@@ -1,13 +1,33 @@
+#include "headers/BreadthFirstSearch.h"
+#include "headers/DepthFirstSearch.h"
 #include "headers/Global.h"
 #include "headers/PathFindingVisulizer.h"
+#include "headers/RecreatePath.h"
 #include "headers/RecursiveBacktracking.h"
 
 #include <ctime>
+#include <thread>
+
+/*
+ *
+ * NOT BAKED YET
+ * NOT BAKED YET
+ * NOT BAKED YET
+ * NOT BAKED YET
+ * NOT BAKED YET
+ * NOT BAKED YET
+ * NOT BAKED YET
+ * NOT BAKED YET
+ * NOT BAKED YET
+ * NOT BAKED YET
+ * NOT BAKED YET
+ *
+ */
 
 PathFindingVisulizer::PathFindingVisulizer() 
     : m_window(sf::VideoMode(gc::screen::WIDTH, gc::screen::HEIGHT), ""),
     m_start(nullptr), m_end(nullptr), m_currentScene(gc::tool::MENU),
-    m_isTargetReached(false), m_numberOfVisitedNodes(0)
+    m_isTargetReached(false), m_numberOfVisitedNodes(0), m_algorithm(gc::tool::Algorithm::NOT_SELECTED)
 {
     m_window.setPosition(sf::Vector2i(gc::screen::POSITION_X, gc::screen::POSITION_Y));
     m_window.setFramerateLimit(gc::tool::FRAMES_PER_SECOND);
@@ -29,11 +49,6 @@ void PathFindingVisulizer::run()
             if (event.type == sf::Event::Closed)
             {
                 m_window.close();
-            }
-
-            if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::Escape)
-            {
-                m_currentScene = gc::tool::Scene::MENU;
             }
 
             //------------------------      MENU LOGIC    ------------------------------------//
@@ -73,6 +88,40 @@ void PathFindingVisulizer::run()
                 }
             }
 
+            if(m_currentScene == gc::tool::Scene::WALL_BUILDING || m_currentScene == gc::tool::Scene::MAZE_SOLVING)
+            {
+                
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::Escape)
+                {
+                    m_currentScene = gc::tool::Scene::MENU;
+                }
+
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::R)
+                {
+                    //probably clear stack and queue
+                    m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
+                    m_grid.restoreVisitedNodes();
+                }
+
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::D)
+                {
+                    m_algorithm = gc::tool::Algorithm::DFS;
+                    m_dfsVisitedNodes.push(m_start);
+                }
+
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::B)
+                {
+                    m_algorithm = gc::tool::Algorithm::BFS;
+                    m_bfsVisitedNodes.push(m_start);
+                }
+
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::J)
+                {
+                    //DIJKSTA
+                }
+                
+            }
+
         }
 
 
@@ -96,11 +145,48 @@ void PathFindingVisulizer::run()
             }
             else 
             {
-                m_grid.restoreVisitedNodes();
+
+                if(!m_isTargetReached)
+                {
+
+                    if(m_algorithm == gc::tool::NOT_SELECTED)
+                    {
+                        m_grid.restoreVisitedNodes();
+
+                        m_start = m_grid.getNodeAtPosition(0, 0);
+                        m_start->setType(gc::node::START);
+
+                        m_end = m_grid.getNodeAtPosition(10, 12);
+                        m_end->setType(gc::node::TARGET);
+                    }
+
+                    if(m_algorithm == gc::tool::DFS)
+                    {
+                        dfs(m_grid, m_start, m_window, m_isTargetReached);
+                    }
+
+                    if(m_algorithm == gc::tool::Algorithm::BFS)
+                    {
+                        bfs(m_grid, m_bfsVisitedNodes, m_isTargetReached);
+                    }
+                }
+                else if(!m_isPathCreated)
+                {
+                    recreatePath(m_end, m_grid, &m_window);
+                    m_isPathCreated = true;
+                }
+                else 
+                {
+                    m_isTargetReached = false;
+                    m_algorithm = gc::tool::NOT_SELECTED;
+                }
             }
 
             m_grid.draw();
-            m_legend.draw();
+            //m_legend.draw();
+
+            std::thread tada([this](){ m_legend.draw();});
+            tada.join();
         }
 
         if(m_currentScene == gc::tool::WALL_BUILDING)
