@@ -6,7 +6,6 @@
 #include "headers/RecursiveBacktracking.h"
 
 #include <ctime>
-#include <iostream>
 
 /*
  *
@@ -250,70 +249,3 @@ void PathFindingVisulizer::run()
 
     }
 }
-
-
-
-/*
-   if(current_scene == 1){
-   grid.restoreVisitedNodes();
-//Random wall
-grid.getNodeAtPosition(10, 8)->setType(gc::node::WALL);
-grid.getNodeAtPosition(10, 9)->setType(gc::node::WALL);
-grid.getNodeAtPosition(10, 10)->setType(gc::node::WALL);
-grid.getNodeAtPosition(10, 11)->setType(gc::node::WALL);
-grid.getNodeAtPosition(10, 12)->setType(gc::node::WALL);
-grid.getNodeAtPosition(10, 13)->setType(gc::node::WALL);
-grid.getNodeAtPosition(10, 14)->setType(gc::node::WALL);
-
-
-//Random wall
-grid.getNodeAtPosition(0, 11)->setType(gc::node::WALL);
-grid.getNodeAtPosition(1, 11)->setType(gc::node::WALL);
-grid.getNodeAtPosition(2, 11)->setType(gc::node::WALL);
-grid.getNodeAtPosition(3, 11)->setType(gc::node::WALL);
-grid.getNodeAtPosition(4, 11)->setType(gc::node::WALL);
-grid.getNodeAtPosition(5, 11)->setType(gc::node::WALL);
-grid.getNodeAtPosition(6, 11)->setType(gc::node::WALL);
-
-
-if(!is_target_reached and !q_nodes.empty()){
-bfs(grid, q_nodes, is_target_reached);
-}
-
-if(is_target_reached and end != nullptr){
-recreatePath(end, grid, &window, sound);
-}
-}
-
-}
-
-}
-
-*/
-
-/*
-// Maze generation stuff
-
-std::stack<Node*> maze_visited_nodes;;
-Node* grid_start_draw_node = grid.getNodeAtPosition(0, 0);
-maze_visited_nodes.push(grid_start_draw_node );
-int visited_count = 1;
-
-
-
-// start and end search nodes
-
-Node* start = grid.getNodeAtPosition(gc::grid::ROWS / 2 + 1, gc::grid::COLUMNS / 2 + 1);
-start->setType(gc::node::Type::START);
-
-Node* end = grid.getNodeAtPosition(gc::grid::ROWS - 1, gc::grid::COLUMNS - 1);
-end->setType(gc::node::Type::TARGET);
-
-bool is_target_reached = false;
-
-//BFS queuve
-std::queue<Node*> q_nodes;
-q_nodes.push(start);
-
-*/
-
