@@ -6,7 +6,6 @@
 #include "headers/RecursiveBacktracking.h"
 
 #include <ctime>
-#include <thread>
 
 /*
  *
@@ -204,11 +203,7 @@ void PathFindingVisulizer::run()
            }
 
             m_grid.draw();
-            //m_legend.draw();
-
-            std::thread tada([this](){ m_legend.draw();});
-            tada.join();
-        }
+            m_legend.draw();
 
         if(m_currentScene == gc::tool::WALL_BUILDING)
         {
