@@ -6,6 +6,7 @@
 #include "headers/RecursiveBacktracking.h"
 
 #include <ctime>
+#include <iostream>
 
 /*
  *
@@ -25,7 +26,7 @@
 
 PathFindingVisulizer::PathFindingVisulizer() 
     : m_window(sf::VideoMode(gc::screen::WIDTH, gc::screen::HEIGHT), ""),
-    m_start(nullptr), m_end(nullptr), m_currentScene(gc::tool::MENU),
+    m_start(nullptr), m_end(nullptr), m_currentScene(gc::tool::Scene::MENU),
     m_isTargetReached(false), m_numberOfVisitedNodes(0), m_algorithm(gc::tool::Algorithm::NOT_SELECTED)
 {
     m_window.setPosition(sf::Vector2i(gc::screen::POSITION_X, gc::screen::POSITION_Y));
@@ -68,6 +69,7 @@ void PathFindingVisulizer::run()
                     {
                         m_currentScene = gc::tool::Scene::MAZE_SOLVING;
                         m_grid.restoreVisitedNodes();
+                        m_grid.setOutline(false);
                         m_grid.createWalls();
                         m_mazeVisitedNodes.push(m_grid.getNodeAtPosition(0, 0));
                         m_numberOfVisitedNodes = 1;
@@ -78,6 +80,7 @@ void PathFindingVisulizer::run()
                         m_currentScene = gc::tool::Scene::WALL_BUILDING;
                         m_grid.restoreVisitedNodes();
                         m_grid.removeWalls();
+                        m_grid.setOutline(true);
                     }
 
                     if(event.type == sf::Event::KeyReleased and m_menu.getSelectedItem() == gc::menu::EXIT)
@@ -123,7 +126,7 @@ void PathFindingVisulizer::run()
 
                     m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
                     m_grid.restoreVisitedNodes();
-                    m_grid.createWalls();
+                    //m_grid.createWalls();
                     m_isTargetReached = false;
                     m_isPathCreated = false;
                 }
@@ -204,11 +207,43 @@ void PathFindingVisulizer::run()
 
             m_grid.draw();
             m_legend.draw();
+        }
 
         if(m_currentScene == gc::tool::WALL_BUILDING)
         {
             m_grid.draw();
             m_legend.draw();
+
+            if(!m_isTargetReached)
+            {
+
+                if(m_algorithm == gc::tool::NOT_SELECTED)
+                {
+                    m_grid.restoreVisitedNodes();
+
+                    m_start = m_grid.getNodeAtPosition(0, 0);
+                    m_start->setType(gc::node::START);
+
+                    m_end = m_grid.getNodeAtPosition(10, 12);
+                    m_end->setType(gc::node::TARGET);
+                }
+
+                if(m_algorithm == gc::tool::DFS)
+                {
+                    dfs(m_grid, m_start, m_window, m_isTargetReached);
+                }
+
+                if(m_algorithm == gc::tool::Algorithm::BFS)
+                {
+                    bfs(m_grid, m_bfsVisitedNodes, m_isTargetReached);
+                }
+            }
+            else if(!m_isPathCreated)
+            {
+                recreatePath(m_end, m_grid, &m_window);
+                m_isPathCreated = true;
+            }
+
         }
 
         m_window.display();

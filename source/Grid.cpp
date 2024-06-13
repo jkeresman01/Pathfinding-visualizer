@@ -46,12 +46,17 @@ void Grid::draw()
 
 void Grid::removeWalls()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setVisible(true);});
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setVisible(false);});
 }
 
 void Grid::createWalls()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setVisible(false);});
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setVisible(true);});
+}
+
+void Grid::setOutline(const bool t_isOutlineVisible)
+{
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [&t_isOutlineVisible](Node &n) { n.setOutline(t_isOutlineVisible);});
 }
 
 void Grid::setWindow(sf::RenderWindow *t_window)

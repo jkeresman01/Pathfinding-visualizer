@@ -20,7 +20,7 @@ class Node
         void destroyWall(const gc::wall::Position t_wallPosition);
         void destroyAllWalls();
         void recreateAllWalls();
-        void setOutline();
+        void setOutline(const bool t_isOutlineVisible);
         void setVisible(const bool t_isVisible);
         void setVisited(const bool t_isVisited);
         void setType(const gc::node::Type t_type);

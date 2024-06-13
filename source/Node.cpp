@@ -10,6 +10,7 @@
 Node::Node() : m_window(nullptr), m_predecessor(nullptr)
 {
     m_node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
+    m_node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
     m_node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
     m_walls = new Wall[gc::wall::WALL_COUNT];
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
@@ -86,10 +87,10 @@ void Node::setVisible(const bool t_isVisible)
     m_isVisible ? recreateAllWalls() : destroyAllWalls();
 }
 
-void Node::setOutline()
+void Node::setOutline(const bool t_isOutlineVisible)
 {
-    m_node.setOutlineColor(sf::Color(sf::Color(204, 255, 229)));
-    m_node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
+    t_isOutlineVisible ? m_node.setOutlineColor(sf::Color(sf::Color(204, 255, 229)))
+                       : m_node.setOutlineColor(sf::Color::Transparent);
 }
 
 void Node::setGridIndex(const float t_positionX, const float t_positionY)
