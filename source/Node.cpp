@@ -100,8 +100,8 @@ void Node::setGridIndex(const float t_positionX, const float t_positionY)
 void Node::setVisited(const bool t_isVisited)
 {
     m_isVisited = t_isVisited;
-    m_isVisited ?m_node.setFillColor(sf::Color(51, 51, 255))
-                                              : m_node.setFillColor(sf::Color::Transparent);
+    m_isVisited ? m_node.setFillColor(sf::Color(51, 51, 255))
+                : m_node.setFillColor(sf::Color::Transparent);
 }
 
 void Node::setPredecessor(Node* t_predecessor)
