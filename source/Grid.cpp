@@ -5,7 +5,7 @@
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
 
-Grid::Grid(sf::RenderWindow *t_window) : m_window(t_window)
+Grid::Grid() : m_window(nullptr)
 {
     m_grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
     initilazeNodes();
@@ -46,8 +46,12 @@ void Grid::removeWalls()
     std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setVisible(true);});
 }
 
+void Grid::setWindow(sf::RenderWindow *t_window)
+{
+    m_window = t_window;
+}
+
 Node* Grid::getNodeAtPosition(const int t_positionX, const int t_positionY)
 {
     return &m_grid[gc::grid::COLUMNS * t_positionX + t_positionY];
 }
-
