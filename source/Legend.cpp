@@ -12,6 +12,7 @@ Legend::Legend() : m_window(nullptr)
     {
         LOG_ERROR("Failed to load font from ./resources/fonts/Emulogic-zrEw.ttf");
     }
+
     initilazeLegendItems();
 }
 
