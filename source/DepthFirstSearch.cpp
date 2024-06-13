@@ -25,10 +25,7 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow *t_window, bool &t_
 
         dfs(t_grid, neighbour(0, -1), t_window, t_isTargetReached);
 
-        if(t_isTargetReached)
-        {
-            return; 
-        };
+        if(t_isTargetReached) { return; };
     }
 
     if (t_currentNode->getGridPosition().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited() and 
@@ -39,10 +36,7 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow *t_window, bool &t_
 
         dfs(t_grid, neighbour(1, 0), t_window, t_isTargetReached);
 
-        if(t_isTargetReached) 
-        { 
-            return; 
-        };
+        if(t_isTargetReached) { return; };
     }
 
     if (t_currentNode->getGridPosition().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited() and 
@@ -53,10 +47,7 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow *t_window, bool &t_
 
         dfs(t_grid, neighbour(0, 1), t_window, t_isTargetReached);
 
-        if(t_isTargetReached) 
-        {
-            return;
-        };
+        if(t_isTargetReached) { return; };
     }
 
     if (t_currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited() and 
@@ -67,10 +58,7 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow *t_window, bool &t_
 
         dfs(t_grid, neighbour(-1, 0), t_window, t_isTargetReached);
 
-        if(t_isTargetReached) 
-        {
-            return;
-        };
+        if(t_isTargetReached) { return; };
     }
 
 }
