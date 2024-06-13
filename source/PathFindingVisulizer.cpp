@@ -125,7 +125,6 @@ void PathFindingVisulizer::run()
 
                     m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
                     m_grid.restoreVisitedNodes();
-                    //m_grid.createWalls();
                     m_isTargetReached = false;
                     m_isPathCreated = false;
                 }
