@@ -83,7 +83,6 @@ void Node::setWindow(sf::RenderWindow *t_window)
 void Node::setVisible(const bool t_isVisible)
 {
     m_isVisible = t_isVisible;
-
     m_isVisible ? recreateAllWalls() : destroyAllWalls();
 }
 
