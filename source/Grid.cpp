@@ -22,7 +22,6 @@ void Grid::initilazeNodes()
     {
         for(size_t j = 0; j < gc::grid::COLUMNS; ++j)
         {
-            m_grid[gc::grid::COLUMNS * i + j].setWindow(m_window);
             m_grid[gc::grid::COLUMNS * i + j].setGridIndex(i, j);
             m_grid[gc::grid::COLUMNS * i + j].setPosition(
                     gc::node::START_POSITION_X + (j * gc::node::WIDTH), 
@@ -49,6 +48,7 @@ void Grid::removeWalls()
 void Grid::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [this](Node &n) { n.setWindow(m_window);});
 }
 
 Node* Grid::getNodeAtPosition(const int t_positionX, const int t_positionY)
