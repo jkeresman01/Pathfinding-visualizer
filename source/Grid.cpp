@@ -32,7 +32,11 @@ void Grid::initilazeNodes()
 
 void Grid::restoreVisitedNodes()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.setVisited(false); });
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n)
+            { 
+                n.setVisited(false);
+                n.setType(gc::node::EMPTY);
+            });
 }
 
 void Grid::draw()

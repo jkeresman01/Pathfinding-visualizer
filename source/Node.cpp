@@ -100,7 +100,7 @@ void Node::setGridIndex(const float t_positionX, const float t_positionY)
 void Node::setVisited(const bool t_isVisited)
 {
     m_isVisited = t_isVisited;
-    m_isVisited and m_type == gc::node::EMPTY ? m_node.setFillColor(sf::Color(51, 51, 255))
+    m_isVisited ?m_node.setFillColor(sf::Color(51, 51, 255))
                                               : m_node.setFillColor(sf::Color::Transparent);
 }
 
@@ -143,7 +143,7 @@ void Node::setType(const gc::node::Type t_type)
 
     if(m_type == gc::node::PATH)
     {
-        m_node.setFillColor(sf::Color::Green);
+        m_node.setFillColor(sf::Color(229, 204, 255));
     }
 
     if(m_type == gc::node::WALL)

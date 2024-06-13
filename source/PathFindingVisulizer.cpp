@@ -94,13 +94,39 @@ void PathFindingVisulizer::run()
                 if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::Escape)
                 {
                     m_currentScene = gc::tool::Scene::MENU;
+
+                    while (!m_bfsVisitedNodes.empty()) {
+                        m_bfsVisitedNodes.pop();
+                    }
+
+                    while (!m_dfsVisitedNodes.empty()) {
+                        m_dfsVisitedNodes.pop();
+                    }
+
+                    m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
+                    m_grid.restoreVisitedNodes();
+                    m_isTargetReached = false;
+                    m_isPathCreated = false;
+                    m_numberOfVisitedNodes = 1;
+
                 }
 
                 if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::R)
                 {
-                    //probably clear stack and queue
+
+                    while (!m_bfsVisitedNodes.empty()) {
+                        m_bfsVisitedNodes.pop();
+                    }
+
+                    while (!m_dfsVisitedNodes.empty()) {
+                        m_dfsVisitedNodes.pop();
+                    }
+
                     m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
                     m_grid.restoreVisitedNodes();
+                    m_grid.createWalls();
+                    m_isTargetReached = false;
+                    m_isPathCreated = false;
                 }
 
                 if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::D)
@@ -175,12 +201,7 @@ void PathFindingVisulizer::run()
                     recreatePath(m_end, m_grid, &m_window);
                     m_isPathCreated = true;
                 }
-                else 
-                {
-                    m_isTargetReached = false;
-                    m_algorithm = gc::tool::NOT_SELECTED;
-                }
-            }
+           }
 
             m_grid.draw();
             //m_legend.draw();
