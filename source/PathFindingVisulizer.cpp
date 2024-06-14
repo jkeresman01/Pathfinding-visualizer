@@ -173,19 +173,19 @@ void PathFindingVisulizer::run()
                     m_end = nullptr;
                 }
 
-                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::D)
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::D and m_start != nullptr and m_end != nullptr)
                 {
                     m_algorithm = gc::tool::Algorithm::DFS;
                     m_dfsVisitedNodes.push(m_start);
                 }
 
-                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::B)
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::B and m_start != nullptr and m_end != nullptr)
                 {
                     m_algorithm = gc::tool::Algorithm::BFS;
                     m_bfsVisitedNodes.push(m_start);
                 }
 
-                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::J)
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::J and m_start != nullptr and m_end != nullptr)
                 {
                     m_algorithm = gc::tool::Algorithm::DIJKSTRA;
                     m_start->setDistance(0);
