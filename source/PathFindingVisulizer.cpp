@@ -78,7 +78,7 @@ void PathFindingVisulizer::run()
             if(m_currentScene == gc::tool::Scene::WALL_BUILDING || m_currentScene == gc::tool::Scene::MAZE_SOLVING)
             {
                 
-                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) and event.type == sf::Event::KeyPressed and event.key.code == sf::Keyboard::Enter)
+                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) and event.type == sf::Event::KeyPressed and event.key.code == sf::Keyboard::Enter and m_currentScene == gc::tool::WALL_BUILDING)
                 {
                     Node* currentSelectedCell = getSelectedNode(m_grid, &m_window);
 
