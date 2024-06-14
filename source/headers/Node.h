@@ -27,7 +27,9 @@ class Node
         void setGridIndex(const float t_positionX, const float t_positionY);
         void setPosition(const float t_positionX, const float t_positionY);
         void setWindow(sf::RenderWindow *t_window);
+        void setDistance(const uint32_t t_distance);
         void setPredecessor(Node *t_predecessor);
+        uint32_t getDistance() const;
         Node* getPredecessor() const;
         gc::node::Type getType() const;
         std::pair<int, int> getGridPosition() const;
@@ -40,6 +42,7 @@ class Node
         std::pair<int, int> m_gridPosition;
         Wall *m_walls;
         Node *m_predecessor;
+        uint32_t m_distance;
         bool m_isVisited;
         bool m_isVisible;
 

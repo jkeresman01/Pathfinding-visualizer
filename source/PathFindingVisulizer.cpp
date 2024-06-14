@@ -1,4 +1,5 @@
 #include "headers/BreadthFirstSearch.h"
+#include "headers/Dijkstra.h"
 #include "headers/GetSelectedNode.h"
 #include "headers/DepthFirstSearch.h"
 #include "headers/GetSelectedNode.h"
@@ -8,6 +9,7 @@
 #include "headers/RecursiveBacktracking.h"
 
 #include <ctime>
+#include <iostream>
 
 /*
  *
@@ -150,6 +152,10 @@ void PathFindingVisulizer::run()
                         m_dfsVisitedNodes.pop();
                     }
 
+                    while (!m_dijsktraVisitedNodes.empty()) {
+                        m_dijsktraVisitedNodes.pop();
+                    }
+
                     m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
                     m_grid.restoreVisitedNodes();
                     m_isTargetReached = false;
@@ -168,6 +174,10 @@ void PathFindingVisulizer::run()
 
                     while (!m_dfsVisitedNodes.empty()) {
                         m_dfsVisitedNodes.pop();
+                    }
+
+                    while (!m_dijsktraVisitedNodes.empty()) {
+                        m_dijsktraVisitedNodes.pop();
                     }
 
                     m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
@@ -192,7 +202,9 @@ void PathFindingVisulizer::run()
 
                 if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::J)
                 {
-                    //DIJKSTA
+                    m_algorithm = gc::tool::Algorithm::DIJKSTRA;
+                    m_start->setDistance(0);
+                    m_dijsktraVisitedNodes.push(m_start);
                 }
                 
             }
@@ -236,6 +248,12 @@ void PathFindingVisulizer::run()
                     {
                         bfs(m_grid, m_bfsVisitedNodes, m_isTargetReached);
                     }
+
+                    if(m_algorithm == gc::tool::Algorithm::DIJKSTRA)
+                    {
+                        dijkstra(m_grid, m_dijsktraVisitedNodes, m_isTargetReached);
+                    }
+
                 }
                 else if(!m_isPathCreated)
                 {
@@ -264,6 +282,12 @@ void PathFindingVisulizer::run()
                 {
                     bfs(m_grid, m_bfsVisitedNodes, m_isTargetReached);
                 }
+
+                if(m_algorithm == gc::tool::Algorithm::DIJKSTRA)
+                {
+                    dijkstra(m_grid, m_dijsktraVisitedNodes, m_isTargetReached);
+                }
+
             }
             else if(!m_isPathCreated)
             {

@@ -5,8 +5,10 @@
 #include "Legend.h"
 #include "Node.h"
 #include "Menu.h"
+#include "NodeComparator.h"
 
 #include <stack>
+#include <vector>
 #include <queue>
 
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -29,6 +31,7 @@ class PathFindingVisulizer
         std::stack<Node*> m_mazeVisitedNodes;
         std::stack<Node*> m_dfsVisitedNodes;
         std::queue<Node*> m_bfsVisitedNodes;
+        std::priority_queue<Node*, std::vector<Node*>, NodeComp> m_dijsktraVisitedNodes;
         uint32_t m_numberOfVisitedNodes;
         bool m_isMazeFinised;
         bool m_isTargetReached;

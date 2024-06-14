@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics/Color.hpp>
 
-Node::Node() : m_window(nullptr), m_predecessor(nullptr)
+Node::Node() : m_window(nullptr), m_predecessor(nullptr), m_distance(10000)
 {
     m_node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
     m_node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
@@ -73,6 +73,16 @@ std::pair<int, int> Node::getGridPosition() const
 Node* Node::getPredecessor() const
 {
     return m_predecessor;
+}
+
+uint32_t Node::getDistance() const
+{
+    return m_distance;
+}
+
+void Node::setDistance(const uint32_t t_distance)
+{
+    m_distance = t_distance;
 }
 
 void Node::setWindow(sf::RenderWindow *t_window)
