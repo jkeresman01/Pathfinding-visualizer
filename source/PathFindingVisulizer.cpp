@@ -9,27 +9,10 @@
 #include "headers/RecursiveBacktracking.h"
 
 #include <ctime>
-#include <iostream>
-
-/*
- *
- * NOT BAKED YET
- * NOT BAKED YET
- * NOT BAKED YET
- * NOT BAKED YET
- * NOT BAKED YET
- * NOT BAKED YET
- * NOT BAKED YET
- * NOT BAKED YET
- * NOT BAKED YET
- * NOT BAKED YET
- * NOT BAKED YET
- *
- */
 
 PathFindingVisulizer::PathFindingVisulizer() 
     : m_window(sf::VideoMode(gc::screen::WIDTH, gc::screen::HEIGHT), ""),
-    m_start(nullptr), m_end(nullptr), m_currentScene(gc::tool::Scene::MENU),
+    m_start(nullptr), m_end(nullptr), m_currentScene(gc::tool::Scene::MENU), m_isGridResetDone(false),
     m_isTargetReached(false), m_numberOfVisitedNodes(0), m_algorithm(gc::tool::Algorithm::NOT_SELECTED)
 {
     m_window.setPosition(sf::Vector2i(gc::screen::POSITION_X, gc::screen::POSITION_Y));
@@ -54,7 +37,6 @@ void PathFindingVisulizer::run()
                 m_window.close();
             }
 
-            //------------------------      MENU LOGIC    ------------------------------------//
 
             if(m_currentScene == gc::tool::Scene::MENU)
             {
@@ -163,6 +145,7 @@ void PathFindingVisulizer::run()
                     m_numberOfVisitedNodes = 1;
                     m_start = nullptr;
                     m_end = nullptr;
+                    m_isGridResetDone = false;
                 }
 
                 if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::R)
@@ -212,11 +195,6 @@ void PathFindingVisulizer::run()
         }
 
 
-        //------------------------      LOGICAL LOGIC    ------------------------------------//
-
-
-        //------------------------      DRAW STUFF    ------------------------------------//
-
         m_window.clear(sf::Color(3, 11, 28));
 
         if(m_currentScene == gc::tool::MENU)
@@ -230,47 +208,21 @@ void PathFindingVisulizer::run()
             {
                 drawMaze(m_grid, m_mazeVisitedNodes, m_numberOfVisitedNodes);
             }
-            else 
+            else if(!m_isGridResetDone)
             {
-                if(!m_isTargetReached)
-                {
-                    if(m_algorithm == gc::tool::NOT_SELECTED)
-                    {
-                        m_grid.restoreVisitedNodes();
-                    }
-
-                    if(m_algorithm == gc::tool::DFS)
-                    {
-                        dfs(m_grid, m_start, m_window, m_isTargetReached);
-                    }
-
-                    if(m_algorithm == gc::tool::Algorithm::BFS)
-                    {
-                        bfs(m_grid, m_bfsVisitedNodes, m_isTargetReached);
-                    }
-
-                    if(m_algorithm == gc::tool::Algorithm::DIJKSTRA)
-                    {
-                        dijkstra(m_grid, m_dijsktraVisitedNodes, m_isTargetReached);
-                    }
-
-                }
-                else if(!m_isPathCreated)
-                {
-                    recreatePath(m_end, m_grid, &m_window);
-                    m_isPathCreated = true;
-                }
-           }
-
-            m_grid.draw();
-            m_legend.draw();
+                m_grid.restoreVisitedNodes();
+                m_isGridResetDone = true;
+            }
         }
 
         if(m_currentScene == gc::tool::WALL_BUILDING)
         {
             m_grid.draw();
             m_legend.draw();
-
+        }
+ 
+        if(m_currentScene == gc::tool::WALL_BUILDING or m_currentScene == gc::tool::MAZE_SOLVING)
+        {
             if(!m_isTargetReached)
             {
                 if(m_algorithm == gc::tool::DFS)
@@ -287,17 +239,18 @@ void PathFindingVisulizer::run()
                 {
                     dijkstra(m_grid, m_dijsktraVisitedNodes, m_isTargetReached);
                 }
-
             }
-            else if(!m_isPathCreated)
+            else if (!m_isPathCreated) 
             {
                 recreatePath(m_end, m_grid, &m_window);
                 m_isPathCreated = true;
             }
 
+            m_grid.draw();
+            m_legend.draw();
         }
 
-        m_window.display();
+       m_window.display();
 
     }
 }

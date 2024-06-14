@@ -36,4 +36,5 @@ class PathFindingVisulizer
         bool m_isMazeFinised;
         bool m_isTargetReached;
         bool m_isPathCreated;
+        bool m_isGridResetDone;
 };
