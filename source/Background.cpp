@@ -3,7 +3,7 @@
 
 Background::Background()
 {
-    setImage("./resources/images/backgorund_09.jpg");
+    setImage("./resources/images/default_background.jpg");
 }
 
 void Background::draw()

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 namespace gc
 {
     namespace screen
@@ -32,6 +34,8 @@ namespace gc
         constexpr int START_INDEX_Y = 0;
 
         constexpr float OUTLINE_THICKNESS = 1.0f; 
+
+        constexpr uint32_t DEFAULT_DISTANCE_VALUE = 10000;
 
         enum Type
         {

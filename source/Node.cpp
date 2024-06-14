@@ -7,7 +7,7 @@
 
 #include <SFML/Graphics/Color.hpp>
 
-Node::Node() : m_window(nullptr), m_predecessor(nullptr), m_distance(10000)
+Node::Node() : m_window(nullptr), m_predecessor(nullptr), m_distance(gc::node::DEFAULT_DISTANCE_VALUE)
 {
     m_node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
     m_node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);

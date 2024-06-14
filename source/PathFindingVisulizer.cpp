@@ -140,6 +140,7 @@ void PathFindingVisulizer::run()
 
                     m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
                     m_grid.restoreVisitedNodes();
+                    m_grid.resetDistanceValues();
                     m_isTargetReached = false;
                     m_isPathCreated = false;
                     m_numberOfVisitedNodes = 1;
@@ -165,6 +166,7 @@ void PathFindingVisulizer::run()
 
                     m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
                     m_grid.restoreVisitedNodes();
+                    m_grid.resetDistanceValues();
                     m_isTargetReached = false;
                     m_isPathCreated = false;
                     m_start = nullptr;
@@ -227,7 +229,7 @@ void PathFindingVisulizer::run()
             {
                 if(m_algorithm == gc::tool::DFS)
                 {
-                    dfs(m_grid, m_start, m_window, m_isTargetReached);
+                    dfs(m_grid, m_start, m_window, m_isTargetReached, m_legend);
                 }
 
                 if(m_algorithm == gc::tool::Algorithm::BFS)
@@ -242,7 +244,7 @@ void PathFindingVisulizer::run()
             }
             else if (!m_isPathCreated) 
             {
-                recreatePath(m_end, m_grid, &m_window);
+                recreatePath(m_end, m_grid, &m_window, m_legend);
                 m_isPathCreated = true;
             }
 

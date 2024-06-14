@@ -1,7 +1,7 @@
 #include "headers/RecreatePath.h"
 #include "headers/Grid.h"
 
-void recreatePath(Node *t_currentNode, Grid &t_grid, sf::RenderWindow *t_window)
+void recreatePath(Node *t_currentNode, Grid &t_grid, sf::RenderWindow *t_window, Legend &t_legend)
 {
 
     if(t_currentNode->getType() == gc::node::START)
@@ -9,12 +9,13 @@ void recreatePath(Node *t_currentNode, Grid &t_grid, sf::RenderWindow *t_window)
         return;
     }
 
-    recreatePath(t_currentNode->getPredecessor(), t_grid, t_window);
+    recreatePath(t_currentNode->getPredecessor(), t_grid, t_window, t_legend);
 
     t_currentNode->setType(gc::node::PATH);
 
     t_window->clear(sf::Color(3, 11, 28));
     t_grid.draw();
+    t_legend.draw();
     t_window->display();
 }
 

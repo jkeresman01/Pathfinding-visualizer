@@ -10,9 +10,9 @@
 
 Menu::Menu() : m_window(nullptr)
 {
-    if(!m_soundBuffer.loadFromFile("./resources/images/maze_draw3.wav"))
+    if(!m_soundBuffer.loadFromFile("./resources/sound/menu_sound_effect.wav"))
     {
-        LOG_ERROR("Failed to load Sound effect from ./resources/images/maze_draw3.wav!");
+        LOG_ERROR("Failed to load sound effect from ./resources/sound/menu_sound_effect.wav!");
     }
 
     m_soundEffect.setBuffer(m_soundBuffer);

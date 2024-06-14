@@ -49,6 +49,11 @@ void Grid::removeWalls()
     std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setVisible(false);});
 }
 
+void Grid::resetDistanceValues()
+{
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setDistance(gc::node::DEFAULT_DISTANCE_VALUE);});
+}
+
 void Grid::createWalls()
 {
     std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setVisible(true);});

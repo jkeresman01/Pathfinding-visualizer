@@ -1,6 +1,6 @@
 #include "headers/DepthFirstSearch.h"
 
-void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window, bool &t_isTargetReached){
+void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window, bool &t_isTargetReached, Legend &t_legend){
 
     if(t_currentNode->getType() == gc::node::Type::TARGET)
     {
@@ -10,6 +10,7 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window, bool &t_
 
     t_window.clear(sf::Color(3, 11, 28));
     t_grid.draw();
+    t_legend.draw();
     t_window.display();
 
     auto neighbour = [&t_currentNode, &t_grid](int x, int y)
@@ -23,7 +24,7 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window, bool &t_
         neighbour(0, -1)->setPredecessor(t_currentNode);
         neighbour(0, -1)->setVisited(true);
 
-        dfs(t_grid, neighbour(0, -1), t_window, t_isTargetReached);
+        dfs(t_grid, neighbour(0, -1), t_window, t_isTargetReached, t_legend);
 
         if(t_isTargetReached) { return; };
     }
@@ -34,7 +35,7 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window, bool &t_
         neighbour(1, 0)->setPredecessor(t_currentNode);
         neighbour(1, 0)->setVisited(true);
 
-        dfs(t_grid, neighbour(1, 0), t_window, t_isTargetReached);
+        dfs(t_grid, neighbour(1, 0), t_window, t_isTargetReached, t_legend);
 
         if(t_isTargetReached) { return; };
     }
@@ -45,7 +46,7 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window, bool &t_
         neighbour(0, 1)->setPredecessor(t_currentNode);
         neighbour(0, 1)->setVisited(true);
 
-        dfs(t_grid, neighbour(0, 1), t_window, t_isTargetReached);
+        dfs(t_grid, neighbour(0, 1), t_window, t_isTargetReached, t_legend);
 
         if(t_isTargetReached) { return; };
     }
@@ -56,7 +57,7 @@ void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window, bool &t_
         neighbour(-1, 0)->setPredecessor(t_currentNode);
         neighbour(-1, 0)->setVisited(true);
 
-        dfs(t_grid, neighbour(-1, 0), t_window, t_isTargetReached);
+        dfs(t_grid, neighbour(-1, 0), t_window, t_isTargetReached, t_legend);
 
         if(t_isTargetReached) { return; };
     }
