@@ -1,5 +1,7 @@
 #include "headers/BreadthFirstSearch.h"
+#include "headers/GetSelectedNode.h"
 #include "headers/DepthFirstSearch.h"
+#include "headers/GetSelectedNode.h"
 #include "headers/Global.h"
 #include "headers/PathFindingVisulizer.h"
 #include "headers/RecreatePath.h"
@@ -92,6 +94,50 @@ void PathFindingVisulizer::run()
             if(m_currentScene == gc::tool::Scene::WALL_BUILDING || m_currentScene == gc::tool::Scene::MAZE_SOLVING)
             {
                 
+                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) and event.type == sf::Event::KeyPressed and event.key.code == sf::Keyboard::Enter)
+                {
+                    Node* currentSelectedCell = getSelectedNode(m_grid, &m_window);
+
+                    if(currentSelectedCell != nullptr)
+                    {
+                        currentSelectedCell->setType(gc::node::WALL);
+                    }
+                }
+
+                if(event.type == sf::Event::KeyPressed and event.key.code == sf::Keyboard::Space)
+                {
+
+                    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+                    {
+                        if(m_start != nullptr)
+                        {
+                            m_start->setType(gc::node::EMPTY);
+                        }
+
+                        m_start = getSelectedNode(m_grid, &m_window);
+
+                        if(m_start != nullptr)
+                        {
+                            m_start->setType(gc::node::START);
+                        }
+                    }
+
+                    if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
+                    {
+                        if(m_end != nullptr)
+                        {
+                            m_end->setType(gc::node::EMPTY);
+                        }
+                        m_end = getSelectedNode(m_grid, &m_window);
+
+                        if(m_end != nullptr)
+                        {
+                            m_end->setType(gc::node::TARGET);
+                        }
+                    }
+
+                }
+
                 if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::Escape)
                 {
                     m_currentScene = gc::tool::Scene::MENU;
@@ -109,7 +155,8 @@ void PathFindingVisulizer::run()
                     m_isTargetReached = false;
                     m_isPathCreated = false;
                     m_numberOfVisitedNodes = 1;
-
+                    m_start = nullptr;
+                    m_end = nullptr;
                 }
 
                 if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::R)
@@ -127,6 +174,8 @@ void PathFindingVisulizer::run()
                     m_grid.restoreVisitedNodes();
                     m_isTargetReached = false;
                     m_isPathCreated = false;
+                    m_start = nullptr;
+                    m_end = nullptr;
                 }
 
                 if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::D)
@@ -174,18 +223,6 @@ void PathFindingVisulizer::run()
 
                 if(!m_isTargetReached)
                 {
-
-                    if(m_algorithm == gc::tool::NOT_SELECTED)
-                    {
-                        m_grid.restoreVisitedNodes();
-
-                        m_start = m_grid.getNodeAtPosition(0, 0);
-                        m_start->setType(gc::node::START);
-
-                        m_end = m_grid.getNodeAtPosition(10, 12);
-                        m_end->setType(gc::node::TARGET);
-                    }
-
                     if(m_algorithm == gc::tool::DFS)
                     {
                         dfs(m_grid, m_start, m_window, m_isTargetReached);
@@ -214,18 +251,6 @@ void PathFindingVisulizer::run()
 
             if(!m_isTargetReached)
             {
-
-                if(m_algorithm == gc::tool::NOT_SELECTED)
-                {
-                    m_grid.restoreVisitedNodes();
-
-                    m_start = m_grid.getNodeAtPosition(0, 0);
-                    m_start->setType(gc::node::START);
-
-                    m_end = m_grid.getNodeAtPosition(10, 12);
-                    m_end->setType(gc::node::TARGET);
-                }
-
                 if(m_algorithm == gc::tool::DFS)
                 {
                     dfs(m_grid, m_start, m_window, m_isTargetReached);

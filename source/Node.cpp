@@ -149,7 +149,7 @@ void Node::setType(const gc::node::Type t_type)
 
     if(m_type == gc::node::WALL)
     {
-        m_node.setFillColor(sf::Color(204, 255, 229));
+        m_node.setFillColor(sf::Color::Magenta);
     }
 }
 
