@@ -37,7 +37,9 @@ AVAILABLE OPTIONS:
 ## Maze solving ##
 A maze is a type of puzzle involving a collection of paths, usually where a player has to find a route from start to finish.
 There is a huge variety of algorithms based on graph theory for generating mazes (Randomized DFS, Iterative randomized Kruskal's algorithm, Iterative randomized Prim's algorithm...)
+
 For this purpose I'am using variation of Randomized DFS (Recursive Backtracking).
+When your maze is generate you can start testing out algorithms.
 
 
 ![maze](https://github.com/jkeresman01/Pathfinding-visualizer/assets/165517653/e251d24c-4272-4bcb-b9e9-289fa0650ac9)
