@@ -89,4 +89,7 @@ You can now execute the compiled program:
 ```
 ## Usefull resources ##
 
+- https://en.wikipedia.org/wiki/Maze_generation_algorithm
+- https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+
 
