@@ -134,7 +134,7 @@ namespace gc
 
     namespace legend
     {
-        constexpr int NUMBER_OF_ITEMS = 5;
+        constexpr int NUMBER_OF_ITEMS = 13;
 
         constexpr float POSITION_X = screen::WIDTH - 200.0f;
         constexpr float POSITION_Y = 25;
@@ -145,11 +145,19 @@ namespace gc
 
         enum Option
         {
-            RESET = 0,
-            DFS = 1,
-            BFS = 2,
-            DIJKSTRA = 3,
-            ESC = 4,
+            EMPTY_START = 0,
+            RESET = 1,
+            DFS = 2,
+            BFS = 3,
+            DIJKSTRA = 4,
+            ESC = 5,
+            EMPTY_MIDDLE = 6,
+            START = 7,
+            TARGET = 8,
+            WALL = 9,
+            PATH = 10,
+            VISITED = 11,
+            EMPTY_END = 12
         };
     }
 

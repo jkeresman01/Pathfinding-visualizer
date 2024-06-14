@@ -220,9 +220,13 @@ void PathFindingVisulizer::run()
             }
             else 
             {
-
                 if(!m_isTargetReached)
                 {
+                    if(m_algorithm == gc::tool::NOT_SELECTED)
+                    {
+                        m_grid.restoreVisitedNodes();
+                    }
+
                     if(m_algorithm == gc::tool::DFS)
                     {
                         dfs(m_grid, m_start, m_window, m_isTargetReached);
