@@ -4,7 +4,7 @@ Hi I wrote visualization tool for path finding algorithms (BFS, DFS, Dijkstra).
 
 Tool is build using SFML: https://www.sfml-dev.org/documentation/2.6.1/ 
 
-Upon starting the application you will be presented with the menu where you caN choose between one of these modes:
+Upon starting the application you will be presented with the menu where you can choose between one of these modes:
 - Maze solving
 - Wall building
   
@@ -16,18 +16,18 @@ AVAILABLE OPTIONS:
 
 `<d>` - Will start Depth first search algorithm
 
-`<b>` -  Will start Breadth first search algorithm
+`<b>` - Will start Breadth first search algorithm
 
-`<j>`- will start Dijkstra's algorithm
+`<j>`- Will start Dijkstra's algorithm
 
 
 
 `<Space + left click>`     - position the start node
 
-`<Space + right click>`    - position the start node
+`<Space + right click>`    - position the end node
 
 `<Enter + left click>`     - put walls around the grid
-
+ 
 
 
 .... Presing ESC at any time will move you back to the start menu.
