@@ -30,6 +30,7 @@ namespace gc
 
         constexpr int START_INDEX_X = 0;
         constexpr int START_INDEX_Y = 0;
+
         constexpr float OUTLINE_THICKNESS = 1.0f; 
 
         enum Type
