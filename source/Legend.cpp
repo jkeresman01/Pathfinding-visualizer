@@ -24,7 +24,7 @@ void Legend::initilazeLegendItems()
     m_items[gc::legend::RESET].setString("R - Reset");
     m_items[gc::legend::DFS].setString("D - DFS");
     m_items[gc::legend::BFS].setString("B - BFS");
-    m_items[gc::legend::DIJKSTRA].setString("J - Dijsktra");
+    m_items[gc::legend::DIJKSTRA].setString("J - Dijkstra");
     m_items[gc::legend::EMPTY_MIDDLE].setString("-------------");
     m_items[gc::legend::START].setString("o Start");
     m_items[gc::legend::TARGET].setString("o Target");
@@ -46,7 +46,7 @@ void Legend::initilazeLegendItems()
     m_items[gc::legend::TARGET].setFillColor(sf::Color::Cyan);
     m_items[gc::legend::WALL].setFillColor(sf::Color::Magenta);
     m_items[gc::legend::PATH].setFillColor(sf::Color(229, 204, 255));
-    m_items[gc::legend::VISITED].setFillColor(sf::Color(51, 51, 255));
+    m_items[gc::legend::VISITED].setFillColor(sf::Color(51, 51, 254));
 }
 
 void Legend::draw()
