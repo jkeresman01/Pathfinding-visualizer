@@ -18,9 +18,7 @@ Node* getSelectedNode(Grid &t_grid, sf::RenderWindow *t_window)
         int cellPostionX = floor(mousePositionX / gc::node::WIDTH);
         int cellPostionY = floor(mousePositionY / gc::node::HEIGHT);
 
-        Node* selectedNode = t_grid.getNodeAtPosition(cellPostionY, cellPostionX);
-
-        return selectedNode;
+        return t_grid.getNodeAtPosition(cellPostionY, cellPostionX);
     }
 
     return nullptr;
