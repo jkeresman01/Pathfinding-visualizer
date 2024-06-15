@@ -18,7 +18,6 @@ Legend::Legend() : m_window(nullptr)
 
 void Legend::initilazeLegendItems()
 {
-
     m_items[gc::legend::EMPTY_START].setString("-------------");
     m_items[gc::legend::ESC].setString("ESC - Menu");
     m_items[gc::legend::RESET].setString("R - Reset");
