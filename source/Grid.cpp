@@ -67,7 +67,7 @@ void Grid::setOutline(const bool t_isOutlineVisible)
 void Grid::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [this](Node &n) { n.setWindow(m_window);});
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [&t_window](Node &n) { n.setWindow(t_window);});
 }
 
 Node* Grid::getNodeAtPosition(const int t_positionX, const int t_positionY)

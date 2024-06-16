@@ -7,8 +7,8 @@
 
 Node* getSelectedNode(Grid &t_grid, sf::RenderWindow *t_window)
 {
-    float mousePositionX = sf::Mouse::getPosition(*t_window).x - gc::node::ORIGIN_X;
-    float mousePositionY = sf::Mouse::getPosition(*t_window).y - gc::node::ORIGIN_Y;
+    float mousePositionX = sf::Mouse::getPosition(*t_window).x - gc::node::WIDTH;
+    float mousePositionY = sf::Mouse::getPosition(*t_window).y - gc::node::HEIGHT;
 
     bool isMouseOnGrid = mousePositionX > gc::node::START_POSITION_X and mousePositionX < gc::node::START_POSITION_X * gc::node::WIDTH * gc::grid::COLUMNS and
                          mousePositionY > gc::node::START_POSITION_Y and mousePositionY < gc::node::HEIGHT * gc::grid::ROWS;                       
