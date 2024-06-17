@@ -39,13 +39,11 @@ namespace gc
 
         enum Type
         {
-            CURRENT = 1,
-            START = 2,
-            TARGET = 3,
-            RECREATED_PATH = 4,
-            PATH = 5,
-            EMPTY = 6,
-            WALL = 7,
+            START = 1,
+            TARGET = 2,
+            PATH = 3,
+            EMPTY = 4,
+            WALL = 5,
         };
     }
 
@@ -108,14 +106,6 @@ namespace gc
             BFS = 2,
             DIJKSTRA = 3,
         };
-    }
-
-    namespace button
-    {
-        constexpr int POSITION_X = screen::WIDTH - 20;
-        constexpr int POSITION_Y = 40;
-
-        constexpr float SCALE = 1.2f;
     }
 
     namespace menu
