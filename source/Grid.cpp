@@ -79,27 +79,11 @@ Node* Grid::getNodeAtPosition(const int t_positionX, const int t_positionY)
 
 Node* Grid::getSelectedNode()
 {
-    if(isMouseOnGrid())
-    {
-        float mousePositionX = sf::Mouse::getPosition(*m_window).x - gc::node::WIDTH;
-        float mousePositionY = sf::Mouse::getPosition(*m_window).y - gc::node::HEIGHT;
-
-        int cellPostionX = floor(mousePositionX / gc::node::WIDTH);
-        int cellPostionY = floor(mousePositionY / gc::node::HEIGHT);
-
-        return getNodeAtPosition(cellPostionY, cellPostionX);
-    }
-
-    return nullptr;
-}
-
-bool Grid::isMouseOnGrid()
-{
     float mousePositionX = sf::Mouse::getPosition(*m_window).x - gc::node::WIDTH;
     float mousePositionY = sf::Mouse::getPosition(*m_window).y - gc::node::HEIGHT;
 
-    return  mousePositionX > gc::node::START_POSITION_X and 
-            mousePositionX < gc::node::START_POSITION_X * gc::node::WIDTH * gc::grid::COLUMNS and
-            mousePositionY > gc::node::START_POSITION_Y and 
-            mousePositionY < gc::node::HEIGHT * gc::grid::ROWS;                       
+    int cellPostionX = floor(mousePositionX / gc::node::WIDTH);
+    int cellPostionY = floor(mousePositionY / gc::node::HEIGHT);
+
+    return getNodeAtPosition(cellPostionY, cellPostionX);
 }

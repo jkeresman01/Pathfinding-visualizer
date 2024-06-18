@@ -21,7 +21,6 @@ class Grid
         Node* getSelectedNode();
 
     private:
-        bool isMouseOnGrid();
         void initilazeNodes();
 
     private:
