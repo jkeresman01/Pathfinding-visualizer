@@ -18,8 +18,10 @@ class Grid
         void setWindow(sf::RenderWindow *t_window);
         void setOutline(const bool t_isOutlineVisible);
         Node* getNodeAtPosition(const int t_positionX, const int t_positionY);
+        Node* getSelectedNode();
 
     private:
+        bool isMouseOnGrid();
         void initilazeNodes();
 
     private:

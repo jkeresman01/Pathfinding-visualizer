@@ -1,8 +1,6 @@
 #include "headers/BreadthFirstSearch.h"
 #include "headers/Dijkstra.h"
-#include "headers/GetSelectedNode.h"
 #include "headers/DepthFirstSearch.h"
-#include "headers/GetSelectedNode.h"
 #include "headers/Global.h"
 #include "headers/PathFindingVisulizer.h"
 #include "headers/RecreatePath.h"
@@ -80,7 +78,7 @@ void PathFindingVisulizer::run()
                 
                 if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) and event.type == sf::Event::KeyPressed and event.key.code == sf::Keyboard::Enter and m_currentScene == gc::tool::WALL_BUILDING)
                 {
-                    Node* currentSelectedCell = getSelectedNode(m_grid, &m_window);
+                    Node* currentSelectedCell = m_grid.getSelectedNode();
 
                     if(currentSelectedCell != nullptr)
                     {
@@ -98,7 +96,7 @@ void PathFindingVisulizer::run()
                             m_start->setType(gc::node::EMPTY);
                         }
 
-                        m_start = getSelectedNode(m_grid, &m_window);
+                        m_start = m_grid.getSelectedNode();
 
                         if(m_start != nullptr)
                         {
@@ -112,7 +110,7 @@ void PathFindingVisulizer::run()
                         {
                             m_end->setType(gc::node::EMPTY);
                         }
-                        m_end = getSelectedNode(m_grid, &m_window);
+                        m_end = m_grid.getSelectedNode();
 
                         if(m_end != nullptr)
                         {
