@@ -2,7 +2,9 @@
 
 #include <stack>
 
-void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodes, uint32_t &t_numberOfVisitedNodes)
+void drawMaze(Grid &t_grid,
+              std::stack<Node*> &t_visitedNodes,
+              std::uint32_t &t_numberOfVisitedNodes)
 {
     Node *currentNode = t_visitedNodes.top();
 
@@ -76,5 +78,4 @@ void drawMaze(Grid &t_grid, std::stack<Node*> &t_visitedNodes, uint32_t &t_numbe
     nextNode->setVisited(true);
     t_visitedNodes.push(nextNode);
     t_numberOfVisitedNodes++;
-
 }

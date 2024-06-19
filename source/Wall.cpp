@@ -1,7 +1,9 @@
 #include "headers/Wall.h"
 #include "headers/Global.h"
     
-Wall::Wall() : m_window(nullptr), m_isVisible(true)
+Wall::Wall() 
+    : m_window(nullptr),
+    m_isVisible(true)
 {
     m_wall.setSize(sf::Vector2f(gc::wall::WIDTH, gc::wall::HEIGHT));
     m_wall.setOrigin(gc::wall::ORIGIN_X, gc::wall::ORIGIN_Y);

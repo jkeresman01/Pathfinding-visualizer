@@ -1,10 +1,13 @@
 #include "headers/BreadthFirstSearch.h"
 #include "headers/Global.h"
 
-void bfs(Grid &t_grid, std::queue<Node*> &t_visitedNodes, bool &t_isTargetReached)
+void bfs(Grid &t_grid,
+         std::queue<Node*> &t_visitedNodes,
+         bool &t_isTargetReached)
 {
 
     Node *currentNode = t_visitedNodes.front();
+
     if(!t_visitedNodes.empty())
     {
         t_visitedNodes.pop();

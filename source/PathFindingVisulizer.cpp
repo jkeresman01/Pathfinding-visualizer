@@ -10,8 +10,13 @@
 
 PathFindingVisulizer::PathFindingVisulizer() 
     : m_window(sf::VideoMode(gc::screen::WIDTH, gc::screen::HEIGHT), ""),
-    m_start(nullptr), m_end(nullptr), m_currentScene(gc::tool::Scene::MENU), m_isGridResetDone(false),
-    m_isTargetReached(false), m_numberOfVisitedNodes(0), m_algorithm(gc::tool::Algorithm::NOT_SELECTED)
+    m_start(nullptr),
+    m_end(nullptr),
+    m_currentScene(gc::tool::Scene::MENU),
+    m_isGridResetDone(false),
+    m_isTargetReached(false),
+    m_numberOfVisitedNodes(0),
+    m_algorithm(gc::tool::Algorithm::NOT_SELECTED)
 {
     m_window.setPosition(sf::Vector2i(gc::screen::POSITION_X, gc::screen::POSITION_Y));
     m_window.setFramerateLimit(gc::tool::FRAMES_PER_SECOND);

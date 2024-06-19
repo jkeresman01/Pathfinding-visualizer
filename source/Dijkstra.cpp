@@ -1,10 +1,13 @@
 #include "headers/Dijkstra.h"
 #include "headers/Global.h"
 
-void dijkstra(Grid &t_grid, std::priority_queue<Node*, std::vector<Node*>, NodeComp> &t_visitedNodes, bool &t_isTargetReached)
+void dijkstra(Grid &t_grid,
+             std::priority_queue<Node*, std::vector<Node*>, NodeComp> &t_visitedNodes,
+             bool &t_isTargetReached)
 {
 
     Node *currentNode = t_visitedNodes.top();
+
     if(!t_visitedNodes.empty())
     {
         t_visitedNodes.pop();

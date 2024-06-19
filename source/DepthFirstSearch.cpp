@@ -1,6 +1,11 @@
 #include "headers/DepthFirstSearch.h"
 
-void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window, bool &t_isTargetReached, Legend &t_legend){
+void dfs(Grid &t_grid,
+         Node *t_currentNode,
+         sf::RenderWindow &t_window,
+         bool &t_isTargetReached,
+         Legend &t_legend)
+{
 
     if(t_currentNode->getType() == gc::node::Type::TARGET)
     {

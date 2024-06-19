@@ -1,7 +1,10 @@
 #include "headers/RecreatePath.h"
 #include "headers/Grid.h"
 
-void recreatePath(Node *t_currentNode, Grid &t_grid, sf::RenderWindow *t_window, Legend &t_legend)
+void recreatePath(Node *t_currentNode,
+                  Grid &t_grid,
+                  sf::RenderWindow *t_window,
+                  Legend &t_legend)
 {
     if(t_currentNode->getType() == gc::node::START)
     {
