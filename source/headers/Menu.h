@@ -21,7 +21,7 @@ class Menu
         int getSelectedItem() const;
 
     private:
-        void initilazeMenuItems();
+        void initMenuItems();
 
     private:
         sf::RenderWindow *m_window;

@@ -17,7 +17,8 @@ Menu::Menu() : m_window(nullptr)
 
     m_soundEffect.setBuffer(m_soundBuffer);
     m_background.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
-    initilazeMenuItems();
+
+    initMenuItems();
 }
 
 Menu::~Menu()
@@ -25,7 +26,7 @@ Menu::~Menu()
     delete[] m_menuItems;
 }
 
-void Menu::initilazeMenuItems()
+void Menu::initMenuItems()
 {
     m_menuItems = new MenuItem[gc::menu::NUMBER_OF_OPTIONS];
 
@@ -77,5 +78,6 @@ void Menu::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
     m_background.setWindow(t_window);
-    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [&t_window](MenuItem &mi){mi.setWindow(t_window);});
+    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS,
+            [&t_window](MenuItem &mi){ mi.setWindow(t_window); });
 }

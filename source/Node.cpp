@@ -30,7 +30,8 @@ Node::~Node()
 void Node::draw()
 {
     m_window->draw(m_node);
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &w){ if(w.isVisible()){ w.draw(); }});
+    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
+            [](Wall &w){ if(w.isVisible()){ w.draw(); }});
 }
 
 bool Node::isVisited() const
@@ -55,12 +56,12 @@ void Node::destroyWall(gc::wall::Position t_wallPosition)
 
 void Node::destroyAllWalls()
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(false);});
+    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(false); });
 }
 
 void Node::recreateAllWalls()
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(true);});
+    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(true); });
 }
 
 gc::node::Type Node::getType() const
@@ -128,7 +129,7 @@ void Node::setPosition(const float t_positionX, const float t_positionY)
     m_node.setPosition(t_positionX, t_positionY);
 
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
-            [&t_positionX, &t_positionY](Wall &wall){ wall.setPosition(t_positionX, t_positionY);});
+            [&t_positionX, &t_positionY](Wall &wall){ wall.setPosition(t_positionX, t_positionY); });
 
     m_walls[gc::wall::LEFT].rotate(gc::wall::LEFT_ROTATION_ANGLE);
     m_walls[gc::wall::RIGHT].rotate(gc::wall::RIGHT_ROTATION_ANGLE);
