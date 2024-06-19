@@ -13,10 +13,10 @@ Legend::Legend() : m_window(nullptr)
         LOG_ERROR("Failed to load font from ./resources/fonts/Emulogic-zrEw.ttf");
     }
 
-    initilazeLegendItems();
+    initLegendItems();
 }
 
-void Legend::initilazeLegendItems()
+void Legend::initLegendItems()
 {
     m_items[gc::legend::EMPTY_START].setString("-------------");
     m_items[gc::legend::ESC].setString("ESC - Menu");

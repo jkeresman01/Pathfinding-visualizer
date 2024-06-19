@@ -15,7 +15,7 @@ class Legend
         void setWindow(sf::RenderWindow *t_window);
 
     private:
-        void initilazeLegendItems();
+        void initLegendItems();
 
     private:
         sf::RenderWindow *m_window;
