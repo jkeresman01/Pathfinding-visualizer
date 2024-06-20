@@ -6,7 +6,9 @@
 
 #include <SFML/Audio/Sound.hpp>
 #include <SFML/Audio/SoundBuffer.hpp>
+
 #include <SFML/Graphics/RenderWindow.hpp>
+
 #include <SFML/Window/Event.hpp>
 
 class Menu

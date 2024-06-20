@@ -6,6 +6,7 @@
 #include <algorithm>
 
 #include <SFML/Window/Event.hpp>
+
 #include <SFML/Audio.hpp>
 
 Menu::Menu() : m_window(nullptr)
