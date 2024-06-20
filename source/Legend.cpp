@@ -50,7 +50,8 @@ void Legend::initLegendItems()
 
 void Legend::draw()
 {
-    std::for_each(m_items, m_items + gc::legend::NUMBER_OF_ITEMS, [this](sf::Text &item){ m_window->draw(item); });
+    std::for_each(m_items, m_items + gc::legend::NUMBER_OF_ITEMS,
+            [this](sf::Text &item){ m_window->draw(item); });
 }
 
 void Legend::setWindow(sf::RenderWindow *t_window){
