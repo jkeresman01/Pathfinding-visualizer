@@ -12,10 +12,12 @@ Node::Node()
     m_predecessor(nullptr),
     m_distance(gc::node::DEFAULT_DISTANCE_VALUE)
 {
+    m_walls = new Wall[gc::wall::WALL_COUNT];
+
     m_node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
     m_node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
     m_node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
-    m_walls = new Wall[gc::wall::WALL_COUNT];
+
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
     setType(gc::node::EMPTY);
