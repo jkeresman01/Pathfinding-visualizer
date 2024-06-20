@@ -21,7 +21,7 @@ class Grid
         Node* getSelectedNode();
 
     private:
-        void initilazeNodes();
+        void initNodes();
 
     private:
         sf::RenderWindow *m_window;

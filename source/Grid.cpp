@@ -9,8 +9,7 @@
 
 Grid::Grid() : m_window(nullptr)
 {
-    m_grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
-    initilazeNodes();
+    initNodes();
 }
 
 Grid::~Grid()
@@ -18,8 +17,10 @@ Grid::~Grid()
     delete[] m_grid;
 }
 
-void Grid::initilazeNodes()
+void Grid::initNodes()
 {
+    m_grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
+
     for(size_t i = 0; i < gc::grid::ROWS; ++i)
     {
         for(size_t j = 0; j < gc::grid::COLUMNS; ++j)
@@ -43,7 +44,8 @@ void Grid::restoreVisitedNodes()
 
 void Grid::draw()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n){ n.draw(); });
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS,
+            [](Node &n){ n.draw(); });
 }
 
 void Grid::removeWalls()
@@ -60,7 +62,8 @@ void Grid::resetDistanceValues()
 
 void Grid::createWalls()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n) { n.setVisible(true); });
+    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS,
+            [](Node &n) { n.setVisible(true); });
 }
 
 void Grid::setOutline(const bool t_isOutlineVisible)

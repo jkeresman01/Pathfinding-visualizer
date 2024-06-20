@@ -56,12 +56,14 @@ void Node::destroyWall(gc::wall::Position t_wallPosition)
 
 void Node::destroyAllWalls()
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(false); });
+    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
+            [](Wall &wall){ wall.setVisible(false); });
 }
 
 void Node::recreateAllWalls()
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [](Wall &wall){ wall.setVisible(true); });
+    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
+            [](Wall &wall){ wall.setVisible(true); });
 }
 
 gc::node::Type Node::getType() const
@@ -92,7 +94,8 @@ void Node::setDistance(const uint32_t t_distance)
 void Node::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT, [&t_window](Wall &w){ w.setWindow(t_window); });
+    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
+            [&t_window](Wall &w){ w.setWindow(t_window); });
 }
 
 void Node::setVisible(const bool t_isVisible)
