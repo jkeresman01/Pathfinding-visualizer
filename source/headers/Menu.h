@@ -14,10 +14,14 @@ class Menu
     public:
         Menu();
         ~Menu();
+
         void draw();
+
         void moveUp();
         void moveDown();
+
         void setWindow(sf::RenderWindow *t_window);
+
         int getSelectedItem() const;
 
     private:
@@ -27,7 +31,9 @@ class Menu
         sf::RenderWindow *m_window;
         sf::SoundBuffer m_soundBuffer;
         sf::Sound m_soundEffect;
+
         Background m_background;
         MenuItem *m_menuItems;
+
         int m_currentSelectedOption;
 };

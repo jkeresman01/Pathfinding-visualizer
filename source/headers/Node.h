@@ -13,13 +13,17 @@ class Node
     public:
         Node();
         ~Node();
+
         void draw();
+
         bool isVisited() const;
         bool isVisible() const;
         bool isWallVisible(const gc::wall::Position t_wallPosition) const;
+
         void destroyWall(const gc::wall::Position t_wallPosition);
         void destroyAllWalls();
         void recreateAllWalls();
+
         void setOutline(const bool t_isOutlineVisible);
         void setVisible(const bool t_isVisible);
         void setVisited(const bool t_isVisited);
@@ -29,6 +33,7 @@ class Node
         void setWindow(sf::RenderWindow *t_window);
         void setDistance(const uint32_t t_distance);
         void setPredecessor(Node *t_predecessor);
+
         uint32_t getDistance() const;
         Node* getPredecessor() const;
         gc::node::Type getType() const;
@@ -38,11 +43,13 @@ class Node
         sf::RenderWindow *m_window;;
         sf::RectangleShape m_node;
         sf::Texture m_texture;
+
         gc::node::Type m_type;
         std::pair<int, int> m_gridPosition;
         Wall *m_walls;
         Node *m_predecessor;
         uint32_t m_distance;
+
         bool m_isVisited;
         bool m_isVisible;
 

@@ -10,8 +10,11 @@ class Legend
 {
     public:
         Legend();
+
         void draw();
+
         void move(const float t_positionX, const float t_positionY);
+
         void setWindow(sf::RenderWindow *t_window);
 
     private:

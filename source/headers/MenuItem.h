@@ -8,9 +8,12 @@ class MenuItem
 {
     public:
         MenuItem();
+
         void draw();
-        void move(const float t_positionX, const float t_positionY);
+
         bool isSelected() const;
+        void move(const float t_positionX, const float t_positionY);
+
         void setWindow(sf::RenderWindow *t_window);
         void setSelected(const bool t_isSelected);
         void setText(const std::string &t_text);
@@ -19,5 +22,6 @@ class MenuItem
         sf::RenderWindow *m_window;
         sf::Text m_menuItem;
         sf::Font m_font;
+
         bool m_isSelected;
 };
