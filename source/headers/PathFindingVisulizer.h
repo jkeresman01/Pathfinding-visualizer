@@ -22,6 +22,7 @@ class PathFindingVisulizer
         
     private:
         sf::RenderWindow m_window;
+
         gc::tool::Scene m_currentScene;
         gc::tool::Algorithm m_algorithm;
 
