@@ -37,8 +37,9 @@ class Node
         Node* getPredecessor() const;
 
         std::uint32_t getDistance() const;
-        gc::node::Type getType() const;
         std::pair<int, int> getGridPosition() const;
+
+        gc::node::Type getType() const;
 
     private:
         sf::RenderWindow *m_window;;
@@ -48,9 +49,10 @@ class Node
         Wall *m_walls;
         Node *m_predecessor;
 
-        gc::node::Type m_type;
         std::pair<int, int> m_gridPosition;
         std::uint32_t m_distance;
+
+        gc::node::Type m_type;
 
         bool m_isVisited;
         bool m_isVisible;
