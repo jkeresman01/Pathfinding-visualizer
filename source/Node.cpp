@@ -83,12 +83,12 @@ Node* Node::getPredecessor() const
     return m_predecessor;
 }
 
-uint32_t Node::getDistance() const
+std::uint32_t Node::getDistance() const
 {
     return m_distance;
 }
 
-void Node::setDistance(const uint32_t t_distance)
+void Node::setDistance(const std::uint32_t t_distance)
 {
     m_distance = t_distance;
 }
@@ -124,7 +124,7 @@ void Node::setVisited(const bool t_isVisited)
                 : m_node.setFillColor(sf::Color::Transparent);
 }
 
-void Node::setPredecessor(Node* t_predecessor)
+void Node::setPredecessor(Node *t_predecessor)
 {
     m_predecessor = t_predecessor;
 }

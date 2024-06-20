@@ -31,11 +31,12 @@ class Node
         void setGridIndex(const float t_positionX, const float t_positionY);
         void setPosition(const float t_positionX, const float t_positionY);
         void setWindow(sf::RenderWindow *t_window);
-        void setDistance(const uint32_t t_distance);
+        void setDistance(const std::uint32_t t_distance);
         void setPredecessor(Node *t_predecessor);
 
-        uint32_t getDistance() const;
         Node* getPredecessor() const;
+
+        std::uint32_t getDistance() const;
         gc::node::Type getType() const;
         std::pair<int, int> getGridPosition() const;
 
@@ -44,11 +45,12 @@ class Node
         sf::RectangleShape m_node;
         sf::Texture m_texture;
 
-        gc::node::Type m_type;
-        std::pair<int, int> m_gridPosition;
         Wall *m_walls;
         Node *m_predecessor;
-        uint32_t m_distance;
+
+        gc::node::Type m_type;
+        std::pair<int, int> m_gridPosition;
+        std::uint32_t m_distance;
 
         bool m_isVisited;
         bool m_isVisible;
