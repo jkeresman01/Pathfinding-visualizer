@@ -30,7 +30,7 @@ class PathFindingVisulizer
         Legend m_legend;
 
         Node *m_start;
-        Node *m_end;;
+        Node *m_end;
 
         std::stack<Node*> m_mazeVisitedNodes;
         std::stack<Node*> m_dfsVisitedNodes;
