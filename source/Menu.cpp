@@ -45,7 +45,8 @@ void Menu::draw()
 {
     m_window->clear(sf::Color(3, 11, 28));
     m_background.draw();
-    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS, [](MenuItem &mi){mi.draw();});
+    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS,
+            [](MenuItem &menuItem){ menuItem.draw(); });
     m_window->display();
 }
 
@@ -79,5 +80,5 @@ void Menu::setWindow(sf::RenderWindow *t_window)
     m_window = t_window;
     m_background.setWindow(t_window);
     std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS,
-            [&t_window](MenuItem &mi){ mi.setWindow(t_window); });
+            [&t_window](MenuItem &menuItem){ menuItem.setWindow(t_window); });
 }
