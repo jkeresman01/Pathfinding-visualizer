@@ -13,7 +13,7 @@ class Legend
 
         void draw();
 
-        void move(const float t_positionX, const float t_positionY);
+        void move(float t_positionX, float t_positionY);
 
         void setWindow(sf::RenderWindow *t_window);
 

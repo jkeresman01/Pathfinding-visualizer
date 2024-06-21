@@ -37,5 +37,5 @@ class Menu
         Background m_background;
         MenuItem *m_menuItems;
 
-        int m_currentSelectedOption;
+        uint32_t m_selectedItem;
 };

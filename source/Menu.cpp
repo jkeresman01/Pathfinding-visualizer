@@ -34,7 +34,7 @@ void Menu::initMenuItems()
     m_menuItems[gc::menu::MAZE_SOLVING].setText("Maze solving!");
     m_menuItems[gc::menu::MAZE_SOLVING].move(0, -gc::menu::SPACING_BETWEEN_ITEMS);
     m_menuItems[gc::menu::MAZE_SOLVING].setSelected(true);
-    m_currentSelectedOption = gc::menu::MAZE_SOLVING;
+    m_selectedItem = gc::menu::MAZE_SOLVING;
 
     m_menuItems[gc::menu::WALL_BUILDING].setText("Wall building!");
 
@@ -53,33 +53,35 @@ void Menu::draw()
 
 void Menu::moveUp()
 {
-    if(m_currentSelectedOption > 0)
+    if(m_selectedItem > 0)
     {
         m_soundEffect.play();
-        m_menuItems[m_currentSelectedOption].setSelected(false);
-        m_menuItems[--m_currentSelectedOption].setSelected(true);
+        m_menuItems[m_selectedItem].setSelected(false);
+        m_menuItems[--m_selectedItem].setSelected(true);
     }
 }
 
 void Menu::moveDown()
 {
-    if(m_currentSelectedOption < gc::menu::NUMBER_OF_OPTIONS - 1)
+    if(m_selectedItem < gc::menu::NUMBER_OF_OPTIONS - 1)
     {
         m_soundEffect.play();
-        m_menuItems[m_currentSelectedOption].setSelected(false);
-        m_menuItems[++m_currentSelectedOption].setSelected(true);
+        m_menuItems[m_selectedItem].setSelected(false);
+        m_menuItems[++m_selectedItem].setSelected(true);
     }
 }
 
 int Menu::getSelectedItem() const
 {
-    return m_currentSelectedOption;
+    return m_selectedItem;
 }
 
 void Menu::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
+
     m_background.setWindow(t_window);
+
     std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS,
             [&t_window](MenuItem &menuItem){ menuItem.setWindow(t_window); });
 }

@@ -12,10 +12,10 @@ class MenuItem
         void draw();
 
         bool isSelected() const;
-        void move(const float t_positionX, const float t_positionY);
+        void move(float t_positionX, float t_positionY);
 
         void setWindow(sf::RenderWindow *t_window);
-        void setSelected(const bool t_isSelected);
+        void setSelected(bool t_isSelected);
         void setText(const std::string &t_text);
     
     private:

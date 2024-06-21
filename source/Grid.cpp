@@ -5,6 +5,7 @@
 
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
+
 #include <SFML/Window/Mouse.hpp>
 
 Grid::Grid() : m_window(nullptr)
@@ -66,7 +67,7 @@ void Grid::createWalls()
             [](Node &n) { n.setVisible(true); });
 }
 
-void Grid::setOutline(const bool t_isOutlineVisible)
+void Grid::setOutline(bool t_isOutlineVisible)
 {
     std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, 
             [&t_isOutlineVisible](Node &n) { n.setOutline(t_isOutlineVisible); });
@@ -79,7 +80,7 @@ void Grid::setWindow(sf::RenderWindow *t_window)
             [&t_window](Node &n) { n.setWindow(t_window); });
 }
 
-Node* Grid::getNodeAtPosition(const int t_positionX, const int t_positionY)
+Node* Grid::getNodeAtPosition(uint32_t t_positionX, uint32_t t_positionY)
 {
     return &m_grid[gc::grid::COLUMNS * t_positionX + t_positionY];
 }

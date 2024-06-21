@@ -46,7 +46,7 @@ bool Node::isVisible() const
     return m_isVisible;
 }
 
-bool Node::isWallVisible(const gc::wall::Position t_wallPosition) const
+bool Node::isWallVisible(gc::wall::Position t_wallPosition) const
 {
     return m_walls[t_wallPosition].isVisible();
 }
@@ -100,24 +100,24 @@ void Node::setWindow(sf::RenderWindow *t_window)
             [&t_window](Wall &w){ w.setWindow(t_window); });
 }
 
-void Node::setVisible(const bool t_isVisible)
+void Node::setVisible(bool t_isVisible)
 {
     m_isVisible = t_isVisible;
     m_isVisible ? recreateAllWalls() : destroyAllWalls();
 }
 
-void Node::setOutline(const bool t_isOutlineVisible)
+void Node::setOutline(bool t_isOutlineVisible)
 {
     t_isOutlineVisible ? m_node.setOutlineColor(sf::Color(sf::Color(204, 255, 229)))
                        : m_node.setOutlineColor(sf::Color::Transparent);
 }
 
-void Node::setGridIndex(const float t_positionX, const float t_positionY)
+void Node::setGridIndex(float t_positionX, float t_positionY)
 {
     m_gridPosition = std::make_pair(t_positionX, t_positionY);
 }
 
-void Node::setVisited(const bool t_isVisited)
+void Node::setVisited(bool t_isVisited)
 {
     m_isVisited = t_isVisited;
     m_isVisited ? m_node.setFillColor(sf::Color(51, 51, 255))
@@ -129,7 +129,7 @@ void Node::setPredecessor(Node *t_predecessor)
     m_predecessor = t_predecessor;
 }
 
-void Node::setPosition(const float t_positionX, const float t_positionY)
+void Node::setPosition(float t_positionX, float t_positionY)
 {
     m_node.setPosition(t_positionX, t_positionY);
 
@@ -142,7 +142,7 @@ void Node::setPosition(const float t_positionX, const float t_positionY)
     m_walls[gc::wall::BOTTOM].rotate(gc::wall::BOTTOM_ROTATION_ANGLE);
 }
 
-void Node::setType(const gc::node::Type t_type)
+void Node::setType(gc::node::Type t_type)
 {
     m_type = t_type;
 

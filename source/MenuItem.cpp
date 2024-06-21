@@ -21,7 +21,7 @@ void MenuItem::draw()
     m_window->draw(m_menuItem);
 }
 
-void MenuItem::move(const float t_positionX, const float t_positionY)
+void MenuItem::move(float t_positionX, float t_positionY)
 {
     m_menuItem.move(t_positionX, t_positionY);
 }
@@ -42,7 +42,7 @@ void MenuItem::setText(const std::string &t_text)
     m_menuItem.setOrigin(m_menuItem.getGlobalBounds().width / 2, m_menuItem.getGlobalBounds().height / 2);
 }
 
-void MenuItem::setSelected(const bool t_isSelected)
+void MenuItem::setSelected(bool t_isSelected)
 {
     m_isSelected = t_isSelected; 
     m_isSelected ? m_menuItem.setFillColor(sf::Color(51, 51, 255))

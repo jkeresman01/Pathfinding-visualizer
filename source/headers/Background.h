@@ -12,7 +12,7 @@ class Background
         void draw();
 
         void setImage(const std::string &t_path);
-        void setScale(const float t_scaleX, const float t_scaleY);
+        void setScale(float t_scaleX, float t_scaleY);
         void setWindow(sf::RenderWindow *t_window);
 
     private:

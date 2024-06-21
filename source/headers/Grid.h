@@ -19,9 +19,9 @@ class Grid
         void resetDistanceValues();
 
         void setWindow(sf::RenderWindow *t_window);
-        void setOutline(const bool t_isOutlineVisible);
+        void setOutline(bool t_isOutlineVisible);
 
-        Node* getNodeAtPosition(const int t_positionX, const int t_positionY);
+        Node* getNodeAtPosition(uint32_t t_positionX, uint32_t t_positionY);
         Node* getSelectedNode();
 
     private:
@@ -29,6 +29,6 @@ class Grid
 
     private:
         sf::RenderWindow *m_window;
-        Node *m_grid;
 
+        Node *m_grid;
 };

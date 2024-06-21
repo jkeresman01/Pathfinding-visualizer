@@ -24,14 +24,14 @@ class Node
         void destroyAllWalls();
         void recreateAllWalls();
 
-        void setOutline(const bool t_isOutlineVisible);
-        void setVisible(const bool t_isVisible);
-        void setVisited(const bool t_isVisited);
-        void setType(const gc::node::Type t_type);
-        void setGridIndex(const float t_positionX, const float t_positionY);
-        void setPosition(const float t_positionX, const float t_positionY);
+        void setOutline(bool t_isOutlineVisible);
+        void setVisible(bool t_isVisible);
+        void setVisited(bool t_isVisited);
+        void setType(gc::node::Type t_type);
+        void setGridIndex(float t_positionX, float t_positionY);
+        void setPosition(float t_positionX, float t_positionY);
         void setWindow(sf::RenderWindow *t_window);
-        void setDistance(const std::uint32_t t_distance);
+        void setDistance(uint32_t t_distance);
         void setPredecessor(Node *t_predecessor);
 
         Node* getPredecessor() const;
@@ -50,7 +50,7 @@ class Node
         Node *m_predecessor;
 
         std::pair<int, int> m_gridPosition;
-        std::uint32_t m_distance;
+        uint32_t m_distance;
 
         gc::node::Type m_type;
 

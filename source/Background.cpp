@@ -11,7 +11,7 @@ void Background::draw()
     m_window->draw(m_background);
 }
 
-void Background::setScale(const float t_scaleX, const float t_scaleY)
+void Background::setScale(float t_scaleX, float t_scaleY)
 {
     m_background.setScale(t_scaleX, t_scaleY);
 }
