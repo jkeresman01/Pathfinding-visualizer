@@ -101,6 +101,11 @@ void Node::setDistance(const std::uint32_t t_distance)
 void Node::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
+    setWallWindow(t_window);
+}
+
+void Node::setWallWindow(sf::RenderWindow *t_window)
+{
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
             [&t_window](Wall &w){ w.setWindow(t_window); });
 }
@@ -138,13 +143,13 @@ void Node::setPosition(float t_positionX, float t_positionY)
 {
     m_node.setPosition(t_positionX, t_positionY);
     setWallPosition(t_positionX, t_positionY);
+    rotateWalls();
 }
 
 void Node::setWallPosition(float t_positionX, float t_positionY)
 {
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
             [&t_positionX, &t_positionY](Wall &wall){ wall.setPosition(t_positionX, t_positionY); });
-    rotateWalls();
 }
 
 void Node::rotateWalls()
