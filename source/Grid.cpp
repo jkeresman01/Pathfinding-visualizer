@@ -90,8 +90,8 @@ Node* Grid::getSelectedNode()
     float mousePositionX = sf::Mouse::getPosition(*m_window).x - gc::node::WIDTH;
     float mousePositionY = sf::Mouse::getPosition(*m_window).y - gc::node::HEIGHT;
 
-    int cellPostionX = floor(mousePositionX / gc::node::WIDTH);
-    int cellPostionY = floor(mousePositionY / gc::node::HEIGHT);
+    int32_t cellPostionX = floor(mousePositionX / gc::node::WIDTH);
+    int32_t cellPostionY = floor(mousePositionY / gc::node::HEIGHT);
 
     return getNodeAtPosition(cellPostionY, cellPostionX);
 }

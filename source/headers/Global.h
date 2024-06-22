@@ -112,7 +112,7 @@ namespace gc
     {
         constexpr uint32_t NUMBER_OF_OPTIONS = 3;
 
-        constexpr uint32_t SPACING_BETWEEN_ITEMS = 100;
+        constexpr int32_t SPACING_BETWEEN_ITEMS = 100;
 
         constexpr float BACKGROND_SCALE_X = 0.4f;
         constexpr float BACKGROND_SCALE_Y = 0.4f;
