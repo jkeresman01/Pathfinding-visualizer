@@ -1,4 +1,5 @@
 #include "headers/Wall.h"
+
 #include "headers/Global.h"
     
 Wall::Wall() 

@@ -1,7 +1,5 @@
 #include "headers/RecursiveBacktracking.h"
 
-#include <stack>
-
 void drawMaze(Grid &t_grid,
               std::stack<Node*> &t_visitedNodes,
               std::uint32_t &t_numberOfVisitedNodes)

@@ -1,11 +1,12 @@
 #include "headers/Node.h"
-#include "headers/Global.h"
-#include "headers/Wall.h"
 
 #include <algorithm>
 #include <utility>
 
 #include <SFML/Graphics/Color.hpp>
+
+#include "headers/Global.h"
+#include "headers/Wall.h"
 
 Node::Node() 
     : m_window(nullptr),

@@ -1,12 +1,13 @@
+#include "headers/PathFindingVisulizer.h"
+
+#include <ctime>
+
 #include "headers/BreadthFirstSearch.h"
 #include "headers/Dijkstra.h"
 #include "headers/DepthFirstSearch.h"
 #include "headers/Global.h"
-#include "headers/PathFindingVisulizer.h"
 #include "headers/RecreatePath.h"
 #include "headers/RecursiveBacktracking.h"
-
-#include <ctime>
 
 PathFindingVisulizer::PathFindingVisulizer() 
     : m_window(sf::VideoMode(gc::screen::WIDTH, gc::screen::HEIGHT), ""),

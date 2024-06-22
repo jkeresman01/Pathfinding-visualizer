@@ -1,5 +1,4 @@
 #include "headers/RecreatePath.h"
-#include "headers/Grid.h"
 
 void recreatePath(sf::RenderWindow *t_window,
                   Legend &t_legend,

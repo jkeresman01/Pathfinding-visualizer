@@ -1,5 +1,4 @@
 #include "headers/BreadthFirstSearch.h"
-#include "headers/Global.h"
 
 void bfs(Grid &t_grid,
          std::queue<Node*> &t_visitedNodes,

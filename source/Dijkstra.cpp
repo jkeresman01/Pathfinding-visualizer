@@ -1,5 +1,4 @@
 #include "headers/Dijkstra.h"
-#include "headers/Global.h"
 
 void dijkstra(Grid &t_grid,
              std::priority_queue<Node*, std::vector<Node*>, NodeComp> &t_visitedNodes,

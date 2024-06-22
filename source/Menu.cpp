@@ -1,13 +1,13 @@
-#include "headers/Global.h"
 #include "headers/Menu.h"
-#include "headers/MenuItem.h"
-#include "headers/Logger.h"
 
 #include <algorithm>
 
 #include <SFML/Window/Event.hpp>
-
 #include <SFML/Audio.hpp>
+
+#include "headers/Global.h"
+#include "headers/MenuItem.h"
+#include "headers/Logger.h"
 
 Menu::Menu() : m_window(nullptr)
 {

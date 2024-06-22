@@ -1,10 +1,11 @@
 #include "headers/Legend.h"
-#include "headers/Global.h"
-#include "headers/Logger.h"
 
 #include <algorithm>
 
 #include <SFML/Graphics/Text.hpp>
+
+#include "headers/Global.h"
+#include "headers/Logger.h"
 
 Legend::Legend() : m_window(nullptr)
 {

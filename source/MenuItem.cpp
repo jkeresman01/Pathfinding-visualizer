@@ -1,8 +1,9 @@
 #include "headers/MenuItem.h"                           
-#include "headers/Global.h"                           
-#include "headers/Logger.h"                           
 
 #include <SFML/Graphics/Color.hpp>
+
+#include "headers/Global.h"                           
+#include "headers/Logger.h"                           
 
 MenuItem::MenuItem() : m_window(nullptr)
 {
