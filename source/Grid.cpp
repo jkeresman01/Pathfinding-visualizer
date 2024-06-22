@@ -3,9 +3,6 @@
 #include <algorithm>
 #include <cmath>
 
-#include <SFML/System/Sleep.hpp>
-#include <SFML/System/Time.hpp>
-
 #include <SFML/Window/Mouse.hpp>
 
 Grid::Grid() : m_window(nullptr)
