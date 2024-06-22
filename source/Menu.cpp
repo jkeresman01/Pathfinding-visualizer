@@ -46,9 +46,14 @@ void Menu::draw()
 {
     m_window->clear(sf::Color(3, 11, 28));
     m_background.draw();
+    drawMenuItems();
+    m_window->display();
+}
+
+void Menu::drawMenuItems()
+{
     std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS,
             [](MenuItem &menuItem){ menuItem.draw(); });
-    m_window->display();
 }
 
 void Menu::moveUp()

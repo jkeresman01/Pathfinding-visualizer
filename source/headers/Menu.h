@@ -28,6 +28,7 @@ class Menu
 
     private:
         void initMenuItems();
+        void drawMenuItems();
 
     private:
         sf::RenderWindow *m_window;
