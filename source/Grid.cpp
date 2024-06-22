@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <cmath>
-#include <iostream>
 
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
