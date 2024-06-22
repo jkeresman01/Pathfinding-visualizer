@@ -30,6 +30,8 @@ class Menu
         void initMenuItems();
         void drawMenuItems();
 
+        void setWindowMenuItems(sf::RenderWindow *t_window);
+
     private:
         sf::RenderWindow *m_window;
         sf::SoundBuffer m_soundBuffer;

@@ -84,9 +84,13 @@ int Menu::getSelectedItem() const
 void Menu::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
-
     m_background.setWindow(t_window);
+    setWindowMenuItems(t_window);
 
+}
+
+void Menu::setWindowMenuItems(sf::RenderWindow *t_window)
+{
     std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS,
             [&t_window](MenuItem &menuItem){ menuItem.setWindow(t_window); });
 }
