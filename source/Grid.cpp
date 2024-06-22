@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <iostream>
 
 #include <SFML/System/Sleep.hpp>
 #include <SFML/System/Time.hpp>
@@ -77,7 +78,7 @@ void Grid::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
     std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, 
-            [&t_window](Node &n) { n.setWindow(t_window); });
+        [&t_window](Node &n) { n.setWindow(t_window); });
 }
 
 Node* Grid::getNodeAtPosition(uint32_t t_positionX, uint32_t t_positionY)
@@ -90,8 +91,8 @@ Node* Grid::getSelectedNode()
     float mousePositionX = sf::Mouse::getPosition(*m_window).x - gc::node::WIDTH;
     float mousePositionY = sf::Mouse::getPosition(*m_window).y - gc::node::HEIGHT;
 
-    int32_t cellPostionX = floor(mousePositionX / gc::node::WIDTH);
-    int32_t cellPostionY = floor(mousePositionY / gc::node::HEIGHT);
+    uint32_t cellPostionX = floor(mousePositionX / gc::node::WIDTH);
+    uint32_t cellPostionY = floor(mousePositionY / gc::node::HEIGHT);
 
     return getNodeAtPosition(cellPostionY, cellPostionX);
 }

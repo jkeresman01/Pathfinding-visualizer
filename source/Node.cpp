@@ -164,28 +164,21 @@ void Node::setType(gc::node::Type t_type)
 {
     m_type = t_type;
 
-    if(m_type == gc::node::EMPTY)
-    {
-        m_node.setFillColor(sf::Color::Transparent);
-    }
-
-    if(m_type == gc::node::START)
-    {
-       m_node.setFillColor(sf::Color::Green);
-    }
-
-    if(m_type == gc::node::TARGET)
-    {
-       m_node.setFillColor(sf::Color::Cyan);
-    }
-
-    if(m_type == gc::node::PATH)
-    {
-        m_node.setFillColor(sf::Color(229, 204, 255));
-    }
-
-    if(m_type == gc::node::WALL)
-    {
-        m_node.setFillColor(sf::Color::Magenta);
+    switch (m_type) {
+        case gc::node::START:
+            m_node.setFillColor(sf::Color::Green);
+            break;
+        case gc::node::TARGET:
+            m_node.setFillColor(sf::Color::Cyan);
+            break;
+        case gc::node::PATH:
+            m_node.setFillColor(sf::Color(229, 204, 255));
+            break;
+        case gc::node::WALL:
+            m_node.setFillColor(sf::Color::Magenta);
+            break;
+        default:
+            m_node.setFillColor(sf::Color::Transparent);
+            break;
     }
 }

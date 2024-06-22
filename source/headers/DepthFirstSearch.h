@@ -9,4 +9,3 @@ void dfs(Grid &t_grid,
          sf::RenderWindow &t_window,
          bool &t_isTargetReached,
          Legend &t_legend);
-

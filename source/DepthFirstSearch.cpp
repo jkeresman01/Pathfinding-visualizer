@@ -6,7 +6,6 @@ void dfs(Grid &t_grid,
          bool &t_isTargetReached,
          Legend &t_legend)
 {
-
     if(t_currentNode->getType() == gc::node::Type::TARGET)
     {
         t_isTargetReached = true;

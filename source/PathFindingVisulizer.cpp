@@ -20,9 +20,11 @@ PathFindingVisulizer::PathFindingVisulizer()
 {
     m_window.setPosition(sf::Vector2i(gc::screen::POSITION_X, gc::screen::POSITION_Y));
     m_window.setFramerateLimit(gc::tool::FRAMES_PER_SECOND);
+
     m_grid.setWindow(&m_window);
     m_menu.setWindow(&m_window);
     m_legend.setWindow(&m_window);
+
     srand(time(nullptr));
 }
 
@@ -78,10 +80,11 @@ void PathFindingVisulizer::run()
                 }
             }
 
-            if(m_currentScene == gc::tool::Scene::WALL_BUILDING || m_currentScene == gc::tool::Scene::MAZE_SOLVING)
+            if(m_currentScene == gc::tool::Scene::WALL_BUILDING or m_currentScene == gc::tool::Scene::MAZE_SOLVING)
             {
                 
-                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) and event.type == sf::Event::KeyPressed and event.key.code == sf::Keyboard::Enter and m_currentScene == gc::tool::WALL_BUILDING)
+                if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) and event.type == sf::Event::KeyPressed and 
+                    event.key.code == sf::Keyboard::Enter and m_currentScene == gc::tool::WALL_BUILDING)
                 {
                     Node* currentSelectedCell = m_grid.getSelectedNode();
 
@@ -142,11 +145,15 @@ void PathFindingVisulizer::run()
                     }
 
                     m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
+
                     m_grid.restoreVisitedNodes();
                     m_grid.resetDistanceValues();
+
                     m_isTargetReached = false;
                     m_isPathCreated = false;
+
                     m_numberOfVisitedNodes = 1;
+
                     m_start = nullptr;
                     m_end = nullptr;
                     m_isGridResetDone = false;
@@ -168,10 +175,13 @@ void PathFindingVisulizer::run()
                     }
 
                     m_algorithm = gc::tool::Algorithm::NOT_SELECTED;
+
                     m_grid.restoreVisitedNodes();
                     m_grid.resetDistanceValues();
+
                     m_isTargetReached = false;
                     m_isPathCreated = false;
+
                     m_start = nullptr;
                     m_end = nullptr;
                 }
@@ -194,7 +204,6 @@ void PathFindingVisulizer::run()
                     m_start->setDistance(0);
                     m_dijsktraVisitedNodes.push(m_start);
                 }
-                
             }
 
         }
@@ -247,7 +256,7 @@ void PathFindingVisulizer::run()
             }
             else if (!m_isPathCreated) 
             {
-                recreatePath(m_end, m_grid, &m_window, m_legend);
+                recreatePath(&m_window, m_legend, m_end, m_grid);
                 m_isPathCreated = true;
             }
 

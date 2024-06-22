@@ -6,7 +6,7 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-void recreatePath(Node *t_node, 
-                  Grid &t_grid,
-                  sf::RenderWindow *t_window,
-                  Legend &t_legend);
+void recreatePath(sf::RenderWindow *t_window,
+                  Legend &t_legend,
+                  Node *t_node, 
+                  Grid &t_grid);
