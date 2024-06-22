@@ -1,22 +1,22 @@
 #pragma once
 
-#include <cstdint>
 
+#include <cstdint>
 namespace gc
 {
     namespace screen
     {
-        constexpr int WIDTH = 1200; 
-        constexpr int HEIGHT = 780; 
+        constexpr uint32_t WIDTH = 1200; 
+        constexpr uint32_t HEIGHT = 780; 
 
-        constexpr int POSITION_X  = 300; 
-        constexpr int POSITION_Y  = 200; 
+        constexpr uint32_t POSITION_X  = 300; 
+        constexpr uint32_t POSITION_Y  = 200; 
     }
 
     namespace grid
     {
-        constexpr int ROWS = 24; 
-        constexpr int COLUMNS = 32; 
+        constexpr uint32_t ROWS = 24; 
+        constexpr uint32_t COLUMNS = 32; 
     }
 
     namespace node
@@ -30,14 +30,14 @@ namespace gc
         constexpr float START_POSITION_X = 40.0f; 
         constexpr float START_POSITION_Y = 40.0f; 
 
-        constexpr int START_INDEX_X = 0;
-        constexpr int START_INDEX_Y = 0;
+        constexpr uint32_t START_INDEX_X = 0;
+        constexpr uint32_t START_INDEX_Y = 0;
 
         constexpr float OUTLINE_THICKNESS = 1.0f; 
 
         constexpr uint32_t DEFAULT_DISTANCE_VALUE = 10000;
 
-        enum Type
+        enum Type : uint8_t
         {
             START = 1,
             TARGET = 2,
@@ -58,9 +58,9 @@ namespace gc
         constexpr float START_POSITION_X = node::START_POSITION_X;
         constexpr float START_POSITION_Y = node::START_POSITION_Y;  
 
-        constexpr int WALL_COUNT = 4;
+        constexpr uint32_t WALL_COUNT = 4;
 
-        enum Position
+        enum Position : uint8_t
         {
             LEFT =  0,
             RIGHT = 1,
@@ -68,7 +68,7 @@ namespace gc
             BOTTOM = 3,
         };
 
-        enum Rotation
+        enum Rotation : uint8_t
         {
             LEFT_ROTATION_ANGLE = -45,
             RIGHT_ROTATION_ANGLE = 45,
@@ -79,7 +79,7 @@ namespace gc
 
     namespace maze
     {
-        enum Direction
+        enum Direction : uint8_t
         {
             LEFT = 0,
             RIGHT = 1,
@@ -90,16 +90,16 @@ namespace gc
 
     namespace tool
     {
-        constexpr int FRAMES_PER_SECOND = 60;
+        constexpr uint32_t FRAMES_PER_SECOND = 60;
 
-        enum Scene
+        enum Scene : uint8_t
         {
             MENU = 0,
             MAZE_SOLVING = 1,
             WALL_BUILDING = 2,
         };
 
-        enum Algorithm
+        enum Algorithm : uint8_t
         {
             NOT_SELECTED = 0,
             DFS = 1,
@@ -110,15 +110,15 @@ namespace gc
 
     namespace menu
     {
-        constexpr int NUMBER_OF_OPTIONS = 3;
-        constexpr int SPACING_BETWEEN_ITEMS = 100;
+        constexpr uint32_t NUMBER_OF_OPTIONS = 3;
+        constexpr uint32_t SPACING_BETWEEN_ITEMS = 100;
 
         constexpr float BACKGROND_SCALE_X = 0.4f;
         constexpr float BACKGROND_SCALE_Y = 0.4f;
 
         constexpr float FONT_SIZE = 30.0f;
 
-        enum Mode
+        enum Mode : uint8_t
         {
             MAZE_SOLVING = 0,
             WALL_BUILDING = 1,
@@ -128,16 +128,16 @@ namespace gc
 
     namespace legend
     {
-        constexpr int NUMBER_OF_ITEMS = 13;
+        constexpr uint32_t NUMBER_OF_ITEMS = 13;
 
         constexpr float POSITION_X = screen::WIDTH - 200.0f;
         constexpr float POSITION_Y = 25;
 
         constexpr float FONT_SIZE = 15.0f;
 
-        constexpr int ITEM_SPACING = 40;
+        constexpr uint32_t ITEM_SPACING = 40;
 
-        enum Option
+        enum Option : uint8_t
         {
             EMPTY_START = 0,
             RESET = 1,
@@ -154,5 +154,4 @@ namespace gc
             EMPTY_END = 12
         };
     }
-
 }
