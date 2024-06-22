@@ -32,6 +32,11 @@ Node::~Node()
 void Node::draw()
 {
     m_window->draw(m_node);
+    drawWalls();
+}
+
+void Node::drawWalls()
+{
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
             [](Wall &w){ if(w.isVisible()){ w.draw(); }});
 }
@@ -83,7 +88,7 @@ Node* Node::getPredecessor() const
     return m_predecessor;
 }
 
-std::uint32_t Node::getDistance() const
+uint32_t Node::getDistance() const
 {
     return m_distance;
 }
@@ -132,10 +137,18 @@ void Node::setPredecessor(Node *t_predecessor)
 void Node::setPosition(float t_positionX, float t_positionY)
 {
     m_node.setPosition(t_positionX, t_positionY);
+    setWallPosition(t_positionX, t_positionY);
+}
 
+void Node::setWallPosition(float t_positionX, float t_positionY)
+{
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
             [&t_positionX, &t_positionY](Wall &wall){ wall.setPosition(t_positionX, t_positionY); });
+    rotateWalls();
+}
 
+void Node::rotateWalls()
+{
     m_walls[gc::wall::LEFT].rotate(gc::wall::LEFT_ROTATION_ANGLE);
     m_walls[gc::wall::RIGHT].rotate(gc::wall::RIGHT_ROTATION_ANGLE);
     m_walls[gc::wall::TOP].rotate(gc::wall::TOP_ROTATION_ANGLE);

@@ -30,9 +30,9 @@ class Node
         void setType(gc::node::Type t_type);
         void setGridIndex(float t_positionX, float t_positionY);
         void setPosition(float t_positionX, float t_positionY);
-        void setWindow(sf::RenderWindow *t_window);
         void setDistance(uint32_t t_distance);
         void setPredecessor(Node *t_predecessor);
+        void setWindow(sf::RenderWindow *t_window);
 
         Node* getPredecessor() const;
 
@@ -40,6 +40,11 @@ class Node
         std::pair<int, int> getGridPosition() const;
 
         gc::node::Type getType() const;
+
+    private:
+        void drawWalls();
+        void setWallPosition(float t_positionX, float t_positionY);
+        void rotateWalls();
 
     private:
         sf::RenderWindow *m_window;;
