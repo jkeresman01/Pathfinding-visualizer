@@ -35,10 +35,8 @@ class Node
         void setWindow(sf::RenderWindow *t_window);
 
         Node* getPredecessor() const;
-
-        std::uint32_t getDistance() const;
+        uint32_t getDistance() const;
         std::pair<int, int> getGridPosition() const;
-
         gc::node::Type getType() const;
 
     private:

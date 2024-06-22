@@ -93,7 +93,7 @@ uint32_t Node::getDistance() const
     return m_distance;
 }
 
-void Node::setDistance(const std::uint32_t t_distance)
+void Node::setDistance(uint32_t t_distance)
 {
     m_distance = t_distance;
 }
