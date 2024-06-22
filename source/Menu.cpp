@@ -86,7 +86,6 @@ void Menu::setWindow(sf::RenderWindow *t_window)
     m_window = t_window;
     m_background.setWindow(t_window);
     setWindowMenuItems(t_window);
-
 }
 
 void Menu::setWindowMenuItems(sf::RenderWindow *t_window)
