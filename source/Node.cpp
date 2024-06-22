@@ -164,7 +164,8 @@ void Node::setType(gc::node::Type t_type)
 {
     m_type = t_type;
 
-    switch (m_type) {
+    switch (m_type) 
+    {
         case gc::node::START:
             m_node.setFillColor(sf::Color::Green);
             break;
