@@ -62,18 +62,18 @@ namespace gc
 
         enum Position : uint8_t
         {
-            LEFT   = 0,
-            RIGHT  = 1,
-            TOP    = 2,
-            BOTTOM = 3,
+            LEFT    =  0,
+            RIGHT   =  1,
+            TOP     =  2,
+            BOTTOM  =  3,
         };
 
         enum Rotation : int8_t
         {
-            LEFT_ROTATION_ANGLE   = -45,
-            RIGHT_ROTATION_ANGLE  =  45,
-            TOP_ROTATION_ANGLE    =   0,
-            BOTTOM_ROTATION_ANGLE = -90,
+            LEFT_ROTATION_ANGLE    =  -45,
+            RIGHT_ROTATION_ANGLE   =   45,
+            TOP_ROTATION_ANGLE     =    0,
+            BOTTOM_ROTATION_ANGLE  =  -90,
         };
     }
 
@@ -81,10 +81,10 @@ namespace gc
     {
         enum Direction : uint8_t
         {
-            LEFT   = 0,
-            RIGHT  = 1,
-            TOP    = 2,
-            BOTTOM = 3,
+            LEFT    =  0,
+            RIGHT   =  1,
+            TOP     =  2,
+            BOTTOM  =  3,
         };
     }
 
@@ -94,17 +94,17 @@ namespace gc
 
         enum Scene : uint8_t
         {
-            MENU          = 0,
-            MAZE_SOLVING  = 1,
-            WALL_BUILDING = 2,
+            MENU           =  0,
+            MAZE_SOLVING   =  1,
+            WALL_BUILDING  =  2,
         };
 
         enum Algorithm : uint8_t
         {
-            NOT_SELECTED = 0,
-            DFS          = 1,
-            BFS          = 2,
-            DIJKSTRA     = 3,
+            NOT_SELECTED  =  0,
+            DFS           =  1,
+            BFS           =  2,
+            DIJKSTRA      =  3,
         };
     }
 
@@ -121,9 +121,9 @@ namespace gc
 
         enum Mode : uint8_t
         {
-            MAZE_SOLVING  = 0,
-            WALL_BUILDING = 1,
-            EXIT          = 2,
+            MAZE_SOLVING   =  0,
+            WALL_BUILDING  =  1,
+            EXIT           =  2,
         };
     }
 
@@ -140,19 +140,19 @@ namespace gc
 
         enum Option : uint8_t
         {
-            EMPTY_START  = 0,
-            RESET        = 1,
-            DFS          = 2,
-            BFS          = 3,
-            DIJKSTRA     = 4,
-            ESC          = 5,
-            EMPTY_MIDDLE = 6,
-            START        = 7,
-            TARGET       = 8,
-            WALL         = 9,
-            PATH         = 10,
-            VISITED      = 11,
-            EMPTY_END    = 12
+            EMPTY_START  =  0,
+            RESET        =  1,
+            DFS          =  2,
+            BFS          =  3,
+            DIJKSTRA     =  4,
+            ESC          =  5,
+            EMPTY_MIDDLE =  6,
+            START        =  7,
+            TARGET       =  8,
+            WALL         =  9,
+            PATH         =  10,
+            VISITED      =  11,
+            EMPTY_END    =  12
         };
     }
 }
