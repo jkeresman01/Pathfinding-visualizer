@@ -1,15 +1,13 @@
 #pragma once
 
-#include "Global.h"
-#include "MenuItem.h"
-#include "Background.h"
-
 #include <SFML/Audio/Sound.hpp>
 #include <SFML/Audio/SoundBuffer.hpp>
-
 #include <SFML/Graphics/RenderWindow.hpp>
-
 #include <SFML/Window/Event.hpp>
+
+#include "Background.h"
+#include "Global.h"
+#include "MenuItem.h"
 
 class Menu
 {
@@ -24,7 +22,7 @@ class Menu
 
         void setWindow(sf::RenderWindow *t_window);
 
-        int getSelectedItem() const;
+        uint32_t getSelectedItem() const;
 
     private:
         void initMenuItems();
