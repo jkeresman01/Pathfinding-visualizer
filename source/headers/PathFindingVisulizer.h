@@ -36,7 +36,9 @@ class PathFindingVisulizer
         std::stack<Node*> m_mazeVisitedNodes;
         std::stack<Node*> m_dfsVisitedNodes;
         std::queue<Node*> m_bfsVisitedNodes;
-        std::priority_queue<Node*, std::vector<Node*>, NodeComp> m_dijsktraVisitedNodes;
+        std::priority_queue<Node*,
+                            std::vector<Node*>,
+                            NodeComp> m_dijsktraVisitedNodes;
 
         uint32_t m_numberOfVisitedNodes;
 
