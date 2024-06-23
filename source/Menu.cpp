@@ -2,12 +2,12 @@
 
 #include <algorithm>
 
-#include <SFML/Window/Event.hpp>
 #include <SFML/Audio.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include "headers/Global.h"
-#include "headers/MenuItem.h"
 #include "headers/Logger.h"
+#include "headers/MenuItem.h"
 
 Menu::Menu() : m_window(nullptr)
 {
