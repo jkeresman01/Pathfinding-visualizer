@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Node.h"
 #include "Grid.h"
 #include "Legend.h"
+#include "Node.h"
 
 #include <SFML/Graphics/RenderWindow.hpp>
 

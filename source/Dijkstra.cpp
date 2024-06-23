@@ -18,7 +18,7 @@ void dijkstra(Grid &t_grid,
         return;
     }
 
-    auto neighbour = [&currentNode, &t_grid](int x, int y)
+    auto neighbour = [&currentNode, &t_grid](uint32_t x, uint32_t y)
     {
         return t_grid.getNodeAtPosition(currentNode->getGridPosition().first + x, currentNode->getGridPosition().second + y);
     };

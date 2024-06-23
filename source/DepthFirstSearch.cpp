@@ -17,7 +17,7 @@ void dfs(Grid &t_grid,
     t_legend.draw();
     t_window.display();
 
-    auto neighbour = [&t_currentNode, &t_grid](int x, int y)
+    auto neighbour = [&t_currentNode, &t_grid](uint32_t x, uint32_t y)
     {
         return t_grid.getNodeAtPosition(t_currentNode->getGridPosition().first + x, t_currentNode->getGridPosition().second + y);
     };

@@ -76,7 +76,7 @@ void Menu::moveDown()
     }
 }
 
-int Menu::getSelectedItem() const
+uint32_t Menu::getSelectedItem() const
 {
     return m_selectedItem;
 }

@@ -1,9 +1,9 @@
 #pragma once
 
+#include <SFML/Graphics/RenderWindow.hpp>
+
 #include "Global.h"
 #include "Node.h"
-
-#include <SFML/Graphics/RenderWindow.hpp>
 
 class Grid
 {
