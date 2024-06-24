@@ -40,7 +40,8 @@ void MenuItem::setWindow(sf::RenderWindow *t_window)
 void MenuItem::setText(const std::string &t_text)
 {
     m_menuItem.setString(t_text);
-    m_menuItem.setOrigin(m_menuItem.getGlobalBounds().width / 2, m_menuItem.getGlobalBounds().height / 2);
+    m_menuItem.setOrigin(m_menuItem.getGlobalBounds().width  / 2,
+                         m_menuItem.getGlobalBounds().height / 2);
 }
 
 void MenuItem::setSelected(bool t_isSelected)
