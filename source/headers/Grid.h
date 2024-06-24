@@ -27,6 +27,8 @@ class Grid
     private:
         void initNodes();
 
+        void setWindowNodes(sf::RenderWindow *t_window);
+
     private:
         sf::RenderWindow *m_window;
 
