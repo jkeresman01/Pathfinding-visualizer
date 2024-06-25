@@ -1,10 +1,12 @@
 #include "headers/Background.h"
 
 #include "headers/Logger.h"
+#include "headers/Global.h"
 
 Background::Background()
 {
     setImage("./resources/images/default_background.jpg");
+    m_background.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
 }
 
 void Background::draw()
@@ -22,9 +24,9 @@ void Background::setWindow(sf::RenderWindow *t_window)
     m_window = t_window;
 }
 
-void Background::setImage(const std::string &t_path)
+void Background::setImage(const std::filesystem::path &t_path)
 {
-    if(!m_texture.loadFromFile(t_path))
+    if(!m_texture.loadFromFile(t_path.string()))
     {
         LOG_ERROR("Failed to load texture from " << t_path << "!");
     }

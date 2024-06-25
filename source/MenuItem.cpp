@@ -7,14 +7,19 @@
 
 MenuItem::MenuItem() : m_window(nullptr)
 {
-    if(!m_font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf"))
+    loadFont("resources/fonts/Emulogic-zrEw.ttf");
+    m_menuItem.setCharacterSize(gc::menu::FONT_SIZE);
+    m_menuItem.setPosition(gc::screen::WIDTH / 2.0f, gc::screen::HEIGHT / 2.0f);
+}
+
+void MenuItem::loadFont(const std::filesystem::path &t_path)
+{
+    if(!m_font.loadFromFile(t_path.string()))
     {
-        LOG_ERROR("Failed to load font from ./resources/fonts/Emulogic-zrEw.ttf!");
+        LOG_ERROR("Failed to load font from " << t_path.string() << "!");
     }
 
     m_menuItem.setFont(m_font);
-    m_menuItem.setCharacterSize(gc::menu::FONT_SIZE);
-    m_menuItem.setPosition(gc::screen::WIDTH / 2.0f, gc::screen::HEIGHT / 2.0f);
 }
 
 void MenuItem::draw()

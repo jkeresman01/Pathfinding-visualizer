@@ -1,5 +1,7 @@
 #pragma once
 
+#include <filesystem>
+
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
@@ -18,6 +20,9 @@ class MenuItem
         void setSelected(bool t_isSelected);
         void setText(const std::string &t_text);
     
+    private:
+        void loadFont(const std::filesystem::path &t_path);
+
     private:
         sf::RenderWindow *m_window;
         sf::Text m_menuItem;

@@ -11,20 +11,23 @@
 
 Menu::Menu() : m_window(nullptr)
 {
-    if(!m_soundBuffer.loadFromFile("./resources/sound/menu_sound_effect.wav"))
-    {
-        LOG_ERROR("Failed to load sound effect from ./resources/sound/menu_sound_effect.wav!");
-    }
-
-    m_soundEffect.setBuffer(m_soundBuffer);
-    m_background.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
-
     initMenuItems();
+    loadSound("resources/sound/menu_sound_effect.wav");
 }
 
 Menu::~Menu()
 {
     delete[] m_menuItems;
+}
+
+void Menu::loadSound(const std::filesystem::path &t_path)
+{
+    if(!m_soundBuffer.loadFromFile(t_path.string()))
+    {
+        LOG_ERROR("Failed to load sound effect from " << t_path.string() << "!");
+    }
+
+    m_soundEffect.setBuffer(m_soundBuffer);
 }
 
 void Menu::initMenuItems()

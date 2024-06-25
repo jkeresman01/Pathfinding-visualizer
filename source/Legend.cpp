@@ -9,12 +9,15 @@
 
 Legend::Legend() : m_window(nullptr)
 {
-    if(!m_font.loadFromFile("./resources/fonts/Emulogic-zrEw.ttf"))
-    {
-        LOG_ERROR("Failed to load font from ./resources/fonts/Emulogic-zrEw.ttf");
-    }
-
     initLegendItems();
+}
+
+void Legend::loadFont(const std::filesystem::path &t_path)
+{
+    if(!m_font.loadFromFile(t_path.string()))
+    {
+        LOG_ERROR("Failed to load font from " << t_path.string() << "!");
+    }
 }
 
 void Legend::initLegendItems()
@@ -33,6 +36,7 @@ void Legend::initLegendItems()
     m_items[gc::legend::VISITED].setString("o Visited");
     m_items[gc::legend::EMPTY_END].setString("-------------");
 
+    loadFont("resources/fonts/Emulogic-zrEw.ttf");
     for(size_t i = 0; i < gc::legend::NUMBER_OF_ITEMS; ++i)
     {
         m_items[i].setFont(m_font);

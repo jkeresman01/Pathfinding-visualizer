@@ -1,5 +1,7 @@
 #pragma once
 
+#include <filesystem>
+
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
@@ -19,6 +21,8 @@ class Legend
 
     private:
         void initLegendItems();
+
+        void loadFont(const std::filesystem::path &t_path);
 
     private:
         sf::RenderWindow *m_window;
