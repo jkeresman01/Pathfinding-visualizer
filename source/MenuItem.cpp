@@ -8,6 +8,7 @@
 MenuItem::MenuItem() : m_window(nullptr)
 {
     loadFont("resources/fonts/Emulogic-zrEw.ttf");
+    m_menuItem.setFont(m_font);
     m_menuItem.setCharacterSize(gc::menu::FONT_SIZE);
     m_menuItem.setPosition(gc::screen::WIDTH / 2.0f, gc::screen::HEIGHT / 2.0f);
 }
@@ -18,8 +19,6 @@ void MenuItem::loadFont(const std::filesystem::path &t_path)
     {
         LOG_ERROR("Failed to load font from " << t_path.string() << "!");
     }
-
-    m_menuItem.setFont(m_font);
 }
 
 void MenuItem::draw()
