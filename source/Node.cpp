@@ -22,6 +22,7 @@ Node::Node()
     setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
     setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
     setType(gc::node::EMPTY);
+
     setVisible(true);
 }
 
