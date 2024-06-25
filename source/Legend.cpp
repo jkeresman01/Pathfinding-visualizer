@@ -12,15 +12,14 @@ Legend::Legend() : m_window(nullptr)
     initLegendItems();
 }
 
-void Legend::loadFont(const std::filesystem::path &t_path)
+void Legend::initLegendItems()
 {
-    if(!m_font.loadFromFile(t_path.string()))
-    {
-        LOG_ERROR("Failed to load font from " << t_path.string() << "!");
-    }
+    setTextLegendItems();
+    setDefaultSettingsLegendItems();
+    setColorLegendItems();
 }
 
-void Legend::initLegendItems()
+void Legend::setTextLegendItems()
 {
     m_items[gc::legend::EMPTY_START].setString("-------------");
     m_items[gc::legend::ESC].setString("ESC - Menu");
@@ -35,8 +34,12 @@ void Legend::initLegendItems()
     m_items[gc::legend::PATH].setString("o Path");
     m_items[gc::legend::VISITED].setString("o Visited");
     m_items[gc::legend::EMPTY_END].setString("-------------");
+}
 
+void Legend::setDefaultSettingsLegendItems()
+{
     loadFont("resources/fonts/Emulogic-zrEw.ttf");
+
     for(size_t i = 0; i < gc::legend::NUMBER_OF_ITEMS; ++i)
     {
         m_items[i].setFont(m_font);
@@ -45,7 +48,18 @@ void Legend::initLegendItems()
         m_items[i].setPosition(gc::legend::POSITION_X, gc::legend::POSITION_Y);
         m_items[i].move(0, i * gc::legend::ITEM_SPACING);
     }
+}
 
+void Legend::loadFont(const std::filesystem::path &t_path)
+{
+    if(!m_font.loadFromFile(t_path.string()))
+    {
+        LOG_ERROR("Failed to load font from " << t_path.string() << "!");
+    }
+}
+
+void Legend::setColorLegendItems()
+{
     m_items[gc::legend::START].setFillColor(sf::Color::Green);
     m_items[gc::legend::TARGET].setFillColor(sf::Color::Cyan);
     m_items[gc::legend::WALL].setFillColor(sf::Color::Magenta);

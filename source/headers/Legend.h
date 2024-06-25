@@ -24,6 +24,10 @@ class Legend
 
         void loadFont(const std::filesystem::path &t_path);
 
+        void setTextLegendItems();
+        void setDefaultSettingsLegendItems();
+        void setColorLegendItems();
+
     private:
         sf::RenderWindow *m_window;
         sf::Font m_font;
