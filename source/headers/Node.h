@@ -44,7 +44,7 @@ class Node
         void rotateWalls();
 
         void setWallPosition(float t_positionX, float t_positionY);
-        void setWallWindow(sf::RenderWindow *t_window);
+        void setWindowWalls(sf::RenderWindow *t_window);
 
     private:
         sf::RenderWindow *m_window;;

@@ -102,10 +102,10 @@ void Node::setDistance(uint32_t t_distance)
 void Node::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
-    setWallWindow(t_window);
+    setWindowWalls(t_window);
 }
 
-void Node::setWallWindow(sf::RenderWindow *t_window)
+void Node::setWindowWalls(sf::RenderWindow *t_window)
 {
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
             [&t_window](Wall &w){ w.setWindow(t_window); });
