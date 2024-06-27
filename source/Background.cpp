@@ -33,7 +33,7 @@ void Background::setImage(const std::filesystem::path &t_path)
 {
     if(!m_texture.loadFromFile(t_path.string()))
     {
-        LOG_ERROR("Failed to load texture from " << t_path << "!");
+        LOG_ERROR("Failed to load texture from " << t_path.string() << "!");
     }
 
     m_background.setTexture(m_texture);
