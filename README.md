@@ -12,21 +12,20 @@ Upon starting the application you will be presented with the menu where you can 
 
 AVAILABLE OPTIONS:
 
-`<r>` - Will reset the grid so that you can have fresh start
+`<R>` - Reset the grid
 
-`<d>` - Will start Depth first search algorithm
+`<D>` - Start Depth first search algorithm
 
-`<b>` - Will start Breadth first search algorithm
+`<B>` - Start Breadth first search algorithm
 
-`<j>`- Will start Dijkstra's algorithm
-
+`<J> `- Start Dijkstra's algorithm
 
 
 `<Space + left click>`     - position the start node
 
 `<Space + right click>`    - position the end node
 
-`<Enter + left click>`     - put walls around the grid
+`<Return + left click>`     - put walls around the grid
  
 
 
