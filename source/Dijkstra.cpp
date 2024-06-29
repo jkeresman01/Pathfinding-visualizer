@@ -20,7 +20,8 @@ void dijkstra(Grid &t_grid,
 
     auto neighbour = [&currentNode, &t_grid](uint32_t x, uint32_t y)
     {
-        return t_grid.getNodeAtPosition(currentNode->getGridPosition().first + x, currentNode->getGridPosition().second + y);
+        return t_grid.getNodeAtPosition(currentNode->getGridPosition().first + x,
+                                        currentNode->getGridPosition().second + y);
     };
 
     if (currentNode->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited() and 

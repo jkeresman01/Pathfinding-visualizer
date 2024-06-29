@@ -19,7 +19,8 @@ void dfs(Grid &t_grid,
 
     auto neighbour = [&t_currentNode, &t_grid](uint32_t x, uint32_t y)
     {
-        return t_grid.getNodeAtPosition(t_currentNode->getGridPosition().first + x, t_currentNode->getGridPosition().second + y);
+        return t_grid.getNodeAtPosition(t_currentNode->getGridPosition().first + x,
+                                        t_currentNode->getGridPosition().second + y);
     };
 
     if (t_currentNode->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited() and 
