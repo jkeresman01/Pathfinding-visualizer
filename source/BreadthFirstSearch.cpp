@@ -20,7 +20,7 @@ void bfs(Grid &t_grid,
 
     auto neighbour = [&currentNode, &t_grid](uint32_t x, uint32_t y)
     {
-        return t_grid.getNodeAtPosition(currentNode->getGridPosition().first + x,
+        return t_grid.getNodeAtPosition(currentNode->getGridPosition().first  + x,
                                         currentNode->getGridPosition().second + y);
     };
 
