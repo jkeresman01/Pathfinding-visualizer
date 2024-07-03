@@ -12,7 +12,6 @@
 Menu::Menu() : m_window(nullptr)
 {
     initMenuItems();
-    loadSound("resources/sound/menu_sound_effect.wav");
 }
 
 Menu::~Menu()
@@ -43,6 +42,8 @@ void Menu::initMenuItems()
 
     m_menuItems[gc::menu::EXIT].setText("Exit!");
     m_menuItems[gc::menu::EXIT].move(0, gc::menu::SPACING_BETWEEN_ITEMS);
+
+    loadSound("resources/sound/menu_sound_effect.wav");
 }
 
 void Menu::draw()
