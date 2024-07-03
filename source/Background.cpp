@@ -11,6 +11,7 @@ Background::Background()
 void Background::initBackground()
 {
     setImage("resources/images/default_background.jpg");
+
     m_background.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
 }
 
