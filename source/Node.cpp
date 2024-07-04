@@ -145,13 +145,14 @@ void Node::setPosition(float t_positionX, float t_positionY)
 {
     m_node.setPosition(t_positionX, t_positionY);
     setWallPosition(t_positionX, t_positionY);
-    rotateWalls();
 }
 
 void Node::setWallPosition(float t_positionX, float t_positionY)
 {
     std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
             [&t_positionX, &t_positionY](Wall &wall){ wall.setPosition(t_positionX, t_positionY); });
+
+    rotateWalls();
 }
 
 void Node::rotateWalls()
