@@ -25,9 +25,6 @@ class Node
 
         void destroyWall(const wall::Position t_wallPosition);
 
-        void destroyWalls();
-        void createWalls();
-
         void setOutline(bool t_isOutlineVisible);
         void setVisible(bool t_isVisible);
         void setVisited(bool t_isVisited);
@@ -49,6 +46,8 @@ class Node
     private:
         void drawWalls();
         void rotateWalls();
+        void destroyWalls();
+        void createWalls();
 
         void setWallPosition(float t_positionX, float t_positionY);
         void setWindowWalls(sf::RenderWindow *t_window);

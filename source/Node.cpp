@@ -66,18 +66,6 @@ void Node::destroyWall(wall::Position t_wallPosition)
     m_walls[t_wallPosition].setVisible(false);
 }
 
-void Node::destroyWalls()
-{
-    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-            [](Wall &wall){ wall.setVisible(false); });
-}
-
-void Node::createWalls()
-{
-    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-            [](Wall &wall){ wall.setVisible(true); });
-}
-
 node::Type Node::getType() const
 {
     return m_type;
@@ -119,6 +107,18 @@ void Node::setVisible(bool t_isVisible)
 {
     m_isVisible = t_isVisible;
     m_isVisible ? createWalls() : destroyWalls();
+}
+
+void Node::destroyWalls()
+{
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
+            [](Wall &wall){ wall.setVisible(false); });
+}
+
+void Node::createWalls()
+{
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
+            [](Wall &wall){ wall.setVisible(true); });
 }
 
 void Node::setOutline(bool t_isOutlineVisible)
