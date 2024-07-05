@@ -9,6 +9,9 @@
 #include "Global.h"
 #include "MenuItem.h"
 
+namespace pfv
+{
+    
 class Menu
 {
     public:
@@ -42,3 +45,5 @@ class Menu
 
         uint32_t m_selectedItem;
 };
+
+} // pfv

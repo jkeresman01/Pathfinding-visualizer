@@ -8,6 +8,9 @@
 
 #include "Global.h"
 
+namespace pfv
+{
+    
 class Legend
 {
     public:
@@ -31,5 +34,7 @@ class Legend
     private:
         sf::RenderWindow *m_window;
         sf::Font m_font;
-        sf::Text m_items[gc::legend::NUMBER_OF_ITEMS];
+        sf::Text m_items[legend::NUMBER_OF_ITEMS];
 };
+
+} // pfv

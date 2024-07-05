@@ -5,6 +5,9 @@
 
 #include <SFML/Window/Mouse.hpp>
 
+namespace pfv
+{
+
 Grid::Grid() : m_window(nullptr)
 {
     initNodes();
@@ -17,56 +20,56 @@ Grid::~Grid()
 
 void Grid::initNodes()
 {
-    m_grid = new Node[gc::grid::ROWS * gc::grid::COLUMNS];
+    m_grid = new Node[grid::ROWS * grid::COLUMNS];
 
-    for(size_t i = 0; i < gc::grid::ROWS; ++i)
+    for(size_t i = 0; i < grid::ROWS; ++i)
     {
-        for(size_t j = 0; j < gc::grid::COLUMNS; ++j)
+        for(size_t j = 0; j < grid::COLUMNS; ++j)
         {
-            m_grid[gc::grid::COLUMNS * i + j].setGridIndex(i, j);
-            m_grid[gc::grid::COLUMNS * i + j].setPosition(
-                    gc::node::START_POSITION_X + (j * gc::node::WIDTH), 
-                    gc::node::START_POSITION_Y + (i * gc::node::HEIGHT));
+            m_grid[grid::COLUMNS * i + j].setGridIndex(i, j);
+            m_grid[grid::COLUMNS * i + j].setPosition(
+                    node::START_POSITION_X + (j * node::WIDTH), 
+                    node::START_POSITION_Y + (i * node::HEIGHT));
         }
     } 
 }
 
 void Grid::restoreVisitedNodes()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, [](Node &n)
+    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS, [](Node &n)
     { 
         n.setVisited(false);
-        n.setType(gc::node::EMPTY);
+        n.setType(node::EMPTY);
     });
 }
 
 void Grid::draw()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS,
+    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS,
             [](Node &n){ n.draw(); });
 }
 
 void Grid::removeWalls()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS,
+    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS,
             [](Node &n) { n.setVisible(false); });
 }
 
 void Grid::resetDistanceValues()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS,
-            [](Node &n) { n.setDistance(gc::node::DEFAULT_DISTANCE_VALUE); });
+    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS,
+            [](Node &n) { n.setDistance(node::DEFAULT_DISTANCE_VALUE); });
 }
 
 void Grid::createWalls()
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS,
+    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS,
             [](Node &n) { n.setVisible(true); });
 }
 
 void Grid::setOutline(bool t_isOutlineVisible)
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, 
+    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS, 
             [&t_isOutlineVisible](Node &n) { n.setOutline(t_isOutlineVisible); });
 }
 
@@ -78,22 +81,24 @@ void Grid::setWindow(sf::RenderWindow *t_window)
 
 void Grid::setWindowNodes(sf::RenderWindow *t_window)
 {
-    std::for_each(m_grid, m_grid + gc::grid::ROWS * gc::grid::COLUMNS, 
+    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS, 
         [&t_window](Node &n) { n.setWindow(t_window); });
 }
 
 Node* Grid::getNodeAtPosition(uint32_t t_positionX, uint32_t t_positionY)
 {
-    return &m_grid[gc::grid::COLUMNS * t_positionX + t_positionY];
+    return &m_grid[grid::COLUMNS * t_positionX + t_positionY];
 }
 
 Node* Grid::getSelectedNode()
 {
-    float mousePositionX = sf::Mouse::getPosition(*m_window).x - gc::node::WIDTH;
-    float mousePositionY = sf::Mouse::getPosition(*m_window).y - gc::node::HEIGHT;
+    float mousePositionX = sf::Mouse::getPosition(*m_window).x - node::WIDTH;
+    float mousePositionY = sf::Mouse::getPosition(*m_window).y - node::HEIGHT;
 
-    uint32_t cellPostionX = std::floor(mousePositionX / gc::node::WIDTH);
-    uint32_t cellPostionY = std::floor(mousePositionY / gc::node::HEIGHT);
+    uint32_t cellPostionX = std::floor(mousePositionX / node::WIDTH);
+    uint32_t cellPostionY = std::floor(mousePositionY / node::HEIGHT);
 
     return getNodeAtPosition(cellPostionY, cellPostionX);
 }
+
+} //grid

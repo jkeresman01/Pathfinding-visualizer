@@ -13,6 +13,9 @@
 #include "NodeComparator.h"
 #include "Menu.h"
 
+namespace pfv
+{
+
 class PathFindingVisulizer
 {
     public:
@@ -23,8 +26,8 @@ class PathFindingVisulizer
     private:
         sf::RenderWindow m_window;
 
-        gc::tool::Scene m_currentScene;
-        gc::tool::Algorithm m_algorithm;
+        app::Scene m_currentScene;
+        app::Algorithm m_algorithm;
 
         Grid m_grid;
         Menu m_menu;
@@ -47,3 +50,5 @@ class PathFindingVisulizer
         bool m_isPathCreated;
         bool m_isGridResetDone;
 };
+    
+} // pfv

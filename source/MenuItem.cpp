@@ -5,12 +5,15 @@
 #include "headers/Global.h"                           
 #include "headers/Logger.h"                           
 
+namespace pfv
+{
+
 MenuItem::MenuItem() : m_window(nullptr)
 {
     loadFont("resources/fonts/Emulogic-zrEw.ttf");
 
-    m_menuItem.setCharacterSize(gc::menu::FONT_SIZE);
-    m_menuItem.setPosition(gc::screen::WIDTH / 2.0f, gc::screen::HEIGHT / 2.0f);
+    m_menuItem.setCharacterSize(menu::FONT_SIZE);
+    m_menuItem.setPosition(screen::WIDTH / 2.0f, screen::HEIGHT / 2.0f);
 }
 
 void MenuItem::loadFont(const std::filesystem::path &t_path)
@@ -56,4 +59,6 @@ void MenuItem::setSelected(bool t_isSelected)
     m_isSelected ? m_menuItem.setFillColor(sf::Color(51, 51, 255))
                  : m_menuItem.setFillColor(sf::Color(204, 255, 229));
 }
+    
+} // pfv
 

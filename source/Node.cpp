@@ -8,20 +8,23 @@
 #include "headers/Global.h"
 #include "headers/Wall.h"
 
+namespace pfv
+{
+
 Node::Node() 
     : m_window(nullptr),
     m_predecessor(nullptr),
-    m_distance(gc::node::DEFAULT_DISTANCE_VALUE)
+    m_distance(node::DEFAULT_DISTANCE_VALUE)
 {
-    m_walls = new Wall[gc::wall::WALL_COUNT];
+    m_walls = new Wall[wall::WALL_COUNT];
 
-    m_node.setSize(sf::Vector2f(gc::node::WIDTH, gc::node::HEIGHT));
-    m_node.setOutlineThickness(gc::node::OUTLINE_THICKNESS);
-    m_node.setOrigin(gc::node::ORIGIN_X, gc::node::ORIGIN_Y);
+    m_node.setSize(sf::Vector2f(node::WIDTH, node::HEIGHT));
+    m_node.setOutlineThickness(node::OUTLINE_THICKNESS);
+    m_node.setOrigin(node::ORIGIN_X, node::ORIGIN_Y);
 
-    setGridIndex(gc::node::START_INDEX_X, gc::node::START_INDEX_Y);
-    setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y );
-    setType(gc::node::EMPTY);
+    setGridIndex(node::START_INDEX_X, node::START_INDEX_Y);
+    setPosition(node::START_POSITION_X, node::START_POSITION_Y );
+    setType(node::EMPTY);
 
     setVisible(true);
 }
@@ -39,7 +42,7 @@ void Node::draw()
 
 void Node::drawWalls()
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
             [](Wall &w){ if(w.isVisible()){ w.draw(); }});
 }
 
@@ -53,29 +56,29 @@ bool Node::isVisible() const
     return m_isVisible;
 }
 
-bool Node::isWallVisible(gc::wall::Position t_wallPosition) const
+bool Node::isWallVisible(wall::Position t_wallPosition) const
 {
     return m_walls[t_wallPosition].isVisible();
 }
 
-void Node::destroyWall(gc::wall::Position t_wallPosition)
+void Node::destroyWall(wall::Position t_wallPosition)
 {
     m_walls[t_wallPosition].setVisible(false);
 }
 
 void Node::destroyAllWalls()
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
             [](Wall &wall){ wall.setVisible(false); });
 }
 
 void Node::recreateAllWalls()
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
             [](Wall &wall){ wall.setVisible(true); });
 }
 
-gc::node::Type Node::getType() const
+node::Type Node::getType() const
 {
     return m_type;
 }
@@ -108,7 +111,7 @@ void Node::setWindow(sf::RenderWindow *t_window)
 
 void Node::setWindowWalls(sf::RenderWindow *t_window)
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
             [&t_window](Wall &w){ w.setWindow(t_window); });
 }
 
@@ -149,7 +152,7 @@ void Node::setPosition(float t_positionX, float t_positionY)
 
 void Node::setWallPosition(float t_positionX, float t_positionY)
 {
-    std::for_each(m_walls, m_walls + gc::wall::WALL_COUNT,
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
             [&t_positionX, &t_positionY](Wall &wall){ wall.setPosition(t_positionX, t_positionY); });
 
     rotateWalls();
@@ -157,28 +160,28 @@ void Node::setWallPosition(float t_positionX, float t_positionY)
 
 void Node::rotateWalls()
 {
-    m_walls[gc::wall::LEFT].rotate(gc::wall::LEFT_ROTATION_ANGLE);
-    m_walls[gc::wall::RIGHT].rotate(gc::wall::RIGHT_ROTATION_ANGLE);
-    m_walls[gc::wall::TOP].rotate(gc::wall::TOP_ROTATION_ANGLE);
-    m_walls[gc::wall::BOTTOM].rotate(gc::wall::BOTTOM_ROTATION_ANGLE);
+    m_walls[wall::LEFT].rotate(wall::LEFT_ROTATION_ANGLE);
+    m_walls[wall::RIGHT].rotate(wall::RIGHT_ROTATION_ANGLE);
+    m_walls[wall::TOP].rotate(wall::TOP_ROTATION_ANGLE);
+    m_walls[wall::BOTTOM].rotate(wall::BOTTOM_ROTATION_ANGLE);
 }
 
-void Node::setType(gc::node::Type t_type)
+void Node::setType(node::Type t_type)
 {
     m_type = t_type;
 
     switch (m_type) 
     {
-        case gc::node::START:
+        case node::START:
             m_node.setFillColor(sf::Color::Green);
             break;
-        case gc::node::TARGET:
+        case node::TARGET:
             m_node.setFillColor(sf::Color::Cyan);
             break;
-        case gc::node::PATH:
+        case node::PATH:
             m_node.setFillColor(sf::Color(229, 204, 255));
             break;
-        case gc::node::WALL:
+        case node::WALL:
             m_node.setFillColor(sf::Color::Magenta);
             break;
         default:
@@ -186,3 +189,6 @@ void Node::setType(gc::node::Type t_type)
             break;
     }
 }
+    
+} // pfl
+

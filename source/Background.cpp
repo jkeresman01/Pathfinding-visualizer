@@ -3,6 +3,9 @@
 #include "headers/Logger.h"
 #include "headers/Global.h"
 
+namespace pfv
+{
+
 Background::Background()
 {
     initBackground();
@@ -12,7 +15,7 @@ void Background::initBackground()
 {
     setImage("resources/images/default_background.jpg");
 
-    m_background.setScale(gc::menu::BACKGROND_SCALE_X, gc::menu::BACKGROND_SCALE_Y);
+    m_background.setScale(menu::BACKGROND_SCALE_X, menu::BACKGROND_SCALE_Y);
 }
 
 void Background::draw()
@@ -39,3 +42,6 @@ void Background::setImage(const std::filesystem::path &t_path)
 
     m_background.setTexture(m_texture);
 }
+    
+} // pfv
+

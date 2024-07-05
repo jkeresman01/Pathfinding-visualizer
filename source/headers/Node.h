@@ -8,6 +8,9 @@
 #include "Global.h"
 #include "Wall.h"
 
+namespace pfv
+{
+    
 class Node
 {
     public:
@@ -18,16 +21,16 @@ class Node
 
         bool isVisited() const;
         bool isVisible() const;
-        bool isWallVisible(const gc::wall::Position t_wallPosition) const;
+        bool isWallVisible(const wall::Position t_wallPosition) const;
 
-        void destroyWall(const gc::wall::Position t_wallPosition);
+        void destroyWall(const wall::Position t_wallPosition);
         void destroyAllWalls();
         void recreateAllWalls();
 
         void setOutline(bool t_isOutlineVisible);
         void setVisible(bool t_isVisible);
         void setVisited(bool t_isVisited);
-        void setType(gc::node::Type t_type);
+        void setType(node::Type t_type);
         void setGridIndex(float t_positionX, float t_positionY);
         void setPosition(float t_positionX, float t_positionY);
         void setDistance(uint32_t t_distance);
@@ -37,7 +40,7 @@ class Node
         Node* getPredecessor() const;
         uint32_t getDistance() const;
         std::pair<int, int> getGridPosition() const;
-        gc::node::Type getType() const;
+        node::Type getType() const;
 
     private:
         void drawWalls();
@@ -57,9 +60,11 @@ class Node
         std::pair<int, int> m_gridPosition;
         uint32_t m_distance;
 
-        gc::node::Type m_type;
+        node::Type m_type;
 
         bool m_isVisited;
         bool m_isVisible;
-
 };
+
+} // pfv
+

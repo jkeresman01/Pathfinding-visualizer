@@ -9,6 +9,9 @@
 #include "headers/Logger.h"
 #include "headers/MenuItem.h"
 
+namespace pfv
+{
+    
 Menu::Menu() : m_window(nullptr)
 {
     initMenuItems();
@@ -31,17 +34,17 @@ void Menu::loadSound(const std::filesystem::path &t_path)
 
 void Menu::initMenuItems()
 {
-    m_menuItems = new MenuItem[gc::menu::NUMBER_OF_OPTIONS];
+    m_menuItems = new MenuItem[menu::NUMBER_OF_OPTIONS];
 
-    m_menuItems[gc::menu::MAZE_SOLVING].setText("Maze solving!");
-    m_menuItems[gc::menu::MAZE_SOLVING].move(0, -gc::menu::SPACING_BETWEEN_ITEMS);
-    m_menuItems[gc::menu::MAZE_SOLVING].setSelected(true);
-    m_selectedItem = gc::menu::MAZE_SOLVING;
+    m_menuItems[menu::MAZE_SOLVING].setText("Maze solving!");
+    m_menuItems[menu::MAZE_SOLVING].move(0, -menu::SPACING_BETWEEN_ITEMS);
+    m_menuItems[menu::MAZE_SOLVING].setSelected(true);
+    m_selectedItem = menu::MAZE_SOLVING;
 
-    m_menuItems[gc::menu::WALL_BUILDING].setText("Wall building!");
+    m_menuItems[menu::WALL_BUILDING].setText("Wall building!");
 
-    m_menuItems[gc::menu::EXIT].setText("Exit!");
-    m_menuItems[gc::menu::EXIT].move(0, gc::menu::SPACING_BETWEEN_ITEMS);
+    m_menuItems[menu::EXIT].setText("Exit!");
+    m_menuItems[menu::EXIT].move(0, menu::SPACING_BETWEEN_ITEMS);
 
     loadSound("resources/sound/menu_sound_effect.wav");
 }
@@ -56,7 +59,7 @@ void Menu::draw()
 
 void Menu::drawMenuItems()
 {
-    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS,
+    std::for_each(m_menuItems, m_menuItems + menu::NUMBER_OF_OPTIONS,
             [](MenuItem &menuItem){ menuItem.draw(); });
 }
 
@@ -72,7 +75,7 @@ void Menu::moveUp()
 
 void Menu::moveDown()
 {
-    if(m_selectedItem < gc::menu::NUMBER_OF_OPTIONS - 1)
+    if(m_selectedItem < menu::NUMBER_OF_OPTIONS - 1)
     {
         m_soundEffect.play();
         m_menuItems[m_selectedItem].setSelected(false);
@@ -94,6 +97,9 @@ void Menu::setWindow(sf::RenderWindow *t_window)
 
 void Menu::setWindowMenuItems(sf::RenderWindow *t_window)
 {
-    std::for_each(m_menuItems, m_menuItems + gc::menu::NUMBER_OF_OPTIONS,
+    std::for_each(m_menuItems, m_menuItems + menu::NUMBER_OF_OPTIONS,
             [&t_window](MenuItem &menuItem){ menuItem.setWindow(t_window); });
 }
+
+} // pfv
+

@@ -5,6 +5,10 @@
 #include "Global.h"
 #include "Node.h"
 
+
+namespace pfv
+{
+    
 class Grid
 {
     public:
@@ -34,3 +38,5 @@ class Grid
 
         Node *m_grid;
 };
+
+} // pfl

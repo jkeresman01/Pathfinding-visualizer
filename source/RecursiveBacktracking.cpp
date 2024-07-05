@@ -1,5 +1,8 @@
 #include "headers/RecursiveBacktracking.h"
 
+namespace pfv
+{
+    
 void drawMaze(Grid &t_grid,
               std::stack<Node*> &t_visitedNodes,
               std::uint32_t &t_numberOfVisitedNodes)
@@ -12,25 +15,25 @@ void drawMaze(Grid &t_grid,
                                         currentNode->getGridPosition().second + y);
     };
 
-    std::vector<gc::maze::Direction> possibleDirections;
+    std::vector<maze::Direction> possibleDirections;
     if (currentNode->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited())
     {
-        possibleDirections.push_back(gc::maze::Direction::LEFT);
+        possibleDirections.push_back(maze::Direction::LEFT);
     }
 
-    if (currentNode->getGridPosition().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited())
+    if (currentNode->getGridPosition().first < grid::ROWS - 1 and !neighbour(1, 0)->isVisited())
     {
-        possibleDirections.push_back(gc::maze::Direction::BOTTOM);
+        possibleDirections.push_back(maze::Direction::BOTTOM);
     }
 
-    if (currentNode->getGridPosition().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited())
+    if (currentNode->getGridPosition().second < grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited())
     {
-        possibleDirections.push_back(gc::maze::Direction::RIGHT);
+        possibleDirections.push_back(maze::Direction::RIGHT);
     }
 
     if (currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited())
     {
-        possibleDirections.push_back(gc::maze::Direction::TOP);
+        possibleDirections.push_back(maze::Direction::TOP);
     }
 
     if (possibleDirections.empty())
@@ -39,42 +42,45 @@ void drawMaze(Grid &t_grid,
         return;
     }
 
-    gc::maze::Direction nextDirection = possibleDirections[rand() % possibleDirections.size()];
+    maze::Direction nextDirection = possibleDirections[rand() % possibleDirections.size()];
     Node *nextNode;
 
-    if(nextDirection == gc::maze::Direction::LEFT)
+    if(nextDirection == maze::Direction::LEFT)
     {
-        currentNode->destroyWall(gc::wall::LEFT);
+        currentNode->destroyWall(wall::LEFT);
         nextNode = neighbour(0, -1);
         nextNode->setVisible(true);
-        nextNode->destroyWall(gc::wall::RIGHT);
+        nextNode->destroyWall(wall::RIGHT);
     }
 
-    if(nextDirection == gc::maze::Direction::RIGHT)
+    if(nextDirection == maze::Direction::RIGHT)
     {
-        currentNode->destroyWall(gc::wall::RIGHT);
+        currentNode->destroyWall(wall::RIGHT);
         nextNode = neighbour(0, 1);
         nextNode->setVisible(true);
-        nextNode->destroyWall(gc::wall::LEFT);
+        nextNode->destroyWall(wall::LEFT);
     }
 
-    if(nextDirection == gc::maze::Direction::TOP)
+    if(nextDirection == maze::Direction::TOP)
     {
-        currentNode->destroyWall(gc::wall::TOP);
+        currentNode->destroyWall(wall::TOP);
         nextNode = neighbour(-1, 0);
         nextNode->setVisible(true);
-        nextNode->destroyWall(gc::wall::BOTTOM);
+        nextNode->destroyWall(wall::BOTTOM);
     }
 
-    if(nextDirection == gc::maze::Direction::BOTTOM)
+    if(nextDirection == maze::Direction::BOTTOM)
     {
-        currentNode->destroyWall(gc::wall::BOTTOM);
+        currentNode->destroyWall(wall::BOTTOM);
         nextNode = neighbour(1, 0);
         nextNode->setVisible(true);
-        nextNode->destroyWall(gc::wall::TOP);
+        nextNode->destroyWall(wall::TOP);
     }
 
     nextNode->setVisited(true);
     t_visitedNodes.push(nextNode);
     t_numberOfVisitedNodes++;
 }
+
+} // pfv
+

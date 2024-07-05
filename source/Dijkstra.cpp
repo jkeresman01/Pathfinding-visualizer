@@ -1,5 +1,8 @@
 #include "headers/Dijkstra.h"
 
+namespace pfv
+{
+
 void dijkstra(Grid &t_grid,
              std::priority_queue<Node*, std::vector<Node*>, NodeComp> &t_visitedNodes,
              bool &t_isTargetReached)
@@ -12,7 +15,7 @@ void dijkstra(Grid &t_grid,
         t_visitedNodes.pop();
     }
 
-    if(currentNode->getType() == gc::node::TARGET)
+    if(currentNode->getType() == node::TARGET)
     {
         t_isTargetReached = true;
         return;
@@ -25,7 +28,7 @@ void dijkstra(Grid &t_grid,
     };
 
     if (currentNode->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited() and 
-        !currentNode->isWallVisible(gc::wall::LEFT) and neighbour(0, -1)->getType() != gc::node::WALL)
+       !currentNode->isWallVisible(wall::LEFT) and neighbour(0, -1)->getType() != node::WALL)
     {
         neighbour(0, -1)->setVisited(true);
         neighbour(0, -1)->setPredecessor(currentNode);
@@ -33,8 +36,8 @@ void dijkstra(Grid &t_grid,
         t_visitedNodes.push(neighbour(0, -1));
     }
 
-    if (currentNode->getGridPosition().first < gc::grid::ROWS - 1 and !neighbour(1, 0)->isVisited() and 
-        !currentNode->isWallVisible(gc::wall::BOTTOM) and neighbour(1, 0)->getType() != gc::node::WALL)
+    if (currentNode->getGridPosition().first < grid::ROWS - 1 and !neighbour(1, 0)->isVisited() and 
+       !currentNode->isWallVisible(wall::BOTTOM) and neighbour(1, 0)->getType() != node::WALL)
     { 
         neighbour(1, 0)->setVisited(true);
         neighbour(1, 0)->setPredecessor(currentNode);
@@ -42,8 +45,8 @@ void dijkstra(Grid &t_grid,
         t_visitedNodes.push(neighbour(1, 0));
     }
 
-    if (currentNode->getGridPosition().second < gc::grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited() and 
-        !currentNode->isWallVisible(gc::wall::RIGHT) and neighbour(0, 1)->getType() != gc::node::WALL)
+    if (currentNode->getGridPosition().second < grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited() and 
+       !currentNode->isWallVisible(wall::RIGHT) and neighbour(0, 1)->getType() != node::WALL)
     {
         neighbour(0, 1)->setVisited(true);
         neighbour(0, 1)->setPredecessor(currentNode);
@@ -52,7 +55,7 @@ void dijkstra(Grid &t_grid,
     }
 
     if (currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited() and 
-        !currentNode->isWallVisible(gc::wall::TOP) and neighbour(-1, 0)->getType() != gc::node::WALL)
+       !currentNode->isWallVisible(wall::TOP) and neighbour(-1, 0)->getType() != node::WALL)
     {
         neighbour(-1, 0)->setVisited(true);
         neighbour(-1, 0)->setPredecessor(currentNode);
@@ -60,3 +63,6 @@ void dijkstra(Grid &t_grid,
         t_visitedNodes.push(neighbour(-1, 0));
     }
 }
+    
+} // pfv
+

@@ -5,6 +5,9 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
+namespace pfv
+{
+
 class Wall
 {
     public:
@@ -28,3 +31,5 @@ class Wall
 
         bool m_isVisible;
 };
+    
+} // pfv

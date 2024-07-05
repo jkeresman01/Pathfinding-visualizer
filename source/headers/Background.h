@@ -6,6 +6,9 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
+namespace pfv
+{
+
 class Background
 {
     public:
@@ -25,3 +28,6 @@ class Background
         sf::Sprite m_background;
         sf::Texture m_texture;
 };
+    
+} // pfv
+

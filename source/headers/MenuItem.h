@@ -6,6 +6,9 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
 
+namespace pfv
+{
+
 class MenuItem
 {
     public:
@@ -30,3 +33,5 @@ class MenuItem
 
         bool m_isSelected;
 };
+
+} // pfv

@@ -1,18 +1,21 @@
 #include "headers/RecreatePath.h"
 
+namespace pfv
+{
+    
 void recreatePath(sf::RenderWindow *t_window,
                   Legend &t_legend,
                   Node *t_currentNode,
                   Grid &t_grid)
 {
-    if(t_currentNode->getType() == gc::node::START)
+    if(t_currentNode->getType() == node::START)
     {
         return;
     }
 
     recreatePath(t_window, t_legend, t_currentNode->getPredecessor(), t_grid);
 
-    t_currentNode->setType(gc::node::PATH);
+    t_currentNode->setType(node::PATH);
 
     t_window->clear(sf::Color(3, 11, 28));
     t_grid.draw();
@@ -20,3 +23,4 @@ void recreatePath(sf::RenderWindow *t_window,
     t_window->display();
 }
 
+} // pfv

@@ -2,13 +2,16 @@
 
 #include "headers/Global.h"
     
+namespace pfv
+{
+
 Wall::Wall() 
     : m_window(nullptr),
     m_isVisible(true)
 {
-    m_wall.setSize(sf::Vector2f(gc::wall::WIDTH, gc::wall::HEIGHT));
-    m_wall.setOrigin(gc::wall::ORIGIN_X, gc::wall::ORIGIN_Y);
-    m_wall.setPosition(gc::node::START_POSITION_X, gc::node::START_POSITION_Y);
+    m_wall.setSize(sf::Vector2f(wall::WIDTH, wall::HEIGHT));
+    m_wall.setOrigin(wall::ORIGIN_X, wall::ORIGIN_Y);
+    m_wall.setPosition(node::START_POSITION_X, node::START_POSITION_Y);
     m_wall.setFillColor(sf::Color(204, 255, 229));
 }
 
@@ -41,3 +44,5 @@ void Wall::setVisible(bool t_isVisible)
 {
     m_isVisible = t_isVisible;
 }
+    
+} // pfl

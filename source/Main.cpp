@@ -2,6 +2,6 @@
 
 int main()
 {
-    PathFindingVisulizer pathFindingVisulizer;
+    pfv::PathFindingVisulizer pathFindingVisulizer;
     pathFindingVisulizer.run();
 }

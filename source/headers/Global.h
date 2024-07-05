@@ -2,8 +2,9 @@
 
 #include <cstdint>
 
-namespace gc
+namespace pfv
 {
+
     namespace screen
     {
         constexpr uint32_t WIDTH  = 1200; 
@@ -11,13 +12,13 @@ namespace gc
 
         constexpr uint32_t POSITION_X  = 300; 
         constexpr uint32_t POSITION_Y  = 200; 
-    }
+    }// screen
 
     namespace grid
     {
         constexpr uint32_t ROWS    = 24; 
         constexpr uint32_t COLUMNS = 32; 
-    }
+    } // grid
 
     namespace node
     {
@@ -45,7 +46,7 @@ namespace gc
             EMPTY  =  4,
             WALL   =  5,
         };
-    }
+    }// grid
 
     namespace wall
     {
@@ -66,7 +67,7 @@ namespace gc
             RIGHT   =  1,
             TOP     =  2,
             BOTTOM  =  3,
-        };
+        }; 
 
         enum Rotation : int8_t
         {
@@ -75,7 +76,7 @@ namespace gc
             TOP_ROTATION_ANGLE     =    0,
             BOTTOM_ROTATION_ANGLE  =  -90,
         };
-    }
+    } // wall
 
     namespace maze
     {
@@ -86,9 +87,9 @@ namespace gc
             TOP     =  2,
             BOTTOM  =  3,
         };
-    }
+    }  // maze
 
-    namespace tool
+    namespace app
     {
         constexpr uint32_t FRAMES_PER_SECOND = 60;
 
@@ -106,7 +107,7 @@ namespace gc
             BFS           =  2,
             DIJKSTRA      =  3,
         };
-    }
+    } // app
 
     namespace menu
     {
@@ -125,7 +126,7 @@ namespace gc
             WALL_BUILDING  =  1,
             EXIT           =  2,
         };
-    }
+    } // menu
 
     namespace legend
     {
@@ -154,5 +155,6 @@ namespace gc
             VISITED      =  11,
             EMPTY_END    =  12
         };
-    }
-}
+    } // legend
+
+} // pfv
