@@ -190,19 +190,22 @@ void PathFindingVisulizer::run()
                     m_end = nullptr;
                 }
 
-                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::D and m_start != nullptr and m_end != nullptr)
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::D and 
+                   m_start != nullptr and m_end != nullptr)
                 {
                     m_algorithm = app::Algorithm::DFS;
                     m_dfsVisitedNodes.push(m_start);
                 }
 
-                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::B and m_start != nullptr and m_end != nullptr)
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::B and 
+                   m_start != nullptr and m_end != nullptr)
                 {
                     m_algorithm = app::Algorithm::BFS;
                     m_bfsVisitedNodes.push(m_start);
                 }
 
-                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::J and m_start != nullptr and m_end != nullptr)
+                if(event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::J and 
+                   m_start != nullptr and m_end != nullptr)
                 {
                     m_algorithm = app::Algorithm::DIJKSTRA;
                     m_start->setDistance(0);
