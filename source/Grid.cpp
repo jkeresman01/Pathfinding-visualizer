@@ -101,4 +101,4 @@ Node* Grid::getSelectedNode()
     return getNodeAtPosition(cellPostionY, cellPostionX);
 }
 
-} //grid
+} // pfv
