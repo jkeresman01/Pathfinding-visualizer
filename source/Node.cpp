@@ -66,13 +66,13 @@ void Node::destroyWall(wall::Position t_wallPosition)
     m_walls[t_wallPosition].setVisible(false);
 }
 
-void Node::destroyAllWalls()
+void Node::destroyWalls()
 {
     std::for_each(m_walls, m_walls + wall::WALL_COUNT,
             [](Wall &wall){ wall.setVisible(false); });
 }
 
-void Node::recreateAllWalls()
+void Node::createWalls()
 {
     std::for_each(m_walls, m_walls + wall::WALL_COUNT,
             [](Wall &wall){ wall.setVisible(true); });
@@ -118,7 +118,7 @@ void Node::setWindowWalls(sf::RenderWindow *t_window)
 void Node::setVisible(bool t_isVisible)
 {
     m_isVisible = t_isVisible;
-    m_isVisible ? recreateAllWalls() : destroyAllWalls();
+    m_isVisible ? createWalls() : destroyWalls();
 }
 
 void Node::setOutline(bool t_isOutlineVisible)
@@ -166,7 +166,7 @@ void Node::rotateWalls()
     m_walls[wall::BOTTOM].rotate(wall::BOTTOM_ROTATION_ANGLE);
 }
 
-void Node::setType(node::Type t_type)
+void Node::setType(const node::Type &t_type)
 {
     m_type = t_type;
 

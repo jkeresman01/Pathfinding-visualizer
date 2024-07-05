@@ -24,15 +24,19 @@ class Node
         bool isWallVisible(const wall::Position t_wallPosition) const;
 
         void destroyWall(const wall::Position t_wallPosition);
-        void destroyAllWalls();
-        void recreateAllWalls();
+
+        void destroyWalls();
+        void createWalls();
 
         void setOutline(bool t_isOutlineVisible);
         void setVisible(bool t_isVisible);
         void setVisited(bool t_isVisited);
-        void setType(node::Type t_type);
+
+        void setType(const node::Type &t_type);
+
         void setGridIndex(float t_positionX, float t_positionY);
         void setPosition(float t_positionX, float t_positionY);
+
         void setDistance(uint32_t t_distance);
         void setPredecessor(Node *t_predecessor);
         void setWindow(sf::RenderWindow *t_window);
