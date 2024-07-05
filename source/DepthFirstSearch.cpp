@@ -27,7 +27,7 @@ void dfs(Grid &t_grid,
     };
 
     if (t_currentNode->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited() and 
-        !t_currentNode->isWallVisible(wall::LEFT) and neighbour(0, -1)->getType() != node::WALL)
+       !t_currentNode->isWallVisible(wall::LEFT) and neighbour(0, -1)->getType() != node::Type::WALL)
     {
         neighbour(0, -1)->setPredecessor(t_currentNode);
         neighbour(0, -1)->setVisited(true);
@@ -38,7 +38,7 @@ void dfs(Grid &t_grid,
     }
 
     if (t_currentNode->getGridPosition().first < grid::ROWS - 1 and !neighbour(1, 0)->isVisited() and 
-        !t_currentNode->isWallVisible(wall::BOTTOM) and neighbour(1, 0)->getType() != node::WALL)
+       !t_currentNode->isWallVisible(wall::BOTTOM) and neighbour(1, 0)->getType() != node::Type::WALL)
     { 
         neighbour(1, 0)->setPredecessor(t_currentNode);
         neighbour(1, 0)->setVisited(true);
@@ -49,7 +49,7 @@ void dfs(Grid &t_grid,
     }
 
     if (t_currentNode->getGridPosition().second < grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited() and 
-        !t_currentNode->isWallVisible(wall::RIGHT) and neighbour(0, 1)->getType() != node::WALL)
+       !t_currentNode->isWallVisible(wall::RIGHT) and neighbour(0, 1)->getType() != node::Type::WALL)
     {
         neighbour(0, 1)->setPredecessor(t_currentNode);
         neighbour(0, 1)->setVisited(true);
@@ -60,7 +60,7 @@ void dfs(Grid &t_grid,
     }
 
     if (t_currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited() and 
-        !t_currentNode->isWallVisible(wall::TOP) and neighbour(-1, 0)->getType() != node::WALL)
+       !t_currentNode->isWallVisible(wall::TOP) and neighbour(-1, 0)->getType() != node::Type::WALL)
     {
         neighbour(-1, 0)->setPredecessor(t_currentNode);
         neighbour(-1, 0)->setVisited(true);
