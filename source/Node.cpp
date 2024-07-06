@@ -91,6 +91,11 @@ void Node::setDistance(uint32_t t_distance)
     m_distance = t_distance;
 }
 
+void Node::setPredecessor(Node *t_predecessor)
+{
+    m_predecessor = t_predecessor;
+}
+
 void Node::setWindow(sf::RenderWindow *t_window)
 {
     m_window = t_window;
@@ -137,11 +142,6 @@ void Node::setVisited(bool t_isVisited)
     m_isVisited = t_isVisited;
     m_isVisited ? m_node.setFillColor(sf::Color(51, 51, 255))
                 : m_node.setFillColor(sf::Color::Transparent);
-}
-
-void Node::setPredecessor(Node *t_predecessor)
-{
-    m_predecessor = t_predecessor;
 }
 
 void Node::setPosition(float t_positionX, float t_positionY)
