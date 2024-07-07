@@ -11,7 +11,7 @@ Wall::Wall()
 {
     m_wall.setSize(sf::Vector2f(wall::WIDTH, wall::HEIGHT));
     m_wall.setOrigin(wall::ORIGIN_X, wall::ORIGIN_Y);
-    m_wall.setPosition(node::START_POSITION_X, node::START_POSITION_Y);
+    m_wall.setPosition(wall::START_POSITION_X, wall::START_POSITION_Y);
     m_wall.setFillColor(sf::Color(204, 255, 229));
 }
 
