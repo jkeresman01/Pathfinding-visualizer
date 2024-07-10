@@ -13,7 +13,7 @@ namespace pfv
 
         constexpr uint32_t POSITION_X  = 300; 
         constexpr uint32_t POSITION_Y  = 200; 
-    }// screen
+    } // screen
 
     namespace grid
     {
@@ -47,7 +47,7 @@ namespace pfv
             EMPTY  =  4,
             WALL   =  5,
         };
-    }// grid
+    } // grid
 
     namespace wall
     {
@@ -88,7 +88,7 @@ namespace pfv
             TOP     =  2,
             BOTTOM  =  3,
         };
-    }  // maze
+    } // maze
 
     namespace app
     {
@@ -137,7 +137,6 @@ namespace pfv
         constexpr float FONT_SIZE = 15.0f;
 
         constexpr uint32_t NUMBER_OF_ITEMS = 13;
-
         constexpr uint32_t ITEM_SPACING = 40;
 
         enum Option : uint8_t
