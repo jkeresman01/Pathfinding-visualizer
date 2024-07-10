@@ -5,7 +5,7 @@
 #include "headers/BreadthFirstSearch.h"
 #include "headers/Dijkstra.h"
 #include "headers/DepthFirstSearch.h"
-#include "headers/Global.h"
+#include "headers/PfvConstants.h"
 #include "headers/RecreatePath.h"
 #include "headers/RecursiveBacktracking.h"
 

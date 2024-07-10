@@ -6,8 +6,8 @@
 #include <SFML/Window/Event.hpp>
 
 #include "Background.h"
-#include "Global.h"
 #include "MenuItem.h"
+#include "PfvConstants.h"
 
 namespace pfv
 {

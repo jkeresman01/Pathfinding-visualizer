@@ -4,8 +4,8 @@
 
 #include <SFML/Graphics/Text.hpp>
 
-#include "headers/Global.h"
 #include "headers/Logger.h"
+#include "headers/PfvConstants.h"
 
 namespace pfv
 {
@@ -47,9 +47,9 @@ void Legend::setDefaultSettingsLegendItems()
     {
         m_items[i].setFont(m_font);
         m_items[i].setCharacterSize(legend::FONT_SIZE);
-        m_items[i].setFillColor(sf::Color(204, 255, 229));
         m_items[i].setPosition(legend::POSITION_X, legend::POSITION_Y);
         m_items[i].move(0, i * legend::ITEM_SPACING);
+        m_items[i].setFillColor(sf::Color(204, 255, 229));
     }
 }
 

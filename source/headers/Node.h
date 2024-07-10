@@ -5,7 +5,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
-#include "Global.h"
+#include "PfvConstants.h"
 #include "Wall.h"
 
 namespace pfv
@@ -21,9 +21,9 @@ class Node
 
         bool isVisited() const;
         bool isVisible() const;
-        bool isWallVisible(const wall::Position t_wallPosition) const;
+        bool isWallVisible(const wall::Position &t_wallPosition) const;
 
-        void destroyWall(const wall::Position t_wallPosition);
+        void destroyWall(const wall::Position &t_wallPosition);
 
         void setOutline(bool t_isOutlineVisible);
         void setVisible(bool t_isVisible);

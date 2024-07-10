@@ -1,6 +1,6 @@
 #include "headers/Wall.h"
 
-#include "headers/Global.h"
+#include "headers/PfvConstants.h"
     
 namespace pfv
 {

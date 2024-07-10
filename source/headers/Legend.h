@@ -6,7 +6,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
 
-#include "Global.h"
+#include "PfvConstants.h"
 
 namespace pfv
 {

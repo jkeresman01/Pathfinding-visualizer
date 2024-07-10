@@ -5,7 +5,7 @@
 
 #include <SFML/Graphics/Color.hpp>
 
-#include "headers/Global.h"
+#include "headers/PfvConstants.h"
 #include "headers/Wall.h"
 
 namespace pfv

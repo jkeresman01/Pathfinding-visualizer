@@ -1,7 +1,7 @@
 #include "headers/Background.h"
 
 #include "headers/Logger.h"
-#include "headers/Global.h"
+#include "headers/PfvConstants.h"
 
 namespace pfv
 {

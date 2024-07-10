@@ -6,12 +6,12 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-#include "Global.h"
 #include "Grid.h"
 #include "Legend.h"
 #include "Node.h"
 #include "NodeComparator.h"
 #include "Menu.h"
+#include "PfvConstants.h"
 
 namespace pfv
 {

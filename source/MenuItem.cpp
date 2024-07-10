@@ -2,8 +2,8 @@
 
 #include <SFML/Graphics/Color.hpp>
 
-#include "headers/Global.h"                           
 #include "headers/Logger.h"                           
+#include "headers/PfvConstants.h"                           
 
 namespace pfv
 {

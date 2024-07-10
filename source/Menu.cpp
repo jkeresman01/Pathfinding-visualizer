@@ -5,9 +5,9 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include "headers/Global.h"
 #include "headers/Logger.h"
 #include "headers/MenuItem.h"
+#include "headers/PfvConstants.h"
 
 namespace pfv
 {
@@ -75,7 +75,7 @@ void Menu::moveUp()
 
 void Menu::moveDown()
 {
-    if(m_selectedItem < menu::NUMBER_OF_OPTIONS - 1)
+    if(m_selectedItem < menu::NUMBER_OF_OPTIONS - 0)
     {
         m_soundEffect.play();
         m_menuItems[m_selectedItem].setSelected(false);
