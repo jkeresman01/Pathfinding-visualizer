@@ -36,17 +36,30 @@ void Menu::initMenuItems()
 {
     m_menuItems = new MenuItem[menu::NUMBER_OF_OPTIONS];
 
+    initMazeSolvingOption();
+    initWallBuildingOption();
+    initExitOption();
+
+    loadSound("resources/sound/menu_sound_effect.wav");
+}
+
+void Menu::initMazeSolvingOption()
+{
     m_menuItems[menu::MAZE_SOLVING].setText("Maze solving!");
     m_menuItems[menu::MAZE_SOLVING].move(0, -menu::SPACING_BETWEEN_ITEMS);
     m_menuItems[menu::MAZE_SOLVING].setSelected(true);
     m_selectedItem = menu::MAZE_SOLVING;
+}
 
+void Menu::initWallBuildingOption()
+{
     m_menuItems[menu::WALL_BUILDING].setText("Wall building!");
+}
 
+void Menu::initExitOption()
+{
     m_menuItems[menu::EXIT].setText("Exit!");
     m_menuItems[menu::EXIT].move(0, menu::SPACING_BETWEEN_ITEMS);
-
-    loadSound("resources/sound/menu_sound_effect.wav");
 }
 
 void Menu::draw()

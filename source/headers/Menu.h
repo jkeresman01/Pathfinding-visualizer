@@ -31,6 +31,10 @@ class Menu
         void initMenuItems();
         void drawMenuItems();
 
+        void initMazeSolvingOption();
+        void initWallBuildingOption();
+        void initExitOption();
+
         void loadSound(const std::filesystem::path &t_path);
 
         void setWindowMenuItems(sf::RenderWindow *t_window);
