@@ -26,7 +26,7 @@ namespace pfv
         constexpr float WIDTH  = 30.0f;
         constexpr float HEIGHT = 30.0f; 
 
-        constexpr float ORIGIN_X = WIDTH / 2;
+        constexpr float ORIGIN_X = WIDTH  / 2;
         constexpr float ORIGIN_Y = HEIGHT / 2;
 
         constexpr float START_POSITION_X = 40.0f; 
@@ -54,7 +54,7 @@ namespace pfv
         constexpr float HEIGHT = 1.0f;
         constexpr float WIDTH  = node::WIDTH;
 
-        constexpr float ORIGIN_X = node::WIDTH / 2;
+        constexpr float ORIGIN_X = node::WIDTH  / 2;
         constexpr float ORIGIN_Y = node::HEIGHT / 2;
 
         constexpr float START_POSITION_X = node::START_POSITION_X;
