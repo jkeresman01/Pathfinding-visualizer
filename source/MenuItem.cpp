@@ -11,6 +11,7 @@ namespace pfv
 MenuItem::MenuItem() : m_window(nullptr)
 {
     loadFont("resources/fonts/Emulogic-zrEw.ttf");
+
     m_menuItem.setCharacterSize(menu::FONT_SIZE);
     m_menuItem.setPosition(screen::WIDTH / 2.0f, screen::HEIGHT / 2.0f);
 }
