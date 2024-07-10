@@ -56,12 +56,12 @@ bool Node::isVisible() const
     return m_isVisible;
 }
 
-bool Node::isWallVisible(wall::Position t_wallPosition) const
+bool Node::isWallVisible(const wall::Position &t_wallPosition) const
 {
     return m_walls[t_wallPosition].isVisible();
 }
 
-void Node::destroyWall(wall::Position t_wallPosition)
+void Node::destroyWall(const wall::Position &t_wallPosition)
 {
     m_walls[t_wallPosition].setVisible(false);
 }
