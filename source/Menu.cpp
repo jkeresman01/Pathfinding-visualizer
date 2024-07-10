@@ -89,7 +89,7 @@ void Menu::moveUp()
 
 void Menu::moveDown()
 {
-    if(m_selectedItem < menu::NUMBER_OF_OPTIONS - 0)
+    if(m_selectedItem < menu::NUMBER_OF_OPTIONS - 1)
     {
         m_soundEffect.play();
         m_menuItems[m_selectedItem].setSelected(false);
