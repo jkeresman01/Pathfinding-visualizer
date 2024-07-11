@@ -28,6 +28,8 @@ class Legend
         void loadFont(const std::filesystem::path &t_path);
 
         void setTextLegendItems();
+        void setTextAlgorithms();
+        void setTextCellTypes();
         void setDefaultSettingsLegendItems();
         void setColorLegendItems();
 

@@ -24,6 +24,12 @@ void Legend::initLegendItems()
 
 void Legend::setTextLegendItems()
 {
+    setTextAlgorithms();
+    setTextCellTypes();
+}
+
+void Legend::setTextAlgorithms()
+{
     m_items[legend::EMPTY_START].setString("-------------");
     m_items[legend::ESC].setString("ESC - Menu");
     m_items[legend::RESET].setString("R - Reset");
@@ -31,6 +37,10 @@ void Legend::setTextLegendItems()
     m_items[legend::BFS].setString("B - BFS");
     m_items[legend::DIJKSTRA].setString("J - Dijkstra");
     m_items[legend::EMPTY_MIDDLE].setString("-------------");
+}
+
+void Legend::setTextCellTypes()
+{
     m_items[legend::START].setString("o Start");
     m_items[legend::TARGET].setString("o Target");
     m_items[legend::WALL].setString("o Wall");
