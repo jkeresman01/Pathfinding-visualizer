@@ -24,7 +24,11 @@ class MenuItem
         void setText(const std::string &t_text);
     
     private:
+        void init();
+
         void loadFont(const std::filesystem::path &t_path);
+
+        void setDefaultSettings();
 
     private:
         sf::RenderWindow *m_window;
