@@ -24,7 +24,7 @@ class MenuItem
         void setText(const std::string &t_text);
     
     private:
-        void init();
+        void initMenuItem();
 
         void loadFont(const std::filesystem::path &t_path);
 

@@ -13,7 +13,7 @@ MenuItem::MenuItem() : m_window(nullptr)
     init();
 }
 
-void MenuItem::init()
+void MenuItem::initMenuItem()
 {
     loadFont("resources/fonts/Emulogic-zrEw.ttf");
     setDefaultSettings();
