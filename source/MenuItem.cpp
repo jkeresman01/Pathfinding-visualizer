@@ -10,7 +10,7 @@ namespace pfv
 
 MenuItem::MenuItem() : m_window(nullptr)
 {
-    init();
+    initMenuItem();
 }
 
 void MenuItem::initMenuItem()
