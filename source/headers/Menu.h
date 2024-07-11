@@ -37,6 +37,8 @@ class Menu
 
         void loadSound(const std::filesystem::path &t_path);
 
+        void setDefaultSelectedOption();
+
         void setWindowMenuItems(sf::RenderWindow *t_window);
 
     private:
