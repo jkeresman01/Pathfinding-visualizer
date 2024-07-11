@@ -31,6 +31,8 @@ class Menu
         void initMenuItems();
         void drawMenuItems();
 
+        void initAllMenuOptions();
+
         void initMazeSolvingOption();
         void initWallBuildingOption();
         void initExitOption();

@@ -22,27 +22,20 @@ Menu::~Menu()
     delete[] m_menuItems;
 }
 
-void Menu::loadSound(const std::filesystem::path &t_path)
+void Menu::initMenuItems()
 {
-    if(!m_soundBuffer.loadFromFile(t_path.string()))
-    {
-        LOG_ERROR("Failed to load sound effect from " << t_path.string() << "!");
-    }
-
-    m_soundEffect.setBuffer(m_soundBuffer);
+    initAllMenuOptions();
+    loadSound("resources/sound/menu_sound_effect.wav");
+    setDefaultSelectedOption();
 }
 
-void Menu::initMenuItems()
+void Menu::initAllMenuOptions()
 {
     m_menuItems = new MenuItem[menu::NUMBER_OF_OPTIONS];
 
     initMazeSolvingOption();
     initWallBuildingOption();
     initExitOption();
-
-    loadSound("resources/sound/menu_sound_effect.wav");
-
-    setDefaultSelectedOption();
 }
 
 void Menu::initMazeSolvingOption()
@@ -66,6 +59,16 @@ void Menu::initExitOption()
 void Menu::setDefaultSelectedOption()
 {
     m_selectedItem = menu::MAZE_SOLVING;
+}
+
+void Menu::loadSound(const std::filesystem::path &t_path)
+{
+    if(!m_soundBuffer.loadFromFile(t_path.string()))
+    {
+        LOG_ERROR("Failed to load sound effect from " << t_path.string() << "!");
+    }
+
+    m_soundEffect.setBuffer(m_soundBuffer);
 }
 
 void Menu::draw()
