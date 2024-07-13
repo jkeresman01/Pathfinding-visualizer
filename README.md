@@ -1,64 +1,42 @@
-# Pathfinding-visualizer #
+# Pathfinding Visualizer #
 
-Hi I wrote visualization tool for path finding algorithms (BFS, DFS, Dijkstra).
+Welcome! This tool is designed to visualize various pathfinding algorithms including BFS, DFS, and Dijkstra's algorithm. It's built using the SFML library. You can learn more about SFML here: [SFML Documentation](https://www.sfml-dev.org/documentation/2.6.1/).
 
-Tool is build using SFML: https://www.sfml-dev.org/documentation/2.6.1/ 
+Upon starting the application, you'll be presented with a menu where you can choose between the following modes:
+- Maze Solving
+- Wall Building
 
-Upon starting the application you will be presented with the menu where you can choose between one of these modes:
-- Maze solving
-- Wall building
-  
-***
+## Available Options ##
 
-AVAILABLE OPTIONS:
-
-`<R>` - Reset the grid
-
-`<D>` - Start Depth first search algorithm
-
-`<B>` - Start Breadth first search algorithm
-
-`<J> `- Start Dijkstra's algorithm
-
-
-`<Space + left click>`     - position the start node
-
-`<Space + right click>`    - position the end node
-
-`<Return + left click>`     - put walls around the grid
- 
+| Key Combination            | Description                                      |
+|----------------------------|--------------------------------------------------|
+| `<R>`                      | Reset the grid                                   |
+| `<D>`                      | Start Depth First Search algorithm               |
+| `<B>`                      | Start Breadth First Search algorithm             |
+| `<J>`                      | Start Dijkstra's algorithm                       |
+| `Space + Left Mouse Click` | Position the start node                          |
+| `Space + Right Mouse Click`| Position the end node                            |
+| `Enter + Left Mouse Click` | Put walls around the grid                        |
+| `ESC`                      | Return to the start menu                         |
 
 
-.... Presing ESC at any time will move you back to the start menu.
+## Maze Solving ##
+A maze is a puzzle that involves navigating through a network of paths to find a route from start to finish. There are numerous algorithms for generating mazes based on graph theory, such as Randomized DFS, Iterative Randomized Kruskal's Algorithm, and Iterative Randomized Prim's Algorithm.
 
-
-***
-## Maze solving ##
-A maze is a type of puzzle involving a collection of paths, usually where a player has to find a route from start to finish.
-There is a huge variety of algorithms based on graph theory for generating mazes (Randomized DFS, Iterative randomized Kruskal's algorithm, Iterative randomized Prim's algorithm...)
-
-For this purpose I'am using variation of Randomized DFS (Recursive Backtracking).
-When your maze is generate you can start testing out algorithms.
-
+For this tool, a variation of Randomized DFS (Recursive Backtracking) is used. Once your maze is generated, you can start testing out the pathfinding algorithms.
 
 ![maze](https://github.com/jkeresman01/Pathfinding-visualizer/assets/165517653/e251d24c-4272-4bcb-b9e9-289fa0650ac9)
 
-## Wall building ##
-
-In this mode you can build walls and see how algorithms go around them in order to find the shortest path.
+## Wall Building ##
+In this mode, you can build walls and observe how different algorithms navigate around them to find the shortest path.
 
 ![cpp](https://github.com/jkeresman01/Pathfinding-visualizer/assets/165517653/95befe9d-0665-430b-baf5-eae45ccf43cb)
 
-
-Example with no walls:
-
+### Example with No Walls ###
 ![bfs](https://github.com/jkeresman01/Pathfinding-visualizer/assets/165517653/607efa2a-ca2d-4521-9142-38d5c21ca8cf)
 
-
-Example with some random walls:
-
+### Example with Random Walls ###
 ![wall](https://github.com/jkeresman01/Pathfinding-visualizer/assets/165517653/3859c0ab-3664-4077-bc69-f9b7bd8adbb6)
-
 
 
 ## Starting the application ##
@@ -88,9 +66,12 @@ You can now execute the compiled program:
 ```
 ./find-path
 ```
-## Usefull resources ##
 
-- https://en.wikipedia.org/wiki/Maze_generation_algorithm
-- https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm
+## Useful Resources ##
+
+| Resource                    | Link                                                                                      |
+|-----------------------------|-------------------------------------------------------------------------------------------|
+| Maze Generation Algorithms  | [Wikipedia: Maze Generation Algorithm](https://en.wikipedia.org/wiki/Maze_generation_algorithm) |
+| Dijkstra's Algorithm        | [Wikipedia: Dijkstra's Algorithm](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)        |
 
 
