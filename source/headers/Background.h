@@ -21,9 +21,6 @@ class Background
         void setWindow(sf::RenderWindow *t_window);
 
     private:
-        void initBackground();
-
-    private:
         sf::RenderWindow *m_window;;
         sf::Sprite m_background;
         sf::Texture m_texture;
