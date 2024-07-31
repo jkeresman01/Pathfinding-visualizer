@@ -54,7 +54,6 @@ class Node
 
   private:
     sf::RenderWindow *m_window;
-    ;
     sf::RectangleShape m_node;
     sf::Texture m_texture;
 
