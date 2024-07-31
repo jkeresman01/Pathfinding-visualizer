@@ -3,22 +3,22 @@
 namespace pfv
 {
 
-void recreatePath(sf::RenderWindow *t_window, Legend &t_legend,
-                  Node *t_currentNode, Grid &t_grid)
+void recreatePath(sf::RenderWindow *window, Legend &legend,
+                  Node *currentNode, Grid &grid)
 {
-    if (t_currentNode->getType() == node::START)
+    if (currentNode->getType() == node::START)
     {
         return;
     }
 
-    recreatePath(t_window, t_legend, t_currentNode->getPredecessor(), t_grid);
+    recreatePath(window, legend, currentNode->getPredecessor(), grid);
 
-    t_currentNode->setType(node::PATH);
+    currentNode->setType(node::PATH);
 
-    t_window->clear(sf::Color(3, 11, 28));
-    t_grid.draw();
-    t_legend.draw();
-    t_window->display();
+    window->clear(sf::Color(3, 11, 28));
+    grid.draw();
+    legend.draw();
+    window->display();
 }
 
 } // namespace pfv

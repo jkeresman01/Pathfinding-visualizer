@@ -3,13 +3,13 @@
 namespace pfv
 {
 
-void drawMaze(Grid &t_grid, std::stack<Node *> &t_visitedNodes,
-              std::uint32_t &t_numberOfVisitedNodes)
+void drawMaze(Grid &grid, std::stack<Node *> &visitedNodes,
+              std::uint32_t &numberOfVisitedNodes)
 {
-    Node *currentNode = t_visitedNodes.top();
+    Node *currentNode = visitedNodes.top();
 
-    auto neighbour = [&currentNode, &t_grid](uint32_t x, uint32_t y) {
-        return t_grid.getNodeAtPosition(
+    auto neighbour = [&currentNode, &grid](uint32_t x, uint32_t y) {
+        return grid.getNodeAtPosition(
             currentNode->getGridPosition().first + x,
             currentNode->getGridPosition().second + y);
     };
@@ -41,7 +41,7 @@ void drawMaze(Grid &t_grid, std::stack<Node *> &t_visitedNodes,
 
     if (possibleDirections.empty())
     {
-        t_visitedNodes.pop();
+        visitedNodes.pop();
         return;
     }
 
@@ -82,8 +82,8 @@ void drawMaze(Grid &t_grid, std::stack<Node *> &t_visitedNodes,
     }
 
     nextNode->setVisited(true);
-    t_visitedNodes.push(nextNode);
-    t_numberOfVisitedNodes++;
+    visitedNodes.push(nextNode);
+    numberOfVisitedNodes++;
 }
 
 } // namespace pfv

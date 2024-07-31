@@ -18,14 +18,14 @@ class Legend
 
     void draw();
 
-    void move(float t_positionX, float t_positionY);
+    void move(float positionX, float positionY);
 
-    void setWindow(sf::RenderWindow *t_window);
+    void setWindow(sf::RenderWindow *window);
 
   private:
     void initLegendItems();
 
-    void loadFont(const std::filesystem::path &t_path);
+    void loadFont(const std::filesystem::path &path);
 
     void setTextLegendItems();
 

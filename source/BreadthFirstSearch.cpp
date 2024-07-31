@@ -3,25 +3,25 @@
 namespace pfv
 {
 
-void bfs(Grid &t_grid, std::queue<Node *> &t_visitedNodes,
-         bool &t_isTargetReached)
+void bfs(Grid &grid, std::queue<Node *> &visitedNodes,
+         bool &isTargetReached)
 {
 
-    Node *currentNode = t_visitedNodes.front();
+    Node *currentNode = visitedNodes.front();
 
-    if (!t_visitedNodes.empty())
+    if (!visitedNodes.empty())
     {
-        t_visitedNodes.pop();
+        visitedNodes.pop();
     }
 
     if (currentNode->getType() == node::TARGET)
     {
-        t_isTargetReached = true;
+        isTargetReached = true;
         return;
     }
 
-    auto neighbour = [&currentNode, &t_grid](uint32_t x, uint32_t y) {
-        return t_grid.getNodeAtPosition(
+    auto neighbour = [&currentNode, &grid](uint32_t x, uint32_t y) {
+        return grid.getNodeAtPosition(
             currentNode->getGridPosition().first + x,
             currentNode->getGridPosition().second + y);
     };
@@ -33,7 +33,7 @@ void bfs(Grid &t_grid, std::queue<Node *> &t_visitedNodes,
     {
         neighbour(0, -1)->setVisited(true);
         neighbour(0, -1)->setPredecessor(currentNode);
-        t_visitedNodes.push(neighbour(0, -1));
+        visitedNodes.push(neighbour(0, -1));
     }
 
     if (currentNode->getGridPosition().first < grid::ROWS - 1 and
@@ -43,7 +43,7 @@ void bfs(Grid &t_grid, std::queue<Node *> &t_visitedNodes,
     {
         neighbour(1, 0)->setVisited(true);
         neighbour(1, 0)->setPredecessor(currentNode);
-        t_visitedNodes.push(neighbour(1, 0));
+        visitedNodes.push(neighbour(1, 0));
     }
 
     if (currentNode->getGridPosition().second < grid::COLUMNS - 1 and
@@ -53,7 +53,7 @@ void bfs(Grid &t_grid, std::queue<Node *> &t_visitedNodes,
     {
         neighbour(0, 1)->setVisited(true);
         neighbour(0, 1)->setPredecessor(currentNode);
-        t_visitedNodes.push(neighbour(0, 1));
+        visitedNodes.push(neighbour(0, 1));
     }
 
     if (currentNode->getGridPosition().first > 0 and
@@ -63,7 +63,7 @@ void bfs(Grid &t_grid, std::queue<Node *> &t_visitedNodes,
     {
         neighbour(-1, 0)->setVisited(true);
         neighbour(-1, 0)->setPredecessor(currentNode);
-        t_visitedNodes.push(neighbour(-1, 0));
+        visitedNodes.push(neighbour(-1, 0));
     }
 }
 

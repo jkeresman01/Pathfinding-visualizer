@@ -4,26 +4,26 @@ namespace pfv
 {
 
 void dijkstra(
-    Grid &t_grid,
-    std::priority_queue<Node *, std::vector<Node *>, NodeComp> &t_visitedNodes,
-    bool &t_isTargetReached)
+    Grid &grid,
+    std::priority_queue<Node *, std::vector<Node *>, NodeComp> &visitedNodes,
+    bool &isTargetReached)
 {
 
-    Node *currentNode = t_visitedNodes.top();
+    Node *currentNode = visitedNodes.top();
 
-    if (!t_visitedNodes.empty())
+    if (!visitedNodes.empty())
     {
-        t_visitedNodes.pop();
+        visitedNodes.pop();
     }
 
     if (currentNode->getType() == node::TARGET)
     {
-        t_isTargetReached = true;
+        isTargetReached = true;
         return;
     }
 
-    auto neighbour = [&currentNode, &t_grid](uint32_t x, uint32_t y) {
-        return t_grid.getNodeAtPosition(
+    auto neighbour = [&currentNode, &grid](uint32_t x, uint32_t y) {
+        return grid.getNodeAtPosition(
             currentNode->getGridPosition().first + x,
             currentNode->getGridPosition().second + y);
     };
@@ -36,7 +36,7 @@ void dijkstra(
         neighbour(0, -1)->setVisited(true);
         neighbour(0, -1)->setPredecessor(currentNode);
         neighbour(0, -1)->setDistance(currentNode->getDistance() + 1);
-        t_visitedNodes.push(neighbour(0, -1));
+        visitedNodes.push(neighbour(0, -1));
     }
 
     if (currentNode->getGridPosition().first < grid::ROWS - 1 and
@@ -47,7 +47,7 @@ void dijkstra(
         neighbour(1, 0)->setVisited(true);
         neighbour(1, 0)->setPredecessor(currentNode);
         neighbour(1, 0)->setDistance(currentNode->getDistance() + 1);
-        t_visitedNodes.push(neighbour(1, 0));
+        visitedNodes.push(neighbour(1, 0));
     }
 
     if (currentNode->getGridPosition().second < grid::COLUMNS - 1 and
@@ -58,7 +58,7 @@ void dijkstra(
         neighbour(0, 1)->setVisited(true);
         neighbour(0, 1)->setPredecessor(currentNode);
         neighbour(0, 1)->setDistance(currentNode->getDistance() + 1);
-        t_visitedNodes.push(neighbour(0, 1));
+        visitedNodes.push(neighbour(0, 1));
     }
 
     if (currentNode->getGridPosition().first > 0 and
@@ -69,7 +69,7 @@ void dijkstra(
         neighbour(-1, 0)->setVisited(true);
         neighbour(-1, 0)->setPredecessor(currentNode);
         neighbour(-1, 0)->setDistance(currentNode->getDistance() + 1);
-        t_visitedNodes.push(neighbour(-1, 0));
+        visitedNodes.push(neighbour(-1, 0));
     }
 }
 

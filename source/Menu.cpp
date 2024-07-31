@@ -61,11 +61,11 @@ void Menu::setDefaultSelectedOption()
     m_selectedItem = menu::MAZE_SOLVING;
 }
 
-void Menu::loadSound(const std::filesystem::path &t_path)
+void Menu::loadSound(const std::filesystem::path &path)
 {
-    if (!m_soundBuffer.loadFromFile(t_path.string()))
+    if (!m_soundBuffer.loadFromFile(path.string()))
     {
-        LOG_ERROR("Failed to load sound effect from " << t_path.string()
+        LOG_ERROR("Failed to load sound effect from " << path.string()
                                                       << "!");
     }
 
@@ -111,18 +111,18 @@ uint32_t Menu::getSelectedItem() const
     return m_selectedItem;
 }
 
-void Menu::setWindow(sf::RenderWindow *t_window)
+void Menu::setWindow(sf::RenderWindow *window)
 {
-    m_window = t_window;
-    m_background.setWindow(t_window);
-    setWindowMenuItems(t_window);
+    m_window = window;
+    m_background.setWindow(window);
+    setWindowMenuItems(window);
 }
 
-void Menu::setWindowMenuItems(sf::RenderWindow *t_window)
+void Menu::setWindowMenuItems(sf::RenderWindow *window)
 {
     std::for_each(
         m_menuItems, m_menuItems + menu::NUMBER_OF_OPTIONS,
-        [&t_window](MenuItem &menuItem) { menuItem.setWindow(t_window); });
+        [&window](MenuItem &menuItem) { menuItem.setWindow(window); });
 }
 
 } // namespace pfv

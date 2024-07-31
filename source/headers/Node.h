@@ -21,22 +21,22 @@ class Node
 
     bool isVisited() const;
     bool isVisible() const;
-    bool isWallVisible(const wall::Position &t_wallPosition) const;
+    bool isWallVisible(const wall::Position &wallPosition) const;
 
-    void destroyWall(const wall::Position &t_wallPosition);
+    void destroyWall(const wall::Position &wallPosition);
 
-    void setOutline(bool t_isOutlineVisible);
-    void setVisible(bool t_isVisible);
-    void setVisited(bool t_isVisited);
+    void setOutline(bool isOutlineVisible);
+    void setVisible(bool isVisible);
+    void setVisited(bool isVisited);
 
-    void setType(const node::Type &t_type);
+    void setType(const node::Type &type);
 
-    void setGridIndex(float t_positionX, float t_positionY);
-    void setPosition(float t_positionX, float t_positionY);
+    void setGridIndex(float positionX, float positionY);
+    void setPosition(float positionX, float positionY);
 
-    void setDistance(uint32_t t_distance);
-    void setPredecessor(Node *t_predecessor);
-    void setWindow(sf::RenderWindow *t_window);
+    void setDistance(uint32_t distance);
+    void setPredecessor(Node *predecessor);
+    void setWindow(sf::RenderWindow *window);
 
     Node *getPredecessor() const;
     uint32_t getDistance() const;
@@ -49,8 +49,8 @@ class Node
     void destroyWalls();
     void createWalls();
 
-    void setWallPosition(float t_positionX, float t_positionY);
-    void setWindowWalls(sf::RenderWindow *t_window);
+    void setWallPosition(float positionX, float positionY);
+    void setWindowWalls(sf::RenderWindow *window);
 
   private:
     sf::RenderWindow *m_window;

@@ -7,9 +7,9 @@ namespace pfv
 
 struct NodeComp
 {
-    bool operator()(Node *t_leftNode, Node *t_rightNode)
+    bool operator()(Node *leftNode, Node *rightNode)
     {
-        return t_leftNode->getDistance() > t_rightNode->getDistance();
+        return leftNode->getDistance() > rightNode->getDistance();
     }
 };
 

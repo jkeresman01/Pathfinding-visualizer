@@ -16,21 +16,21 @@ void Background::draw()
     m_window->draw(m_background);
 }
 
-void Background::setScale(float t_scaleX, float t_scaleY)
+void Background::setScale(float scaleX, float scaleY)
 {
-    m_background.setScale(t_scaleX, t_scaleY);
+    m_background.setScale(scaleX, scaleY);
 }
 
-void Background::setWindow(sf::RenderWindow *t_window)
+void Background::setWindow(sf::RenderWindow *window)
 {
-    m_window = t_window;
+    m_window = window;
 }
 
-void Background::setImage(const std::filesystem::path &t_path)
+void Background::setImage(const std::filesystem::path &path)
 {
-    if (!m_texture.loadFromFile(t_path.string()))
+    if (!m_texture.loadFromFile(path.string()))
     {
-        LOG_ERROR("Failed to load texture from " << t_path.string() << "!");
+        LOG_ERROR("Failed to load texture from " << path.string() << "!");
     }
 
     m_background.setTexture(m_texture);

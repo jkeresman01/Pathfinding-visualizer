@@ -16,9 +16,9 @@ class Background
 
     void draw();
 
-    void setImage(const std::filesystem::path &t_path);
-    void setScale(float t_scaleX, float t_scaleY);
-    void setWindow(sf::RenderWindow *t_window);
+    void setImage(const std::filesystem::path &path);
+    void setScale(float scaleX, float scaleY);
+    void setWindow(sf::RenderWindow *window);
 
   private:
     sf::RenderWindow *m_window;

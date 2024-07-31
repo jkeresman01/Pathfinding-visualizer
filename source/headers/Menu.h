@@ -23,7 +23,7 @@ class Menu
     void moveUp();
     void moveDown();
 
-    void setWindow(sf::RenderWindow *t_window);
+    void setWindow(sf::RenderWindow *window);
 
     uint32_t getSelectedItem() const;
 
@@ -37,11 +37,11 @@ class Menu
     void initWallBuildingOption();
     void initExitOption();
 
-    void loadSound(const std::filesystem::path &t_path);
+    void loadSound(const std::filesystem::path &path);
 
     void setDefaultSelectedOption();
 
-    void setWindowMenuItems(sf::RenderWindow *t_window);
+    void setWindowMenuItems(sf::RenderWindow *window);
 
   private:
     sf::RenderWindow *m_window;

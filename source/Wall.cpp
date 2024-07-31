@@ -18,9 +18,9 @@ void Wall::draw()
     m_window->draw(m_wall);
 }
 
-void Wall::rotate(float t_rotationAngle)
+void Wall::rotate(float rotationAngle)
 {
-    m_wall.rotate(t_rotationAngle);
+    m_wall.rotate(rotationAngle);
 }
 
 bool Wall::isVisible() const
@@ -28,19 +28,19 @@ bool Wall::isVisible() const
     return m_isVisible;
 }
 
-void Wall::setWindow(sf::RenderWindow *t_window)
+void Wall::setWindow(sf::RenderWindow *window)
 {
-    m_window = t_window;
+    m_window = window;
 }
 
-void Wall::setPosition(float t_positionX, float t_positionY)
+void Wall::setPosition(float positionX, float positionY)
 {
-    m_wall.setPosition(t_positionX, t_positionY);
+    m_wall.setPosition(positionX, positionY);
 }
 
-void Wall::setVisible(bool t_isVisible)
+void Wall::setVisible(bool isVisible)
 {
-    m_isVisible = t_isVisible;
+    m_isVisible = isVisible;
 }
 
 } // namespace pfv

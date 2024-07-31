@@ -15,14 +15,14 @@ class Wall
 
     void draw();
 
-    void rotate(float t_rotationAngle);
-    void move(float t_positionX, float t_positionY);
+    void rotate(float rotationAngle);
+    void move(float positionX, float positionY);
 
     bool isVisible() const;
 
-    void setWindow(sf::RenderWindow *t_window);
-    void setPosition(float t_positionX, float t_positionY);
-    void setVisible(bool t_isVisible);
+    void setWindow(sf::RenderWindow *window);
+    void setPosition(float positionX, float positionY);
+    void setVisible(bool isVisible);
 
   private:
     sf::RenderWindow *m_window;

@@ -21,16 +21,16 @@ class Grid
     void restoreVisitedNodes();
     void resetDistanceValues();
 
-    void setWindow(sf::RenderWindow *t_window);
-    void setOutline(bool t_isOutlineVisible);
+    void setWindow(sf::RenderWindow *window);
+    void setOutline(bool isOutlineVisible);
 
-    Node *getNodeAtPosition(uint32_t t_positionX, uint32_t t_positionY);
+    Node *getNodeAtPosition(uint32_t positionX, uint32_t positionY);
     Node *getSelectedNode();
 
   private:
     void initNodes();
 
-    void setWindowNodes(sf::RenderWindow *t_window);
+    void setWindowNodes(sf::RenderWindow *window);
 
   private:
     sf::RenderWindow *m_window;

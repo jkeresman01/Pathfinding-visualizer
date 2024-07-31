@@ -66,28 +66,28 @@ void Grid::createWalls()
                   [](Node &n) { n.setVisible(true); });
 }
 
-void Grid::setOutline(bool t_isOutlineVisible)
+void Grid::setOutline(bool isOutlineVisible)
 {
     std::for_each(
         m_grid, m_grid + grid::ROWS * grid::COLUMNS,
-        [&t_isOutlineVisible](Node &n) { n.setOutline(t_isOutlineVisible); });
+        [&isOutlineVisible](Node &n) { n.setOutline(isOutlineVisible); });
 }
 
-void Grid::setWindow(sf::RenderWindow *t_window)
+void Grid::setWindow(sf::RenderWindow *window)
 {
-    m_window = t_window;
-    setWindowNodes(t_window);
+    m_window = window;
+    setWindowNodes(window);
 }
 
-void Grid::setWindowNodes(sf::RenderWindow *t_window)
+void Grid::setWindowNodes(sf::RenderWindow *window)
 {
     std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS,
-                  [&t_window](Node &n) { n.setWindow(t_window); });
+                  [&window](Node &n) { n.setWindow(window); });
 }
 
-Node *Grid::getNodeAtPosition(uint32_t t_positionX, uint32_t t_positionY)
+Node *Grid::getNodeAtPosition(uint32_t positionX, uint32_t positionY)
 {
-    return &m_grid[grid::COLUMNS * t_positionX + t_positionY];
+    return &m_grid[grid::COLUMNS * positionX + positionY];
 }
 
 Node *Grid::getSelectedNode()

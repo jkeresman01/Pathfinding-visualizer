@@ -7,7 +7,7 @@
 namespace pfv
 {
 
-void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window,
-         bool &t_isTargetReached, Legend &t_legend);
+void dfs(Grid &grid, Node *currentNode, sf::RenderWindow &window,
+         bool &isTargetReached, Legend &legend);
 
 } // namespace pfv

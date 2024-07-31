@@ -17,16 +17,16 @@ class MenuItem
     void draw();
 
     bool isSelected() const;
-    void move(float t_positionX, float t_positionY);
+    void move(float positionX, float positionY);
 
-    void setWindow(sf::RenderWindow *t_window);
-    void setSelected(bool t_isSelected);
-    void setText(const std::string &t_text);
+    void setWindow(sf::RenderWindow *window);
+    void setSelected(bool isSelected);
+    void setText(const std::string &text);
 
   private:
     void initMenuItem();
 
-    void loadFont(const std::filesystem::path &t_path);
+    void loadFont(const std::filesystem::path &path);
 
     void setDefaultSettings();
 

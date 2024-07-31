@@ -63,11 +63,11 @@ void Legend::setDefaultSettingsLegendItems()
     }
 }
 
-void Legend::loadFont(const std::filesystem::path &t_path)
+void Legend::loadFont(const std::filesystem::path &path)
 {
-    if (!m_font.loadFromFile(t_path.string()))
+    if (!m_font.loadFromFile(path.string()))
     {
-        LOG_ERROR("Failed to load font from " << t_path.string() << "!");
+        LOG_ERROR("Failed to load font from " << path.string() << "!");
     }
 }
 
@@ -86,9 +86,9 @@ void Legend::draw()
                   [this](sf::Text &item) { m_window->draw(item); });
 }
 
-void Legend::setWindow(sf::RenderWindow *t_window)
+void Legend::setWindow(sf::RenderWindow *window)
 {
-    m_window = t_window;
+    m_window = window;
 }
 
 } // namespace pfv
