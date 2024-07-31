@@ -11,7 +11,7 @@
 
 namespace pfv
 {
-    
+
 Menu::Menu() : m_window(nullptr)
 {
     initMenuItems();
@@ -63,9 +63,10 @@ void Menu::setDefaultSelectedOption()
 
 void Menu::loadSound(const std::filesystem::path &t_path)
 {
-    if(!m_soundBuffer.loadFromFile(t_path.string()))
+    if (!m_soundBuffer.loadFromFile(t_path.string()))
     {
-        LOG_ERROR("Failed to load sound effect from " << t_path.string() << "!");
+        LOG_ERROR("Failed to load sound effect from " << t_path.string()
+                                                      << "!");
     }
 
     m_soundEffect.setBuffer(m_soundBuffer);
@@ -82,12 +83,12 @@ void Menu::draw()
 void Menu::drawMenuItems()
 {
     std::for_each(m_menuItems, m_menuItems + menu::NUMBER_OF_OPTIONS,
-            [](MenuItem &menuItem){ menuItem.draw(); });
+                  [](MenuItem &menuItem) { menuItem.draw(); });
 }
 
 void Menu::moveUp()
 {
-    if(m_selectedItem > 0)
+    if (m_selectedItem > 0)
     {
         m_soundEffect.play();
         m_menuItems[m_selectedItem].setSelected(false);
@@ -97,7 +98,7 @@ void Menu::moveUp()
 
 void Menu::moveDown()
 {
-    if(m_selectedItem < menu::NUMBER_OF_OPTIONS - 1)
+    if (m_selectedItem < menu::NUMBER_OF_OPTIONS - 1)
     {
         m_soundEffect.play();
         m_menuItems[m_selectedItem].setSelected(false);
@@ -119,9 +120,9 @@ void Menu::setWindow(sf::RenderWindow *t_window)
 
 void Menu::setWindowMenuItems(sf::RenderWindow *t_window)
 {
-    std::for_each(m_menuItems, m_menuItems + menu::NUMBER_OF_OPTIONS,
-            [&t_window](MenuItem &menuItem){ menuItem.setWindow(t_window); });
+    std::for_each(
+        m_menuItems, m_menuItems + menu::NUMBER_OF_OPTIONS,
+        [&t_window](MenuItem &menuItem) { menuItem.setWindow(t_window); });
 }
 
-} // pfv
-
+} // namespace pfv

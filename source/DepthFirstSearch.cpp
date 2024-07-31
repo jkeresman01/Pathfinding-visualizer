@@ -3,13 +3,10 @@
 namespace pfv
 {
 
-void dfs(Grid &t_grid,
-         Node *t_currentNode,
-         sf::RenderWindow &t_window,
-         bool &t_isTargetReached,
-         Legend &t_legend)
+void dfs(Grid &t_grid, Node *t_currentNode, sf::RenderWindow &t_window,
+         bool &t_isTargetReached, Legend &t_legend)
 {
-    if(t_currentNode->getType() == node::Type::TARGET)
+    if (t_currentNode->getType() == node::Type::TARGET)
     {
         t_isTargetReached = true;
         return;
@@ -20,57 +17,75 @@ void dfs(Grid &t_grid,
     t_legend.draw();
     t_window.display();
 
-    auto neighbour = [&t_currentNode, &t_grid](uint32_t x, uint32_t y)
-    {
-        return t_grid.getNodeAtPosition(t_currentNode->getGridPosition().first  + x,
-                                        t_currentNode->getGridPosition().second + y);
+    auto neighbour = [&t_currentNode, &t_grid](uint32_t x, uint32_t y) {
+        return t_grid.getNodeAtPosition(
+            t_currentNode->getGridPosition().first + x,
+            t_currentNode->getGridPosition().second + y);
     };
 
-    if (t_currentNode->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited() and 
-       !t_currentNode->isWallVisible(wall::LEFT) and neighbour(0, -1)->getType() != node::Type::WALL)
+    if (t_currentNode->getGridPosition().second > 0 and
+        !neighbour(0, -1)->isVisited() and
+        !t_currentNode->isWallVisible(wall::LEFT) and
+        neighbour(0, -1)->getType() != node::Type::WALL)
     {
         neighbour(0, -1)->setPredecessor(t_currentNode);
         neighbour(0, -1)->setVisited(true);
 
         dfs(t_grid, neighbour(0, -1), t_window, t_isTargetReached, t_legend);
 
-        if(t_isTargetReached) { return; };
+        if (t_isTargetReached)
+        {
+            return;
+        };
     }
 
-    if (t_currentNode->getGridPosition().first < grid::ROWS - 1 and !neighbour(1, 0)->isVisited() and 
-       !t_currentNode->isWallVisible(wall::BOTTOM) and neighbour(1, 0)->getType() != node::Type::WALL)
-    { 
+    if (t_currentNode->getGridPosition().first < grid::ROWS - 1 and
+        !neighbour(1, 0)->isVisited() and
+        !t_currentNode->isWallVisible(wall::BOTTOM) and
+        neighbour(1, 0)->getType() != node::Type::WALL)
+    {
         neighbour(1, 0)->setPredecessor(t_currentNode);
         neighbour(1, 0)->setVisited(true);
 
         dfs(t_grid, neighbour(1, 0), t_window, t_isTargetReached, t_legend);
 
-        if(t_isTargetReached) { return; };
+        if (t_isTargetReached)
+        {
+            return;
+        };
     }
 
-    if (t_currentNode->getGridPosition().second < grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited() and 
-       !t_currentNode->isWallVisible(wall::RIGHT) and neighbour(0, 1)->getType() != node::Type::WALL)
+    if (t_currentNode->getGridPosition().second < grid::COLUMNS - 1 and
+        !neighbour(0, 1)->isVisited() and
+        !t_currentNode->isWallVisible(wall::RIGHT) and
+        neighbour(0, 1)->getType() != node::Type::WALL)
     {
         neighbour(0, 1)->setPredecessor(t_currentNode);
         neighbour(0, 1)->setVisited(true);
 
         dfs(t_grid, neighbour(0, 1), t_window, t_isTargetReached, t_legend);
 
-        if(t_isTargetReached) { return; };
+        if (t_isTargetReached)
+        {
+            return;
+        };
     }
 
-    if (t_currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited() and 
-       !t_currentNode->isWallVisible(wall::TOP) and neighbour(-1, 0)->getType() != node::Type::WALL)
+    if (t_currentNode->getGridPosition().first > 0 and
+        !neighbour(-1, 0)->isVisited() and
+        !t_currentNode->isWallVisible(wall::TOP) and
+        neighbour(-1, 0)->getType() != node::Type::WALL)
     {
         neighbour(-1, 0)->setPredecessor(t_currentNode);
         neighbour(-1, 0)->setVisited(true);
 
         dfs(t_grid, neighbour(-1, 0), t_window, t_isTargetReached, t_legend);
 
-        if(t_isTargetReached) { return; };
+        if (t_isTargetReached)
+        {
+            return;
+        };
     }
-
 }
-    
-} // pfv
 
+} // namespace pfv

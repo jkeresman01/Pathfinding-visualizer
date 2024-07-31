@@ -7,35 +7,35 @@
 
 namespace pfv
 {
-    
+
 class Grid
 {
-    public:
-        Grid();
-        ~Grid();
+  public:
+    Grid();
+    ~Grid();
 
-        void draw();
+    void draw();
 
-        void removeWalls();
-        void createWalls();
-        void restoreVisitedNodes();
-        void resetDistanceValues();
+    void removeWalls();
+    void createWalls();
+    void restoreVisitedNodes();
+    void resetDistanceValues();
 
-        void setWindow(sf::RenderWindow *t_window);
-        void setOutline(bool t_isOutlineVisible);
+    void setWindow(sf::RenderWindow *t_window);
+    void setOutline(bool t_isOutlineVisible);
 
-        Node* getNodeAtPosition(uint32_t t_positionX, uint32_t t_positionY);
-        Node* getSelectedNode();
+    Node *getNodeAtPosition(uint32_t t_positionX, uint32_t t_positionY);
+    Node *getSelectedNode();
 
-    private:
-        void initNodes();
+  private:
+    void initNodes();
 
-        void setWindowNodes(sf::RenderWindow *t_window);
+    void setWindowNodes(sf::RenderWindow *t_window);
 
-    private:
-        sf::RenderWindow *m_window;
+  private:
+    sf::RenderWindow *m_window;
 
-        Node *m_grid;
+    Node *m_grid;
 };
 
-} // pfv
+} // namespace pfv

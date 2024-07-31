@@ -10,35 +10,35 @@
 
 namespace pfv
 {
-    
+
 class Legend
 {
-    public:
-        Legend();
+  public:
+    Legend();
 
-        void draw();
+    void draw();
 
-        void move(float t_positionX, float t_positionY);
+    void move(float t_positionX, float t_positionY);
 
-        void setWindow(sf::RenderWindow *t_window);
+    void setWindow(sf::RenderWindow *t_window);
 
-    private:
-        void initLegendItems();
+  private:
+    void initLegendItems();
 
-        void loadFont(const std::filesystem::path &t_path);
+    void loadFont(const std::filesystem::path &t_path);
 
-        void setTextLegendItems();
+    void setTextLegendItems();
 
-        void setTextAlgorithms();
-        void setTextCellTypes();
+    void setTextAlgorithms();
+    void setTextCellTypes();
 
-        void setDefaultSettingsLegendItems();
-        void setColorLegendItems();
+    void setDefaultSettingsLegendItems();
+    void setColorLegendItems();
 
-    private:
-        sf::RenderWindow *m_window;
-        sf::Font m_font;
-        sf::Text m_items[legend::NUMBER_OF_ITEMS];
+  private:
+    sf::RenderWindow *m_window;
+    sf::Font m_font;
+    sf::Text m_items[legend::NUMBER_OF_ITEMS];
 };
 
-} // pfv
+} // namespace pfv

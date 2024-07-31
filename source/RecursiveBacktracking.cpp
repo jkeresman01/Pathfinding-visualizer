@@ -2,36 +2,39 @@
 
 namespace pfv
 {
-    
-void drawMaze(Grid &t_grid,
-              std::stack<Node*> &t_visitedNodes,
+
+void drawMaze(Grid &t_grid, std::stack<Node *> &t_visitedNodes,
               std::uint32_t &t_numberOfVisitedNodes)
 {
     Node *currentNode = t_visitedNodes.top();
 
-    auto neighbour = [&currentNode, &t_grid](uint32_t x, uint32_t y)
-    {
-        return t_grid.getNodeAtPosition(currentNode->getGridPosition().first  + x,
-                                        currentNode->getGridPosition().second + y);
+    auto neighbour = [&currentNode, &t_grid](uint32_t x, uint32_t y) {
+        return t_grid.getNodeAtPosition(
+            currentNode->getGridPosition().first + x,
+            currentNode->getGridPosition().second + y);
     };
 
     std::vector<maze::Direction> possibleDirections;
-    if (currentNode->getGridPosition().second > 0 and !neighbour(0, -1)->isVisited())
+    if (currentNode->getGridPosition().second > 0 and
+        !neighbour(0, -1)->isVisited())
     {
         possibleDirections.push_back(maze::Direction::LEFT);
     }
 
-    if (currentNode->getGridPosition().first < grid::ROWS - 1 and !neighbour(1, 0)->isVisited())
+    if (currentNode->getGridPosition().first < grid::ROWS - 1 and
+        !neighbour(1, 0)->isVisited())
     {
         possibleDirections.push_back(maze::Direction::BOTTOM);
     }
 
-    if (currentNode->getGridPosition().second < grid::COLUMNS - 1 and !neighbour(0, 1)->isVisited())
+    if (currentNode->getGridPosition().second < grid::COLUMNS - 1 and
+        !neighbour(0, 1)->isVisited())
     {
         possibleDirections.push_back(maze::Direction::RIGHT);
     }
 
-    if (currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited())
+    if (currentNode->getGridPosition().first > 0 and
+        !neighbour(-1, 0)->isVisited())
     {
         possibleDirections.push_back(maze::Direction::TOP);
     }
@@ -42,10 +45,11 @@ void drawMaze(Grid &t_grid,
         return;
     }
 
-    maze::Direction nextDirection = possibleDirections[rand() % possibleDirections.size()];
+    maze::Direction nextDirection =
+        possibleDirections[rand() % possibleDirections.size()];
     Node *nextNode;
 
-    if(nextDirection == maze::Direction::LEFT)
+    if (nextDirection == maze::Direction::LEFT)
     {
         currentNode->destroyWall(wall::LEFT);
         nextNode = neighbour(0, -1);
@@ -53,7 +57,7 @@ void drawMaze(Grid &t_grid,
         nextNode->destroyWall(wall::RIGHT);
     }
 
-    if(nextDirection == maze::Direction::RIGHT)
+    if (nextDirection == maze::Direction::RIGHT)
     {
         currentNode->destroyWall(wall::RIGHT);
         nextNode = neighbour(0, 1);
@@ -61,7 +65,7 @@ void drawMaze(Grid &t_grid,
         nextNode->destroyWall(wall::LEFT);
     }
 
-    if(nextDirection == maze::Direction::TOP)
+    if (nextDirection == maze::Direction::TOP)
     {
         currentNode->destroyWall(wall::TOP);
         nextNode = neighbour(-1, 0);
@@ -69,7 +73,7 @@ void drawMaze(Grid &t_grid,
         nextNode->destroyWall(wall::BOTTOM);
     }
 
-    if(nextDirection == maze::Direction::BOTTOM)
+    if (nextDirection == maze::Direction::BOTTOM)
     {
         currentNode->destroyWall(wall::BOTTOM);
         nextNode = neighbour(1, 0);
@@ -82,5 +86,4 @@ void drawMaze(Grid &t_grid,
     t_numberOfVisitedNodes++;
 }
 
-} // pfv
-
+} // namespace pfv

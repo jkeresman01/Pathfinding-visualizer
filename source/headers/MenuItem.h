@@ -11,31 +11,31 @@ namespace pfv
 
 class MenuItem
 {
-    public:
-        MenuItem();
+  public:
+    MenuItem();
 
-        void draw();
+    void draw();
 
-        bool isSelected() const;
-        void move(float t_positionX, float t_positionY);
+    bool isSelected() const;
+    void move(float t_positionX, float t_positionY);
 
-        void setWindow(sf::RenderWindow *t_window);
-        void setSelected(bool t_isSelected);
-        void setText(const std::string &t_text);
-    
-    private:
-        void initMenuItem();
+    void setWindow(sf::RenderWindow *t_window);
+    void setSelected(bool t_isSelected);
+    void setText(const std::string &t_text);
 
-        void loadFont(const std::filesystem::path &t_path);
+  private:
+    void initMenuItem();
 
-        void setDefaultSettings();
+    void loadFont(const std::filesystem::path &t_path);
 
-    private:
-        sf::RenderWindow *m_window;
-        sf::Text m_menuItem;
-        sf::Font m_font;
+    void setDefaultSettings();
 
-        bool m_isSelected;
+  private:
+    sf::RenderWindow *m_window;
+    sf::Text m_menuItem;
+    sf::Font m_font;
+
+    bool m_isSelected;
 };
 
-} // pfv
+} // namespace pfv

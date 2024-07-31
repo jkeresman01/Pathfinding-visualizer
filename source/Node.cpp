@@ -11,10 +11,9 @@
 namespace pfv
 {
 
-Node::Node() 
-    : m_window(nullptr),
-    m_predecessor(nullptr),
-    m_distance(node::DEFAULT_DISTANCE_VALUE)
+Node::Node()
+    : m_window(nullptr), m_predecessor(nullptr),
+      m_distance(node::DEFAULT_DISTANCE_VALUE)
 {
     m_walls = new Wall[wall::WALL_COUNT];
 
@@ -23,7 +22,7 @@ Node::Node()
     m_node.setOrigin(node::ORIGIN_X, node::ORIGIN_Y);
 
     setGridIndex(node::START_INDEX_X, node::START_INDEX_Y);
-    setPosition(node::START_POSITION_X, node::START_POSITION_Y );
+    setPosition(node::START_POSITION_X, node::START_POSITION_Y);
     setType(node::EMPTY);
 
     setVisible(true);
@@ -42,8 +41,12 @@ void Node::draw()
 
 void Node::drawWalls()
 {
-    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-            [](Wall &w){ if(w.isVisible()){ w.draw(); }});
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT, [](Wall &w) {
+        if (w.isVisible())
+        {
+            w.draw();
+        }
+    });
 }
 
 bool Node::isVisited() const
@@ -76,7 +79,7 @@ std::pair<int, int> Node::getGridPosition() const
     return m_gridPosition;
 }
 
-Node* Node::getPredecessor() const
+Node *Node::getPredecessor() const
 {
     return m_predecessor;
 }
@@ -105,7 +108,7 @@ void Node::setWindow(sf::RenderWindow *t_window)
 void Node::setWindowWalls(sf::RenderWindow *t_window)
 {
     std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-            [&t_window](Wall &w){ w.setWindow(t_window); });
+                  [&t_window](Wall &w) { w.setWindow(t_window); });
 }
 
 void Node::setVisible(bool t_isVisible)
@@ -117,19 +120,20 @@ void Node::setVisible(bool t_isVisible)
 void Node::destroyWalls()
 {
     std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-            [](Wall &wall){ wall.setVisible(false); });
+                  [](Wall &wall) { wall.setVisible(false); });
 }
 
 void Node::createWalls()
 {
     std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-            [](Wall &wall){ wall.setVisible(true); });
+                  [](Wall &wall) { wall.setVisible(true); });
 }
 
 void Node::setOutline(bool t_isOutlineVisible)
 {
-    t_isOutlineVisible ? m_node.setOutlineColor(sf::Color(sf::Color(204, 255, 229)))
-                       : m_node.setOutlineColor(sf::Color::Transparent);
+    t_isOutlineVisible
+        ? m_node.setOutlineColor(sf::Color(sf::Color(204, 255, 229)))
+        : m_node.setOutlineColor(sf::Color::Transparent);
 }
 
 void Node::setGridIndex(float t_positionX, float t_positionY)
@@ -153,7 +157,9 @@ void Node::setPosition(float t_positionX, float t_positionY)
 void Node::setWallPosition(float t_positionX, float t_positionY)
 {
     std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-            [&t_positionX, &t_positionY](Wall &wall){ wall.setPosition(t_positionX, t_positionY); });
+                  [&t_positionX, &t_positionY](Wall &wall) {
+                      wall.setPosition(t_positionX, t_positionY);
+                  });
 
     rotateWalls();
 }
@@ -170,24 +176,24 @@ void Node::setType(const node::Type &t_type)
 {
     m_type = t_type;
 
-    switch (m_type) 
+    switch (m_type)
     {
-        case node::START:
-            m_node.setFillColor(sf::Color::Green);
-            break;
-        case node::TARGET:
-            m_node.setFillColor(sf::Color::Cyan);
-            break;
-        case node::PATH:
-            m_node.setFillColor(sf::Color(229, 204, 255));
-            break;
-        case node::WALL:
-            m_node.setFillColor(sf::Color::Magenta);
-            break;
-        default:
-            m_node.setFillColor(sf::Color::Transparent);
-            break;
+    case node::START:
+        m_node.setFillColor(sf::Color::Green);
+        break;
+    case node::TARGET:
+        m_node.setFillColor(sf::Color::Cyan);
+        break;
+    case node::PATH:
+        m_node.setFillColor(sf::Color(229, 204, 255));
+        break;
+    case node::WALL:
+        m_node.setFillColor(sf::Color::Magenta);
+        break;
+    default:
+        m_node.setFillColor(sf::Color::Transparent);
+        break;
     }
 }
-    
-} // pfv
+
+} // namespace pfv

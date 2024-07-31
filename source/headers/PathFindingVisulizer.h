@@ -1,16 +1,16 @@
 #pragma once
 
+#include <queue>
 #include <stack>
 #include <vector>
-#include <queue>
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include "Grid.h"
 #include "Legend.h"
+#include "Menu.h"
 #include "Node.h"
 #include "NodeComparator.h"
-#include "Menu.h"
 #include "PfvConstants.h"
 
 namespace pfv
@@ -18,37 +18,36 @@ namespace pfv
 
 class PathFindingVisulizer
 {
-    public:
-        PathFindingVisulizer();
+  public:
+    PathFindingVisulizer();
 
-        void run();
-        
-    private:
-        sf::RenderWindow m_window;
+    void run();
 
-        app::Scene m_currentScene;
-        app::Algorithm m_algorithm;
+  private:
+    sf::RenderWindow m_window;
 
-        Grid m_grid;
-        Menu m_menu;
-        Legend m_legend;
+    app::Scene m_currentScene;
+    app::Algorithm m_algorithm;
 
-        Node *m_start;
-        Node *m_end;
+    Grid m_grid;
+    Menu m_menu;
+    Legend m_legend;
 
-        std::stack<Node*> m_mazeVisitedNodes;
-        std::stack<Node*> m_dfsVisitedNodes;
-        std::queue<Node*> m_bfsVisitedNodes;
-        std::priority_queue<Node*,
-                            std::vector<Node*>,
-                            NodeComp> m_dijsktraVisitedNodes;
+    Node *m_start;
+    Node *m_end;
 
-        uint32_t m_numberOfVisitedNodes;
+    std::stack<Node *> m_mazeVisitedNodes;
+    std::stack<Node *> m_dfsVisitedNodes;
+    std::queue<Node *> m_bfsVisitedNodes;
+    std::priority_queue<Node *, std::vector<Node *>, NodeComp>
+        m_dijsktraVisitedNodes;
 
-        bool m_isMazeFinised;
-        bool m_isTargetReached;
-        bool m_isPathCreated;
-        bool m_isGridResetDone;
+    uint32_t m_numberOfVisitedNodes;
+
+    bool m_isMazeFinised;
+    bool m_isTargetReached;
+    bool m_isPathCreated;
+    bool m_isGridResetDone;
 };
-    
-} // pfv
+
+} // namespace pfv

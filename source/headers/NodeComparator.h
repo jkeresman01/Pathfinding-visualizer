@@ -12,6 +12,5 @@ struct NodeComp
         return t_leftNode->getDistance() > t_rightNode->getDistance();
     }
 };
-    
-} // pfv
 
+} // namespace pfv

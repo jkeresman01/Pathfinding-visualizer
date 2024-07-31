@@ -11,20 +11,20 @@ namespace pfv
 
 class Background
 {
-    public:
-        Background();
+  public:
+    Background();
 
-        void draw();
+    void draw();
 
-        void setImage(const std::filesystem::path &t_path);
-        void setScale(float t_scaleX, float t_scaleY);
-        void setWindow(sf::RenderWindow *t_window);
+    void setImage(const std::filesystem::path &t_path);
+    void setScale(float t_scaleX, float t_scaleY);
+    void setWindow(sf::RenderWindow *t_window);
 
-    private:
-        sf::RenderWindow *m_window;;
-        sf::Sprite m_background;
-        sf::Texture m_texture;
+  private:
+    sf::RenderWindow *m_window;
+    ;
+    sf::Sprite m_background;
+    sf::Texture m_texture;
 };
-    
-} // pfv
 
+} // namespace pfv

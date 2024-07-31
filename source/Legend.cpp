@@ -9,7 +9,7 @@
 
 namespace pfv
 {
-    
+
 Legend::Legend() : m_window(nullptr)
 {
     initLegendItems();
@@ -53,7 +53,7 @@ void Legend::setDefaultSettingsLegendItems()
 {
     loadFont("resources/fonts/Emulogic-zrEw.ttf");
 
-    for(size_t i = 0; i < legend::NUMBER_OF_ITEMS; ++i)
+    for (size_t i = 0; i < legend::NUMBER_OF_ITEMS; ++i)
     {
         m_items[i].setFont(m_font);
         m_items[i].setCharacterSize(legend::FONT_SIZE);
@@ -65,7 +65,7 @@ void Legend::setDefaultSettingsLegendItems()
 
 void Legend::loadFont(const std::filesystem::path &t_path)
 {
-    if(!m_font.loadFromFile(t_path.string()))
+    if (!m_font.loadFromFile(t_path.string()))
     {
         LOG_ERROR("Failed to load font from " << t_path.string() << "!");
     }
@@ -83,12 +83,12 @@ void Legend::setColorLegendItems()
 void Legend::draw()
 {
     std::for_each(m_items, m_items + legend::NUMBER_OF_ITEMS,
-            [this](sf::Text &item){ m_window->draw(item); });
+                  [this](sf::Text &item) { m_window->draw(item); });
 }
 
-void Legend::setWindow(sf::RenderWindow *t_window){
+void Legend::setWindow(sf::RenderWindow *t_window)
+{
     m_window = t_window;
 }
 
-} // pfv
-
+} // namespace pfv

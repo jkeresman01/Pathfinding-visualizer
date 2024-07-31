@@ -1,13 +1,11 @@
 #include "headers/Wall.h"
 
 #include "headers/PfvConstants.h"
-    
+
 namespace pfv
 {
 
-Wall::Wall() 
-    : m_window(nullptr),
-    m_isVisible(true)
+Wall::Wall() : m_window(nullptr), m_isVisible(true)
 {
     m_wall.setSize(sf::Vector2f(wall::WIDTH, wall::HEIGHT));
     m_wall.setOrigin(wall::ORIGIN_X, wall::ORIGIN_Y);
@@ -44,5 +42,5 @@ void Wall::setVisible(bool t_isVisible)
 {
     m_isVisible = t_isVisible;
 }
-    
-} // pfv
+
+} // namespace pfv

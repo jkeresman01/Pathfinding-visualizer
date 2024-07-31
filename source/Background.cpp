@@ -28,7 +28,7 @@ void Background::setWindow(sf::RenderWindow *t_window)
 
 void Background::setImage(const std::filesystem::path &t_path)
 {
-    if(!m_texture.loadFromFile(t_path.string()))
+    if (!m_texture.loadFromFile(t_path.string()))
     {
         LOG_ERROR("Failed to load texture from " << t_path.string() << "!");
     }
@@ -36,6 +36,5 @@ void Background::setImage(const std::filesystem::path &t_path)
     m_background.setTexture(m_texture);
     m_background.setScale(menu::BACKGROND_SCALE_X, menu::BACKGROND_SCALE_Y);
 }
-    
-} // pfv
 
+} // namespace pfv
