@@ -13,9 +13,8 @@ namespace pfv
 {
 
 PathFindingVisulizer::PathFindingVisulizer()
-    : m_window(sf::VideoMode(screen::WIDTH, screen::HEIGHT), ""),
-      m_start(nullptr), m_end(nullptr), m_currentScene(app::Scene::MENU),
-      m_isGridResetDone(false), m_isTargetReached(false),
+    : m_window(sf::VideoMode(screen::WIDTH, screen::HEIGHT), ""), m_start(nullptr), m_end(nullptr),
+      m_currentScene(app::Scene::MENU), m_isGridResetDone(false), m_isTargetReached(false),
       m_numberOfVisitedNodes(0), m_algorithm(app::Algorithm::NOT_SELECTED)
 {
     m_window.setPosition(sf::Vector2i(screen::POSITION_X, screen::POSITION_Y));
@@ -44,20 +43,17 @@ void PathFindingVisulizer::run()
 
             if (m_currentScene == app::Scene::MENU)
             {
-                if (event.type == sf::Event::KeyReleased and
-                    event.key.code == sf::Keyboard::Down)
+                if (event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::Down)
                 {
                     m_menu.moveDown();
                 }
 
-                if (event.type == sf::Event::KeyReleased and
-                    event.key.code == sf::Keyboard::Up)
+                if (event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::Up)
                 {
                     m_menu.moveUp();
                 }
 
-                if (event.type == sf::Event::KeyReleased and
-                    event.key.code == sf::Keyboard::Return)
+                if (event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::Return)
                 {
                     if (m_menu.getSelectedItem() == menu::MAZE_SOLVING)
                     {
@@ -92,8 +88,7 @@ void PathFindingVisulizer::run()
 
                 if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left) and
                     event.type == sf::Event::KeyPressed and
-                    event.key.code == sf::Keyboard::Enter and
-                    m_currentScene == app::WALL_BUILDING)
+                    event.key.code == sf::Keyboard::Enter and m_currentScene == app::WALL_BUILDING)
                 {
                     Node *currentSelectedCell = m_grid.getSelectedNode();
 
@@ -103,8 +98,7 @@ void PathFindingVisulizer::run()
                     }
                 }
 
-                if (event.type == sf::Event::KeyPressed and
-                    event.key.code == sf::Keyboard::Space)
+                if (event.type == sf::Event::KeyPressed and event.key.code == sf::Keyboard::Space)
                 {
 
                     if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
@@ -137,8 +131,7 @@ void PathFindingVisulizer::run()
                     }
                 }
 
-                if (event.type == sf::Event::KeyReleased and
-                    event.key.code == sf::Keyboard::Escape)
+                if (event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::Escape)
                 {
                     m_currentScene = app::Scene::MENU;
 
@@ -172,8 +165,7 @@ void PathFindingVisulizer::run()
                     m_isGridResetDone = false;
                 }
 
-                if (event.type == sf::Event::KeyReleased and
-                    event.key.code == sf::Keyboard::R)
+                if (event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::R)
                 {
 
                     while (!m_bfsVisitedNodes.empty())
@@ -203,25 +195,22 @@ void PathFindingVisulizer::run()
                     m_end = nullptr;
                 }
 
-                if (event.type == sf::Event::KeyReleased and
-                    event.key.code == sf::Keyboard::D and m_start != nullptr and
-                    m_end != nullptr)
+                if (event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::D and
+                    m_start != nullptr and m_end != nullptr)
                 {
                     m_algorithm = app::Algorithm::DFS;
                     m_dfsVisitedNodes.push(m_start);
                 }
 
-                if (event.type == sf::Event::KeyReleased and
-                    event.key.code == sf::Keyboard::B and m_start != nullptr and
-                    m_end != nullptr)
+                if (event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::B and
+                    m_start != nullptr and m_end != nullptr)
                 {
                     m_algorithm = app::Algorithm::BFS;
                     m_bfsVisitedNodes.push(m_start);
                 }
 
-                if (event.type == sf::Event::KeyReleased and
-                    event.key.code == sf::Keyboard::J and m_start != nullptr and
-                    m_end != nullptr)
+                if (event.type == sf::Event::KeyReleased and event.key.code == sf::Keyboard::J and
+                    m_start != nullptr and m_end != nullptr)
                 {
                     m_algorithm = app::Algorithm::DIJKSTRA;
                     m_start->setDistance(0);
@@ -256,8 +245,7 @@ void PathFindingVisulizer::run()
             m_legend.draw();
         }
 
-        if (m_currentScene == app::WALL_BUILDING or
-            m_currentScene == app::MAZE_SOLVING)
+        if (m_currentScene == app::WALL_BUILDING or m_currentScene == app::MAZE_SOLVING)
         {
             if (!m_isTargetReached)
             {

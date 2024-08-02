@@ -37,8 +37,7 @@ constexpr float OUTLINE_THICKNESS = 1.0f;
 constexpr uint32_t START_INDEX_X = 0;
 constexpr uint32_t START_INDEX_Y = 0;
 
-constexpr uint32_t DEFAULT_DISTANCE_VALUE =
-    std::numeric_limits<uint32_t>::max();
+constexpr uint32_t DEFAULT_DISTANCE_VALUE = std::numeric_limits<uint32_t>::max();
 
 enum Type : uint8_t
 {

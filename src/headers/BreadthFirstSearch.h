@@ -8,7 +8,6 @@
 namespace pfv
 {
 
-void bfs(Grid &grid, std::queue<Node *> &visitedNodes,
-         bool &isTargetReached);
+void bfs(Grid &grid, std::queue<Node *> &visitedNodes, bool &isTargetReached);
 
 } // namespace pfv

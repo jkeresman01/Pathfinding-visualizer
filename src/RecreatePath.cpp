@@ -3,8 +3,7 @@
 namespace pfv
 {
 
-void recreatePath(sf::RenderWindow *window, Legend &legend,
-                  Node *currentNode, Grid &grid)
+void recreatePath(sf::RenderWindow *window, Legend &legend, Node *currentNode, Grid &grid)
 {
     if (currentNode->getType() == node::START)
     {

@@ -7,7 +7,6 @@
 namespace pfv
 {
 
-void drawMaze(Grid &grid, std::stack<Node *> &visitedNodes,
-              uint32_t &numberOfVisitedNodes);
+void drawMaze(Grid &grid, std::stack<Node *> &visitedNodes, uint32_t &numberOfVisitedNodes);
 
 } // namespace pfv

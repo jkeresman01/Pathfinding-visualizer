@@ -65,8 +65,7 @@ void Menu::loadSound(const std::filesystem::path &path)
 {
     if (!m_soundBuffer.loadFromFile(path.string()))
     {
-        LOG_ERROR("Failed to load sound effect from " << path.string()
-                                                      << "!");
+        LOG_ERROR("Failed to load sound effect from " << path.string() << "!");
     }
 
     m_soundEffect.setBuffer(m_soundBuffer);
@@ -120,9 +119,8 @@ void Menu::setWindow(sf::RenderWindow *window)
 
 void Menu::setWindowMenuItems(sf::RenderWindow *window)
 {
-    std::for_each(
-        m_menuItems, m_menuItems + menu::NUMBER_OF_OPTIONS,
-        [&window](MenuItem &menuItem) { menuItem.setWindow(window); });
+    std::for_each(m_menuItems, m_menuItems + menu::NUMBER_OF_OPTIONS,
+                  [&window](MenuItem &menuItem) { menuItem.setWindow(window); });
 }
 
 } // namespace pfv

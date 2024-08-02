@@ -11,9 +11,7 @@
 namespace pfv
 {
 
-Node::Node()
-    : m_window(nullptr), m_predecessor(nullptr),
-      m_distance(node::DEFAULT_DISTANCE_VALUE)
+Node::Node() : m_window(nullptr), m_predecessor(nullptr), m_distance(node::DEFAULT_DISTANCE_VALUE)
 {
     m_walls = new Wall[wall::WALL_COUNT];
 
@@ -107,8 +105,7 @@ void Node::setWindow(sf::RenderWindow *window)
 
 void Node::setWindowWalls(sf::RenderWindow *window)
 {
-    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-                  [&window](Wall &w) { w.setWindow(window); });
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT, [&window](Wall &w) { w.setWindow(window); });
 }
 
 void Node::setVisible(bool isVisible)
@@ -119,21 +116,18 @@ void Node::setVisible(bool isVisible)
 
 void Node::destroyWalls()
 {
-    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-                  [](Wall &wall) { wall.setVisible(false); });
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT, [](Wall &wall) { wall.setVisible(false); });
 }
 
 void Node::createWalls()
 {
-    std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-                  [](Wall &wall) { wall.setVisible(true); });
+    std::for_each(m_walls, m_walls + wall::WALL_COUNT, [](Wall &wall) { wall.setVisible(true); });
 }
 
 void Node::setOutline(bool isOutlineVisible)
 {
-    isOutlineVisible
-        ? m_node.setOutlineColor(sf::Color(sf::Color(204, 255, 229)))
-        : m_node.setOutlineColor(sf::Color::Transparent);
+    isOutlineVisible ? m_node.setOutlineColor(sf::Color(sf::Color(204, 255, 229)))
+                     : m_node.setOutlineColor(sf::Color::Transparent);
 }
 
 void Node::setGridIndex(float positionX, float positionY)
@@ -157,9 +151,7 @@ void Node::setPosition(float positionX, float positionY)
 void Node::setWallPosition(float positionX, float positionY)
 {
     std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-                  [&positionX, &positionY](Wall &wall) {
-                      wall.setPosition(positionX, positionY);
-                  });
+                  [&positionX, &positionY](Wall &wall) { wall.setPosition(positionX, positionY); });
 
     rotateWalls();
 }
