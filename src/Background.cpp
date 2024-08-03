@@ -28,9 +28,12 @@ void Background::setWindow(sf::RenderWindow *window)
 
 void Background::setImage(const std::filesystem::path &path)
 {
-    if (!m_texture.loadFromFile(path.string()))
+    bool isTextureLoadedSuccessfully = m_texture.loadFromFile(path.string());
+
+    if (!isTextureLoadedSuccessfully)
     {
         LOG_ERROR("Failed to load texture from " << path.string() << "!");
+        return;
     }
 
     m_background.setTexture(m_texture);

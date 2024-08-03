@@ -27,9 +27,12 @@ void MenuItem::setDefaultSettings()
 
 void MenuItem::loadFont(const std::filesystem::path &path)
 {
-    if (!m_font.loadFromFile(path.string()))
+    bool isFontLoadedSuccessfully = m_font.loadFromFile(path.string()); 
+
+    if (!isFontLoadedSuccessfully)
     {
         LOG_ERROR("Failed to load font from " << path.string() << "!");
+        return;
     }
 
     m_menuItem.setFont(m_font);
