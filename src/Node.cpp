@@ -126,7 +126,7 @@ void Node::createWalls()
 
 void Node::setOutline(bool isOutlineVisible)
 {
-    isOutlineVisible ? m_node.setOutlineColor(sf::Color(sf::Color(204, 255, 229)))
+    isOutlineVisible ? m_node.setOutlineColor(sf::Color(204, 255, 229))
                      : m_node.setOutlineColor(sf::Color::Transparent);
 }
 
