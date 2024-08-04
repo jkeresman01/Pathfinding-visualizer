@@ -1,4 +1,4 @@
-name: CI
+name: Build
 
 on:
   push:
@@ -23,12 +23,6 @@ jobs:
     - name: Install SFML
       run: sudo apt-get install -y libsfml-dev
 
-    - name: Install Clang-Format
-      run: sudo apt-get install -y clang-format
-
-    - name: Format Code
-      run: clang-format -i $(find . -name '*.cpp' -or -name '*.h')
-
     - name: Install GoogleTest
       run: sudo apt-get install -y libgtest-dev
 
@@ -37,9 +31,3 @@ jobs:
 
     - name: Build the project
       run: cd build && make
-
-    - name: Upload Build Artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: build
-        path: build/
