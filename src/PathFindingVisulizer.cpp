@@ -13,9 +13,10 @@ namespace pfv
 {
 
 PathFindingVisulizer::PathFindingVisulizer()
-    : m_window(sf::VideoMode(screen::WIDTH, screen::HEIGHT), ""), m_start(nullptr), m_end(nullptr),
-      m_currentScene(app::Scene::MENU), m_isGridResetDone(false), m_isTargetReached(false),
-      m_numberOfVisitedNodes(0), m_algorithm(app::Algorithm::NOT_SELECTED)
+    : m_window(sf::VideoMode(screen::WIDTH, screen::HEIGHT), ""), m_isPathCreated(false),
+      m_start(nullptr), m_end(nullptr), m_currentScene(app::Scene::MENU), m_isGridResetDone(false),
+      m_isTargetReached(false), m_isMazeFinised(false), m_numberOfVisitedNodes(0),
+      m_algorithm(app::Algorithm::NOT_SELECTED)
 {
     m_window.setPosition(sf::Vector2i(screen::POSITION_X, screen::POSITION_Y));
     m_window.setFramerateLimit(app::FRAMES_PER_SECOND);

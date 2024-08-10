@@ -5,13 +5,12 @@ namespace pfv
 
 void bfs(Grid &grid, std::queue<Node *> &visitedNodes, bool &isTargetReached)
 {
-
-    Node *currentNode = visitedNodes.front();
-
     if (!visitedNodes.empty())
     {
         visitedNodes.pop();
     }
+
+    Node *currentNode = visitedNodes.front();
 
     if (currentNode->getType() == node::TARGET)
     {

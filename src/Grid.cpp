@@ -15,7 +15,10 @@ Grid::Grid() : m_window(nullptr)
 
 Grid::~Grid()
 {
-    delete[] m_grid;
+    if (m_grid != nullptr)
+    {
+        delete[] m_grid;
+    }
 }
 
 void Grid::initNodes()

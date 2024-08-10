@@ -65,7 +65,7 @@ void Legend::setDefaultSettingsLegendItems()
 
 void Legend::loadFont(const std::filesystem::path &path)
 {
-    bool isFontLoadedSuccessfully = m_font.loadFromFile(path.string()); 
+    bool isFontLoadedSuccessfully = m_font.loadFromFile(path.string());
 
     if (!isFontLoadedSuccessfully)
     {

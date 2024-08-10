@@ -63,7 +63,7 @@ void Menu::setDefaultSelectedOption()
 
 void Menu::loadSound(const std::filesystem::path &path)
 {
-    bool isSoundEffectLoadedSuccessfully = m_soundBuffer.loadFromFile(path.string()); 
+    bool isSoundEffectLoadedSuccessfully = m_soundBuffer.loadFromFile(path.string());
 
     if (!isSoundEffectLoadedSuccessfully)
     {

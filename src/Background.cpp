@@ -6,7 +6,7 @@
 namespace pfv
 {
 
-Background::Background()
+Background::Background() : m_window(nullptr)
 {
     setImage("resources/images/default_background.jpg");
 }

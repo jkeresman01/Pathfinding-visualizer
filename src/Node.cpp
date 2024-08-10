@@ -11,7 +11,9 @@
 namespace pfv
 {
 
-Node::Node() : m_window(nullptr), m_predecessor(nullptr), m_distance(node::DEFAULT_DISTANCE_VALUE)
+Node::Node()
+    : m_window(nullptr), m_predecessor(nullptr), m_isVisited(false),
+      m_distance(node::DEFAULT_DISTANCE_VALUE)
 {
     m_walls = new Wall[wall::WALL_COUNT];
 
@@ -28,7 +30,10 @@ Node::Node() : m_window(nullptr), m_predecessor(nullptr), m_distance(node::DEFAU
 
 Node::~Node()
 {
-    delete[] m_walls;
+    if (m_walls != nullptr)
+    {
+        delete[] m_walls;
+    }
 }
 
 void Node::draw()

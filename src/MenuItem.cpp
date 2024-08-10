@@ -8,7 +8,7 @@
 namespace pfv
 {
 
-MenuItem::MenuItem() : m_window(nullptr)
+MenuItem::MenuItem() : m_window(nullptr), m_isSelected(false)
 {
     initMenuItem();
 }
@@ -27,7 +27,7 @@ void MenuItem::setDefaultSettings()
 
 void MenuItem::loadFont(const std::filesystem::path &path)
 {
-    bool isFontLoadedSuccessfully = m_font.loadFromFile(path.string()); 
+    bool isFontLoadedSuccessfully = m_font.loadFromFile(path.string());
 
     if (!isFontLoadedSuccessfully)
     {
