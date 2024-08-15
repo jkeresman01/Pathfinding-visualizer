@@ -4,7 +4,6 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Texture.hpp>
 
 namespace pfv
 {
@@ -12,19 +11,12 @@ namespace pfv
 class Background
 {
   public:
-    Background();
+    explicit Background(const std::filesystem::path &filepath);
 
-    void draw();
-
-    void setImage(const std::filesystem::path &path);
-    void setScale(float scaleX, float scaleY);
-    void setWindow(sf::RenderWindow *window);
+    void render(sf::RenderWindow &window) const;
 
   private:
-    sf::RenderWindow *m_window;
-    ;
     sf::Sprite m_background;
-    sf::Texture m_texture;
 };
 
 } // namespace pfv

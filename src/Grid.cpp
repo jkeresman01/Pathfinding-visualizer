@@ -8,20 +8,7 @@
 namespace pfv
 {
 
-Grid::Grid() : m_window(nullptr)
-{
-    initNodes();
-}
-
-Grid::~Grid()
-{
-    if (m_grid != nullptr)
-    {
-        delete[] m_grid;
-    }
-}
-
-void Grid::initNodes()
+Grid::Grid()
 {
     m_grid = new Node[grid::ROWS * grid::COLUMNS];
 
@@ -36,6 +23,14 @@ void Grid::initNodes()
     }
 }
 
+Grid::~Grid()
+{
+    if (m_grid != nullptr)
+    {
+        delete[] m_grid;
+    }
+}
+
 void Grid::restoreVisitedNodes()
 {
     std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS, [](Node &n) {
@@ -44,9 +39,10 @@ void Grid::restoreVisitedNodes()
     });
 }
 
-void Grid::draw()
+void Grid::render(sf::RenderWindow &window) const
 {
-    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS, [](Node &n) { n.draw(); });
+    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS,
+                  [&window](const Node &n) { n.render(window); });
 }
 
 void Grid::removeWalls()
@@ -72,27 +68,15 @@ void Grid::setOutline(bool isOutlineVisible)
                   [&isOutlineVisible](Node &n) { n.setOutline(isOutlineVisible); });
 }
 
-void Grid::setWindow(sf::RenderWindow *window)
-{
-    m_window = window;
-    setWindowNodes(window);
-}
-
-void Grid::setWindowNodes(sf::RenderWindow *window)
-{
-    std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS,
-                  [&window](Node &n) { n.setWindow(window); });
-}
-
-Node *Grid::getNodeAtPosition(uint32_t positionX, uint32_t positionY)
+Node *Grid::getNodeAtPosition(uint32_t positionX, uint32_t positionY) const
 {
     return &m_grid[grid::COLUMNS * positionX + positionY];
 }
 
-Node *Grid::getSelectedNode()
+Node *Grid::getSelectedNode(sf::RenderWindow &window) const
 {
-    float mousePositionX = sf::Mouse::getPosition(*m_window).x - node::WIDTH;
-    float mousePositionY = sf::Mouse::getPosition(*m_window).y - node::HEIGHT;
+    float mousePositionX = sf::Mouse::getPosition(window).x - node::WIDTH;
+    float mousePositionY = sf::Mouse::getPosition(window).y - node::HEIGHT;
 
     uint32_t cellPostionX = std::floor(mousePositionX / node::WIDTH);
     uint32_t cellPostionY = std::floor(mousePositionY / node::HEIGHT);

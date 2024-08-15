@@ -14,16 +14,12 @@ namespace pfv
 
 PathFindingVisulizer::PathFindingVisulizer()
     : m_window(sf::VideoMode(screen::WIDTH, screen::HEIGHT), ""), m_isPathCreated(false),
-      m_start(nullptr), m_end(nullptr), m_currentScene(app::Scene::MENU), m_isGridResetDone(false),
-      m_isTargetReached(false), m_isMazeFinised(false), m_numberOfVisitedNodes(0),
-      m_algorithm(app::Algorithm::NOT_SELECTED)
+      m_legend(), m_start(nullptr), m_end(nullptr), m_currentScene(app::Scene::MENU),
+      m_isGridResetDone(false), m_isTargetReached(false), m_isMazeFinised(false),
+      m_numberOfVisitedNodes(0), m_algorithm(app::Algorithm::NOT_SELECTED)
 {
     m_window.setPosition(sf::Vector2i(screen::POSITION_X, screen::POSITION_Y));
     m_window.setFramerateLimit(app::FRAMES_PER_SECOND);
-
-    m_grid.setWindow(&m_window);
-    m_menu.setWindow(&m_window);
-    m_legend.setWindow(&m_window);
 
     srand(time(nullptr));
 }
@@ -91,7 +87,7 @@ void PathFindingVisulizer::run()
                     event.type == sf::Event::KeyPressed and
                     event.key.code == sf::Keyboard::Enter and m_currentScene == app::WALL_BUILDING)
                 {
-                    Node *currentSelectedCell = m_grid.getSelectedNode();
+                    Node *currentSelectedCell = m_grid.getSelectedNode(m_window);
 
                     if (currentSelectedCell != nullptr)
                     {
@@ -109,7 +105,7 @@ void PathFindingVisulizer::run()
                             m_start->setType(node::EMPTY);
                         }
 
-                        m_start = m_grid.getSelectedNode();
+                        m_start = m_grid.getSelectedNode(m_window);
 
                         if (m_start != nullptr)
                         {
@@ -123,7 +119,7 @@ void PathFindingVisulizer::run()
                         {
                             m_end->setType(node::EMPTY);
                         }
-                        m_end = m_grid.getSelectedNode();
+                        m_end = m_grid.getSelectedNode(m_window);
 
                         if (m_end != nullptr)
                         {
@@ -224,7 +220,7 @@ void PathFindingVisulizer::run()
 
         if (m_currentScene == app::MENU)
         {
-            m_menu.draw();
+            m_menu.render(m_window);
         }
 
         if (m_currentScene == app::MAZE_SOLVING)
@@ -242,8 +238,8 @@ void PathFindingVisulizer::run()
 
         if (m_currentScene == app::WALL_BUILDING)
         {
-            m_grid.draw();
-            m_legend.draw();
+            m_grid.render(m_window);
+            m_legend.render(m_window);
         }
 
         if (m_currentScene == app::WALL_BUILDING or m_currentScene == app::MAZE_SOLVING)
@@ -267,12 +263,12 @@ void PathFindingVisulizer::run()
             }
             else if (!m_isPathCreated)
             {
-                recreatePath(&m_window, m_legend, m_end, m_grid);
+                recreatePath(m_window, m_legend, m_end, m_grid);
                 m_isPathCreated = true;
             }
 
-            m_grid.draw();
-            m_legend.draw();
+            m_grid.render(m_window);
+            m_legend.render(m_window);
         }
 
         m_window.display();

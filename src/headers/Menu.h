@@ -18,30 +18,12 @@ class Menu
     Menu();
     ~Menu();
 
-    void draw();
+    void render(sf::RenderWindow &window) const;
 
     void moveUp();
     void moveDown();
 
-    void setWindow(sf::RenderWindow *window);
-
     uint32_t getSelectedItem() const;
-
-  private:
-    void initMenuItems();
-    void drawMenuItems();
-
-    void initAllMenuOptions();
-
-    void initMazeSolvingOption();
-    void initWallBuildingOption();
-    void initExitOption();
-
-    void loadSound(const std::filesystem::path &path);
-
-    void setDefaultSelectedOption();
-
-    void setWindowMenuItems(sf::RenderWindow *window);
 
   private:
     sf::RenderWindow *m_window;

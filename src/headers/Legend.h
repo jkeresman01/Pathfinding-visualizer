@@ -15,30 +15,12 @@ class Legend
 {
   public:
     Legend();
+    ~Legend();
 
-    void draw();
-
-    void move(float positionX, float positionY);
-
-    void setWindow(sf::RenderWindow *window);
+    void render(sf::RenderWindow &window) const;
 
   private:
-    void initLegendItems();
-
-    void loadFont(const std::filesystem::path &path);
-
-    void setTextLegendItems();
-
-    void setTextAlgorithms();
-    void setTextCellTypes();
-
-    void setDefaultSettingsLegendItems();
-    void setColorLegendItems();
-
-  private:
-    sf::RenderWindow *m_window;
-    sf::Font m_font;
-    sf::Text m_items[legend::NUMBER_OF_ITEMS];
+    sf::Text *m_items;
 };
 
 } // namespace pfv

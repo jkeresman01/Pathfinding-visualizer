@@ -5,17 +5,17 @@ namespace pfv
 
 void bfs(Grid &grid, std::queue<Node *> &visitedNodes, bool &isTargetReached)
 {
-    if (!visitedNodes.empty())
-    {
-        visitedNodes.pop();
-    }
-
     Node *currentNode = visitedNodes.front();
 
     if (currentNode->getType() == node::TARGET)
     {
         isTargetReached = true;
         return;
+    }
+
+    if (!visitedNodes.empty())
+    {
+        visitedNodes.pop();
     }
 
     auto neighbour = [&currentNode, &grid](uint32_t x, uint32_t y) {

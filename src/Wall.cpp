@@ -5,17 +5,19 @@
 namespace pfv
 {
 
-Wall::Wall() : m_window(nullptr), m_isVisible(true)
+Wall::Wall()
 {
     m_wall.setSize(sf::Vector2f(wall::WIDTH, wall::HEIGHT));
     m_wall.setOrigin(wall::ORIGIN_X, wall::ORIGIN_Y);
     m_wall.setPosition(wall::START_POSITION_X, wall::START_POSITION_Y);
     m_wall.setFillColor(sf::Color(204, 255, 229));
+
+    setVisible(true);
 }
 
-void Wall::draw()
+void Wall::render(sf::RenderWindow &window) const
 {
-    m_window->draw(m_wall);
+    window.draw(m_wall);
 }
 
 void Wall::rotate(float rotationAngle)
@@ -26,11 +28,6 @@ void Wall::rotate(float rotationAngle)
 bool Wall::isVisible() const
 {
     return m_isVisible;
-}
-
-void Wall::setWindow(sf::RenderWindow *window)
-{
-    m_window = window;
 }
 
 void Wall::setPosition(float positionX, float positionY)

@@ -9,6 +9,6 @@
 namespace pfv
 {
 
-void recreatePath(sf::RenderWindow *window, Legend &legend, Node *node, Grid &grid);
+void recreatePath(sf::RenderWindow &window, Legend &legend, Node *node, Grid &grid);
 
 } // namespace pfv

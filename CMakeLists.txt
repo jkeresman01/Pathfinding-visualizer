@@ -24,6 +24,7 @@ set(SOURCES
     src/PathFindingVisulizer.cpp
     src/RecreatePath.cpp
     src/RecursiveBacktracking.cpp
+    src/ResourceManager.cpp
     src/Wall.cpp
 )
 

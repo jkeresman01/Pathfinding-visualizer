@@ -3,7 +3,7 @@
 namespace pfv
 {
 
-void recreatePath(sf::RenderWindow *window, Legend &legend, Node *currentNode, Grid &grid)
+void recreatePath(sf::RenderWindow &window, Legend &legend, Node *currentNode, Grid &grid)
 {
     if (currentNode->getType() == node::START)
     {
@@ -14,10 +14,10 @@ void recreatePath(sf::RenderWindow *window, Legend &legend, Node *currentNode, G
 
     currentNode->setType(node::PATH);
 
-    window->clear(sf::Color(3, 11, 28));
-    grid.draw();
-    legend.draw();
-    window->display();
+    window.clear(sf::Color(3, 11, 28));
+    grid.render(window);
+    legend.render(window);
+    window.display();
 }
 
 } // namespace pfv

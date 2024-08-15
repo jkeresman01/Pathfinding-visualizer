@@ -1,6 +1,7 @@
 #include "headers/Node.h"
 
 #include <algorithm>
+#include <cstddef>
 #include <utility>
 
 #include <SFML/Graphics/Color.hpp>
@@ -11,9 +12,7 @@
 namespace pfv
 {
 
-Node::Node()
-    : m_window(nullptr), m_predecessor(nullptr), m_isVisited(false),
-      m_distance(node::DEFAULT_DISTANCE_VALUE)
+Node::Node() : m_predecessor(nullptr), m_isVisited(false), m_distance(node::DEFAULT_DISTANCE_VALUE)
 {
     m_walls = new Wall[wall::WALL_COUNT];
 
@@ -24,7 +23,7 @@ Node::Node()
     setGridIndex(node::START_INDEX_X, node::START_INDEX_Y);
     setPosition(node::START_POSITION_X, node::START_POSITION_Y);
     setType(node::EMPTY);
-
+    setVisited(false);
     setVisible(true);
 }
 
@@ -36,22 +35,19 @@ Node::~Node()
     }
 }
 
-void Node::draw()
+void Node::render(sf::RenderWindow &window) const
 {
-    m_window->draw(m_node);
-    drawWalls();
-}
+    window.draw(m_node);
 
-void Node::drawWalls()
-{
-    std::for_each(m_walls, m_walls + wall::WALL_COUNT, [](Wall &w) {
-        if (w.isVisible())
+    for (size_t i = 0; i < wall::WALL_COUNT; ++i)
+    {
+        if(m_walls[i].isVisible())
         {
-            w.draw();
+            m_walls[i].render(window);
+            
         }
-    });
+    }
 }
-
 bool Node::isVisited() const
 {
     return m_isVisited;
@@ -62,12 +58,12 @@ bool Node::isVisible() const
     return m_isVisible;
 }
 
-bool Node::isWallVisible(const wall::Position &wallPosition) const
+bool Node::isWallVisible(wall::Position wallPosition) const
 {
     return m_walls[wallPosition].isVisible();
 }
 
-void Node::destroyWall(const wall::Position &wallPosition)
+void Node::destroyWall(wall::Position wallPosition)
 {
     m_walls[wallPosition].setVisible(false);
 }
@@ -100,17 +96,6 @@ void Node::setDistance(uint32_t distance)
 void Node::setPredecessor(Node *predecessor)
 {
     m_predecessor = predecessor;
-}
-
-void Node::setWindow(sf::RenderWindow *window)
-{
-    m_window = window;
-    setWindowWalls(window);
-}
-
-void Node::setWindowWalls(sf::RenderWindow *window)
-{
-    std::for_each(m_walls, m_walls + wall::WALL_COUNT, [&window](Wall &w) { w.setWindow(window); });
 }
 
 void Node::setVisible(bool isVisible)
@@ -150,19 +135,10 @@ void Node::setVisited(bool isVisited)
 void Node::setPosition(float positionX, float positionY)
 {
     m_node.setPosition(positionX, positionY);
-    setWallPosition(positionX, positionY);
-}
 
-void Node::setWallPosition(float positionX, float positionY)
-{
     std::for_each(m_walls, m_walls + wall::WALL_COUNT,
                   [&positionX, &positionY](Wall &wall) { wall.setPosition(positionX, positionY); });
 
-    rotateWalls();
-}
-
-void Node::rotateWalls()
-{
     m_walls[wall::LEFT].rotate(wall::LEFT_ROTATION_ANGLE);
     m_walls[wall::RIGHT].rotate(wall::RIGHT_ROTATION_ANGLE);
     m_walls[wall::TOP].rotate(wall::TOP_ROTATION_ANGLE);

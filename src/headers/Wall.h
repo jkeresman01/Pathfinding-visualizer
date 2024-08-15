@@ -13,22 +13,17 @@ class Wall
   public:
     Wall();
 
-    void draw();
-
+    void render(sf::RenderWindow &window) const;
     void rotate(float rotationAngle);
     void move(float positionX, float positionY);
 
     bool isVisible() const;
 
-    void setWindow(sf::RenderWindow *window);
     void setPosition(float positionX, float positionY);
     void setVisible(bool isVisible);
 
   private:
-    sf::RenderWindow *m_window;
     sf::RectangleShape m_wall;
-    sf::Texture m_texture;
-
     bool m_isVisible;
 };
 

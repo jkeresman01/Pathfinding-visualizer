@@ -13,8 +13,8 @@ void dfs(Grid &grid, Node *currentNode, sf::RenderWindow &window, bool &isTarget
     }
 
     window.clear(sf::Color(3, 11, 28));
-    grid.draw();
-    legend.draw();
+    grid.render(window);
+
     window.display();
 
     auto neighbour = [&currentNode, &grid](uint32_t x, uint32_t y) {
