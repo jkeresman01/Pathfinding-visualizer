@@ -5,14 +5,12 @@
 namespace pfv
 {
 
-Wall::Wall()
+Wall::Wall() : m_isVisible(true)
 {
     m_wall.setSize(sf::Vector2f(wall::WIDTH, wall::HEIGHT));
     m_wall.setOrigin(wall::ORIGIN_X, wall::ORIGIN_Y);
     m_wall.setPosition(wall::START_POSITION_X, wall::START_POSITION_Y);
     m_wall.setFillColor(sf::Color(204, 255, 229));
-
-    setVisible(true);
 }
 
 void Wall::render(sf::RenderWindow &window) const
