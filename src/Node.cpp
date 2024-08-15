@@ -41,10 +41,9 @@ void Node::render(sf::RenderWindow &window) const
 
     for (size_t i = 0; i < wall::WALL_COUNT; ++i)
     {
-        if(m_walls[i].isVisible())
+        if (m_walls[i].isVisible())
         {
             m_walls[i].render(window);
-            
         }
     }
 }
