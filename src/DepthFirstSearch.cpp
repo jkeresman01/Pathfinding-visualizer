@@ -13,8 +13,8 @@ void dfs(Grid &grid, Node *currentNode, sf::RenderWindow &window, bool &isTarget
     }
 
     window.clear(sf::Color(3, 11, 28));
+    legend.render(window);
     grid.render(window);
-
     window.display();
 
     auto neighbour = [&currentNode, &grid](uint32_t x, uint32_t y) {
@@ -30,8 +30,7 @@ void dfs(Grid &grid, Node *currentNode, sf::RenderWindow &window, bool &isTarget
 
         dfs(grid, neighbour(0, -1), window, isTargetReached, legend);
 
-        if (isTargetReached)
-            return;
+        if (isTargetReached) { return; }
     }
 
     if (currentNode->getGridPosition().first < grid::ROWS - 1 and !neighbour(1, 0)->isVisited() and
@@ -43,8 +42,7 @@ void dfs(Grid &grid, Node *currentNode, sf::RenderWindow &window, bool &isTarget
 
         dfs(grid, neighbour(1, 0), window, isTargetReached, legend);
 
-        if (isTargetReached)
-            return;
+        if (isTargetReached) { return; }
     }
 
     if (currentNode->getGridPosition().second < grid::COLUMNS - 1 and
@@ -56,9 +54,8 @@ void dfs(Grid &grid, Node *currentNode, sf::RenderWindow &window, bool &isTarget
 
         dfs(grid, neighbour(0, 1), window, isTargetReached, legend);
 
-        if (isTargetReached)
-            return;
-    }
+        if (isTargetReached) { return; }
+   }
 
     if (currentNode->getGridPosition().first > 0 and !neighbour(-1, 0)->isVisited() and
         !currentNode->isWallVisible(wall::TOP) and neighbour(-1, 0)->getType() != node::Type::WALL)
@@ -68,8 +65,8 @@ void dfs(Grid &grid, Node *currentNode, sf::RenderWindow &window, bool &isTarget
 
         dfs(grid, neighbour(-1, 0), window, isTargetReached, legend);
 
-        if (isTargetReached)
-            return;
+        if (isTargetReached) { return; }
+
     }
 }
 
