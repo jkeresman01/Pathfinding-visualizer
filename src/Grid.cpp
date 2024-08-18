@@ -16,9 +16,11 @@ Grid::Grid()
     {
         for (size_t j = 0; j < grid::COLUMNS; ++j)
         {
+            float positionX = node::START_POSITION_X + (j * node::WIDTH);
+            float positionY = node::START_POSITION_Y + (j * node::HEIGHT);
+
             m_grid[grid::COLUMNS * i + j].setGridIndex(i, j);
-            m_grid[grid::COLUMNS * i + j].setPosition(node::START_POSITION_X + (j * node::WIDTH),
-                                                      node::START_POSITION_Y + (i * node::HEIGHT));
+            m_grid[grid::COLUMNS * i + j].setPosition(positionX, positionY);
         }
     }
 }
