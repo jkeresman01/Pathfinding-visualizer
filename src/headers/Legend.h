@@ -20,6 +20,11 @@ class Legend
     void render(sf::RenderWindow &window) const;
 
   private:
+    void setText();
+    void setDefaultStyle();
+    void setColor();
+
+  private:
     sf::Text *m_items;
 };
 

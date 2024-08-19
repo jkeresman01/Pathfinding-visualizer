@@ -42,10 +42,15 @@ Menu::~Menu()
 void Menu::render(sf::RenderWindow &window) const
 {
     window.clear(sf::Color(3, 11, 28));
+    renderMenuItems(window);
     m_background.render(window);
+    window.display();
+}
+
+void Menu::renderMenuItems(sf::RenderWindow &window) const
+{
     std::for_each(m_menuItems, m_menuItems + menu::NUMBER_OF_OPTIONS,
                   [&window](const MenuItem &m) { m.render(window); });
-    window.display();
 }
 
 void Menu::moveUp()

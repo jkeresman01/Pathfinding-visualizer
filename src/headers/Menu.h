@@ -26,13 +26,12 @@ class Menu
     uint32_t getSelectedItem() const;
 
   private:
-    sf::RenderWindow *m_window;
-    sf::SoundBuffer m_soundBuffer;
-    sf::Sound m_soundEffect;
+    void renderMenuItems(sf::RenderWindow &window) const;
 
+  private:
+    sf::Sound m_soundEffect;
     Background m_background;
     MenuItem *m_menuItems;
-
     uint32_t m_selectedItem;
 };
 
