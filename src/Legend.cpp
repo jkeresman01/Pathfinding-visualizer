@@ -17,7 +17,7 @@ Legend::Legend()
 
 void Legend::setText()
 {
-     m_items = new sf::Text[legend::NUMBER_OF_ITEMS];
+    m_items = new sf::Text[legend::NUMBER_OF_ITEMS];
 
     m_items[legend::EMPTY_START].setString("-------------");
     m_items[legend::ESC].setString("ESC - Menu");
@@ -36,7 +36,7 @@ void Legend::setText()
 
 void Legend::setDefaultStyle()
 {
-     for (size_t i = 0; i < legend::NUMBER_OF_ITEMS; ++i)
+    for (size_t i = 0; i < legend::NUMBER_OF_ITEMS; ++i)
     {
         m_items[i].setFont(
             ResourceManager::Instance().getFont("resources/fonts/Emulogic-zrEw.ttf"));
