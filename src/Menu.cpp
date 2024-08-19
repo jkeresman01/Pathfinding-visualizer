@@ -42,8 +42,8 @@ Menu::~Menu()
 void Menu::render(sf::RenderWindow &window) const
 {
     window.clear(sf::Color(3, 11, 28));
-    renderMenuItems(window);
     m_background.render(window);
+    renderMenuItems(window);
     window.display();
 }
 
