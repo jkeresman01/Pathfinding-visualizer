@@ -23,11 +23,6 @@ void Wall::rotate(float rotationAngle)
     m_wall.rotate(rotationAngle);
 }
 
-bool Wall::isVisible() const
-{
-    return m_isVisible;
-}
-
 void Wall::setPosition(float positionX, float positionY)
 {
     m_wall.setPosition(positionX, positionY);

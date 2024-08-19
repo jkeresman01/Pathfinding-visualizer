@@ -16,7 +16,10 @@ class MenuItem
 
     void render(sf::RenderWindow &window) const;
 
-    bool isSelected() const;
+    bool isSelected() const
+    {
+        return m_isSelected;
+    }
     void move(float positionX, float positionY);
 
     void setSelected(bool isSelected);

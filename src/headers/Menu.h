@@ -23,7 +23,10 @@ class Menu
     void moveUp();
     void moveDown();
 
-    uint32_t getSelectedItem() const;
+    uint32_t getSelectedItem() const
+    {
+        return m_selectedItem;
+    }
 
   private:
     void renderMenuItems(sf::RenderWindow &window) const;

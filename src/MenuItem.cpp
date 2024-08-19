@@ -25,11 +25,6 @@ void MenuItem::move(float positionX, float positionY)
     m_menuItem.move(positionX, positionY);
 }
 
-bool MenuItem::isSelected() const
-{
-    return m_isSelected;
-}
-
 void MenuItem::setText(const std::string &text)
 {
     m_menuItem.setString(text);

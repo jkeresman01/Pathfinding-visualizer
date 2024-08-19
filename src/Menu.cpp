@@ -73,9 +73,4 @@ void Menu::moveDown()
     }
 }
 
-uint32_t Menu::getSelectedItem() const
-{
-    return m_selectedItem;
-}
-
 } // namespace pfv
