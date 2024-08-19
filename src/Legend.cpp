@@ -11,8 +11,8 @@ namespace pfv
 Legend::Legend()
 {
     setText();
-    setColor();
     setDefaultStyle();
+    setColor();
 }
 
 void Legend::setText()
