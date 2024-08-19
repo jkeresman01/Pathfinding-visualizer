@@ -12,7 +12,7 @@
 namespace pfv
 {
 
-Node::Node() : m_predecessor(nullptr), m_isVisited(false), m_distance(node::DEFAULT_DISTANCE_VALUE)
+Node::Node() : m_predecessor(nullptr), m_distance(node::DEFAULT_DISTANCE_VALUE)
 {
     m_walls = new Wall[wall::WALL_COUNT];
 
@@ -20,7 +20,6 @@ Node::Node() : m_predecessor(nullptr), m_isVisited(false), m_distance(node::DEFA
     m_node.setOutlineThickness(node::OUTLINE_THICKNESS);
     m_node.setOrigin(node::ORIGIN_X, node::ORIGIN_Y);
 
-    setGridIndex(node::START_INDEX_X, node::START_INDEX_Y);
     setPosition(node::START_POSITION_X, node::START_POSITION_Y);
     setType(node::EMPTY);
     setVisited(false);
@@ -47,15 +46,6 @@ void Node::render(sf::RenderWindow &window) const
         }
     }
 }
-bool Node::isVisited() const
-{
-    return m_isVisited;
-}
-
-bool Node::isVisible() const
-{
-    return m_isVisible;
-}
 
 bool Node::isWallVisible(wall::Position wallPosition) const
 {
@@ -65,26 +55,6 @@ bool Node::isWallVisible(wall::Position wallPosition) const
 void Node::destroyWall(wall::Position wallPosition)
 {
     m_walls[wallPosition].setVisible(false);
-}
-
-node::Type Node::getType() const
-{
-    return m_type;
-}
-
-std::pair<int, int> Node::getGridPosition() const
-{
-    return m_gridPosition;
-}
-
-Node *Node::getPredecessor() const
-{
-    return m_predecessor;
-}
-
-uint32_t Node::getDistance() const
-{
-    return m_distance;
 }
 
 void Node::setDistance(uint32_t distance)
