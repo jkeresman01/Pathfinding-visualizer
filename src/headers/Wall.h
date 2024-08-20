@@ -17,10 +17,7 @@ class Wall
     void rotate(float rotationAngle);
     void move(float positionX, float positionY);
 
-    bool isVisible() const
-    {
-        return m_isVisible;
-    }
+    bool isVisible() const { return m_isVisible; }
 
     void setPosition(float positionX, float positionY);
     void setVisible(bool isVisible);
