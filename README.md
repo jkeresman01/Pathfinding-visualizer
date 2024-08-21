@@ -1,6 +1,6 @@
 # Pathfinding Visualizer #
 
-Welcome! This tool is designed to visualize various pathfinding algorithms including BFS, DFS, and Dijkstra's algorithm. 
+This tool is designed to visualize various pathfinding algorithms including BFS, DFS, and Dijkstra's algorithm. 
 
 It's built using the SFML library. You can learn more about SFML here: [SFML Documentation](https://www.sfml-dev.org/documentation/2.6.1/).
 
