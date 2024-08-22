@@ -28,12 +28,12 @@ set(SOURCES
     src/Wall.cpp
 )
 
-add_executable(PathFindingVisualizer ${SOURCES})
+add_executable(find-path ${SOURCES})
 
-target_link_libraries(PathFindingVisualizer sfml-system sfml-window sfml-graphics sfml-audio)
+target_link_libraries(find-path sfml-system sfml-window sfml-graphics sfml-audio)
 
-add_custom_command(TARGET PathFindingVisualizer POST_BUILD
+add_custom_command(TARGET find-path POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/src/resources $<TARGET_FILE_DIR:PathFindingVisualizer>/resources
+    ${CMAKE_SOURCE_DIR}/src/resources $<TARGET_FILE_DIR:find-path>/resources
 )
 

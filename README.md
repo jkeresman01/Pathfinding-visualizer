@@ -69,6 +69,27 @@ You can now execute the compiled program:
 ./find-path
 ```
 
+### Build and run the game with CMake ###
+
+Install SFML using your package manager, for example, on Debian, Ubuntu you would do:
+``` shell
+sudo apt-get install libsfml-dev
+```
+
+Clone the repository
+``` shell
+git clone https://github.com/jkeresman01/Pathfinding-visualizer
+```
+
+Build and Run the game:
+
+``` shell
+cd Pathfinding-visualizer
+mkdir build && cd build
+cmake ..
+make
+./find-path
+```
 ## Useful Resources ##
 
 | Resource                    | Link                                                                                      |
