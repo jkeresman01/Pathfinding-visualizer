@@ -80,10 +80,10 @@ Node *Grid::getSelectedNode(sf::RenderWindow &window) const
     float mousePositionX = sf::Mouse::getPosition(window).x - node::WIDTH;
     float mousePositionY = sf::Mouse::getPosition(window).y - node::HEIGHT;
 
-    uint32_t cellPostionX = std::floor(mousePositionX / node::WIDTH);
-    uint32_t cellPostionY = std::floor(mousePositionY / node::HEIGHT);
+    uint32_t cellPositionX = std::floor(mousePositionX / node::WIDTH);
+    uint32_t cellPositionY = std::floor(mousePositionY / node::HEIGHT);
 
-    return getNodeAtPosition(cellPostionY, cellPostionX);
+    return getNodeAtPosition(cellPositionY, cellPositionY);
 }
 
 } // namespace pfv
