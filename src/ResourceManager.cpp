@@ -8,11 +8,13 @@ namespace pfv
 const sf::Texture &ResourceManager::getTexture(const std::filesystem::path &filepath)
 {
     TexturesUnorderedMapT::const_iterator it = m_textures.find(filepath.string());
+
     if (it == m_textures.end())
     {
         loadTexture(filepath);
         it = m_textures.find(filepath);
     }
+
     return it->second;
 }
 
@@ -34,11 +36,13 @@ void ResourceManager::loadTexture(const std::filesystem::path &filepath)
 const sf::Font &ResourceManager::getFont(const std::filesystem::path &filepath)
 {
     FontsUnorderedMapT::const_iterator it = m_fonts.find(filepath.string());
+
     if (it == m_fonts.end())
     {
         loadFont(filepath);
         it = m_fonts.find(filepath);
     }
+
     return it->second;
 }
 
@@ -60,11 +64,13 @@ void ResourceManager::loadFont(const std::filesystem::path &filepath)
 const sf::SoundBuffer &ResourceManager::getSoundBuffer(const std::filesystem::path &filepath)
 {
     SoundBuffersUnorderedMapT::const_iterator it = m_soundBuffers.find(filepath.string());
+
     if (it == m_soundBuffers.end())
     {
         loadSoundBuffer(filepath);
         it = m_soundBuffers.find(filepath);
     }
+
     return it->second;
 }
 
