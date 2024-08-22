@@ -9,6 +9,10 @@
 namespace pfv
 {
 
+typedef std::unordered_map<std::string, sf::Font> FontsUnorderedMapT;
+typedef std::unordered_map<std::string, sf::SoundBuffer> SoundBuffersUnorderedMapT;
+typedef std::unordered_map<std::string, sf::Texture> TexturesUnorderedMapT;
+
 class ResourceManager
 {
   public:
@@ -28,9 +32,9 @@ class ResourceManager
     void loadSoundBuffer(const std::filesystem::path &filepath);
 
   private:
-    std::unordered_map<std::string, sf::Font> m_fonts;
-    std::unordered_map<std::string, sf::Texture> m_textures;
-    std::unordered_map<std::string, sf::SoundBuffer> m_soundBuffers;
+    TexturesUnorderedMapT m_textures;
+    SoundBuffersUnorderedMapT m_soundBuffers;
+    FontsUnorderedMapT m_fonts;
 };
 
 } // namespace pfv
