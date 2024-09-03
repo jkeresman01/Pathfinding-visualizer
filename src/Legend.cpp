@@ -57,10 +57,7 @@ void Legend::setColor()
 
 Legend::~Legend()
 {
-    if (m_items != nullptr)
-    {
-        delete m_items;
-    }
+    delete[] m_items;
 }
 
 void Legend::render(sf::RenderWindow &window) const

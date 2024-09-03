@@ -26,7 +26,7 @@ void ResourceManager::loadTexture(const std::filesystem::path &filepath)
 
     if (!isTextureLoadedSuccessfully)
     {
-        LOG_ERROR("Failed to texture from " << filepath.string() << "!");
+        LOG_ERROR("Failed to load texture from " << filepath.string() << "!");
         return;
     }
 

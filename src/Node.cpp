@@ -28,10 +28,7 @@ Node::Node() : m_predecessor(nullptr), m_distance(node::DEFAULT_DISTANCE_VALUE)
 
 Node::~Node()
 {
-    if (m_walls != nullptr)
-    {
-        delete[] m_walls;
-    }
+    delete[] m_walls;
 }
 
 void Node::render(sf::RenderWindow &window) const

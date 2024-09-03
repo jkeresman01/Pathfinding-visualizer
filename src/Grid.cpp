@@ -27,10 +27,7 @@ Grid::Grid()
 
 Grid::~Grid()
 {
-    if (m_grid != nullptr)
-    {
-        delete[] m_grid;
-    }
+    delete[] m_grid;
 }
 
 void Grid::restoreVisitedNodes()

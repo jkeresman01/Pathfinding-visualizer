@@ -33,10 +33,7 @@ Menu::Menu() : m_background("resources/images/default_background.jpg")
 
 Menu::~Menu()
 {
-    if (m_menuItems != nullptr)
-    {
-        delete[] m_menuItems;
-    }
+    delete[] m_menuItems;
 }
 
 void Menu::render(sf::RenderWindow &window) const
