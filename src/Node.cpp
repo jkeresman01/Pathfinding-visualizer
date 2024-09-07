@@ -103,7 +103,7 @@ void Node::setPosition(float positionX, float positionY)
     m_node.setPosition(positionX, positionY);
 
     std::for_each(m_walls, m_walls + wall::WALL_COUNT,
-                  [&positionX, &positionY](Wall &wall) { wall.setPosition(positionX, positionY); });
+                  [positionX, positionY](Wall &wall) { wall.setPosition(positionX, positionY); });
 
     m_walls[wall::LEFT].rotate(wall::LEFT_ROTATION_ANGLE);
     m_walls[wall::RIGHT].rotate(wall::RIGHT_ROTATION_ANGLE);
