@@ -64,7 +64,7 @@ void Grid::createWalls()
 void Grid::setOutline(bool isOutlineVisible)
 {
     std::for_each(m_grid, m_grid + grid::ROWS * grid::COLUMNS,
-                  [&isOutlineVisible](Node &n) { n.setOutline(isOutlineVisible); });
+                  [isOutlineVisible](Node &n) { n.setOutline(isOutlineVisible); });
 }
 
 Node *Grid::getNodeAtPosition(uint32_t positionX, uint32_t positionY) const
